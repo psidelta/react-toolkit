@@ -1,21 +1,12 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import assign from '../../../common/assign';
 import toTimeValue from './toTimeValue';
 import leftPad from '../utils/leftPad';
-import { clampHour, clampMinute, clampSecond, clampNamed } from '../utils/clamp';
+import {
+  clampHour,
+  clampMinute,
+  clampSecond,
+  clampNamed
+} from '../utils/clamp';
 
 const removeAt = ({ value, index, len = 1 }) => {
   return value.substring(0, index) + value.substring(index + len);
@@ -126,7 +117,14 @@ const TIME_PARTS = {
   ]
 };
 
-const getActiveTimePartIndex = ({ value, timeValue, separator, range, hours24, meridiem }) => {
+const getActiveTimePartIndex = ({
+  value,
+  timeValue,
+  separator,
+  range,
+  hours24,
+  meridiem
+}) => {
   const { start } = range;
   const timeParts = TIME_PARTS[hours24 ? 24 : 12];
 
@@ -151,8 +149,21 @@ const getTimePartAt = (index, { hours24 }) => {
   return assign({}, TIME_PARTS[hours24 ? 24 : 12][index]);
 };
 
-const getActiveTimePart = ({ value, timeValue, separator, range, hours24, meridiem }) => {
-  const index = getActiveTimePartIndex({ value, timeValue, separator, range, hours24 });
+const getActiveTimePart = ({
+  value,
+  timeValue,
+  separator,
+  range,
+  hours24,
+  meridiem
+}) => {
+  const index = getActiveTimePartIndex({
+    value,
+    timeValue,
+    separator,
+    range,
+    hours24
+  });
 
   if (index == 4 && meridiem) {
     const timePart = {
@@ -247,7 +258,11 @@ const getValueOnDirection = ({
   }
 
   hours = leftPad(
-    clampHour(hours * 1, { circular, max: activeTimePart.max, min: activeTimePart.min })
+    clampHour(hours * 1, {
+      circular,
+      max: activeTimePart.max,
+      min: activeTimePart.min
+    })
   );
   minutes = leftPad(clampMinute(minutes * 1, { circular }));
 
@@ -266,7 +281,11 @@ const getValueOnDirection = ({
   }
 
   if (meridiem) {
-    value += ` ${toggleMeridiemValue ? toggleMeridiem(timeValue.meridiem) : timeValue.meridiem}`;
+    value += ` ${
+      toggleMeridiemValue
+        ? toggleMeridiem(timeValue.meridiem)
+        : timeValue.meridiem
+    }`;
   }
 
   return {
@@ -276,7 +295,15 @@ const getValueOnDirection = ({
   };
 };
 
-const getValueOnNumber = ({ oldValue, num, range, separator, circular, hours24, meridiem }) => {
+const getValueOnNumber = ({
+  oldValue,
+  num,
+  range,
+  separator,
+  circular,
+  hours24,
+  meridiem
+}) => {
   const activeTimePartIndex = getActiveTimePartIndex({
     value: oldValue,
     separator,
@@ -285,7 +312,11 @@ const getValueOnNumber = ({ oldValue, num, range, separator, circular, hours24, 
   });
   let activeTimePart = getTimePartAt(activeTimePartIndex, { hours24 });
 
-  if (activeTimePart && range.start == range.end && activeTimePart.end == range.end) {
+  if (
+    activeTimePart &&
+    range.start == range.end &&
+    activeTimePart.end == range.end
+  ) {
     activeTimePart = getTimePartAt(activeTimePartIndex + 1, { hours24 });
   }
 
@@ -306,8 +337,11 @@ const getValueOnNumber = ({ oldValue, num, range, separator, circular, hours24, 
   if (range.start <= activeTimePart.start) {
     const maxFirstChar = `${activeTimePart.max}`.charAt(0) * 1;
 
-    caretPos = range.start + (num > maxFirstChar ? 3 : range.start < activeTimePart.start ? 2 : 1);
-    timeParts[name] = num > maxFirstChar ? `0${num}` : num + timeParts[name].charAt(1);
+    caretPos =
+      range.start +
+      (num > maxFirstChar ? 3 : range.start < activeTimePart.start ? 2 : 1);
+    timeParts[name] =
+      num > maxFirstChar ? `0${num}` : num + timeParts[name].charAt(1);
   } else {
     caretPos = range.start + 2;
     timeParts[name] = clampNamed(
