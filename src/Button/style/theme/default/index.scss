@@ -1,12 +1,7 @@
-/**
- * Copyright 2015-present, Zippy Technologies.
- * All rights reserved.
- */
-
 $ZIPPY_BUTTON_THEME_NAME: 'default' !default;
 
-@import '../../variables';
-@import './variables';
+@import '../../variables.scss';
+@import './variables.scss';
 
 .#{$ZIPPY_BUTTON_ROOT_CLASS}.#{$ZIPPY_BUTTON_ROOT_CLASS}--theme-#{$ZIPPY_BUTTON_THEME_NAME} {
   color: $ZIPPY_BUTTON_COLOR;
