@@ -14,7 +14,7 @@ The purpose of the `React Toolkit (@zippytech/react-toolkit)` is to provide a se
 $ npm config set @zippytech:registry https://registry.zippytech.io
 ```
 
-Then you can install install it with
+After this, you can install install it with
 
 ```sh
 $ npm install @zippytech/react-toolkit --save
