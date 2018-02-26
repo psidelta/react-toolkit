@@ -8,7 +8,7 @@ The purpose of the `React Toolkit (@zippytech/react-toolkit)` is to provide a se
 
 ## Installation
 
-**Zippy React Toolkit** is distributed via **npm** - more exactly, via a **custom npm registry** (https://registry.zippytech.io). So getting it installed requires an additional step: you have to point the npm CLI to the correct registry for packages in the `@zippytech` scope:
+**Zippy React Toolkit** is distributed via **npm** - more exactly, via a **custom npm registry** (https://registry.zippytech.io). Getting it installed requires an additional step: you have to point the npm CLI to the correct registry for packages in the `@zippytech` scope:
 
 ```sh
 $ npm config set @zippytech:registry https://registry.zippytech.io
