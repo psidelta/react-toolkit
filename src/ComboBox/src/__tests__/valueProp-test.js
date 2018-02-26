@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
@@ -62,7 +48,9 @@ describe('value props', () => {
   describe('onChange', () => {
     it('should be called when setValue is called', () => {
       const onChange = sinon.spy();
-      const wrapper = shallow(<Combo defaultValue={20} value={30} onChange={onChange} />);
+      const wrapper = shallow(
+        <Combo defaultValue={20} value={30} onChange={onChange} />
+      );
       wrapper.instance().setValue(55);
       expect(onChange.called).to.be.true;
       expect(onChange.args[0][0]).to.equal(55);
@@ -102,7 +90,9 @@ describe('value props', () => {
 
   describe('clear', () => {
     it('sets value and text to null', () => {
-      const wrapper = mount(<Combo searchable defaultText="hello world" defaultValue={['test']} />);
+      const wrapper = mount(
+        <Combo searchable defaultText="hello world" defaultValue={['test']} />
+      );
       const instance = wrapper.instance();
       expect(instance.getValue()).to.deep.equal(['test']);
       expect(instance.getText()).to.deep.equal('hello world');
@@ -148,7 +138,12 @@ describe('value props', () => {
   describe('clearValueOnEmpty', () => {
     it('clears value when text is cleared, on single value', () => {
       const wrapper = shallow(
-        <Combo clearValueOnEmpty defaultValue={20} multiple={false} defaultText="hello world" />
+        <Combo
+          clearValueOnEmpty
+          defaultValue={20}
+          multiple={false}
+          defaultText="hello world"
+        />
       );
       expect(wrapper.instance().getValue()).to.equal(20);
       wrapper.instance().setText('');
