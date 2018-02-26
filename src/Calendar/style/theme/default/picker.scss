@@ -1,0 +1,50 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.#{$ZIPPY_CALENDAR_ROOT_CLASS}__calendar--theme-#{$ZIPPY_CALENDAR_THEME_NAME} {
+  .#{$ZIPPY_CALENDAR_ROOT_CLASS}__calendar--theme-#{$ZIPPY_CALENDAR_THEME_NAME} {
+    border: none;
+  }
+
+  .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock {
+    margin: 8px 14px 8px 8px;
+  }
+
+  .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock-input {
+    margin-left: 4px;
+  }
+
+  .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock-input-spinner {
+    border: 1px solid #c5c5c5;
+    margin-right: 14px;
+    cursor: pointer;
+
+    &:hover {
+      margin-right: 14px;
+    }
+  }
+
+  .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock-input-spinner--focused {
+    border: 1px solid #9b9b9b;
+    margin-right: 14px;
+  }
+
+  .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock-input-spinner-arrow {
+    fill: $ZIPPY_CALENDAR_MAIN_COLOR;
+
+    &--disabled {
+      fill: rgba(#495e85, 0.5);
+    }
+  }
+}

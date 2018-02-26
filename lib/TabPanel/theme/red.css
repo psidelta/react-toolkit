@@ -1,0 +1,209 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.zippy-react-toolkit-tab-panel--theme-red {
+  border: 1px solid #FF4350; }
+  .zippy-react-toolkit-tab-panel--theme-red .zippy-react-toolkit-tab-panel__body {
+    padding: 5px 10px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__before,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__after, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-strip__before,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-strip__after {
+  min-width: 10px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-strip__before,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-strip__after, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-strip__before,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-strip__after {
+  min-height: 10px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red .zippy-react-toolkit-tab-panel__tab-title__inner {
+  padding: 5px 10px;
+  text-align: center; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red .zippy-react-toolkit-tab-panel__tab-title {
+  background: #FF4350;
+  color: white; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red .zippy-react-toolkit-tab-panel__tab-title--active {
+  color: inherit; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red .zippy-react-toolkit-tab-panel__tab-title--disabled .zippy-react-toolkit-tab-panel__tab-title__inner {
+  opacity: 0.3; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__inner {
+  border-top: 10px solid #FF4350; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-title__inner--active {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: white; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-title-__before-active {
+  border-bottom-right-radius: 3px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+  border-bottom-left-radius: 3px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__before,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__after,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__between {
+  background: #FF4350; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__before-__before-active {
+  border-bottom-right-radius: 3px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top .zippy-react-toolkit-tab-panel__tab-strip__after-__after-active {
+  border-bottom-left-radius: 3px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active {
+  border-bottom-left-radius: 3px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active {
+  border-bottom-right-radius: 3px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-top.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+  border-radius: 0px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom {
+  border-bottom: 10px solid #FF4350; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-title__inner--active {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: white; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-title-__before-active {
+    border-top-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+    border-top-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-strip__before,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-strip__after,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-strip__between {
+    background: #FF4350; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-strip--first-active .zippy-react-toolkit-tab-panel__tab-strip__before {
+    border-top-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom .zippy-react-toolkit-tab-panel__tab-strip--last-active .zippy-react-toolkit-tab-panel__tab-strip__after {
+    border-top-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active {
+    border-top-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active {
+    border-top-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-bottom.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+    border-radius: 0px; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left {
+  border-left: 10px solid #FF4350; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-title__inner--active {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background: white; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-title-__before-active {
+    border-bottom-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+    border-top-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-strip__before,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-strip__after,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-strip__between {
+    background: #FF4350; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-strip__before-__before-active {
+    border-bottom-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left .zippy-react-toolkit-tab-panel__tab-strip__after-__after-active {
+    border-top-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active {
+    border-top-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active {
+    border-bottom-right-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+    border-radius: 0px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-left.zippy-react-toolkit-tab-panel__tab-strip--vertical .zippy-react-toolkit-tab-panel__tab-title__inner--active {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: white; }
+
+.zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right {
+  border-right: 10px solid #FF4350; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-title__inner--active {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: white; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-title-__before-active {
+    border-bottom-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+    border-top-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-strip__before,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-strip__after,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-strip__between {
+    background: #FF4350; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-strip__before-__before-active {
+    border-bottom-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right .zippy-react-toolkit-tab-panel__tab-strip__after-__after-active {
+    border-top-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__after-active {
+    border-top-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-strip__between-__before-active {
+    border-bottom-left-radius: 3px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-around .zippy-react-toolkit-tab-panel__tab-title-__after-active, .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__before-active,
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--tab-align-space-between .zippy-react-toolkit-tab-panel__tab-title-__after-active {
+    border-radius: 0px; }
+  .zippy-react-toolkit-tab-panel__tab-strip--theme-red.zippy-react-toolkit-tab-panel__tab-strip--tab-position-right.zippy-react-toolkit-tab-panel__tab-strip--vertical .zippy-react-toolkit-tab-panel__tab-title__inner--active {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: white; }

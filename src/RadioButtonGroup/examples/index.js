@@ -1,0 +1,159 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import React from 'react';
+import { render } from 'react-dom';
+import Component from '@zippytech/react-class';
+import RadioButtonGroup, { CheckBox, RadioButton } from '../src';
+
+import '../style/index.scss';
+
+const options = [
+  {
+    value: 'v1',
+    label: 'label 1'
+  },
+  {
+    value: 'v2',
+    label: 'label 2'
+  },
+  {
+    value: 'v3',
+    label: 'label 3'
+  },
+  {
+    value: 'v4',
+    label: 'label 4'
+  }
+];
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      radioValue: undefined
+    };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(props) {
+    this.setState({
+      radioValue: props.checkedItemValue
+    });
+  }
+  getCurrentValue() {
+    this.setState({ currentValue: this.rbg.getName() });
+  }
+  setCurrentValue() {
+    this.rbg.setValue('z');
+  }
+
+  render() {
+    return (
+      <div>
+        hello world
+        <button onClick={this.getCurrentValue.bind(this)}>
+          Get current checked value
+        </button>
+        <button onClick={this.setCurrentValue.bind(this)}>
+          Set current checked value
+        </button>
+        <RadioButton>test</RadioButton>
+        <RadioButton>test</RadioButton>
+        <RadioButtonGroup
+          shouldSubmit={() => false}
+          ref={rbg => (this.rbg = rbg)}
+          defaultRadioValue="x"
+          name="check"
+          radioOptions={[
+            { label: 'x23', value: 'x' },
+            { label: 'y545', value: 'y' },
+            { label: 'z678', value: 'z' }
+          ]}
+          stretch
+          orientation="horizontal"
+          radioValue={this.state.radioValue}
+          onChange={this.onChange}
+        />
+        <hr />
+        <RadioButtonGroup
+          name="my-group-name"
+          radioValue={this.state.radioValue}
+          onChange={this.onChange}
+        >
+          <input type="checkbox" data-radio-value="v1" />
+          <input type="checkbox" data-radio-value="v2" />
+          <input type="checkbox" data-radio-value="v1" />
+          {({ onChange, checked }) => {
+            return (
+              <label data-radio-value="v4">
+                <input type="checkbox" onChange={onChange} checked={checked} />
+                V4
+              </label>
+            );
+          }}
+          {domProps => <input {...domProps} type="checkbox" />}
+        </RadioButtonGroup>
+        <RadioButtonGroup
+          name="my-group-name"
+          radioValue={this.state.radioValue}
+          onChange={this.onChange}
+          style={{ marginBottom: 10 }}
+        >
+          <input type="checkbox" data-radio-value="v1" />
+          <RadioButton data-radio-value={1} children="v1">
+            v1!!
+          </RadioButton>
+          <div>
+            <h2>hello</h2>
+          </div>
+          <RadioButton
+            childrenPosition="start"
+            data-radio-value={1}
+            children="v1"
+          >
+            v1!!
+          </RadioButton>
+          <RadioButton rtl data-radio-value={2} children="v2">
+            v2
+          </RadioButton>
+          <RadioButton
+            rtl
+            childrenPosition="start"
+            data-radio-value={3}
+            children="v3"
+          >
+            v3
+          </RadioButton>
+        </RadioButtonGroup>
+        <RadioButtonGroup
+          name="my-group-name"
+          radioValue={this.state.radioValue}
+          onChange={this.onChange}
+          orientation="horizontal"
+          radioOptions={[
+            {
+              label: 'one',
+              value: 1
+            },
+            { label: 'two', value: 2 },
+            { label: 'three', value: 3 }
+          ]}
+        />
+      </div>
+    );
+  }
+}
+
+render(<App />, document.getElementById('content'));

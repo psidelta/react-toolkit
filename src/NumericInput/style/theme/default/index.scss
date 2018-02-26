@@ -1,0 +1,77 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import './variables';
+
+.#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}.#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}--theme-#{$ZIPPY_NUMERIC_INPUT_THEME_NAME} {
+  font-size: $ZIPPY_NUMERIC_FONT_SIZE;
+  fill: $ZIPPY_NUMERIC_ICON_FILL;
+  border: $ZIPPY_NUMERIC_BORDER;
+  background: $ZIPPY_NUMERIC_INPUT_BG_COLOR;
+  padding: $ZIPPY_NUMERIC_INPUT_PADDING;
+  transition: all 0.2s;
+  min-height: 32px;
+
+  &:hover {
+    border: $ZIPPY_NUMERIC_BORDER_HOVER;
+  }
+
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__input {
+    color: $ZIPPY_NUMERIC_FONT_COLOR;
+    font-size: $ZIPPY_NUMERIC_FONT_SIZE;
+  }
+
+  &.#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}--disabled {
+    fill: $ZIPPY_NUMERIC_DISABLED_ICON_FILL;
+    opacity: 0.5;
+  }
+
+  &.#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}--focused {
+    border: $ZIPPY_NUMERIC_BORDER_FOCUSED;
+    box-shadow: $ZIPPY_NUMERIC_BOX_SHADOW;
+  }
+
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__clear-button:focus {
+    outline: 1px dotted #3c5c99;
+  }
+
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__spinner-wrapper {
+    margin-right: $ZIPPY_NUMERIC_SPINNER_MARGIN;
+    height: $ZIPPY_NUMERIC_INPUT_TOOL_DIMENSION;
+  }
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__spinner-wrapper-hidden {
+    margin: $ZIPPY_NUMERIC_SPINNER_MARGIN_HIDDEN;
+  }
+
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__input {
+    min-height: $ZIPPY_NUMERIC_INPUT_MIN_HEIGHT;
+    margin: $ZIPPY_NUMERIC_INPUT_MARGIN;
+  }
+
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__spinner-arrow {
+    svg {
+      transform: translateY(0px);
+      pointer-events: none;
+    }
+  }
+
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__spinner-arrow--up,
+  .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__spinner-arrow--down {
+    &:active {
+      svg {
+        transform: translateY(1px);
+      }
+    }
+  }
+}

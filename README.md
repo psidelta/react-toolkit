@@ -1,0 +1,27 @@
+# React Toolkit
+
+> Professionally Built React Components - Made the React Way
+
+## Purpose
+
+The purpose of the `React Toolkit` is to provide a set of high-quality open-source UI components built with React that can be easily composed to build professional-grade apps.
+
+## Installation
+
+**Zippy React Toolkit** is distributed via **npm** - more exactly, via a **custom npm registry** (https://registry.zippytech.io). So getting it installed requires an additional step: you have to point the npm CLI to the correct registry for packages in the `@zippytech` scope:
+
+```sh
+$ npm config set @zippytech:registry https://registry.zippytech.io
+```
+
+Then you can install install it with
+
+```sh
+$ npm install @zippytech/react-toolkit --save
+```
+
+## List of Components
+
+## License
+
+#### [MIT](./LICENSE)

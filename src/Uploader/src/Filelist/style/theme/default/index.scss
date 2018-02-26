@@ -1,0 +1,37 @@
+.react-file-extension-icon {
+  // box-shadow: 0 0 1px #000;
+
+  // background: linear-gradient(53deg, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 46%, rgba(255,255,255,1) 84%, rgba(237,237,237,1) 100%); /* w3c */
+
+  &__label {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    // text-indent: -2px;
+    box-shadow: 0 0 1px #4e4c66;
+    font-size: 6px;
+    line-height: 10px;
+
+    // #210cff;
+
+    &[data-ext-type='.pdf'] {
+      background-color: #d61717;
+    }
+
+    &[data-ext-type='.png'] {
+      background-color: #2561c6;
+    }
+
+    &[data-ext-type='.jpeg'] {
+      background-color: #2561c6;
+    }
+
+    &[data-ext-type='.jpg'] {
+      background-color: #2561c6;
+    }
+
+    &[data-ext-type='.svg'] {
+      background-color: #f98c36;
+    }
+  }
+}

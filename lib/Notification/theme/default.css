@@ -1,0 +1,77 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default {
+  font-size: 14px;
+  background: #495e85;
+  color: #e9ecf0;
+  overflow: hidden;
+  min-height: 110px;
+  min-width: 300px;
+  max-width: 80vw;
+  max-height: 50vh; }
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__header {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 16px 8px; }
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__pin-button,
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__close-button {
+    user-select: none;
+    fill: #e9ecf0;
+    padding: 1px;
+    border-radius: 2px; }
+    .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__pin-button:hover,
+    .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__close-button:hover {
+      fill: #e9ecf0; }
+    .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__pin-button svg,
+    .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__close-button svg {
+      pointer-events: none; }
+    .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__pin-button:active svg,
+    .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default .zippy-react-toolkit-notification__close-button:active svg {
+      transform: translateY(1px); }
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default.zippy-react-toolkit-notification--rtl .zippy-react-toolkit-notification__title {
+    margin-left: 5px; }
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default.zippy-react-toolkit-notification--rtl .zippy-react-toolkit-notification__pin-button,
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default.zippy-react-toolkit-notification--rtl .zippy-react-toolkit-notification__close-button {
+    margin-right: 2px; }
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default:not(.zippy-react-toolkit-notification--rtl) .zippy-react-toolkit-notification__title {
+    margin-right: 5px; }
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default:not(.zippy-react-toolkit-notification--rtl) .zippy-react-toolkit-notification__pin-button,
+  .zippy-react-toolkit-notification.zippy-react-toolkit-notification--theme-default:not(.zippy-react-toolkit-notification--rtl) .zippy-react-toolkit-notification__close-button {
+    margin-left: 2px; }

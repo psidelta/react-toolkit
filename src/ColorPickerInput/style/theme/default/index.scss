@@ -1,0 +1,36 @@
+/**
+ * Copyright 2015-present, Zippy Technologies.
+ * All rights reserved.
+ */
+
+@import '../../variables';
+@import '../../../../ColorTextInput/style/theme/default/index.scss';
+@import '../../../../ColorPalette/style/theme/default/index.scss';
+@import '../../../../Button/style/theme/default/index';
+
+$border: 1px solid #bbb;
+
+.#{$ZIPPY_COLOR_PICKER_INPUT_ROOT_CLASS}.#{$ZIPPY_COLOR_PICKER_INPUT_ROOT_CLASS}--theme-default {
+  border: $border;
+
+  .#{$ZIPPY_BUTTON_ROOT_CLASS} {
+    background: none;
+    border: none;
+  }
+
+  .#{$ZIPPY_BUTTON_ROOT_CLASS} {
+    border-left: $border;
+  }
+
+  &.#{$ZIPPY_COLOR_PICKER_INPUT_ROOT_CLASS}--rtl {
+    .#{$ZIPPY_BUTTON_ROOT_CLASS} {
+      border-left: none;
+      border-right: $border;
+    }
+  }
+}
+
+.#{$ZIPPY_COLOR_PICKER_INPUT_ROOT_CLASS}__overlay {
+  border: $border;
+  border-top: 0;
+}

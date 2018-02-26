@@ -1,0 +1,44 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+
+ *   http://www.apache.org/licenses/LICENSE-2.0
+
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS: 'zippy-react-pagination-toolbar' !default;
+$ZIPPY_BUTTON_ROOT_CLASS: 'zippy-react-toolkit-button' !default;
+
+$ZIPPY_PAGINATION_TOOLBAR_COLOR: #525252 !default;
+$ZIPPY_PAGINATION_TOOLBAR_BORDER_COLOR: #a1b6d3 !default;
+$ZIPPY_PAGINATION_TOOLBAR_BORDERED_BORDER: 1px solid
+  $ZIPPY_PAGINATION_TOOLBAR_BORDER_COLOR !default;
+$ZIPPY_PAGINATION_TOOLBAR_FONT_SIZE: 14px;
+
+$ZIPPY_TOOLBAR_BORDER_COLOR: #a1b6d3 !default;
+$ZIPPY_PAGINATION_TOOLBAR_FOCUSED_INPUT_BORDER_COLOR: #8da0ba !default;
+
+$ZIPPY_PAGINATION_TOOLBAR_BG: #d2dff0 !default;
+// ------------- icons
+$ZIPPY_PAGINATION_TOOLBAR_ICON_DISABLED_OPACITY: 0.5 !default;
+$ZIPPY_PAGINATION_TOOLBAR_ICON_FILL_COLOR: #495e85 !default;
+$ZIPPY_PAGINATION_TOOLBAR_ICON_DISABLED_FILL_COLOR: rgba(
+    $ZIPPY_PAGINATION_TOOLBAR_ICON_FILL_COLOR,
+    0.7
+  )
+  !default;
+
+$ZIPPY_PAGINATION_TOOLBAR_ICON_FOCUSED_BG_COLOR: #e8f2ff !default;
+$ZIPPY_PAGINATION_TOOLBAR_ICON_HOVER_BG_COLOR: $ZIPPY_PAGINATION_TOOLBAR_ICON_FOCUSED_BG_COLOR
+  !default;
+
+$ZIPPY_PAGINATION_TOOLBAR_ICON_BORDER_RADIUS: 2px !default;
+$ZIPPY_PAGINATION_TOOLBAR_ICON_ACTIVE_TOP: 1px !default;

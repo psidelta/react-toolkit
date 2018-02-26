@@ -1,0 +1,72 @@
+{
+  "name": "react-tab-panel",
+  "version": "2.2.7",
+  "description": "React TabPanel",
+  "main": "lib/index.js",
+  "dependencies": {
+    "has-touch": "^1.0.1",
+    "lodash.debounce": "^4.0.3",
+    "lodash.throttle": "^4.0.1",
+    "object-assign": "^4.0.1",
+    "react": "^15.1.0",
+    "react-class": "^2.0.0",
+    "react-dom": "^15.1.0",
+    "react-flex": "^2.2.2",
+    "react-motion": "^0.4.2",
+    "react-notify-resize": "^1.0.3",
+    "react-style-normalizer": "^1.2.8"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.0 || >=15.0.0-0",
+    "react-dom": ">=0.14.0 || >=15.0.0-0"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.7.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-babili": "0.0.8",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babili": "0.0.8",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.4.2",
+    "react": ">=0.14.0 || >=15.0.0-0",
+    "react-dom": ">=0.14.0 || >=15.0.0-0",
+    "react-hot-loader": "^1.3.0",
+    "rimraf": "^2.5.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "zippyui-theme-builder": "^1.0.2"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --progress --config build/dev.config.js",
+    "lib": "rimraf lib && npm run babel",
+    "babel": "NODE_ENV=production babel --out-dir lib src",
+    "styles": "theme-builder",
+    "build": "npm run lib && npm run styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zippyui/react-tab-panel"
+  },
+  "keywords": [
+    "react",
+    "tabs",
+    "tab-panel",
+    "tab",
+    "panel",
+    "react-component",
+    "tabpanel",
+    "tabbed"
+  ],
+  "author": "ZippyUI",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/zippyui/react-tab-panel/issues"
+  },
+  "homepage": "https://github.com/zippyui/react-tab-panel"
+}

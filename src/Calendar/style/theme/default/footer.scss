@@ -1,0 +1,62 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer--theme-#{$ZIPPY_CALENDAR_THEME_NAME} {
+  padding: 4px 12px 6px 12px;
+
+  // .#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button-cancel.#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button-cancel.#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button-cancel {
+  //   color: $ZIPPY_CALENDAR_BACKGROUND !important;
+  //   background: $ZIPPY_CALENDAR_FOOTER_CANCEL_BUTTON_BACKGROUND !important;
+  //   border: none !important;
+
+  //   &:hover {
+  //     background: rgba(#e4e7ed, 0.9) !important;
+  //   }
+  // }
+
+  // .#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button {
+  //   padding: 3px 10px;
+  //   outline: none;
+  //   position: relative;
+  //   user-select: none;
+  //   border: none;
+  //   background: $ZIPPY_CALENDAR_BACKGROUND;
+  //   font-size: $ZIPPY_CALENDAR_OTHER_WEEK_DAYS_FONT_SIZE;
+  //   min-height: $ZIPPY_CALENDAR_FOOTER_BUTTON_MIN_HEIGHT;
+  //   color: $ZIPPY_CALENDAR_SECONDARY_TEXT_COLOR;
+
+  //   &:hover {
+  //     background: #3c5c99 !important;
+  //   }
+
+  //   &:active {
+  //     top: 1px;
+  //   }
+
+  //   &:not(.#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button--disabled) {
+  //     cursor: pointer;
+
+  //     &:hover {
+  //       background: $ZIPPY_CALENDAR_ACTIVE_COLOR;
+  //       border-color: $ZIPPY_CALENDAR_ACTIVE_COLOR;
+  //       color: $ZIPPY_CALENDAR_SECONDARY_TEXT_COLOR;
+  //     }
+  //   }
+  // }
+
+  .#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button
+    + .#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button {
+    margin-left: 4px;
+  }
+}

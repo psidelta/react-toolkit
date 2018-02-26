@@ -1,0 +1,142 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default {
+  font-size: 14px;
+  border: 1px solid #c5c5c5;
+  background: white;
+  fill: #495e85;
+  padding-top: 1px;
+  min-width: 100px;
+  box-shadow: none;
+  transition: all 0.2s; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default:hover {
+    border: 1px solid #a1b6d3; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default,
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default input {
+    color: #525252; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default input {
+    padding: 0px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__input__placeholder {
+    white-space: nowrap; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--focus {
+    border: 1px solid #a1b6d3;
+    box-shadow: 0 0 2px 0 #a1b6d3; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--ltr {
+    padding-right: 3px; }
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--ltr .zippy-react-toolkit-combo-box__input__wrapper,
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--ltr .zippy-react-toolkit-combo-box__value__display-value {
+      padding-left: 8px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--rtl {
+    padding-left: 3px; }
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--rtl .zippy-react-toolkit-combo-box__input__wrapper,
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--rtl .zippy-react-toolkit-combo-box__value__display-value {
+      padding-right: 8px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--disabled {
+    fill: rgba(73, 94, 133, 0.7); }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--shadow .zippy-react-toolkit-combo-box__list {
+    box-shadow: 0 0 2px 0 #a1b6d3; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__loading-text {
+    background: rgba(255, 255, 255, 0.4);
+    color: #858585; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__loading-spinner {
+    width: 17px;
+    display: flex;
+    align-items: center; }
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__loading-spinner svg {
+      animation: reactToolkitComboBoxLoadAnimationDefault 1.4s infinite linear;
+      transform: translateZ(0); }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list {
+    background: #fff;
+    border: 1px solid #a1b6d3; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__clear-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 6px;
+    transform: translateY(0px); }
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__clear-icon:active {
+      transform: translateY(1px); }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__item {
+    padding: 5px 8px;
+    border: 1px solid transparent; }
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__item:not(.zippy-react-toolkit-combo-box__list__item--disabled):hover {
+      background: #fff0d9; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__item--selected {
+    background: #e8f2ff; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__item--active {
+    border: 1px dotted #a1b6d3; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__item--disabled {
+    color: rgba(82, 82, 82, 0.7);
+    cursor: default; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__item__highlight {
+    background: magenta;
+    font-weight: bold; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__list__group {
+    padding: 5px 3px;
+    font-weight: bold; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__value {
+    min-height: 28px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__tools {
+    min-height: 28px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__value__tag {
+    background: #e8f2ff;
+    border: 1px solid transparent;
+    padding: 3px 8px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__value__tag--active {
+    border: 1px dotted #a1b6d3; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__value__tag--active.zippy-react-toolkit-combo-box__value__tag--selected {
+    background: #cbe1fb; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__value__tag__clear-icon {
+    transform: translateY(0px); }
+    .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default .zippy-react-toolkit-combo-box__value__tag__clear-icon:active {
+      transform: translateY(1px); }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--ltr .zippy-react-toolkit-combo-box__value__tag__clear-icon {
+    margin-left: 12px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--ltr .zippy-react-toolkit-combo-box__value__tag {
+    margin-right: 1px;
+    margin-bottom: 1px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--rtl .zippy-react-toolkit-combo-box__value__tag__clear-icon {
+    margin-right: 12px; }
+  .zippy-react-toolkit-combo-box.zippy-react-toolkit-combo-box--theme-default.zippy-react-toolkit-combo-box--rtl .zippy-react-toolkit-combo-box__value__tag {
+    margin-left: 1px;
+    margin-bottom: 1px; }
+
+@-webkit-keyframes reactToolkitComboBoxLoadAnimationDefault {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes reactToolkitComboBoxLoadAnimationDefault {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }

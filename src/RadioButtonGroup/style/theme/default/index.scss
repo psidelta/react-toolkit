@@ -1,0 +1,24 @@
+@import '../../variables';
+
+@import './variables';
+
+.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--theme-#{$ZIPPY_RADIO_BUTTON_GROUP_THEME_NAME} {
+  outline: none;
+
+  &.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--focused {
+    .zippy-react-toolkit-radio-button--checked {
+      .zippy-react-toolkit-radio-button__icon-wrapper {
+        border: 1px dotted $ZIPPY_RADIO_BUTTON_CHECKED_BORDER_COLOR;
+      }
+    }
+  }
+
+  &.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--orientation-horizontal {
+    &.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--rtl > *:not(:first-child) {
+      margin-right: 5px;
+    }
+    &.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--ltr > *:not(:first-child) {
+      margin-left: 5px;
+    }
+  }
+}

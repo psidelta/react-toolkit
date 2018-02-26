@@ -1,0 +1,60 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import '../../variables';
+@import './variables';
+
+.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}--theme-#{$ZIPPY_SPLIT_CONTAINER_THEME_NAME} {
+  &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}--bordered {
+    border: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
+    .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter:not(.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--zero-size) {
+      &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--orientation-horizontal {
+        border-top: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
+        border-bottom: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
+      }
+      &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--orientation-vertical {
+        border-left: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
+        border-right: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
+      }
+    }
+  }
+
+  .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter__icon {
+    fill: $ZIPPY_SPLIT_CONTAINER_ICON_COLOR;
+  }
+
+  .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter {
+    background: $ZIPPY_SPLIT_CONTAINER_BG_COLOR;
+  }
+
+  .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__resize-proxy {
+    background: $ZIPPY_SPLIT_CONTAINER_PROXY_BG_COLOR;
+  }
+  .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__resize-proxy {
+    opacity: $ZIPPY_SPLIT_CONTAINER_PROXY_OPACITY;
+  }
+
+  .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--constrained,
+  .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__resize-proxy--constrained {
+    opacity: $ZIPPY_SPLIT_CONTAINER_PROXY_OPACITY;
+    background: $ZIPPY_SPLIT_CONTAINER_WARN_COLOR;
+  }
+
+  .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--constrained {
+    border: none;
+    svg {
+      visibility: hidden;
+    }
+  }
+}

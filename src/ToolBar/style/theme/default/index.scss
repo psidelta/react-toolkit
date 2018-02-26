@@ -1,0 +1,107 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@import '../../variables.scss';
+@import './variables.scss';
+
+@import '../../../../SplitButton/style/theme/default/index.scss';
+
+.#{$ZIPPY_TOOLBAR_ROOT_CLASS}.#{$ZIPPY_TOOLBAR_ROOT_CLASS}--theme-#{$ZIPPY_TOOLBAR_THEME_NAME} {
+  border: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
+  padding: 2px;
+  background: $ZIPPY_TOOLBAR_BG_COLOR;
+  color: $ZIPPY_TOOLBAR_COLOR;
+  fill: $ZIPPY_TOOLBAR_FILL;
+  font-size: $ZIPPY_TOOLBAR_FONT_SIZE;
+
+  .zippy-react-toolkit-split-button--theme-default
+    .zippy-react-toolkit-split-button__button {
+    padding: 4px 8px;
+  }
+
+  .zippy-react-toolkit-button--theme-default:not(.zippy-react-toolkit-split-button__button):not(.zippy-react-toolkit-dropdown-button__button) {
+    padding: 4px 8px;
+  }
+
+  .zippy-react-toolkit-numeric-input,
+  input:not(.zippy-react-toolkit-combo-box__input):not(.zippy-react-toolkit-text-input__input):not(.zippy-react-toolkit-date-input__input):not(.zippy-react-toolkit-numeric-input__input) {
+    border: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
+    outline: none;
+  }
+  .zippy-react-toolkit-numeric-input.zippy-react-toolkit-numeric-input--focused,
+  input:not(.zippy-react-toolkit-combo-box__input):not(.zippy-react-toolkit-text-input__input):not(.zippy-react-toolkit-date-input__input):not(.zippy-react-toolkit-numeric-input__input):focus {
+    border: 1px solid $ZIPPY_TOOLBAR_FOCUSED_INPUT_BORDER_COLOR;
+  }
+
+  .zippy-react-toolkit-split-button > .zippy-react-toolkit-dropdown-button {
+    .zippy-react-toolkit-dropdown-button__button {
+      padding: 0px;
+    }
+  }
+
+  .zippy-react-toolkit-split-button.zippy-react-toolkit-split-button--theme-default {
+    @include apply-separator-styles($ZIPPY_TOOLBAR_SEPARATOR_COLOR,$ZIPPY_TOOLBAR_SEPARATOR_COLOR);
+  }
+
+  &.#{$ZIPPY_TOOLBAR_ROOT_CLASS}--change-button-styles {
+    .zippy-react-toolkit-split-button.zippy-react-toolkit-split-button.zippy-react-toolkit-split-button,
+    .zippy-react-toolkit-dropdown-button.zippy-react-toolkit-dropdown-button.zippy-react-toolkit-dropdown-button,
+    .zippy-react-toolkit-button.zippy-react-toolkit-button.zippy-react-toolkit-button {
+      transition: background-color 0.2s;
+      & {
+        color: $ZIPPY_TOOLBAR_COLOR;
+        fill: $ZIPPY_TOOLBAR_COLOR;
+        &:not(:hover) {
+          background-color: transparent;
+        }
+        &:hover {
+          background-color: $ZIPPY_TOOLBAR_HOVER_BG;
+        }
+      }
+
+      &.zippy-react-toolkit-button--disabled {
+        opacity: 0.5;
+        background-color: transparent;
+      }
+
+      &:not(.zippy-react-toolkit-button--disabled):hover {
+        background-color: $ZIPPY_TOOLBAR_HOVER_BG;
+      }
+
+      font-size: $ZIPPY_TOOLBAR_FONT_SIZE;
+    }
+  }
+
+  .zippy-react-toolkit-toolbar__separator {
+    background: $ZIPPY_TOOLBAR_BORDER_COLOR;
+  }
+
+  .#{$ZIPPY_TOOLBAR_ROOT_CLASS}__arrow {
+    background: $ZIPPY_TOOLBAR_BG_COLOR;
+    &:hover {
+      background: $ZIPPY_TOOLBAR_HOVER_BG;
+    }
+    &--direction-right {
+      border-left: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
+    }
+    &--direction-left {
+      border-right: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
+    }
+    &--direction-down {
+      border-top: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
+    }
+    &--direction-up {
+      border-bottom: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
+    }
+  }
+}

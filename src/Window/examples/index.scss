@@ -1,0 +1,16 @@
+body, #content {
+  min-height: calc(100vh - 100px);
+  margin: 0;
+}
+
+#content {
+  padding: 50px;
+  height: 150vh;
+}
+
+#wrapper {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 80vh;
+  border: 1px solid blue;
+}

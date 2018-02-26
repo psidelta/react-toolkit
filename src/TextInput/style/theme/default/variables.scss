@@ -1,0 +1,45 @@
+/**
+ * Copyright 2015-present Zippy Technologies
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import '../../variables';
+
+$THEME_NAME: 'default' !default;
+
+$ZIPPY_TEXT_INPUT_THEME_NAME: 'default' !default;
+$ZIPPY_TEXT_INPUT_BORDER_COLOR_FOCUSED: #a1b6d3 !default;
+$ZIPPY_TEXT_INPUT_BORDER_COLOR_HOVER: #a1b6d3 !default;
+$ZIPPY_TEXT_INPUT_BORDER_COLOR: #c5c5c5 !default;
+
+$ZIPPY_TEXT_INPUT_FONT_SIZE: 14px !default;
+$ZIPPY_TEXT_INPUT_FONT_COLOR: #525252 !default;
+$ZIPPY_TEXT_INPUT_DISABLED_FONT_COLOR: rgba($ZIPPY_TEXT_INPUT_FONT_COLOR, 0.7)
+  !default;
+
+$ZIPPY_TEXT_INPUT_ICON_FILL: #495e85 !default;
+$ZIPPY_TEXT_INPUT_DISABLED_ICON_FILL: rgba($ZIPPY_TEXT_INPUT_ICON_FILL, 0.7)!default;
+
+$ZIPPY_TEXT_INPUT_BORDER_FOCUSED: 1px solid
+  $ZIPPY_TEXT_INPUT_BORDER_COLOR_FOCUSED !default;
+$ZIPPY_TEXT_INPUT_BORDER: 1px solid $ZIPPY_TEXT_INPUT_BORDER_COLOR !default;
+$ZIPPY_TEXT_INPUT_BORDER_HOVER: 1px solid $ZIPPY_TEXT_INPUT_BORDER_COLOR_HOVER
+  !default;
+$ZIPPY_TEXT_INPUT_BOX_SHADOW: 0 0 2px 0 $ZIPPY_TEXT_INPUT_BORDER_COLOR_FOCUSED
+  !default;
+
+$ZIPPY_TEXT_INPUT_SPINNER_MARGIN: 4px 6px 4px 0 !default;
+
+$ZIPPY_TEXT_INPUT_CLEAR_BUTTON_MARGIN_RIGHT: 6px !default;
+$ZIPPY_TEXT_INPUT_MIN_HEIGHT: 32px !default;
+$ZIPPY_TEXT_INPUT_BG_COLOR: white !default;
+$ZIPPY_TEXT_INPUT_PLACEHOLDER_COLOR: rgba($ZIPPY_TEXT_INPUT_FONT_COLOR, 0.7);
