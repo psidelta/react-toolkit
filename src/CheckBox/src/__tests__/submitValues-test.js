@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 
@@ -84,45 +70,39 @@ describe('Hidden submit input', () => {
     checkbox.unmount();
   });
 
-  it(
-    'should log a warning if showWarnings and shouldSubmit() returns true, but no name provided',
-    () => {
-      let thrownMessage;
-      const spiedConsoleWarn = function(message) {
-        thrownMessage = message;
-      };
-      if (typeof console !== 'undefined') {
-        const originalConsoleWarning = console.warn;
-        console.warn = spiedConsoleWarn;
-        const checkbox = render(<Check shouldSubmit={() => true} />);
-        console.warn = originalConsoleWarning;
-        expect(thrownMessage).to.contain(
-          'shouldSubmit function returned true, but "name" prop is missing'
-        );
-        checkbox.unmount();
-      }
+  it('should log a warning if showWarnings and shouldSubmit() returns true, but no name provided', () => {
+    let thrownMessage;
+    const spiedConsoleWarn = function(message) {
+      thrownMessage = message;
+    };
+    if (typeof console !== 'undefined') {
+      const originalConsoleWarning = console.warn;
+      console.warn = spiedConsoleWarn;
+      const checkbox = render(<Check shouldSubmit={() => true} />);
+      console.warn = originalConsoleWarning;
+      expect(thrownMessage).to.contain(
+        'shouldSubmit function returned true, but "name" prop is missing'
+      );
+      checkbox.unmount();
     }
-  );
+  });
 
-  it(
-    'should not log a warning if showWarnings is disabled and shouldSubmit() returns true, but no name provided',
-    () => {
-      let errorMessageWasNotLogged = true;
-      const spiedConsoleWarn = function(message) {
-        errorMessageWasNotLogged = false;
-      };
-      if (typeof console !== 'undefined') {
-        const originalConsoleWarning = console.warn;
-        console.warn = spiedConsoleWarn;
-        const checkbox = render(
-          <Check showWarnings={false} shouldSubmit={() => true} />
-        );
-        console.warn = originalConsoleWarning;
-        expect(errorMessageWasNotLogged).to.equal(true);
-        checkbox.unmount();
-      }
+  it('should not log a warning if showWarnings is disabled and shouldSubmit() returns true, but no name provided', () => {
+    let errorMessageWasNotLogged = true;
+    const spiedConsoleWarn = function(message) {
+      errorMessageWasNotLogged = false;
+    };
+    if (typeof console !== 'undefined') {
+      const originalConsoleWarning = console.warn;
+      console.warn = spiedConsoleWarn;
+      const checkbox = render(
+        <Check showWarnings={false} shouldSubmit={() => true} />
+      );
+      console.warn = originalConsoleWarning;
+      expect(errorMessageWasNotLogged).to.equal(true);
+      checkbox.unmount();
     }
-  );
+  });
 
   it('should throw error if shouldSubmit, but no name provided', () => {
     let thrownMessage;
@@ -139,45 +119,39 @@ describe('Hidden submit input', () => {
     }
   });
 
-  it(
-    'should throw error if value is provided, as we used checked to set the state instead',
-    () => {
-      let loggedError;
-      const spiedConsoleError = function(message) {
-        loggedError = message;
-      };
-      if (typeof console !== 'undefined') {
-        const originalConsoleError = console.error;
-        console.error = spiedConsoleError;
-        const checkbox = render(<Check value="checked" />);
-        console.error = originalConsoleError;
-        expect(loggedError).to.contain(
-          '"value" prop is not supported. Use "checked" instead.'
-        );
-        checkbox.unmount();
-      }
+  it('should throw error if value is provided, as we used checked to set the state instead', () => {
+    let loggedError;
+    const spiedConsoleError = function(message) {
+      loggedError = message;
+    };
+    if (typeof console !== 'undefined') {
+      const originalConsoleError = console.error;
+      console.error = spiedConsoleError;
+      const checkbox = render(<Check value="checked" />);
+      console.error = originalConsoleError;
+      expect(loggedError).to.contain(
+        '"value" prop is not supported. Use "checked" instead.'
+      );
+      checkbox.unmount();
     }
-  );
+  });
 
-  it(
-    'should throw error if defaultValue is provided, as we used checked to set the state instead',
-    () => {
-      let loggedError;
-      const spiedConsoleError = function(message) {
-        loggedError = message;
-      };
-      if (typeof console !== 'undefined') {
-        const originalConsoleError = console.error;
-        console.error = spiedConsoleError;
-        const checkbox = render(<Check defaultValue="checked" />);
-        console.error = originalConsoleError;
-        expect(loggedError).to.contain(
-          '"defaultValue" prop is not supported. Use "checked" instead.'
-        );
-        checkbox.unmount();
-      }
+  it('should throw error if defaultValue is provided, as we used checked to set the state instead', () => {
+    let loggedError;
+    const spiedConsoleError = function(message) {
+      loggedError = message;
+    };
+    if (typeof console !== 'undefined') {
+      const originalConsoleError = console.error;
+      console.error = spiedConsoleError;
+      const checkbox = render(<Check defaultValue="checked" />);
+      console.error = originalConsoleError;
+      expect(loggedError).to.contain(
+        '"defaultValue" prop is not supported. Use "checked" instead.'
+      );
+      checkbox.unmount();
     }
-  );
+  });
 
   it('should submit indeterminateSubmitValue if specified', () => {
     //null is the default indeterminateValue
@@ -195,23 +169,20 @@ describe('Hidden submit input', () => {
     checkbox.unmount();
   });
 
-  it(
-    'should submit indeterminateValue when indeterminateSubmitValue is not specified',
-    () => {
-      const checkbox = render(
-        <Check
-          name="someValue"
-          supportIndeterminate
-          checked={INDETERMINATE}
-          indeterminateValue={INDETERMINATE}
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const input = node.querySelector('input');
-      expect(input.value).to.equal(INDETERMINATE);
-      checkbox.unmount();
-    }
-  );
+  it('should submit indeterminateValue when indeterminateSubmitValue is not specified', () => {
+    const checkbox = render(
+      <Check
+        name="someValue"
+        supportIndeterminate
+        checked={INDETERMINATE}
+        indeterminateValue={INDETERMINATE}
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const input = node.querySelector('input');
+    expect(input.value).to.equal(INDETERMINATE);
+    checkbox.unmount();
+  });
 
   it('should submit empty string instead of null indeterminateValue', () => {
     const checkbox = render(
@@ -238,18 +209,15 @@ describe('Hidden submit input', () => {
     checkbox.unmount();
   });
 
-  it(
-    'should submit uncheckedValue when uncheckedSubmitValue is not specified',
-    () => {
-      const checkbox = render(
-        <Check name="someValue" uncheckedValue={UNCHECKED} />
-      );
-      const node = findDOMNode(checkbox);
-      const input = node.querySelector('input');
-      expect(input.value).to.equal(UNCHECKED);
-      checkbox.unmount();
-    }
-  );
+  it('should submit uncheckedValue when uncheckedSubmitValue is not specified', () => {
+    const checkbox = render(
+      <Check name="someValue" uncheckedValue={UNCHECKED} />
+    );
+    const node = findDOMNode(checkbox);
+    const input = node.querySelector('input');
+    expect(input.value).to.equal(UNCHECKED);
+    checkbox.unmount();
+  });
 
   it('should submit empty string instead of null uncheckedValue', () => {
     const checkbox = render(<Check name="someValue" uncheckedValue={null} />);
@@ -270,18 +238,15 @@ describe('Hidden submit input', () => {
     checkbox.unmount();
   });
 
-  it(
-    'should submit checkedValue when checkedSubmitValue is not specified',
-    () => {
-      const checkbox = render(
-        <Check name="someValue" checked={CHECKED} checkedValue={CHECKED} />
-      );
-      const node = findDOMNode(checkbox);
-      const input = node.querySelector('input');
-      expect(input.value).to.equal(CHECKED);
-      checkbox.unmount();
-    }
-  );
+  it('should submit checkedValue when checkedSubmitValue is not specified', () => {
+    const checkbox = render(
+      <Check name="someValue" checked={CHECKED} checkedValue={CHECKED} />
+    );
+    const node = findDOMNode(checkbox);
+    const input = node.querySelector('input');
+    expect(input.value).to.equal(CHECKED);
+    checkbox.unmount();
+  });
 
   it('should log a warning if checkedSubmitValue is null', () => {
     if (typeof console !== 'undefined') {

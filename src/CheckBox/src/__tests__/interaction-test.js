@@ -1,16 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 
@@ -70,28 +57,25 @@ describe('Interaction tests', () => {
     check.unmount();
   });
 
-  it(
-    'setChecked(indeterminateValue) should not do anything if the checkbox does not support indeterminate state',
-    () => {
-      const check = render(
-        <Check
-          uncheckedIconSrc="unchecked-src-x"
-          checkedIconSrc="checked-dummy-src-y"
-          indeterminateValue={4}
-          defaultChecked={true}
-        />
-      );
+  it('setChecked(indeterminateValue) should not do anything if the checkbox does not support indeterminate state', () => {
+    const check = render(
+      <Check
+        uncheckedIconSrc="unchecked-src-x"
+        checkedIconSrc="checked-dummy-src-y"
+        indeterminateValue={4}
+        defaultChecked={true}
+      />
+    );
 
-      const node = findDOMNode(check);
-      const img = node.querySelector('img');
-      expect(img.src).to.contain('/checked-dummy-src-y');
-      check.setChecked(4);
+    const node = findDOMNode(check);
+    const img = node.querySelector('img');
+    expect(img.src).to.contain('/checked-dummy-src-y');
+    check.setChecked(4);
 
-      expect(img.src).to.contain('/checked-dummy-src-y');
+    expect(img.src).to.contain('/checked-dummy-src-y');
 
-      check.unmount();
-    }
-  );
+    check.unmount();
+  });
   it('should handle onClick', () => {
     let onClickCalledTimes = 0;
     const clickHandler = () => onClickCalledTimes++;
@@ -161,148 +145,127 @@ describe('Interaction tests', () => {
     }
   });
 
-  it(
-    'should check on click on icon when iconCheckOnly is set to `true`',
-    () => {
-      let onChangeCallTimes = 0;
-      const checkbox = render(
-        <Check
-          iconCheckOnly={true}
-          checkedIconSrc="checked-dummy-url"
-          uncheckedIconSrc="unchecked-dummy-url"
-          supportIndeterminate={false}
-          onChange={() => onChangeCallTimes++}
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const img = node.querySelector('img');
-      expect(img.src).to.contain('unchecked-dummy-url');
-      simulateMouseEvent('click', img);
-      expect(img.src).to.contain('/checked-dummy-url');
-      expect(onChangeCallTimes).to.equal(1);
-      checkbox.unmount();
-    }
-  );
+  it('should check on click on icon when iconCheckOnly is set to `true`', () => {
+    let onChangeCallTimes = 0;
+    const checkbox = render(
+      <Check
+        iconCheckOnly={true}
+        checkedIconSrc="checked-dummy-url"
+        uncheckedIconSrc="unchecked-dummy-url"
+        supportIndeterminate={false}
+        onChange={() => onChangeCallTimes++}
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const img = node.querySelector('img');
+    expect(img.src).to.contain('unchecked-dummy-url');
+    simulateMouseEvent('click', img);
+    expect(img.src).to.contain('/checked-dummy-url');
+    expect(onChangeCallTimes).to.equal(1);
+    checkbox.unmount();
+  });
 
-  it(
-    'should not check on click outside icon when iconCheckOnly is set to `true`',
-    () => {
-      let onChangeCallTimes = 0;
-      const checkbox = render(
-        <Check
-          iconCheckOnly={true}
-          checkedIconSrc="checked-dummy-url"
-          uncheckedIconSrc="unchecked-dummy-url"
-          onChange={() => onChangeCallTimes++}
-          supportIndeterminate={false}
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const img = node.querySelector('img');
-      expect(img.src).to.contain('unchecked-dummy-url');
-      simulateMouseEvent('click', node);
-      expect(img.src).to.contain('unchecked-dummy-url');
-      expect(onChangeCallTimes).to.equal(0);
-      checkbox.unmount();
-    }
-  );
+  it('should not check on click outside icon when iconCheckOnly is set to `true`', () => {
+    let onChangeCallTimes = 0;
+    const checkbox = render(
+      <Check
+        iconCheckOnly={true}
+        checkedIconSrc="checked-dummy-url"
+        uncheckedIconSrc="unchecked-dummy-url"
+        onChange={() => onChangeCallTimes++}
+        supportIndeterminate={false}
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const img = node.querySelector('img');
+    expect(img.src).to.contain('unchecked-dummy-url');
+    simulateMouseEvent('click', node);
+    expect(img.src).to.contain('unchecked-dummy-url');
+    expect(onChangeCallTimes).to.equal(0);
+    checkbox.unmount();
+  });
 
-  it(
-    'should check on click when component is not controlled with defaultChecked',
-    () => {
-      const checkbox = render(
-        <Check
-          checkedIconSrc="checked-dummy-url"
-          uncheckedIconSrc="unchecked-dummy-url"
-          defaultChecked={true}
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const img = node.querySelector('img');
-      expect(img.src).to.contain('/checked-dummy-url');
-      simulateMouseEvent('click', node);
-      expect(img.src).to.contain('unchecked-dummy-url');
-      checkbox.unmount();
-    }
-  );
+  it('should check on click when component is not controlled with defaultChecked', () => {
+    const checkbox = render(
+      <Check
+        checkedIconSrc="checked-dummy-url"
+        uncheckedIconSrc="unchecked-dummy-url"
+        defaultChecked={true}
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const img = node.querySelector('img');
+    expect(img.src).to.contain('/checked-dummy-url');
+    simulateMouseEvent('click', node);
+    expect(img.src).to.contain('unchecked-dummy-url');
+    checkbox.unmount();
+  });
 
-  it(
-    'should not go to indeterminate state if supportIndeterminate is false',
-    () => {
-      const checkbox = render(
-        <Check
-          checkedValue={CHECKED}
-          uncheckedValue={UNCHECKED}
-          supportIndeterminate={false} //checked is undefined!
-          checkedIconSrc={CHECKED + '_dummy_src'}
-          uncheckedIconSrc={UNCHECKED + '_dummy_src'}
-          indeterminateIconSrc={INDETERMINATE + '_dummy_src'}
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const img = node.querySelector('img');
-      expect(img.src).to.contain(UNCHECKED + '_dummy_src');
-      simulateMouseEvent('click', node);
-      expect(img.src).to.contain('/' + CHECKED + '_dummy_src');
-      checkbox.unmount();
-    }
-  );
+  it('should not go to indeterminate state if supportIndeterminate is false', () => {
+    const checkbox = render(
+      <Check
+        checkedValue={CHECKED}
+        uncheckedValue={UNCHECKED}
+        supportIndeterminate={false} //checked is undefined!
+        checkedIconSrc={CHECKED + '_dummy_src'}
+        uncheckedIconSrc={UNCHECKED + '_dummy_src'}
+        indeterminateIconSrc={INDETERMINATE + '_dummy_src'}
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const img = node.querySelector('img');
+    expect(img.src).to.contain(UNCHECKED + '_dummy_src');
+    simulateMouseEvent('click', node);
+    expect(img.src).to.contain('/' + CHECKED + '_dummy_src');
+    checkbox.unmount();
+  });
 
-  it(
-    'should not change the state to checked when component is controlled (checked = null -> indeterminate)',
-    () => {
-      // null is also the value of indeterminate
-      const checkbox = render(
-        <Check
-          checked={null}
-          supportIndeterminate
-          indeterminateIconSrc="indeterminate-dummy-url"
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const img = node.querySelector('img');
-      simulateMouseEvent('click', node);
-      expect(img.src).to.contain('indeterminate-dummy-url');
-      checkbox.unmount();
-    }
-  );
+  it('should not change the state to checked when component is controlled (checked = null -> indeterminate)', () => {
+    // null is also the value of indeterminate
+    const checkbox = render(
+      <Check
+        checked={null}
+        supportIndeterminate
+        indeterminateIconSrc="indeterminate-dummy-url"
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const img = node.querySelector('img');
+    simulateMouseEvent('click', node);
+    expect(img.src).to.contain('indeterminate-dummy-url');
+    checkbox.unmount();
+  });
 
-  it(
-    'should not change the state to checked when component is controlled (checked = null -> unchecked*)',
-    () => {
-      //null is also the value of indeterminate, but this time, supportIndeterminate is false
-      const checkbox = render(
-        <Check
-          checked={null}
-          uncheckedIconSrc="unchecked-dummy-url"
-          supportIndeterminate={false}
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const img = node.querySelector('img');
-      simulateMouseEvent('click', node);
-      expect(img.src).to.contain('unchecked-dummy-url');
-      checkbox.unmount();
-    }
-  );
+  it('should not change the state to checked when component is controlled (checked = null -> unchecked*)', () => {
+    //null is also the value of indeterminate, but this time, supportIndeterminate is false
+    const checkbox = render(
+      <Check
+        checked={null}
+        uncheckedIconSrc="unchecked-dummy-url"
+        supportIndeterminate={false}
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const img = node.querySelector('img');
+    simulateMouseEvent('click', node);
+    expect(img.src).to.contain('unchecked-dummy-url');
+    checkbox.unmount();
+  });
 
-  it(
-    'should not change the state to checked when component is controlled (checked = "a string -> unchecked")',
-    () => {
-      const checkbox = render(
-        <Check
-          checked={'a string'}
-          uncheckedIconSrc="unchecked-dummy-url"
-          indeterminateIconSrc="indeterminate-dummy-url"
-        />
-      );
-      const node = findDOMNode(checkbox);
-      const img = node.querySelector('img');
-      simulateMouseEvent('click', node);
-      expect(img.src).to.contain('unchecked-dummy-url');
-      checkbox.unmount();
-    }
-  );
+  it('should not change the state to checked when component is controlled (checked = "a string -> unchecked")', () => {
+    const checkbox = render(
+      <Check
+        checked={'a string'}
+        uncheckedIconSrc="unchecked-dummy-url"
+        indeterminateIconSrc="indeterminate-dummy-url"
+      />
+    );
+    const node = findDOMNode(checkbox);
+    const img = node.querySelector('img');
+    simulateMouseEvent('click', node);
+    expect(img.src).to.contain('unchecked-dummy-url');
+    checkbox.unmount();
+  });
 
   it('should call the onChange when component is controlled', () => {
     let onChangedCalledTimes = 0;
