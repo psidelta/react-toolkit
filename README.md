@@ -4,7 +4,7 @@
 
 ## Purpose
 
-The purpose of the `React Toolkit` is to provide a set of high-quality open-source UI components built with React that can be easily composed to build professional-grade apps.
+The purpose of the `React Toolkit (@zippytech/react-toolkit)` is to provide a set of high-quality open-source UI components built with React that can be easily composed to build professional-grade apps.
 
 ## Installation
 
@@ -21,6 +21,35 @@ $ npm install @zippytech/react-toolkit --save
 ```
 
 ## List of Components
+
+* Accordion
+* Button
+* ButtonGroup
+* Calendar
+* CheckBox
+* ComboBox
+* DateInput
+* DropdownButton
+* LoadMask
+* MaskedInput
+* Menu
+* MessageWindow
+* Notification
+* NumericInput
+* Panel
+* ProgressBar
+* RadioButtonGroup
+* Slider
+* SplitButton
+* SplitContainer
+* TabPanel
+* Toolbar
+* Tooltip
+* TreeView
+* Uploader
+* Window
+
+Additionally, as professional commercial components, we're offering a DataGrid and a Scheduler component.
 
 ## License
 
