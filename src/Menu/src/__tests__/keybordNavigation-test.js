@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import Menu from '../Menu';
 import MenuItem from '../MenuItem';
@@ -115,37 +101,30 @@ describe('keyboard navigation', () => {
       expect(wrapper.state('focusedItem')).to.equal(min);
     });
 
-    it(
-      'should not excede max limit, focusedItem cannot be < items.length - 1',
-      () => {
-        const items = [
-          { label: 'test', items: [{ label: 'submenu item' }] },
-          { label: 'test2' },
-          { label: 'test2' },
-          { label: 'test3' }
-        ];
-        const max = items.length - 1;
-        const wrapper = mount(
-          <Menu
-            enableKeyboardNavigation
-            defaultFocusedItem={max}
-            items={items}
-          />
-        );
+    it('should not excede max limit, focusedItem cannot be < items.length - 1', () => {
+      const items = [
+        { label: 'test', items: [{ label: 'submenu item' }] },
+        { label: 'test2' },
+        { label: 'test2' },
+        { label: 'test3' }
+      ];
+      const max = items.length - 1;
+      const wrapper = mount(
+        <Menu enableKeyboardNavigation defaultFocusedItem={max} items={items} />
+      );
 
-        wrapper.simulate('keyDown', { key: 'ArrowDown' });
-        expect(wrapper.state('focusedItem')).to.equal(max);
+      wrapper.simulate('keyDown', { key: 'ArrowDown' });
+      expect(wrapper.state('focusedItem')).to.equal(max);
 
-        wrapper.simulate('keyDown', { key: 'ArrowDown' });
-        wrapper.simulate('keyDown', { key: 'ArrowDown' });
-        expect(wrapper.state('focusedItem')).to.equal(max);
+      wrapper.simulate('keyDown', { key: 'ArrowDown' });
+      wrapper.simulate('keyDown', { key: 'ArrowDown' });
+      expect(wrapper.state('focusedItem')).to.equal(max);
 
-        wrapper.simulate('keyDown', { key: 'ArrowDown' });
-        wrapper.simulate('keyDown', { key: 'ArrowDown' });
-        wrapper.simulate('keyDown', { key: 'ArrowDown' });
-        expect(wrapper.state('focusedItem')).to.equal(max);
-      }
-    );
+      wrapper.simulate('keyDown', { key: 'ArrowDown' });
+      wrapper.simulate('keyDown', { key: 'ArrowDown' });
+      wrapper.simulate('keyDown', { key: 'ArrowDown' });
+      expect(wrapper.state('focusedItem')).to.equal(max);
+    });
   });
 
   describe('submenu', () => {
@@ -225,19 +204,16 @@ describe('keyboard navigation', () => {
       expect(submenu).to.be.null;
     });
 
-    xit(
-      'should close itself on arrow left, after it was navigated up and down',
-      () => {
-        // navigate
-        submenu.simulate('keyDown', { key: 'ArrowDown' });
-        submenu.simulate('keyDown', { key: 'ArrowUp' });
+    xit('should close itself on arrow left, after it was navigated up and down', () => {
+      // navigate
+      submenu.simulate('keyDown', { key: 'ArrowDown' });
+      submenu.simulate('keyDown', { key: 'ArrowUp' });
 
-        // close
-        submenu.simulate('keyDown', { key: 'ArrowLeft' });
-        submenu = getSubMenu(wrapper);
-        expect(submenu).to.be.null;
-      }
-    );
+      // close
+      submenu.simulate('keyDown', { key: 'ArrowLeft' });
+      submenu = getSubMenu(wrapper);
+      expect(submenu).to.be.null;
+    });
 
     it('first item should have --focused className', () => {
       const items = [
@@ -255,7 +231,10 @@ describe('keyboard navigation', () => {
         <Menu defaultFocusedItem={0} enableKeyboardNavigation items={items} />
       );
       expect(
-        wrapper.find(MenuItem).first().find(`.${ROOT_CLASS}__row--focused`)
+        wrapper
+          .find(MenuItem)
+          .first()
+          .find(`.${ROOT_CLASS}__row--focused`)
       ).to.have.length(1);
     });
 
@@ -264,56 +243,53 @@ describe('keyboard navigation', () => {
       submenu.simulate('mouseLeave');
 
       // needs to pass 100ms before it unmounts
-      setTimeout(
-        () => {
-          // submenu should be null
-          submenu = getSubMenu(wrapper);
-          expect(submenu).to.be.null;
+      setTimeout(() => {
+        // submenu should be null
+        submenu = getSubMenu(wrapper);
+        expect(submenu).to.be.null;
 
-          done();
-        },
-        20
-      );
+        done();
+      }, 20);
     });
 
-    xit(
-      `
+    xit(`
         - menu has focus, and a focusedItem
         - hover over a menu item
         - submenu opens
         - if arrow right is pressed on the same menu item, the first item should
         be focused
-      `,
-      () => {
-        const items = [
-          {
-            label: 'test',
-            items: [
-              { label: 'submenu item' },
-              { label: 'submenu item 2' },
-              { label: 'submenu item 3' }
-            ]
-          },
-          { label: 'test2' }
-        ];
-        const wrapper = mount(
-          <Menu defaultFocusedItem={0} enableKeyboardNavigation items={items} />
-        );
+      `, () => {
+      const items = [
+        {
+          label: 'test',
+          items: [
+            { label: 'submenu item' },
+            { label: 'submenu item 2' },
+            { label: 'submenu item 3' }
+          ]
+        },
+        { label: 'test2' }
+      ];
+      const wrapper = mount(
+        <Menu defaultFocusedItem={0} enableKeyboardNavigation items={items} />
+      );
 
-        // open by mouse enter
-        wrapper.find(MenuItem).first().simulate('mouseEnter');
-        submenu = getSubMenu(wrapper);
+      // open by mouse enter
+      wrapper
+        .find(MenuItem)
+        .first()
+        .simulate('mouseEnter');
+      submenu = getSubMenu(wrapper);
 
-        expect(submenu).to.exist;
+      expect(submenu).to.exist;
 
-        // submenu should have focusedIndex null
-        expect(submenu.get(0).state.focusedItem).to.be.null;
+      // submenu should have focusedIndex null
+      expect(submenu.get(0).state.focusedItem).to.be.null;
 
-        // simulate open on same menu
-        wrapper.simulate('keyDown', { key: 'ArrowRight' });
-        expect(submenu.get(0).state.focusedItem).to.equal(0);
-      }
-    );
+      // simulate open on same menu
+      wrapper.simulate('keyDown', { key: 'ArrowRight' });
+      expect(submenu.get(0).state.focusedItem).to.equal(0);
+    });
   });
 
   describe('rtl', () => {

@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import Menu from '../Menu';
 import MenuItem from '../MenuItem';
@@ -25,7 +11,10 @@ describe('click events', () => {
       const onClick = sinon.spy();
       const wrapper = mount(<Menu onClick={onClick} items={items} />);
 
-      wrapper.find(MenuItem).first().simulate('click');
+      wrapper
+        .find(MenuItem)
+        .first()
+        .simulate('click');
 
       expect(onClick.called).to.be.true;
       expect(onClick.args[0]).to.have.length(3);
@@ -37,7 +26,10 @@ describe('click events', () => {
       const onClick = sinon.spy();
       const wrapper = mount(<Menu items={items} onClick={onClick} />);
 
-      wrapper.find(MenuItem).first().simulate('mouseEnter');
+      wrapper
+        .find(MenuItem)
+        .first()
+        .simulate('mouseEnter');
 
       const subMenu = getSubMenu(wrapper);
 
@@ -57,7 +49,10 @@ describe('click events', () => {
         <Menu items={items} onClick={onClick} onChildClick={onChildClick} />
       );
 
-      wrapper.find(MenuItem).first().simulate('mouseEnter');
+      wrapper
+        .find(MenuItem)
+        .first()
+        .simulate('mouseEnter');
 
       const subMenu = getSubMenu(wrapper);
 
@@ -74,7 +69,10 @@ describe('click events', () => {
       const onClick = sinon.spy();
       const items = [{ label: 'test', onClick }];
       const wrapper = mount(<Menu items={items} />);
-      wrapper.find(MenuItem).first().simulate('click');
+      wrapper
+        .find(MenuItem)
+        .first()
+        .simulate('click');
       expect(onClick.called).to.be.true;
     });
   });
