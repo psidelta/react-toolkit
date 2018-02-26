@@ -49,7 +49,7 @@ $ npm install @zippytech/react-toolkit --save
 * Uploader
 * Window
 
-Additionally, as professional commercial components, we're offering a DataGrid and a Scheduler component.
+Additionally, we're offering two commercial components:a DataGrid and a Scheduler component.
 
 ## License
 
