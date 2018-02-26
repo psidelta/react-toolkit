@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import join from '../../common/join';
@@ -37,10 +23,15 @@ class ZippyColorPalette extends Component {
       props.rtl && `${props.rootClassName}--rtl`
     );
 
-    const palette = Array.isArray(props.palette) ? props.palette : colorPalettes[props.palette];
+    const palette = Array.isArray(props.palette)
+      ? props.palette
+      : colorPalettes[props.palette];
 
     return (
-      <div {...cleanProps(props, ZippyColorPalette.propTypes)} className={className}>
+      <div
+        {...cleanProps(props, ZippyColorPalette.propTypes)}
+        className={className}
+      >
         {palette.map(this.renderItem)}
       </div>
     );
@@ -57,7 +48,10 @@ class ZippyColorPalette extends Component {
 
     let sizeStyle;
     if (itemSize) {
-      sizeStyle = typeof itemSize === 'number' ? { width: itemSize, height: itemSize } : itemSize;
+      sizeStyle =
+        typeof itemSize === 'number'
+          ? { width: itemSize, height: itemSize }
+          : itemSize;
     }
 
     const onChange = event => {
@@ -120,7 +114,10 @@ ZippyColorPalette.defaultProps = {
 };
 
 ZippyColorPalette.propTypes = {
-  palette: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  palette: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   theme: PropTypes.string,
   rootClassName: PropTypes.string,
   itemSize: PropTypes.oneOfType([
