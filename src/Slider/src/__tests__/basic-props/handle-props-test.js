@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 
@@ -27,7 +13,9 @@ describe('handle rendering', () => {
   let renderHandleStub;
 
   beforeEach(() => {
-    renderHandleStub = sinon.stub().returns(<div key={Math.round(Math.random() * 100)} />);
+    renderHandleStub = sinon
+      .stub()
+      .returns(<div key={Math.round(Math.random() * 100)} />);
   });
 
   it('should propagate the proper props to the handle render function in slide', () => {
@@ -50,7 +38,9 @@ describe('handle rendering', () => {
   });
 
   it('should propagate the proper props to the handle render function in range', () => {
-    const rangeSlider = shallow(<RangeSlider renderHandle={renderHandleStub} />);
+    const rangeSlider = shallow(
+      <RangeSlider renderHandle={renderHandleStub} />
+    );
     expect(renderHandleStub).to.have.been.calledTwice;
 
     const callbackArgs = renderHandleStub.getCall(0).args;
@@ -77,12 +67,16 @@ describe('tooltip rendering', () => {
   });
 
   it('should call shouldShowTooltip when getting props', () => {
-    const slider = shallow(<Slider shouldShowTooltip={shouldShowTooltipStub} />);
+    const slider = shallow(
+      <Slider shouldShowTooltip={shouldShowTooltipStub} />
+    );
     expect(shouldShowTooltipStub).to.have.been.calledOnce;
   });
 
   it('should propagate the proper props to tooltip render function', () => {
-    const rangeSlider = shallow(<RangeSlider shouldShowTooltip={shouldShowTooltipStub} />);
+    const rangeSlider = shallow(
+      <RangeSlider shouldShowTooltip={shouldShowTooltipStub} />
+    );
     expect(shouldShowTooltipStub).to.have.been.calledOnce;
   });
 

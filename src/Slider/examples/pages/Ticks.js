@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React, { Component } from 'react';
 import Slider from '../../src/Slider';
 import RangeSlider from '../../src/RangeSlider';
@@ -19,9 +5,15 @@ import markup from '../../docs/ticks.md';
 import MarkdownPage from './MarkdownPage';
 
 const noTickLabels = <RangeSlider tickLabels={false} />;
-const tickStepExample = <RangeSlider tickStep={8} startValue={-7} endValue={17} />;
-const tickStepExample2 = <RangeSlider tickStep={8} startValue={0} endValue={68} />;
-const smallTickStepExample = <RangeSlider style={{ width: 500 }} tickStep={10} smallTickStep={5} />;
+const tickStepExample = (
+  <RangeSlider tickStep={8} startValue={-7} endValue={17} />
+);
+const tickStepExample2 = (
+  <RangeSlider tickStep={8} startValue={0} endValue={68} />
+);
+const smallTickStepExample = (
+  <RangeSlider style={{ width: 500 }} tickStep={10} smallTickStep={5} />
+);
 const customTicksExample = (
   <RangeSlider
     style={{ width: 500 }}
@@ -37,7 +29,10 @@ const customTicksExample = (
 
 const tickStyleExample = (
   <Slider
-    tickStyle={{ backgroundColor: 'lightgreen', boxShadow: '0 0 1px 1px rgba(0,255,0,.3)' }}
+    tickStyle={{
+      backgroundColor: 'lightgreen',
+      boxShadow: '0 0 1px 1px rgba(0,255,0,.3)'
+    }}
   />
 );
 const noTicksExample = <Slider tickBarPosition="none" />;
@@ -53,7 +48,10 @@ const customIcon = (
 const customLabelExample = (
   <Slider
     renderTickLabel={(domProps, { tickValue }) => (
-      <div {...domProps} style={{ width: 32, position: 'relative', marginLeft: -10 }}>
+      <div
+        {...domProps}
+        style={{ width: 32, position: 'relative', marginLeft: -10 }}
+      >
         {customIcon}
         <span
           style={{

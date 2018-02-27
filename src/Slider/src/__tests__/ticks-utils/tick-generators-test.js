@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import {
   generateTickValuesBySteps,
   generateLabeldTickSteps
@@ -19,15 +5,23 @@ import {
 
 describe('generateTickValuesBySteps logic', () => {
   it('should generate ticks based on tickStep', () => {
-    const tickStep = 5, startValue = -15, endValue = 15;
+    const tickStep = 5,
+      startValue = -15,
+      endValue = 15;
 
-    const tickValues = generateTickValuesBySteps({ tickStep, startValue, endValue });
+    const tickValues = generateTickValuesBySteps({
+      tickStep,
+      startValue,
+      endValue
+    });
 
     expect(tickValues).to.deep.equal([-15, -10, -5, 0, 5, 10, 15]);
   });
 
   it('should permit skipping edges', () => {
-    const tickStep = 5, startValue = -15, endValue = 15;
+    const tickStep = 5,
+      startValue = -15,
+      endValue = 15;
 
     const tickValues = generateTickValuesBySteps({
       tickStep,
@@ -40,7 +34,9 @@ describe('generateTickValuesBySteps logic', () => {
   });
 
   it('should permit reversed generation', () => {
-    const tickStep = 5, startValue = 15, endValue = -15;
+    const tickStep = 5,
+      startValue = 15,
+      endValue = -15;
 
     const tickValues = generateTickValuesBySteps({
       tickStep,
@@ -55,9 +51,19 @@ describe('generateTickValuesBySteps logic', () => {
 
 describe('generateLabeldTickSteps logic', () => {
   it('should call generateTickValuesBySteps for value generation', () => {
-    const tickStep = 5, smallTickStep = 1, startValue = -5, endValue = 5;
+    const tickStep = 5,
+      smallTickStep = 1,
+      startValue = -5,
+      endValue = 5;
     const tickValueStub = sinon.stub().returns([]);
-    const [first, second, third, forth, fifth, ...rest] = generateLabeldTickSteps({
+    const [
+      first,
+      second,
+      third,
+      forth,
+      fifth,
+      ...rest
+    ] = generateLabeldTickSteps({
       tickStep,
       smallTickStep,
       startValue,
@@ -66,13 +72,30 @@ describe('generateLabeldTickSteps logic', () => {
     });
 
     expect(tickValueStub).to.have.been.calledTwice;
-    expect(tickValueStub.getCall(0).args[0]).to.have.property('tickStep', tickStep);
-    expect(tickValueStub.getCall(1).args[0]).to.have.property('tickStep', smallTickStep);
+    expect(tickValueStub.getCall(0).args[0]).to.have.property(
+      'tickStep',
+      tickStep
+    );
+    expect(tickValueStub.getCall(1).args[0]).to.have.property(
+      'tickStep',
+      smallTickStep
+    );
   });
 
   it('should call generate both small and big ticks', () => {
-    const tickStep = 5, smallTickStep = 1, startValue = -5, endValue = 5;
-    const [first, second, third, forth, fifth, sixth, ...rest] = generateLabeldTickSteps({
+    const tickStep = 5,
+      smallTickStep = 1,
+      startValue = -5,
+      endValue = 5;
+    const [
+      first,
+      second,
+      third,
+      forth,
+      fifth,
+      sixth,
+      ...rest
+    ] = generateLabeldTickSteps({
       tickStep,
       smallTickStep,
       startValue,
@@ -88,7 +111,9 @@ describe('generateLabeldTickSteps logic', () => {
   });
 
   it('should generate proper big steps', () => {
-    const tickStep = 10, startValue = 0, endValue = 100;
+    const tickStep = 10,
+      startValue = 0,
+      endValue = 100;
     const result = generateLabeldTickSteps({
       tickStep,
       startValue,
