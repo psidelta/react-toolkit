@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import { mount } from 'enzyme';
 import Node from '../Node';
@@ -41,9 +27,19 @@ describe('path creation', () => {
 
   it('by default it uses index', () => {
     // first level
-    expect(wrapper.find(Node).first().prop('path')).to.equal('0');
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .prop('path')
+    ).to.equal('0');
     // second node
-    expect(wrapper.find(Node).at(1).prop('path')).to.equal('0/0');
+    expect(
+      wrapper
+        .find(Node)
+        .at(1)
+        .prop('path')
+    ).to.equal('0/0');
   });
 
   describe('pathProperty', () => {
@@ -51,24 +47,38 @@ describe('path creation', () => {
       it('constructs correct path', () => {
         wrapper.setProps({ pathProperty: 'pathId' });
         // first level
-        expect(wrapper.find(Node).first().prop('path')).to.equal('node_path_1');
+        expect(
+          wrapper
+            .find(Node)
+            .first()
+            .prop('path')
+        ).to.equal('node_path_1');
         // second node
-        expect(wrapper.find(Node).at(1).prop('path')).to.equal(
-          'node_path_1/node_path_2'
-        );
+        expect(
+          wrapper
+            .find(Node)
+            .at(1)
+            .prop('path')
+        ).to.equal('node_path_1/node_path_2');
       });
     });
     describe('as a function', () => {
       it('constructs the corrent path', () => {
         wrapper.setProps({ pathProperty: () => 'pathIdFn' });
         // first level
-        expect(wrapper.find(Node).first().prop('path')).to.equal(
-          'node_fn_path_1'
-        );
+        expect(
+          wrapper
+            .find(Node)
+            .first()
+            .prop('path')
+        ).to.equal('node_fn_path_1');
         // second node
-        expect(wrapper.find(Node).at(1).prop('path')).to.equal(
-          'node_fn_path_1/node_fn_path_2'
-        );
+        expect(
+          wrapper
+            .find(Node)
+            .at(1)
+            .prop('path')
+        ).to.equal('node_fn_path_1/node_fn_path_2');
       });
     });
   });
@@ -79,17 +89,37 @@ describe('path creation', () => {
         wrapper.setProps({ pathProperty: 'pathId' });
         wrapper.setProps({ idProperty: 'id' });
         // first level
-        expect(wrapper.find(Node).first().prop('path')).to.equal('node_1');
+        expect(
+          wrapper
+            .find(Node)
+            .first()
+            .prop('path')
+        ).to.equal('node_1');
         // second node
-        expect(wrapper.find(Node).at(1).prop('path')).to.equal('node_2');
+        expect(
+          wrapper
+            .find(Node)
+            .at(1)
+            .prop('path')
+        ).to.equal('node_2');
       });
     });
     describe('it is a function', () => {
       it('constructs correct path', () => {
         wrapper.setProps({ idProperty: () => 'idFn' });
-        expect(wrapper.find(Node).first().prop('path')).to.equal('node_fn_1');
+        expect(
+          wrapper
+            .find(Node)
+            .first()
+            .prop('path')
+        ).to.equal('node_fn_1');
         // second node
-        expect(wrapper.find(Node).at(1).prop('path')).to.equal('node_fn_2');
+        expect(
+          wrapper
+            .find(Node)
+            .at(1)
+            .prop('path')
+        ).to.equal('node_fn_2');
       });
     });
   });

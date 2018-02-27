@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import TreeView from '../TreeView';
 import Node from '../Node';
@@ -49,7 +35,12 @@ describe('selection props', () => {
         <TreeView selected={{ 0: true }} dataSource={NESTED_DATA_STRUCTURE} />
       );
 
-      expect(wrapper.find(Node).first().props().selected).to.be.falsey;
+      expect(
+        wrapper
+          .find(Node)
+          .first()
+          .props().selected
+      ).to.be.falsey;
     });
   });
 
@@ -58,8 +49,14 @@ describe('selection props', () => {
       const wrapper = mount(
         <TreeView enableSelection dataSource={NESTED_DATA_STRUCTURE} />
       );
-      wrapper.find(Node).get(0).onLabelClick({ stopPropagation: () => {} });
-      wrapper.find(Node).get(1).onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).to.deep.equal({
         '0': true,
         '1': true
@@ -85,7 +82,10 @@ describe('selection props', () => {
         <TreeView selected={{ '0': true }} dataSource={NESTED_DATA_STRUCTURE} />
       );
       const initialState = wrapper.state().selected;
-      wrapper.find(Node).get(1).onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).to.be.deep.equal(initialState);
     });
 
@@ -116,7 +116,10 @@ describe('selection props', () => {
         />
       );
 
-      wrapper.find(Node).get(1).onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).to.deep.equal({
         '1': true
       });
@@ -133,7 +136,10 @@ describe('selection props', () => {
         />
       );
 
-      wrapper.find(Node).get(0).onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
 
       expect(onSelectionChange.called).to.be.false;
     });
@@ -148,7 +154,10 @@ describe('selection props', () => {
         />
       );
 
-      wrapper.find(Node).get(0).onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
       expect(onSelectionChange.called).to.be.true;
     });
 
@@ -162,8 +171,14 @@ describe('selection props', () => {
         />
       );
       wrapper.setProps({ enableSelection: true, onSelectionChange });
-      wrapper.find(Node).get(0).onLabelClick({ stopPropagation: () => {} });
-      wrapper.find(Node).get(1).onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
 
       const test = onSelectionChange.args[1][0];
 
@@ -179,13 +194,11 @@ describe('selection props', () => {
       it('should update correctly dataSource', () => {
         let newDataSource;
         const onSelectionChange = ({ getUpdatedDataSource }) => {
-          newDataSource = getUpdatedDataSource(({
-            node,
-            nodeProps,
-            selected
-          }) => {
-            node.customPropertyInjecter = true;
-          });
+          newDataSource = getUpdatedDataSource(
+            ({ node, nodeProps, selected }) => {
+              node.customPropertyInjecter = true;
+            }
+          );
         };
         const wrapper = mount(
           <TreeView
@@ -195,7 +208,10 @@ describe('selection props', () => {
           />
         );
 
-        wrapper.find(Node).get(0).onLabelClick({ stopPropagation: () => {} });
+        wrapper
+          .find(Node)
+          .get(0)
+          .onLabelClick({ stopPropagation: () => {} });
 
         expect(newDataSource).to.be.ok;
         expect(wrapper.state().data).to.not.equal(newDataSource);
@@ -251,7 +267,10 @@ describe('selection props', () => {
         />
       );
 
-      wrapper.find(Node).get(0).onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
       expect(onSelectionChange.args[0][0].selectedMap).to.be.deep.equal({
         0: true
       });

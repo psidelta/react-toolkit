@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import TreeView from '../TreeView';
 import Node from '../Node';
@@ -29,9 +15,12 @@ describe('async nodes', () => {
       />
     );
 
-    wrapper.find(Node).get(0).onExpanderClick({
-      stopPropagation: () => {}
-    });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({
+        stopPropagation: () => {}
+      });
     expect(loadNode.called).to.be.true;
   });
 
@@ -56,9 +45,12 @@ describe('async nodes', () => {
       />
     );
 
-    wrapper.find(Node).get(0).onExpanderClick({
-      stopPropagation: () => {}
-    });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({
+        stopPropagation: () => {}
+      });
 
     expect(wrapper.state().data[0].nodes).to.deep.equal(asyncNodes);
   });
@@ -88,9 +80,12 @@ describe('async nodes', () => {
       />
     );
 
-    wrapper.find(Node).get(0).onExpanderClick({
-      stopPropagation: () => {}
-    });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({
+        stopPropagation: () => {}
+      });
 
     setTimeout(() => {
       const test = wrapper.state().data[0].nodes;
@@ -126,12 +121,20 @@ describe('async nodes', () => {
       />
     );
 
-    wrapper.find(Node).get(0).onExpanderClick({
-      stopPropagation: () => {}
-    });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({
+        stopPropagation: () => {}
+      });
 
     expect(wrapper.state().nodesLoading['0']).to.be.true;
-    expect(wrapper.find(Node).first().props().loading).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().loading
+    ).to.be.true;
 
     setTimeout(() => {
       expect(wrapper.state().nodesLoading['0']).to.be.false;
@@ -157,9 +160,18 @@ describe('async nodes', () => {
 
       // it is called every time because
       // collapsed is controlled and it doesn't really change state
-      wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
-      wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
-      wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onExpanderClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onExpanderClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onExpanderClick({ stopPropagation: () => {} });
 
       expect(loadNode.calledThrice).to.be.true;
     });
@@ -183,9 +195,18 @@ describe('async nodes', () => {
 
     // it is called every time because
     // collapsed is controlled and it doesn't really change state
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
 
     expect(loadNodeOnce.calledOnce).to.be.true;
   });
@@ -211,13 +232,22 @@ describe('async nodes', () => {
 
     // it is called every time because
     // collapsed is controlled and it doesn't really change state
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
 
     expect(loadNode.called).to.be.false;
     expect(loadNodeOnce.called).to.be.true;
 
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
 
     expect(loadNode.calledTwice).to.be.true;
     expect(loadNodeOnce.calledOnce).to.be.true;
@@ -246,7 +276,10 @@ describe('async nodes', () => {
       />
     );
 
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
     expect(wrapper.state().nodesLoading[0]).to.be.true;
     setTimeout(() => {
       expect(wrapper.state().nodesLoading[0]).to.be.false;
@@ -282,7 +315,10 @@ describe('async nodes', () => {
       />
     );
 
-    wrapper.find(Node).get(0).onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
 
     expect(onNodeLoad.called).to.be.false;
     setTimeout(() => {
@@ -328,7 +364,12 @@ describe('async nodes', () => {
       />
     );
 
-    expect(wrapper.find(Node).first().props().async).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().async
+    ).to.be.true;
   });
 
   it('should have on props what isNodeAsync returns and should overwrite node.async', () => {
@@ -340,7 +381,12 @@ describe('async nodes', () => {
       />
     );
 
-    expect(wrapper.find(Node).first().props().async).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().async
+    ).to.be.true;
   });
 
   it('should consider a node to have children if the node is async', () => {
@@ -352,7 +398,12 @@ describe('async nodes', () => {
       />
     );
 
-    expect(wrapper.find(Node).first().props().hasChildren).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().hasChildren
+    ).to.be.true;
   });
 
   it('should call loadNode/loadNodeOnce only on node that is async', () => {
@@ -389,8 +440,18 @@ describe('async nodes', () => {
       />
     );
 
-    expect(wrapper.find(Node).first().props().async).to.be.true;
-    expect(wrapper.find(Node).at(1).props().async).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().async
+    ).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .at(1)
+        .props().async
+    ).to.be.true;
   });
 
   it('should conside node async only if node.nodes === null when loadNodeOnce is specified and loadNode is not', () => {
@@ -414,7 +475,17 @@ describe('async nodes', () => {
       />
     );
 
-    expect(wrapper.find(Node).first().props().async).to.be.falsey;
-    expect(wrapper.find(Node).at(1).props().async).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().async
+    ).to.be.falsey;
+    expect(
+      wrapper
+        .find(Node)
+        .at(1)
+        .props().async
+    ).to.be.true;
   });
 });

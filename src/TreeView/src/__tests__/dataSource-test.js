@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import TreeView from '../TreeView';
 import { shallow } from 'enzyme';
@@ -35,12 +21,9 @@ describe('dataSource', () => {
 
     it('should have loading true', () => {
       const dataPromise = new Promise(resolve => {
-        setTimeout(
-          () => {
-            resolve(data);
-          },
-          20
-        );
+        setTimeout(() => {
+          resolve(data);
+        }, 20);
       });
       const wrapper = shallow(<TreeView dataSource={dataPromise} />);
 
@@ -49,23 +32,17 @@ describe('dataSource', () => {
 
     it('should have loading false and data after 50ms', done => {
       const dataPromise = new Promise(resolve => {
-        setTimeout(
-          () => {
-            resolve(data);
-          },
-          100
-        );
+        setTimeout(() => {
+          resolve(data);
+        }, 100);
       });
       const wrapper = shallow(<TreeView dataSource={dataPromise} />);
 
-      setTimeout(
-        () => {
-          expect(wrapper.state('loading')).to.be.false;
-          expect(wrapper.state('data')).to.equal(data);
-          done();
-        },
-        110
-      );
+      setTimeout(() => {
+        expect(wrapper.state('loading')).to.be.false;
+        expect(wrapper.state('data')).to.equal(data);
+        done();
+      }, 110);
     });
   });
 
@@ -88,12 +65,9 @@ describe('dataSource', () => {
       const onDataSourceLoad = sinon.spy();
       const data = [{ label: 'promised item' }];
       const dataPromise = new Promise(resolve => {
-        setTimeout(
-          () => {
-            resolve(data);
-          },
-          50
-        );
+        setTimeout(() => {
+          resolve(data);
+        }, 50);
       });
       const wrapper = shallow(
         <TreeView
@@ -102,13 +76,10 @@ describe('dataSource', () => {
         />
       );
       expect(onDataSourceLoad.called).to.be.false;
-      setTimeout(
-        () => {
-          expect(onDataSourceLoad.called).to.be.true;
-          done();
-        },
-        50
-      );
+      setTimeout(() => {
+        expect(onDataSourceLoad.called).to.be.true;
+        done();
+      }, 50);
     });
   });
 

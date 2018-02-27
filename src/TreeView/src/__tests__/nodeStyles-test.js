@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React from 'react';
 import TreeView from '../TreeView';
 import Node from '../Node';
@@ -32,7 +18,10 @@ describe('nodeStyles', () => {
           nodeStyle={{ color: 'global color', background: 'global background' }}
         />
       );
-      const test = wrapper.find(Node).first().props().domProps.style;
+      const test = wrapper
+        .find(Node)
+        .first()
+        .props().domProps.style;
       expect(test).to.deep.equal({
         color: 'node color',
         background: 'global background'
@@ -55,7 +44,10 @@ describe('nodeStyles', () => {
           })}
         />
       );
-      const test = wrapper.find(Node).first().props().domProps.style;
+      const test = wrapper
+        .find(Node)
+        .first()
+        .props().domProps.style;
       expect(test).to.deep.equal({
         color: 'node color',
         background: 'global background'
@@ -78,10 +70,10 @@ describe('nodeStyles', () => {
       expect(globalStyle.called).to.be.true;
       expect(nodeStyle.called).to.be.true;
 
-      const {
-        index,
-        path
-      } = wrapper.find(Node).first().props();
+      const { index, path } = wrapper
+        .find(Node)
+        .first()
+        .props();
 
       expect(globalStyle.args[0][0].path).to.equal(path);
       expect(globalStyle.args[0][0].index).to.equal(index);
@@ -108,7 +100,10 @@ describe('nodeStyles', () => {
           }}
         />
       );
-      const test = wrapper.find(Node).first().props().labelStyle;
+      const test = wrapper
+        .find(Node)
+        .first()
+        .props().labelStyle;
       expect(test).to.deep.equal({
         color: 'node color',
         background: 'global background'
@@ -131,7 +126,10 @@ describe('nodeStyles', () => {
           })}
         />
       );
-      const test = wrapper.find(Node).first().props().labelStyle;
+      const test = wrapper
+        .find(Node)
+        .first()
+        .props().labelStyle;
       expect(test).to.deep.equal({
         color: 'node color',
         background: 'global background'
@@ -154,10 +152,10 @@ describe('nodeStyles', () => {
       expect(globalStyle.called).to.be.true;
       expect(nodeStyle.called).to.be.true;
 
-      const {
-        index,
-        path
-      } = wrapper.find(Node).first().props();
+      const { index, path } = wrapper
+        .find(Node)
+        .first()
+        .props();
 
       expect(globalStyle.args[0][0].path).to.equal(path);
       expect(globalStyle.args[0][0].index).to.equal(index);
@@ -186,7 +184,10 @@ describe('nodeStyles', () => {
           }}
         />
       );
-      const test = wrapper.find(Node).first().props().contentStyle;
+      const test = wrapper
+        .find(Node)
+        .first()
+        .props().contentStyle;
       expect(test).to.deep.equal({
         color: 'node color',
         background: 'global background',
@@ -212,7 +213,10 @@ describe('nodeStyles', () => {
           })}
         />
       );
-      const test = wrapper.find(Node).first().props().contentStyle;
+      const test = wrapper
+        .find(Node)
+        .first()
+        .props().contentStyle;
       expect(test).to.deep.equal({
         color: 'node color',
         background: 'global background',
@@ -241,10 +245,10 @@ describe('nodeStyles', () => {
       expect(globalStyle.called).to.be.true;
       expect(nodeStyle.called).to.be.true;
 
-      const {
-        index,
-        path
-      } = wrapper.find(Node).first().props();
+      const { index, path } = wrapper
+        .find(Node)
+        .first()
+        .props();
 
       expect(globalStyle.args[0][0].path).to.equal(path);
       expect(globalStyle.args[0][0].index).to.equal(index);
