@@ -1,24 +1,12 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 $stroke: 15px;
-@import './variables';
+@import './variables.scss';
 
 .#{$ZIPPY_PROGRESS_BAR_ROOT_CLASS} {
   box-sizing: content-box;
 
-  *, *:before, *:after {
+  *,
+  *:before,
+  *:after {
     box-sizing: border-box;
   }
 
@@ -28,7 +16,7 @@ $stroke: 15px;
   font-size: 14px;
   font-weight: 500;
   border-radius: 3px;
-  border: 1px solid #DEDEDE;
+  border: 1px solid #dedede;
 
   &__barsWrapper {
     display: flex;
@@ -60,7 +48,6 @@ $stroke: 15px;
   }
 }
 
-
 // label position
 @import './base-label-position.scss';
 
@@ -71,4 +58,4 @@ $stroke: 15px;
 @import './base-ticks.scss';
 
 // ideterminate
-@import './base-indeterminate.scss'
+@import './base-indeterminate.scss';
