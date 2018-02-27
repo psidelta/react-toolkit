@@ -630,6 +630,7 @@ ZippyTabPanel.propTypes = {
   enableKeyboardNavigation: PropTypes.bool,
   initialStrategy: PropTypes.string,
   onActivate: PropTypes.func,
+  onCloseTab: PropTypes.func,
   renderContent: PropTypes.func,
   rootClassName: PropTypes.string,
   tabAlign: PropTypes.string,
@@ -672,6 +673,7 @@ ZippyTabPanel.defaultProps = {
   theme: 'default',
   tabAlign: 'start',
   onActivate: () => {},
+  onCloseTab: () => {},
   onFocusedIndexChange: () => {},
   strategy: 'one',
   activateOnFocus: false
