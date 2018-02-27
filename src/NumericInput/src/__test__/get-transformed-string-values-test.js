@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import getTransformedStringValues from '../utils/get-transformed-string-values';
 
 describe('getTransformedStringValues utils function', () => {
@@ -150,24 +136,24 @@ describe('getTransformedStringValues utils function', () => {
   describe('working with precision (inputString, precision) -> [outputStirng, outputNumber]', () => {
     it('(1,000.0002, 3) -> [1000.000, 1000]', () => {
       const number = '1,000.0002';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 3
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 3
+        }
+      );
       expect(formattedValue).to.equal('1,000.000');
       expect(numericValue).to.equal(1000);
     });
 
     it('(1,000.0032, 3) -> [1000.003, 1000.003]', () => {
       const number = '1,000.0032';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 3
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 3
+        }
+      );
       expect(formattedValue, `${formattedValue}->1,000.003?`).to.equal(
         '1,000.003'
       );
@@ -176,53 +162,53 @@ describe('getTransformedStringValues utils function', () => {
 
     it('(1,000.0032, 6) -> [1,000.003200, 1000.003200]', () => {
       const number = '1,000.0032';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 6
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 6
+        }
+      );
       expect(formattedValue).to.equal('1,000.003200');
-      expect(numericValue).to.equal(1000.003200);
+      expect(numericValue).to.equal(1000.0032);
     });
 
     it('(1.) -> [1.000, 1.000]', () => {
       const number = '1.';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 3
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 3
+        }
+      );
       expect(formattedValue).to.equal('1.000');
-      expect(numericValue).to.equal(1.000);
+      expect(numericValue).to.equal(1.0);
     });
   });
 
   describe('working with min/max input, min, max, [precision -> output, outpun number]', () => {
     it('(-1000.53, -500, 5000, 6) -> [-500.000000, -500]', () => {
       const number = '-1000.53';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 6,
-        min: -500,
-        max: 5000
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 6,
+          min: -500,
+          max: 5000
+        }
+      );
       expect(formattedValue).to.equal('-500.000000');
       expect(numericValue).to.equal(-500);
     });
     it('(5000.53, -500, 5000, 6) -> [-500.000000, -500]', () => {
       const number = '5000.53';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 6,
-        min: -500,
-        max: 5000
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 6,
+          min: -500,
+          max: 5000
+        }
+      );
       expect(formattedValue).to.equal('5,000.000000');
       expect(numericValue).to.equal(5000);
     });
