@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import assign from 'object-assign';
 
 /**
@@ -114,7 +100,7 @@ function GET_HANDLE_STYLES(config) {
         ? config.tr.outside
         : outside)
         ? -halfWidth
-        : (-HANDLE_COORDINATES.tr.x) * width,
+        : -HANDLE_COORDINATES.tr.x * width,
       width: width,
       height: width,
       cursor: 'ne-resize'
@@ -143,7 +129,7 @@ function GET_HANDLE_STYLES(config) {
         ? config.bl.outside
         : outside)
         ? -halfWidth
-        : (-HANDLE_COORDINATES.bl.y) * width,
+        : -HANDLE_COORDINATES.bl.y * width,
       left: !(config.b && config.bl.outside !== undefined
         ? config.bl.outside
         : outside)
@@ -158,12 +144,12 @@ function GET_HANDLE_STYLES(config) {
         ? config.b.outside
         : outside)
         ? -halfWidth
-        : (-HANDLE_COORDINATES.b.y) * width,
+        : -HANDLE_COORDINATES.b.y * width,
       left: !(config.b && config.b.outside !== undefined
         ? config.b.outside
         : outside)
         ? halfWidth
-        : (-HANDLE_COORDINATES.b.x) * width,
+        : -HANDLE_COORDINATES.b.x * width,
       height: width,
       right: !(config.b && config.b.outside !== undefined
         ? config.b.outside
@@ -177,12 +163,12 @@ function GET_HANDLE_STYLES(config) {
         ? config.br.outside
         : outside)
         ? -halfWidth
-        : (-HANDLE_COORDINATES.br.y) * width,
+        : -HANDLE_COORDINATES.br.y * width,
       right: !(config.b && config.br.outside !== undefined
         ? config.br.outside
         : outside)
         ? -halfWidth
-        : (-HANDLE_COORDINATES.br.x) * width,
+        : -HANDLE_COORDINATES.br.x * width,
       width: width,
       height: width,
       cursor: 'se-resize'
@@ -192,12 +178,12 @@ function GET_HANDLE_STYLES(config) {
         ? config.r.outside
         : outside)
         ? halfWidth
-        : (-HANDLE_COORDINATES.r.y) * width,
+        : -HANDLE_COORDINATES.r.y * width,
       right: !(config.r && config.r.outside !== undefined
         ? config.r.outside
         : outside)
         ? -halfWidth
-        : (-HANDLE_COORDINATES.r.x) * width,
+        : -HANDLE_COORDINATES.r.x * width,
       bottom: !(config.r && config.r.outside !== undefined
         ? config.r.outside
         : outside)
