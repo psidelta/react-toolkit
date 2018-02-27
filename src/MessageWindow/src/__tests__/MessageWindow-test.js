@@ -14,7 +14,10 @@ describe('MessageWindow', () => {
     it('calls onDismiss on okButton click', () => {
       const onDismiss = sinon.spy();
       wrapper.setProps({ onDismiss, type: 'info', dismissOnButtonClick: true });
-      wrapper.find(OkButton).first().simulate('click');
+      wrapper
+        .find(OkButton)
+        .first()
+        .simulate('click');
       expect(onDismiss.called).to.be.true;
     });
     it('calls onDismiss on yesButton click', () => {
@@ -24,7 +27,10 @@ describe('MessageWindow', () => {
         type: 'question',
         dismissOnButtonClick: true
       });
-      wrapper.find(YesButton).first().simulate('click');
+      wrapper
+        .find(YesButton)
+        .first()
+        .simulate('click');
       expect(onDismiss.called).to.be.true;
     });
     it('calls onDismiss on noButton click', () => {
@@ -34,7 +40,10 @@ describe('MessageWindow', () => {
         type: 'question',
         dismissOnButtonClick: true
       });
-      wrapper.find(NoButton).first().simulate('click');
+      wrapper
+        .find(NoButton)
+        .first()
+        .simulate('click');
       expect(onDismiss.called).to.be.true;
     });
     it('calls onDismiss on cancelButton click', () => {
@@ -44,7 +53,10 @@ describe('MessageWindow', () => {
         type: 'yesNoCancel',
         dismissOnButtonClick: true
       });
-      wrapper.find(CancelButton).first().simulate('click');
+      wrapper
+        .find(CancelButton)
+        .first()
+        .simulate('click');
       expect(onDismiss.called).to.be.true;
     });
   });
