@@ -29,12 +29,22 @@ class EditorsExample extends Component {
       numericInputValue: '2345',
       maskedInputValue: '345',
       dateInputValue: '12-12-2017',
-      comboValue: 'Albania'
+      comboValue: 'Albania',
+      acceptClearToolFocus: false
     };
   }
   render() {
     return (
       <div style={{ margin: 30 }}>
+        <div style={{ marginBottom: 20 }}>
+          <input
+            type="checkbox"
+            checked={this.state.acceptClearToolFocus}
+            onChange={ev =>
+              this.setState({ acceptClearToolFocus: ev.target.checked })
+            }
+          />acceptClearToolFocus
+        </div>
         <table>
           <tbody>
             <tr>
@@ -44,6 +54,7 @@ class EditorsExample extends Component {
                   style={{ width: 230 }}
                   value={this.state.textInputValue}
                   onChange={textInputValue => this.setState({ textInputValue })}
+                  acceptClearToolFocus={this.state.acceptClearToolFocus}
                 />
               </td>
             </tr>
@@ -66,6 +77,7 @@ class EditorsExample extends Component {
                   onChange={numericInputValue =>
                     this.setState({ numericInputValue })
                   }
+                  acceptClearToolFocus={this.state.acceptClearToolFocus}
                 />
               </td>
             </tr>
@@ -79,6 +91,7 @@ class EditorsExample extends Component {
                   onChange={maskedInputValue =>
                     this.setState({ maskedInputValue })
                   }
+                  acceptClearToolFocus={this.state.acceptClearToolFocus}
                 />
               </td>
             </tr>

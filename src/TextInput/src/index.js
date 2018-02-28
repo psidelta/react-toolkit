@@ -200,6 +200,7 @@ class TextInput extends Component {
     } = config;
 
     const svgProps = {};
+    const tabIndex = this.props.acceptClearToolFocus ? 0 : -1;
 
     if (clearButtonColor) {
       svgProps.fill = clearButtonColor;
@@ -222,6 +223,7 @@ class TextInput extends Component {
         onMouseDown={preventDefault}
         className={clearButtonClassName}
         style={{ ...clearButtonStyle }}
+        tabIndex={tabIndex}
       >
         <svg style={{ ...svgProps }} viewBox="4 4 16 16">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
@@ -265,7 +267,8 @@ TextInput.defaultProps = {
   rootClassName: 'zippy-react-toolkit-text-input',
   enableClearButton: true,
   clearButtonSize: 10,
-  stopChangePropagation: true
+  stopChangePropagation: true,
+  acceptClearToolFocus: false
 };
 
 TextInput.propTypes = {
@@ -283,6 +286,7 @@ TextInput.propTypes = {
   hidden: PropTypes.bool,
   stopChangePropagation: PropTypes.bool,
   enableClearButton: PropTypes.bool,
+  acceptClearToolFocus: PropTypes.bool,
   rtl: PropTypes.bool,
   rootClassName: PropTypes.string,
   //clearButton style

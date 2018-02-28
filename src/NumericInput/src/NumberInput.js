@@ -384,6 +384,7 @@ class ZippyNumericInput extends Component {
     } = config;
 
     const svgProps = {};
+    const tabIndex = this.props.acceptClearToolFocus ? 0 : -1;
 
     if (clearButtonColor) {
       svgProps.fill = clearButtonColor;
@@ -406,6 +407,7 @@ class ZippyNumericInput extends Component {
         onMouseDown={preventDefault}
         className={clearButtonClassName}
         style={{ ...clearButtonStyle }}
+        tabIndex={tabIndex}
       >
         <svg style={{ ...svgProps }} viewBox="4 4 16 16">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
@@ -1204,6 +1206,7 @@ ZippyNumericInput.defaultProps = {
   currencyPosition: 'end',
   enableSpinnerTools: true,
   enableClearButton: true,
+  acceptClearToolFocus: false,
   allowEmpty: true,
   toolPosition: 'end',
   arrowSize: 10,
@@ -1254,6 +1257,8 @@ ZippyNumericInput.propTypes = {
   wrapperProps: PropTypes.object,
 
   disabled: PropTypes.bool,
+
+  acceptClearToolFocus: PropTypes.bool,
 
   //clearButton style
   clearButtonSize: PropTypes.number,
