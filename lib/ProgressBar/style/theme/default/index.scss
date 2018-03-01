@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-@import './variables';
+@import './variables.scss';
 
 .#{$ZIPPY_PROGRESS_BAR_ROOT_CLASS}.#{$ZIPPY_PROGRESS_BAR_ROOT_CLASS}--theme-#{$ZIPPY_PROGRESS_BAR_THEME_NAME} {
 }

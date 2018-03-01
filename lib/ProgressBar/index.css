@@ -1,42 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 .zippy-react-toolkit-progress-bar {
   box-sizing: content-box;
   position: relative;
@@ -44,8 +5,10 @@
   font-size: 14px;
   font-weight: 500;
   border-radius: 3px;
-  border: 1px solid #DEDEDE; }
-  .zippy-react-toolkit-progress-bar *, .zippy-react-toolkit-progress-bar *:before, .zippy-react-toolkit-progress-bar *:after {
+  border: 1px solid #dedede; }
+  .zippy-react-toolkit-progress-bar *,
+  .zippy-react-toolkit-progress-bar *:before,
+  .zippy-react-toolkit-progress-bar *:after {
     box-sizing: border-box; }
   .zippy-react-toolkit-progress-bar__barsWrapper {
     display: flex; }
@@ -64,19 +27,6 @@
   .zippy-react-toolkit-progress-bar--transition .zippy-react-toolkit-progress-bar__remaining {
     transition: width 150ms ease; }
 
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 .zippy-react-toolkit-progress-bar--horizontal {
   height: 15px; }
   .zippy-react-toolkit-progress-bar--horizontal .zippy-react-toolkit-progress-bar__barsWrapper {
@@ -249,19 +199,6 @@
   .zippy-react-toolkit-progress-bar--vertical.zippy-react-toolkit-progress-bar--labelPosition-remainingStart.zippy-react-toolkit-progress-bar--reverse.zippy-react-toolkit-progress-bar--labelOverflow .zippy-react-toolkit-progress-bar__remaining-label-wrapper {
     align-items: flex-end; }
 
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 .zippy-react-toolkit-progress-bar__steps {
   position: absolute;
   z-index: 2;
@@ -281,19 +218,6 @@
   left: 0;
   right: 0; }
 
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 .zippy-react-toolkit-progress-bar__ticks {
   position: absolute;
   z-index: 2;
@@ -304,7 +228,7 @@
 
 .zippy-react-toolkit-progress-bar__tick {
   position: absolute;
-  background: #6D6D6D; }
+  background: #6d6d6d; }
 
 .zippy-react-toolkit-progress-bar--horizontal .zippy-react-toolkit-progress-bar__tick {
   top: 0;
@@ -316,19 +240,6 @@
   left: 0;
   right: 0; }
 
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /* Progress Bar */
 .zippy-react-toolkit-progress-bar__indeterminate {
   overflow: hidden;
@@ -341,14 +252,16 @@
     position: absolute;
     background-color: #26a69a; }
 
-.zippy-react-toolkit-progress-bar--horizontal .zippy-react-toolkit-progress-bar__indeterminate__bar {
+.zippy-react-toolkit-progress-bar--horizontal
+.zippy-react-toolkit-progress-bar__indeterminate__bar {
   top: 0;
   left: 0;
   bottom: 0;
   will-change: left, right;
   animation: indeterminateHorizontal 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
 
-.zippy-react-toolkit-progress-bar--vertical .zippy-react-toolkit-progress-bar__indeterminate__bar {
+.zippy-react-toolkit-progress-bar--vertical
+.zippy-react-toolkit-progress-bar__indeterminate__bar {
   width: 100%;
   will-change: top, bottom;
   animation: indeterminateVertical 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
@@ -375,19 +288,6 @@
     top: 100%;
     bottom: -90%; } }
 
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 /**
  * Copyright 2015-present Zippy Technologies
  *

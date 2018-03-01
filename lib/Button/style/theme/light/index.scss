@@ -1,10 +1,5 @@
-/**
- * Copyright 2015-present, Zippy Technologies.
- * All rights reserved.
- */
-
 $ZIPPY_BUTTON_THEME_NAME: 'light';
 
-@import '../../variables';
-@import './variables';
+@import '../../variables.scss';
+@import './variables.scss';
 @import '../default/index.scss';
