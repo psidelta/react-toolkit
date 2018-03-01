@@ -22,7 +22,7 @@ import '../style/theme/default/index.scss';
 // import '../style/theme/blue/index.scss';
 // import '../style/theme/flat/index.scss';
 
-import './index.css';
+// import './index.css';
 
 import { home, features, about, signup } from './tabContent';
 
@@ -173,6 +173,7 @@ class App extends Component {
             }}
             // defaultActiveIndex={2}
             enableKeyboardNavigation
+            tabActiveStyle={{ background: '#c9c9da', color: '#f75353' }}
             stretchTabContent
             tabAlign={this.state.tabAlign}
             tabPosition={this.state.tabPosition}

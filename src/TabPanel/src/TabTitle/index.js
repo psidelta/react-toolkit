@@ -283,11 +283,7 @@ export default class TabTitle extends Component {
             height = Math.max(height || 0, hiddenSize.width || 0);
 
             return [
-              <div
-                key="inner"
-                {...innerProps}
-                style={{ ...innerStyle, width: height }}
-              />,
+              <div {...innerProps} style={{ ...innerStyle, width: height }} />,
               verticalFix
             ];
           }}
@@ -359,7 +355,7 @@ TabTitle.propTypes = {
   focused: PropTypes.bool,
 
   tabStyle: PropTypes.string,
-  tabActiveStyle: PropTypes.string,
+  tabActiveStyle: PropTypes.object,
   tabDisabledStyle: PropTypes.string,
   rootClassName: PropTypes.string,
 
