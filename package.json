@@ -2,14 +2,15 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "0.1.135",
+  "version": "0.1.136",
   "private": true,
   "publishConfig": {
     "registry": "https://registry.zippytech.io"
   },
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --config ./build/dev.config.js",
+    "dev":
+      "webpack-dev-server --progress --colors --config ./build/dev.config.js",
     "test": "npm run test:all",
     "test:watch": "karma start ./karma.conf.js",
     "test:single-run": "karma start ./karma.conf.js --single-run",
@@ -21,7 +22,8 @@
     "lib:js": "node ./scripts/lib-js.js",
     "lib:themes": "node ./scripts/lib-themes",
     "lint": "eslint src/**/*.js",
-    "build": "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
+    "build":
+      "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
     "build:package": "node ./scripts/buildGlobalPackageJSON.js"
   },
   "devDependencies": {
