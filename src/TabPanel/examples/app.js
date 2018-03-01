@@ -18,9 +18,9 @@ import 'typeface-roboto';
 
 import '../style/base.scss';
 import '../style/theme/default/index.scss';
-import '../style/theme/red/index.scss';
-import '../style/theme/blue/index.scss';
-import '../style/theme/flat/index.scss';
+// import '../style/theme/red/index.scss';
+// import '../style/theme/blue/index.scss';
+// import '../style/theme/flat/index.scss';
 
 import './index.css';
 
@@ -201,7 +201,7 @@ class App extends Component {
                 {about}
               </div>
               <div tabTitle="Sign up">{signup}</div>
-              {[...Array(20)].map((_, i) => i).map(i => (
+              {[...Array(2)].map((_, i) => i).map(i => (
                 <div tabTitle={`tab ${i}`} key={i}>
                   tab content {i}
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import Component from '@zippytech/react-class';
@@ -103,15 +103,19 @@ export default class TabTitle extends Component {
   }
 
   prepareChildren(props) {
-    const title =
+    let title =
       (props.tabTitle !== undefined ? props.tabTitle : props.children) ||
       '\u00a0';
 
-    if (props.closeable) {
-      return [title, this.renderCloseIcon()];
+    if (typeof title == 'string') {
+      title = <span>{title}</span>;
     }
 
-    return title;
+    if (props.closeable) {
+      return [cloneElement(title, { key: 'title' }), this.renderCloseIcon()];
+    }
+
+    return cloneElement(title, { key: 'title' });
   }
 
   renderCloseIcon() {
