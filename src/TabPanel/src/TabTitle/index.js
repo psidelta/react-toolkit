@@ -112,7 +112,14 @@ export default class TabTitle extends Component {
     }
 
     if (props.closeable) {
+      if (Array.isArray(title)) {
+        return [title, this.renderCloseIcon()];
+      }
       return [cloneElement(title, { key: 'title' }), this.renderCloseIcon()];
+    }
+
+    if (Array.isArray(title)) {
+      return title;
     }
 
     return cloneElement(title, { key: 'title' });

@@ -218,7 +218,7 @@ class App extends Component {
           </Accordion>
           <TabStrip
             tabs={[
-              { title: <div className="tab-strip">{icon} Home</div> },
+              { title: [<div className="tab-strip">{icon} Home</div>] },
               { title: <div className="tab-strip">Features</div> },
               { title: <div className="tab-strip">About us</div> },
               { title: <div className="tab-strip">Sign up</div> }
