@@ -23,7 +23,7 @@ describe('checked', () => {
 
   describe('onCheckedChange', () => {
     it('is called when checked changes', () => {
-      const onCheckedChange = sinon.spy();
+      const onCheckedChange = jest.fn();
       const wrapper = mount(
         <Node enableChecked debug onCheckedChange={onCheckedChange} />
       );
@@ -34,7 +34,7 @@ describe('checked', () => {
         }
       });
 
-      expect(onCheckedChange.called).toBe(true);
+      expect(onCheckedChange).toHaveBeenCalledTimes(1);
     });
   });
 });

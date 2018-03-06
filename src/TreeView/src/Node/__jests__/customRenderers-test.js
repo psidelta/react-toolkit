@@ -15,9 +15,9 @@ describe('custom renderers', () => {
     });
 
     it('should call renderLabel', () => {
-      const renderLabel = sinon.spy();
+      const renderLabel = jest.fn();
       wrapper.setProps({ renderLabel });
-      expect(renderLabel.called).toBe(true);
+      expect(renderLabel).toHaveBeenCalledTimes(1);
     });
 
     it('should render what renderLabel returns', () => {
@@ -47,9 +47,9 @@ describe('custom renderers', () => {
     });
 
     it('should call renderLabel', () => {
-      const renderContent = sinon.spy();
+      const renderContent = jest.fn();
       wrapper.setProps({ renderContent });
-      expect(renderContent.called).toBe(true);
+      expect(renderContent).toHaveBeenCalledTimes(1);
     });
 
     it('should render what renderContent returns', () => {
@@ -72,9 +72,9 @@ describe('custom renderers', () => {
 
   describe('renderIcon', () => {
     it('should call render icon if set', () => {
-      const renderIcon = sinon.spy();
+      const renderIcon = jest.fn();
       const wrapper = shallow(<Node renderIcon={renderIcon} />);
-      expect(renderIcon.called).toBe(true);
+      expect(renderIcon).toHaveBeenCalledTimes(1);
     });
 
     it('should render what function returns', () => {
@@ -84,18 +84,18 @@ describe('custom renderers', () => {
     });
 
     it('should be called with nodeProps', () => {
-      const renderIcon = sinon.spy();
+      const renderIcon = jest.fn();
       const wrapper = shallow(
         <Node index={1} node={{ color: 'green' }} renderIcon={renderIcon} />
       );
-      expect(renderIcon.args[0][0].index).toEqual(1);
-      expect(renderIcon.args[0][0].node.color).toEqual('green');
+      expect(renderIcon.mock.calls[0][0].index).toEqual(1);
+      expect(renderIcon.mock.calls[0][0].node.color).toEqual('green');
     });
   });
 
   describe('renderCheck', () => {
     it('should call renderCheck', () => {
-      const renderCheck = sinon.spy();
+      const renderCheck = jest.fn();
       let wrapper = mount(
         <Node
           enableChecked
@@ -103,7 +103,7 @@ describe('custom renderers', () => {
           renderCheck={renderCheck}
         />
       );
-      expect(renderCheck.called).toBe(true);
+      expect(renderCheck).toHaveBeenCalledTimes(1);
     });
 
     it('should render what rendeCheck returns', () => {
@@ -146,9 +146,9 @@ describe('custom renderers', () => {
     });
 
     it('should be called', () => {
-      const renderNodeText = sinon.spy();
+      const renderNodeText = jest.fn();
       wrapper.setProps({ renderNodeText });
-      expect(renderNodeText.called).toBe(true);
+      expect(renderNodeText).toHaveBeenCalledTimes(1);
     });
 
     it('should render what rendeCheck returns', () => {

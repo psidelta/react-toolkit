@@ -9,20 +9,20 @@ const CLASS_NAME = TreeView.defaultProps.rootClassName;
 describe('expandOnToolOnly', () => {
   describe('false', () => {
     it('should call this.props.onCollapsedChange on click on label', () => {
-      const onCollapsedChange = sinon.spy();
+      const onCollapsedChange = jest.fn();
       const wrapper = shallow(
         <Node hasChildren onCollapsedChange={onCollapsedChange} />
       );
       wrapper.find(`.${CLASS_NAME}__node__label`).simulate('click', {
         stopPropagation: () => {}
       });
-      expect(onCollapsedChange.called).toBe(true);
+      expect(onCollapsedChange).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('true', () => {
     it('should call this.props.onCollapsedChange only on ExpandTool', () => {
-      const onCollapsedChange = sinon.spy();
+      const onCollapsedChange = jest.fn();
       const wrapper = mount(
         <Node
           hasChildren
@@ -34,12 +34,12 @@ describe('expandOnToolOnly', () => {
       wrapper.find(`.${CLASS_NAME}__node__label`).simulate('click', {
         stopPropagation: () => {}
       });
-      expect(onCollapsedChange.called).toBe(false);
+      expect(onCollapsedChange).toHaveBeenCalledTimes(0);
 
       wrapper.find(ExpandTool).simulate('click', {
         stopPropagation: () => {}
       });
-      expect(onCollapsedChange.called).toBe(true);
+      expect(onCollapsedChange).toHaveBeenCalledTimes(1);
     });
   });
 });

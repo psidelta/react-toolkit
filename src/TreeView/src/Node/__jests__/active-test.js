@@ -15,7 +15,7 @@ describe('active', () => {
   });
 
   it('should call onActiveNodeChange when label is clicked', () => {
-    const onActiveNodeChange = sinon.spy();
+    const onActiveNodeChange = jest.fn();
     const wrapper = shallow(
       <Node
         enableKeyboardNavigation={true}
@@ -28,7 +28,7 @@ describe('active', () => {
       stopPropagation: () => {}
     });
 
-    expect(onActiveNodeChange.called).toBe(true);
-    expect(onActiveNodeChange.args[0][0].path).toEqual('0');
+    expect(onActiveNodeChange).toHaveBeenCalledTimes(1);
+    expect(onActiveNodeChange.mock.calls[0][0].path).toEqual('0');
   });
 });

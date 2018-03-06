@@ -14,7 +14,7 @@ describe('expandOnDoubleClick', () => {
       let expandTool;
 
       beforeEach(() => {
-        onCollapsedChange = sinon.spy();
+        onCollapsedChange = jest.fn();
         wrapper = shallow(
           <Node hasChildren onCollapsedChange={onCollapsedChange} />
         );
@@ -24,22 +24,22 @@ describe('expandOnDoubleClick', () => {
 
       it('should call onCollapsedChange onClick on label', () => {
         label.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(true);
+        expect(onCollapsedChange).toHaveBeenCalled();
       });
 
       it('should call onCollapsedChange onClick on expandTool', () => {
         expandTool.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(true);
+        expect(onCollapsedChange).toHaveBeenCalled();
       });
 
       it('should not call onCollapsedChange on doubleClick on label', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(false);
+        expect(onCollapsedChange).not.toHaveBeenCalled();
       });
 
       it('should not call onCollapsedChange on doubleClick on expandTool', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(false);
+        expect(onCollapsedChange).toHaveBeenCalledTimes(0);
       });
     });
   });
@@ -51,7 +51,7 @@ describe('expandOnDoubleClick', () => {
       let expandTool;
 
       beforeEach(() => {
-        onCollapsedChange = sinon.spy();
+        onCollapsedChange = jest.fn();
         wrapper = shallow(
           <Node
             hasChildren
@@ -65,22 +65,22 @@ describe('expandOnDoubleClick', () => {
 
       it('should not call onCollapsedChange onClick on label', () => {
         label.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(false);
+        expect(onCollapsedChange).toHaveBeenCalledTimes(0);
       });
 
       it('should not call onCollapsedChange onClick on expandTool', () => {
         expandTool.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(false);
+        expect(onCollapsedChange).toHaveBeenCalledTimes(0);
       });
 
       it('should call onCollapsedChange on doubleClick on label', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(true);
+        expect(onCollapsedChange).toHaveBeenCalledTimes(1);
       });
 
       it('should call onCollapsedChange on doubleClick on expandTool', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).toBe(true);
+        expect(onCollapsedChange).toHaveBeenCalledTimes(1);
       });
     });
   });

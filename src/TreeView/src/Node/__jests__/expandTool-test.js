@@ -47,16 +47,22 @@ describe('expandTool', () => {
 
   describe('function', () => {
     it('should be called', () => {
-      const expandTool = sinon.spy();
+      const expandTool = jest.fn();
       const wrapper = mount(<Node hasChildren expandTool={expandTool} />);
-      expect(expandTool.called).toBe(true);
+      expect(expandTool).toHaveBeenCalled();
     });
 
     it('should be called with correct params', () => {
-      const expandTool = sinon.spy();
+      const expandTool = jest.fn();
       const wrapper = mount(<Node hasChildren expandTool={expandTool} />);
-      expect(typeof expandTool.args[0][0].domProps.onClick).toBe('function');
-      expect(typeof expandTool.args[0][0].domProps.className).toBe('string');
+      expect(typeof expandTool.mock.calls[0][0].domProps.onClick).toBe(
+        'function'
+      );
+      expect(typeof expandTool.mock.calls[0][0].domProps.className).toBe(
+        'string'
+      );
+      // expect(typeof expandTool.args[0][0].domProps.onClick).toBe('function');
+      // expect(typeof expandTool.args[0][0].domProps.className).toBe('string');
     });
 
     it('should render what it returns', () => {

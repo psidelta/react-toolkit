@@ -12,20 +12,20 @@ describe('checkOnClick', () => {
     expect(wrapper.props().checkOnClick).toBe(true);
   });
   it('should not trigger onCheckedChange if false', () => {
-    const onCheckedChange = sinon.spy();
+    const onCheckedChange = jest.fn();
     const wrapper = mount(
       <Node checkOnClick={false} onCheckedChange={onCheckedChange} />
     );
     wrapper.instance().onLabelClick({ stopPropagation: () => {} });
-    expect(onCheckedChange.called).toBe(false);
+    expect(onCheckedChange).toHaveBeenCalledTimes(0);
   });
 
   it('should trigger onCheckedChange if true', () => {
-    const onCheckedChange = sinon.spy();
+    const onCheckedChange = jest.fn();
     const wrapper = mount(
       <Node checkOnClick onCheckedChange={onCheckedChange} />
     );
     wrapper.instance().onLabelClick({ stopPropagation: () => {} });
-    expect(onCheckedChange.called).toBe(true);
+    expect(onCheckedChange).toHaveBeenCalledTimes(1);
   });
 });

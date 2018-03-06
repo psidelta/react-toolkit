@@ -18,27 +18,27 @@ describe('disabled', () => {
 
   describe('onClick', () => {
     it('should not call onCollapsedChange', () => {
-      const onCollapsedChange = sinon.spy();
+      const onCollapsedChange = jest.fn();
       wrapper.setProps({ onCollapsedChange });
       expandTool.simulate('click', { stopPropagation: () => {} });
 
-      expect(onCollapsedChange.called).toBe(false);
+      expect(onCollapsedChange).toHaveBeenCalledTimes(0);
     });
 
     it('should not call onSelectionChange', () => {
-      const onSelectionChange = sinon.spy();
+      const onSelectionChange = jest.fn();
       wrapper.setProps({ onSelectionChange });
       label.simulate('click', { stopPropagation: () => {} });
 
-      expect(onSelectionChange.called).toBe(false);
+      expect(onSelectionChange).toHaveBeenCalledTimes(0);
     });
 
     it('should not call onActiveNodeChange', () => {
-      const onActiveNodeChange = sinon.spy();
+      const onActiveNodeChange = jest.fn();
       wrapper.setProps({ onActiveNodeChange });
       label.simulate('click', { stopPropagation: () => {} });
 
-      expect(onActiveNodeChange.called).toBe(false);
+      expect(onActiveNodeChange).toHaveBeenCalledTimes(0);
     });
   });
 
@@ -49,34 +49,34 @@ describe('disabled', () => {
 
     describe('expander', () => {
       it('should not call onCollapsedChange', () => {
-        const onCollapsedChange = sinon.spy();
+        const onCollapsedChange = jest.fn();
         wrapper.setProps({ onCollapsedChange });
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
 
-        expect(onCollapsedChange.called).toBe(false);
+        expect(onCollapsedChange).toHaveBeenCalledTimes(0);
       });
     });
 
     describe('label', () => {
       it('should not call onCollapsedChange', () => {
-        const onCollapsedChange = sinon.spy();
+        const onCollapsedChange = jest.fn();
         wrapper.setProps({ onCollapsedChange });
         label.simulate('doubleClick', { stopPropagation: () => {} });
 
-        expect(onCollapsedChange.called).toBe(false);
+        expect(onCollapsedChange).toHaveBeenCalledTimes(0);
       });
     });
   });
 
   describe('checked', () => {
     it('should not trigger onCheckedChange', () => {
-      const onCheckedChange = sinon.spy();
+      const onCheckedChange = jest.fn();
 
       wrapper.setProps({ onCheckedChange, enableChecked: true });
       const check = wrapper.find(`.${CLASS_NAME}__node__checkbox`);
       check.simulate('click', { stopPropagation: () => {} });
 
-      expect(onCheckedChange.called).toBe(false);
+      expect(onCheckedChange).toHaveBeenCalledTimes(0);
     });
   });
 });
