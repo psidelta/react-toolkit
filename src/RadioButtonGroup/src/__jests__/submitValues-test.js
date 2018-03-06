@@ -1,5 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
+import { mount, shallow } from 'enzyme';
 
 import RBG from '../RadioButtonGroup';
 
@@ -26,67 +27,53 @@ const options = [
 
 describe('Hidden submit rbg', () => {
   it('should be rendered when prop name is provided', () => {
-    const rbg = render(<RBG radioOptions={options} name="rbgName" />);
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input[name="rbgName"]');
-    expect(input.type).to.equal('hidden');
-    rbg.unmount();
+    const rbg = mount(<RBG radioOptions={options} name="rbgName" />);
+    const input = rbg.find('input[name="rbgName"]');
+    expect(input.prop('type')).toEqual('hidden');
   });
 
   it('should not be rendered when prop name is not provided', () => {
-    const rbg = render(<RBG radioOptions={options} />); //note there is no name here
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input');
-    expect(input).to.equal(null);
-    rbg.unmount();
+    const rbg = mount(<RBG radioOptions={options} />); //note there is no name here
+    const input = rbg.find('input');
+    expect(input.exists()).toEqual(false);
   });
 
   it('should not be rendered when is disabled', () => {
-    const rbg = render(<RBG radioOptions={options} name="anyValue" disabled />);
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input');
-    expect(input).to.equal(null);
-    rbg.unmount();
+    const rbg = mount(<RBG radioOptions={options} name="anyValue" disabled />);
+    const input = rbg.find('input');
+    expect(input.exists()).toEqual(false);
   });
 
   it('should not render if shouldSubmit prevents this', () => {
-    const rbg = render(
+    const rbg = mount(
       <RBG radioOptions={options} name="validName" shouldSubmit={false} />
     );
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input');
-    expect(input).to.equal(null);
-    rbg.unmount();
+    const input = rbg.find('input');
+    expect(input.exists()).toEqual(false);
   });
 
   it('should render if shouldSubmit allows this', () => {
-    const rbg = render(
+    const rbg = mount(
       <RBG radioOptions={options} name="validName" shouldSubmit={true} />
     );
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input');
-    expect(input).not.to.equal(null);
-    rbg.unmount();
+    const input = rbg.find('input');
+    expect(input.exists()).toEqual(true);
   });
 
   it('should not render if shouldSubmit() prevents this', () => {
-    const rbg = render(
+    const rbg = mount(
       <RBG radioOptions={options} name="validName" shouldSubmit={() => false} />
     );
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input');
-    expect(input).to.equal(null);
-    rbg.unmount();
+    const input = rbg.find('input');
+    expect(input.exists()).toEqual(false);
   });
 
   it('should render if shouldSubmit() allows this', () => {
-    const rbg = render(
+    const rbg = mount(
       <RBG radioOptions={options} name="validName" shouldSubmit={() => true} />
     );
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input');
-    expect(input).not.to.equal(null);
-    rbg.unmount();
+    const input = rbg.find('input');
+    expect(input.exists()).toEqual(true);
   });
 
   it('should log a warning if showWarnings and shouldSubmit() returns true, but no name provided', () => {
@@ -97,14 +84,13 @@ describe('Hidden submit rbg', () => {
     if (typeof console !== 'undefined') {
       const originalConsoleWarning = console.warn;
       console.warn = spiedConsoleWarn;
-      const rbg = render(
+      const rbg = mount(
         <RBG radioOptions={options} shouldSubmit={() => true} />
       );
       console.warn = originalConsoleWarning;
-      expect(thrownMessage).to.contain(
+      expect(thrownMessage).toContain(
         'shouldSubmit function returned true, but "name" prop is missing'
       );
-      rbg.unmount();
     }
   });
 
@@ -116,7 +102,7 @@ describe('Hidden submit rbg', () => {
     if (typeof console !== 'undefined') {
       const originalConsoleWarning = console.warn;
       console.warn = spiedConsoleWarn;
-      const rbg = render(
+      const rbg = mount(
         <RBG
           radioOptions={options}
           showWarnings={false}
@@ -124,8 +110,7 @@ describe('Hidden submit rbg', () => {
         />
       );
       console.warn = originalConsoleWarning;
-      expect(errorMessageWasNotLogged).to.equal(true);
-      rbg.unmount();
+      expect(errorMessageWasNotLogged).toEqual(true);
     }
   });
 
@@ -137,10 +122,9 @@ describe('Hidden submit rbg', () => {
     if (typeof console !== 'undefined') {
       const originalConsoleError = console.error;
       console.error = spiedConsoleError;
-      const rbg = render(<RBG radioOptions={options} shouldSubmit={true} />);
+      const rbg = mount(<RBG radioOptions={options} shouldSubmit={true} />);
       console.error = originalConsoleError;
-      expect(thrownMessage).to.contain('requires prop "name" to be submitted');
-      rbg.unmount();
+      expect(thrownMessage).toContain('requires prop "name" to be submitted');
     }
   });
 
@@ -152,12 +136,11 @@ describe('Hidden submit rbg', () => {
     if (typeof console !== 'undefined') {
       const originalConsoleError = console.error;
       console.error = spiedConsoleError;
-      const rbg = render(<RBG radioOptions={options} value="checked" />);
+      const rbg = mount(<RBG radioOptions={options} value="checked" />);
       console.error = originalConsoleError;
-      expect(loggedError).to.contain(
+      expect(loggedError).toContain(
         '"value" prop is not supported. Use "radioValue" instead.'
       );
-      rbg.unmount();
     }
   });
 
@@ -169,23 +152,18 @@ describe('Hidden submit rbg', () => {
     if (typeof console !== 'undefined') {
       const originalConsoleError = console.error;
       console.error = spiedConsoleError;
-      const rbg = render(<RBG radioOptions={options} defaultValue="checked" />);
+      const rbg = mount(<RBG radioOptions={options} defaultValue="checked" />);
       console.error = originalConsoleError;
-      expect(loggedError).to.contain(
+      expect(loggedError).toContain(
         '"defaultValue" prop is not supported. Use "defaultRadioValue" instead.'
       );
-      rbg.unmount();
     }
   });
 
   it('should submit empty string instead of null uncheckedValue', () => {
-    const rbg = render(
-      <RBG radioOptions={options} name="someValue" uncheckedValue={null} />
-    );
-    const node = findDOMNode(rbg);
-    const input = node.querySelector('input');
-    expect(input.value).to.equal('');
-    rbg.unmount();
+    const wrapper = mount(<RBG radioOptions={options} name="someValue" />);
+    const input = wrapper.find('input');
+    expect(input.prop('value')).toEqual(undefined);
   });
 
   xit('should log a warning if checkedSubmitValue is null', () => {
