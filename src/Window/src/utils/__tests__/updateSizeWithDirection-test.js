@@ -9,7 +9,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'up',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 0, width: 10 },
       position: { top: 0, left: 0 }
     });
@@ -20,7 +20,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'up',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 0, width: 10 },
       position: { bottom: 10, left: 0 }
     });
@@ -33,7 +33,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'down',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 20, width: 10 },
       position: { top: 0, left: 0 }
     });
@@ -44,7 +44,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'down',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 20, width: 10 },
       position: { bottom: -10, left: 0 }
     });
@@ -57,7 +57,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'left',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 10, width: 0 },
       position: { top: 0, left: 0 }
     });
@@ -68,7 +68,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'left',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 10, width: 0 },
       position: { bottom: 0, right: 10 }
     });
@@ -81,7 +81,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'right',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 10, width: 20 },
       position: { top: 0, left: 0 }
     });
@@ -92,7 +92,7 @@ describe('updateSizeWithDirection', () => {
         direction: 'right',
         step: 10
       })
-    ).to.deep.equal({
+    ).toEqual({
       size: { height: 10, width: 20 },
       position: { bottom: 0, right: -10 }
     });

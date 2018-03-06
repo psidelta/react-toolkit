@@ -5,15 +5,15 @@ describe('getGroupedItems', () => {
     const boxes = [30, 20, 20, 30];
     const maxSize = 100;
     const test = getGroupedItems({ boxes, maxSize });
-    expect(test).to.be.false;
+    expect(test).toBe(false);
   });
   it('separates corecty the indexes in visible and overflowItems', () => {
     const boxes = [20, 30, 30, 30];
     const maxSize = 100;
     const test = getGroupedItems({ boxes, maxSize });
 
-    expect(test.visibleIndexes).to.deep.equal([0, 1, 2]);
-    expect(test.overflowIndexes).to.deep.equal([3]);
+    expect(test.visibleIndexes).toEqual([0, 1, 2]);
+    expect(test.overflowIndexes).toEqual([3]);
   });
   it('overflow control can make one item more to overflow', () => {
     const boxes = [30, 30, 30, 30];
@@ -21,7 +21,7 @@ describe('getGroupedItems', () => {
     const overflowControlSize = 20;
     const test = getGroupedItems({ boxes, maxSize, overflowControlSize });
 
-    expect(test.visibleIndexes).to.deep.equal([0, 1]);
-    expect(test.overflowIndexes).to.deep.equal([2, 3]);
+    expect(test.visibleIndexes).toEqual([0, 1]);
+    expect(test.overflowIndexes).toEqual([2, 3]);
   });
 });

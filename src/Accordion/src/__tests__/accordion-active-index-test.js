@@ -21,7 +21,7 @@ describe('Accordion Callbacks', () => {
     );
 
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([1]);
+    expect(activeTabs).toEqual([1]);
   });
 
   it('should assume defaultActiveIndex={0} by default', () => {
@@ -32,7 +32,7 @@ describe('Accordion Callbacks', () => {
     );
 
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([0]);
+    expect(activeTabs).toEqual([0]);
   });
 
   it('should prioritise activeIndex over defaultActiveIndex', () => {
@@ -48,7 +48,7 @@ describe('Accordion Callbacks', () => {
     );
 
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([1]);
+    expect(activeTabs).toEqual([1]);
   });
 
   it('should allow setting null defaultActiveIndex', () => {
@@ -59,7 +59,7 @@ describe('Accordion Callbacks', () => {
     );
 
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([]);
+    expect(activeTabs).toEqual([]);
   });
 
   it('should reset to zero a negative defaultActiveIndex', () => {
@@ -70,7 +70,7 @@ describe('Accordion Callbacks', () => {
     );
 
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([0]);
+    expect(activeTabs).toEqual([0]);
   });
 
   it('should reset to index of last tab a defaultActiveIndex bigger than the number of tabs', () => {
@@ -80,7 +80,7 @@ describe('Accordion Callbacks', () => {
       </Accordion>
     );
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([2]); //as there are 3 tabs, with 0 based index
+    expect(activeTabs).toEqual([2]); //as there are 3 tabs, with 0 based index
   });
 
   it('should allow setting [] defaultActiveIndex', () => {
@@ -91,7 +91,7 @@ describe('Accordion Callbacks', () => {
     );
 
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([]);
+    expect(activeTabs).toEqual([]);
   });
 
   it('should allow setting [] activeIndex', () => {
@@ -102,7 +102,7 @@ describe('Accordion Callbacks', () => {
     );
 
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([]);
+    expect(activeTabs).toEqual([]);
   });
 
   it('should allow controlling active tabs by active index', () => {
@@ -114,20 +114,20 @@ describe('Accordion Callbacks', () => {
     );
 
     activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([]);
+    expect(activeTabs).toEqual([]);
 
     component.setProps({
       activeIndex: [0]
     });
 
     activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([0]);
+    expect(activeTabs).toEqual([0]);
 
     component.setProps({
       activeIndex: [2]
     });
     activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.deep.equal([2]);
+    expect(activeTabs).toEqual([2]);
   });
 
   it('should call onActivate while controlled component', () => {

@@ -23,7 +23,7 @@ describe('Accordion transition props', () => {
 
   it('should transition on expand in single mode', () => {
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
   });
 
   it('should transition on expand in multi mode', () => {
@@ -31,7 +31,7 @@ describe('Accordion transition props', () => {
       multiExpand: true
     });
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([0, 1]);
+    expect(instance.getActiveTabs()).toEqual([0, 1]);
   });
 
   it('should transition to fully collapsed then expand', () => {
@@ -40,11 +40,11 @@ describe('Accordion transition props', () => {
     });
 
     component.find('[data-test="tab1"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([]);
+    expect(instance.getActiveTabs()).toEqual([]);
     instance.tabContainers[0].onTransitionEnd();
 
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
     instance.tabContainers[1].onTransitionEnd();
 
     component.setProps({
@@ -52,11 +52,11 @@ describe('Accordion transition props', () => {
     });
 
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([]);
+    expect(instance.getActiveTabs()).toEqual([]);
     instance.tabContainers[1].onTransitionEnd();
 
     component.find('[data-test="tab1"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([0]);
+    expect(instance.getActiveTabs()).toEqual([0]);
     instance.tabContainers[0].onTransitionEnd();
 
     component.setProps({
@@ -64,11 +64,11 @@ describe('Accordion transition props', () => {
     });
 
     component.find('[data-test="tab1"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([]);
+    expect(instance.getActiveTabs()).toEqual([]);
     instance.tabContainers[0].onTransitionEnd();
 
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
     instance.tabContainers[1].onTransitionEnd();
 
     component.setProps({
@@ -76,11 +76,11 @@ describe('Accordion transition props', () => {
     });
 
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([]);
+    expect(instance.getActiveTabs()).toEqual([]);
     instance.tabContainers[1].onTransitionEnd();
 
     component.find('[data-test="tab1"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([0]);
+    expect(instance.getActiveTabs()).toEqual([0]);
     instance.tabContainers[0].onTransitionEnd();
   });
 });

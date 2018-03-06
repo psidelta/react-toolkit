@@ -79,7 +79,7 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
         <div tabTitle="this tab will be expanded by default">Tab 2</div>
       </Accordion>
     );
-    expect(component.instance().getActiveTabs()).to.deep.equal([1]);
+    expect(component.instance().getActiveTabs()).toEqual([1]);
   });
 
   it('should skip expanding disabled tabs', () => {
@@ -91,7 +91,7 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
       </Accordion>
     );
     component.instance().expandAll();
-    expect(component.instance().getActiveTabs()).to.deep.equal([1]);
+    expect(component.instance().getActiveTabs()).toEqual([1]);
   });
 
   it('should expand at specific index', () => {
@@ -103,7 +103,7 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
     );
     const instance = component.instance();
     instance.expandAt(1);
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
   });
 
   it('should not be able to expand a locked tab', () => {
@@ -160,9 +160,9 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
       </Accordion>
     );
     const instance = component.instance();
-    expect(instance.getActiveTabs()).to.deep.equal([0]);
+    expect(instance.getActiveTabs()).toEqual([0]);
     instance.expandAt(1);
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
   });
 
   it('should not collapse when expanding another tab and multiexpand', () => {
@@ -173,9 +173,9 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
       </Accordion>
     );
     const instance = component.instance();
-    expect(instance.getActiveTabs()).to.deep.equal([0]);
+    expect(instance.getActiveTabs()).toEqual([0]);
     instance.expandAt(1);
-    expect(instance.getActiveTabs()).to.deep.equal([0, 1]);
+    expect(instance.getActiveTabs()).toEqual([0, 1]);
   });
 
   it('should collapse all when collapsible', () => {
@@ -187,9 +187,9 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
     );
     const instance = component.instance();
     instance.expandAll();
-    expect(instance.getActiveTabs()).to.deep.equal([0, 1]);
+    expect(instance.getActiveTabs()).toEqual([0, 1]);
     instance.collapseAll();
-    expect(instance.getActiveTabs()).to.deep.equal([]);
+    expect(instance.getActiveTabs()).toEqual([]);
   });
 
   it('should not collapse all when not collapsible', () => {
@@ -201,9 +201,9 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
     );
     const instance = component.instance();
     instance.expandAll();
-    expect(instance.getActiveTabs()).to.deep.equal([0, 1]);
+    expect(instance.getActiveTabs()).toEqual([0, 1]);
     instance.collapseAll();
     //first tab should collapse, but the second should remain uncollapsed
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
   });
 });

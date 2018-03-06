@@ -78,7 +78,7 @@ describe('getNewRecursiveCheckedState', () => {
         checked: true,
         nodeProps: preparedData[0].props
       })
-    ).to.deep.equal(test);
+    ).toEqual(test);
   });
 
   it('shoud propagate down checked = false to all children', () => {
@@ -96,7 +96,7 @@ describe('getNewRecursiveCheckedState', () => {
       nodeProps: preparedData[0].props
     });
 
-    expect(expected).to.deep.equal(test);
+    expect(expected).toEqual(test);
   });
 
   it('should propagate to parents', () => {
@@ -111,6 +111,6 @@ describe('getNewRecursiveCheckedState', () => {
       nodeProps: preparedData[0].props.children[2].props.children[0].props
     });
 
-    expect(expected).to.deep.equal(test);
+    expect(expected).toEqual(test);
   });
 });

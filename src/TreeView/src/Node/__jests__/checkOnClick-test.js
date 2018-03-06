@@ -1,14 +1,15 @@
 import React from 'react';
-import Node from '../../Node';
 import { mount } from 'enzyme';
 
+import Node from '../../Node';
 import TreeView from '../../TreeView';
+
 const CLASS_NAME = TreeView.defaultProps.rootClassName;
 
 describe('checkOnClick', () => {
   it('should default to false', () => {
     const wrapper = mount(<Node />);
-    expect(wrapper.props().checkOnClick).to.be.true;
+    expect(wrapper.props().checkOnClick).toBe(true);
   });
   it('should not trigger onCheckedChange if false', () => {
     const onCheckedChange = sinon.spy();
@@ -16,7 +17,7 @@ describe('checkOnClick', () => {
       <Node checkOnClick={false} onCheckedChange={onCheckedChange} />
     );
     wrapper.instance().onLabelClick({ stopPropagation: () => {} });
-    expect(onCheckedChange.called).to.be.false;
+    expect(onCheckedChange.called).toBe(false);
   });
 
   it('should trigger onCheckedChange if true', () => {
@@ -25,6 +26,6 @@ describe('checkOnClick', () => {
       <Node checkOnClick onCheckedChange={onCheckedChange} />
     );
     wrapper.instance().onLabelClick({ stopPropagation: () => {} });
-    expect(onCheckedChange.called).to.be.true;
+    expect(onCheckedChange.called).toBe(true);
   });
 });

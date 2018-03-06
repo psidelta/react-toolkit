@@ -10,7 +10,7 @@ describe('expandTool', () => {
   describe('default', () => {
     it('should render default expand component', () => {
       const wrapper = mount(<Node hasChildren />);
-      expect(wrapper.find(ExpandTool)).to.have.length(1);
+      expect(wrapper.find(ExpandTool)).toHaveLength(1);
     });
   });
 
@@ -21,52 +21,63 @@ describe('expandTool', () => {
 
     it('shoud render custom expander', () => {
       const test = wrapper.find('#custom_expander');
-      expect(test).to.have.length(1);
+      expect(test).toHaveLength(1);
     });
 
     it('should not render default expand tool', () => {
-      expect(wrapper.find(ExpandTool)).to.have.length(0);
+      expect(wrapper.find(ExpandTool)).toHaveLength(0);
     });
 
     it(`should have ${CLASS_NAME}__node__expander and --collapsed classNames`, () => {
-      const wrapper = mount(
+      let wrapper = mount(
         <Node hasChildren expandTool={<div id="custom_expander" />} />
       );
-      const test = wrapper.find('#custom_expander');
-      expect(test.hasClass(`${CLASS_NAME}__node__expander`)).to.be.true;
-      wrapper.setProps({ collapsed: true });
-      expect(test.hasClass(`${CLASS_NAME}__node__expander--collapsed`)).to.be
-        .true;
+      let test = wrapper.find('#custom_expander');
+      expect(test.hasClass(`${CLASS_NAME}__node__expander`)).toBe(true);
+
+      wrapper = mount(
+        <Node hasChildren expandTool={<div id="custom_expander" />} collapsed />
+      );
+      test = wrapper.find('#custom_expander');
+      expect(test.hasClass(`${CLASS_NAME}__node__expander--collapsed`)).toBe(
+        true
+      );
     });
   });
 
   describe('function', () => {
-    it('should be callsed', () => {
+    it('should be called', () => {
       const expandTool = sinon.spy();
       const wrapper = mount(<Node hasChildren expandTool={expandTool} />);
-      expect(expandTool.called).to.be.true;
+      expect(expandTool.called).toBe(true);
     });
 
-    it('should be callsed with correct params', () => {
+    it('should be called with correct params', () => {
       const expandTool = sinon.spy();
       const wrapper = mount(<Node hasChildren expandTool={expandTool} />);
-      expect(expandTool.args[0][0].domProps.onClick).to.be.a('function');
-      expect(expandTool.args[0][0].domProps.className).to.be.a('string');
+      expect(typeof expandTool.args[0][0].domProps.onClick).toBe('function');
+      expect(typeof expandTool.args[0][0].domProps.className).toBe('string');
     });
 
     it('should render what it returns', () => {
       const expandTool = ({ domProps, nodeProps }) => {
         return <div {...domProps} id="custom_expander" />;
       };
-      const wrapper = mount(<Node hasChildren expandTool={expandTool} />);
-      const test = wrapper.find('#custom_expander');
-      expect(test).to.have.length(1);
-      expect(test.hasClass(`${CLASS_NAME}__node__expander`)).to.be.true;
-      expect(test.hasClass(`${CLASS_NAME}__node__expander--collapsed`)).to.be
-        .false;
-      wrapper.setProps({ collapsed: true });
-      expect(test.hasClass(`${CLASS_NAME}__node__expander--collapsed`)).to.be
-        .true;
+      let wrapper = mount(<Node hasChildren expandTool={expandTool} />);
+      let test = wrapper.find('#custom_expander');
+      expect(test).toHaveLength(1);
+
+      expect(test.hasClass(`${CLASS_NAME}__node__expander`)).toBe(true);
+      expect(test.hasClass(`${CLASS_NAME}__node__expander--collapsed`)).toBe(
+        false
+      );
+
+      wrapper = mount(<Node hasChildren expandTool={expandTool} collapsed />);
+      test = wrapper.find('#custom_expander');
+
+      expect(test.hasClass(`${CLASS_NAME}__node__expander--collapsed`)).toBe(
+        true
+      );
     });
   });
 
@@ -75,11 +86,11 @@ describe('expandTool', () => {
     const test = wrapper.find(ExpandTool);
 
     it('should render', () => {
-      expect(test).to.have.length(1);
+      expect(test).toHaveLength(1);
     });
 
     it('should render the string', () => {
-      expect(test.props().children).to.equal('test');
+      expect(test.props().children).toEqual('test');
     });
 
     it('should have the correct className', () => {
@@ -87,7 +98,8 @@ describe('expandTool', () => {
     });
 
     it('should have the correct --collapsed className', () => {
-      wrapper.setProps({ collapsed: true });
+      const wrapper = mount(<Node hasChildren expandTool="test" collapsed />);
+      const test = wrapper.find(ExpandTool);
       expect(test.hasClass(`${CLASS_NAME}__node__expander--collapsed`));
     });
   });

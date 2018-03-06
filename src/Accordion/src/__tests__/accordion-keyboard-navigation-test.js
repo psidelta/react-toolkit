@@ -66,19 +66,19 @@ describe('Accordion Keyboard Navigation', () => {
       component.simulate('keyDown', { key: 'ArrowDown' });
       component.simulate('keyDown', { key: ' ' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([1]);
+      expect(activeTabs).toEqual([1]);
 
       component.simulate('keyDown', { key: 'ArrowDown' });
       component.simulate('keyDown', { key: ' ' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([2]);
+      expect(activeTabs).toEqual([2]);
 
       component.simulate('keyDown', { key: 'ArrowUp' });
       component.simulate('keyDown', { key: 'ArrowUp' });
       component.simulate('keyDown', { key: ' ' });
 
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([0]);
+      expect(activeTabs).toEqual([0]);
     });
 
     it('should navigate via Home and End', () => {
@@ -87,12 +87,12 @@ describe('Accordion Keyboard Navigation', () => {
       component.simulate('keyDown', { key: 'End' });
       component.simulate('keyDown', { key: ' ' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([2]);
+      expect(activeTabs).toEqual([2]);
 
       component.simulate('keyDown', { key: 'Home' });
       component.simulate('keyDown', { key: ' ' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([0]);
+      expect(activeTabs).toEqual([0]);
     });
 
     it('should expand via ArrowRight', () => {
@@ -101,12 +101,12 @@ describe('Accordion Keyboard Navigation', () => {
       component.simulate('keyDown', { key: 'ArrowDown' });
       component.simulate('keyDown', { key: 'ArrowRight' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([1]);
+      expect(activeTabs).toEqual([1]);
 
       component.simulate('keyDown', { key: 'ArrowDown' });
       component.simulate('keyDown', { key: 'ArrowRight' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([2]);
+      expect(activeTabs).toEqual([2]);
     });
 
     it('should collapse via ArrowLeft', () => {
@@ -117,10 +117,10 @@ describe('Accordion Keyboard Navigation', () => {
       component.simulate('focus');
       component.simulate('keyDown', { key: 'ArrowLeft' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([]);
+      expect(activeTabs).toEqual([]);
       component.simulate('keyDown', { key: 'ArrowRight' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([0]);
+      expect(activeTabs).toEqual([0]);
     });
 
     it('should toggle via " " (space)', () => {
@@ -131,10 +131,10 @@ describe('Accordion Keyboard Navigation', () => {
       component.simulate('focus');
       component.simulate('keyDown', { key: ' ' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([]);
+      expect(activeTabs).toEqual([]);
       component.simulate('keyDown', { key: ' ' });
       activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([0]);
+      expect(activeTabs).toEqual([0]);
     });
 
     it('should support horizontal navigation', () => {
@@ -146,14 +146,14 @@ describe('Accordion Keyboard Navigation', () => {
       component.simulate('keyDown', { key: 'ArrowRight' });
       component.simulate('keyDown', { key: ' ' });
       const activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([1]);
+      expect(activeTabs).toEqual([1]);
     });
 
     it('should ignore keyDown when not focused', () => {
       component.simulate('keyDown', { key: 'ArrowDown' });
       component.simulate('keyDown', { key: ' ' });
       const activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([0]);
+      expect(activeTabs).toEqual([0]);
     });
   });
 
@@ -194,7 +194,7 @@ describe('Accordion Keyboard Navigation', () => {
       expect(onKeyDownSpy.callCount).to.equal(3);
 
       const activeTabs = component.instance().getActiveTabs();
-      expect(activeTabs).to.deep.equal([1]);
+      expect(activeTabs).toEqual([1]);
     });
   });
 });

@@ -1,7 +1,9 @@
 import React from 'react';
+import { mount } from 'enzyme';
+
 import Node from '../../Node';
 import TreeView from '../../TreeView';
-import { mount } from 'enzyme';
+
 import Check from '../../../../CheckBox';
 
 const CLASS_NAME = TreeView.defaultProps.rootClassname;
@@ -10,12 +12,12 @@ describe('checked', () => {
   describe('enableChecked', () => {
     it('should render not render checkboxes if false', () => {
       const wrapper = mount(<Node />);
-      expect(wrapper.find(Check)).to.have.length(0);
+      expect(wrapper.find(Check)).toHaveLength(0);
     });
 
     it('should render checkboxes if true', () => {
       const wrapper = mount(<Node enableChecked />);
-      expect(wrapper.find(Check)).to.have.length(1);
+      expect(wrapper.find(Check)).toHaveLength(1);
     });
   });
 
@@ -32,7 +34,7 @@ describe('checked', () => {
         }
       });
 
-      expect(onCheckedChange.called).to.be.true;
+      expect(onCheckedChange.called).toBe(true);
     });
   });
 });

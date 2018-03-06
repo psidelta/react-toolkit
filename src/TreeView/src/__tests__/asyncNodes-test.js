@@ -2,6 +2,7 @@ import React from 'react';
 import TreeView from '../TreeView';
 import Node from '../Node';
 import { shallow, mount } from 'enzyme';
+
 const CLASS_NAME = TreeView.defaultProps.rootClassName;
 
 describe('async nodes', () => {
@@ -52,7 +53,7 @@ describe('async nodes', () => {
         stopPropagation: () => {}
       });
 
-    expect(wrapper.state().data[0].nodes).to.deep.equal(asyncNodes);
+    expect(wrapper.state().data[0].nodes).toEqual(asyncNodes);
   });
 
   it('should work with a promise', done => {

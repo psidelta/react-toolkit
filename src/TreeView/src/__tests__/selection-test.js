@@ -57,7 +57,7 @@ describe('selection props', () => {
         .find(Node)
         .get(1)
         .onLabelClick({ stopPropagation: () => {} });
-      expect(wrapper.state().selected).to.deep.equal({
+      expect(wrapper.state().selected).toEqual({
         '0': true,
         '1': true
       });
@@ -99,7 +99,7 @@ describe('selection props', () => {
         />
       );
 
-      expect(wrapper.instance().getCurrentSelectedState()).to.deep.equal(
+      expect(wrapper.instance().getCurrentSelectedState()).toEqual(
         selected
       );
     });
@@ -120,7 +120,7 @@ describe('selection props', () => {
         .find(Node)
         .get(1)
         .onLabelClick({ stopPropagation: () => {} });
-      expect(wrapper.state().selected).to.deep.equal({
+      expect(wrapper.state().selected).toEqual({
         '1': true
       });
     });
@@ -184,7 +184,7 @@ describe('selection props', () => {
 
       expect(test.selected).to.be.true;
       expect(test.path).to.be.equal('1');
-      expect(test.selectedMap).to.deep.equal({
+      expect(test.selectedMap).toEqual({
         '0': true,
         '1': true
       });

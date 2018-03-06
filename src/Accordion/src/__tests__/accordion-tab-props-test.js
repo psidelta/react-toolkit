@@ -40,13 +40,13 @@ describe('Accordion tab style props', () => {
 
   describe('tabStyle', () => {
     it('should apply tabStyle to all tabs', () => {
-      expect(tabContentComponents.at(0).prop('wrapperStyle')).to.deep.equal(
+      expect(tabContentComponents.at(0).prop('wrapperStyle')).toEqual(
         tabStyle
       );
-      expect(tabContentComponents.at(1).prop('wrapperStyle')).to.deep.equal(
+      expect(tabContentComponents.at(1).prop('wrapperStyle')).toEqual(
         tabStyle
       );
-      expect(tabContentComponents.at(2).prop('wrapperStyle')).to.deep.equal({
+      expect(tabContentComponents.at(2).prop('wrapperStyle')).toEqual({
         ...tabStyle,
         ...extraStyleProps
       });

@@ -7,7 +7,7 @@ describe('node.icon', () => {
     const wrapper = mount(
       <Node node={{ label: 'test', icon: <div id="customIcon" /> }} />
     );
-    expect(wrapper.find('#customIcon')).to.have.length(1);
+    expect(wrapper.find('#customIcon')).toHaveLength(1);
   });
   it('should render what it return when it is a function', () => {
     const wrapper = mount(
@@ -20,6 +20,6 @@ describe('node.icon', () => {
       />
     );
 
-    expect(wrapper.find('#test-20')).to.have.length(1);
+    expect(wrapper.find('#test-20')).toHaveLength(1);
   });
 });

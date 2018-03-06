@@ -16,14 +16,14 @@ describe('icons', () => {
       wrapper.setProps({
         nodeIcon: 'test'
       });
-      expect(wrapper.find(`.${CLASS_NAME}__node__icon-img`)).to.have.length(1);
+      expect(wrapper.find(`.${CLASS_NAME}__node__icon-img`)).toHaveLength(1);
     });
 
     it('it should render jsx', () => {
       wrapper.setProps({
         nodeIcon: <div id="customIcon" />
       });
-      expect(wrapper.find('#customIcon')).to.have.length(1);
+      expect(wrapper.find('#customIcon')).toHaveLength(1);
     });
   });
 
@@ -34,14 +34,12 @@ describe('icons', () => {
         nodeIcon: <div id="customIcon" />,
         leafNodeIcon: <div id="customIcon2" />
       });
-      expect(wrapper.find('#customIcon2')).to.have.length(1);
-      expect(wrapper.find('#customIcon')).to.have.length(0);
+      expect(wrapper.find('#customIcon2')).toHaveLength(1);
+      expect(wrapper.find('#customIcon')).toHaveLength(0);
     });
     it('should render img if a string', () => {
-      wrapper.setProps({
-        leafNodeIcon: 'test'
-      });
-      expect(wrapper.find(`.${CLASS_NAME}__node__icon-img`)).to.have.length(1);
+      const wrapper = mount(<Node leafNodeIcon="test" />);
+      expect(wrapper.find(`.${CLASS_NAME}__node__icon-img`)).toHaveLength(1);
     });
   });
 
@@ -53,8 +51,8 @@ describe('icons', () => {
         nodeIcon: <div id="customIcon" />,
         nodeCollapsedIcon: <div id="customIcon2" />
       });
-      expect(wrapper.find('#customIcon2')).to.have.length(1);
-      expect(wrapper.find('#customIcon')).to.have.length(0);
+      expect(wrapper.find('#customIcon2')).toHaveLength(1);
+      expect(wrapper.find('#customIcon')).toHaveLength(0);
     });
     it('should render img if a string', () => {
       wrapper.setProps({
@@ -62,7 +60,7 @@ describe('icons', () => {
         hasChildren: true,
         nodeCollapsedIcon: 'test'
       });
-      expect(wrapper.find(`.${CLASS_NAME}__node__icon-img`)).to.have.length(1);
+      expect(wrapper.find(`.${CLASS_NAME}__node__icon-img`)).toHaveLength(1);
     });
   });
 });

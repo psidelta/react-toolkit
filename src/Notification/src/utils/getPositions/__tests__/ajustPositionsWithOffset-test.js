@@ -13,6 +13,6 @@ describe('adjustPositionWithOffset', () => {
 
     const test = adjustPositionWithOffset(input).map(extractPosition);
 
-    expect(test).to.deep.equal(expected);
+    expect(test).toEqual(expected);
   });
 });

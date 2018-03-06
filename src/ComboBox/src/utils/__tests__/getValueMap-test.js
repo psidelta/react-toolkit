@@ -18,7 +18,7 @@ describe('getValueMap', () => {
       }
     });
 
-    expect(test).to.deep.equal({
+    expect(test).toEqual({
       1: { id: 1 },
       3: { id: 3 },
       2: { id: 2 }
@@ -40,7 +40,7 @@ describe('getValueMap', () => {
       }
     });
 
-    expect(test).to.deep.equal({
+    expect(test).toEqual({
       2: { id: 2 }
     });
   });

@@ -1,16 +1,17 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 
 import TreeView from '../../TreeView';
-const CLASS_NAME = TreeView.defaultProps.rootClassName;
 import Node from '../../Node';
-import { shallow } from 'enzyme';
+
+const CLASS_NAME = TreeView.defaultProps.rootClassName;
 
 describe('classNames', () => {
   describe('component className', () => {
     it('should add className prop on root', () => {
       const className = 'test className';
       const wrapper = shallow(<Node domProps={{ className }} />);
-      expect(wrapper.hasClass(className)).to.be.true;
+      expect(wrapper.hasClass(className)).toBe(true);
     });
   });
 
@@ -18,8 +19,9 @@ describe('classNames', () => {
     it('should add labelClassName prop on label', () => {
       const className = 'test className';
       const wrapper = shallow(<Node labelClassName={className} />);
-      expect(wrapper.find(`.${CLASS_NAME}__node__label`).hasClass(className)).to
-        .be.true;
+      expect(
+        wrapper.find(`.${CLASS_NAME}__node__label`).hasClass(className)
+      ).toBe(true);
     });
   });
 
@@ -29,8 +31,9 @@ describe('classNames', () => {
       const wrapper = shallow(
         <Node hasChildren contentClassName={className} />
       );
-      expect(wrapper.find(`.${CLASS_NAME}__node__content`).hasClass(className))
-        .to.be.true;
+      expect(
+        wrapper.find(`.${CLASS_NAME}__node__content`).hasClass(className)
+      ).toBe(true);
     });
   });
 });

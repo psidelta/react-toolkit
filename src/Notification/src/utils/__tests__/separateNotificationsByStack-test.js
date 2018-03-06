@@ -24,7 +24,7 @@ describe('separateNotificationsByStacking', () => {
         notifications: input,
         stacking: ['left', 'right']
       })
-    ).to.deep.equal(expected);
+    ).toEqual(expected);
   });
 
   it('must filter out closed notifications', () => {
@@ -48,6 +48,6 @@ describe('separateNotificationsByStacking', () => {
         notifications: input,
         stacking: ['left', 'right']
       })
-    ).to.deep.equal(expected);
+    ).toEqual(expected);
   });
 });

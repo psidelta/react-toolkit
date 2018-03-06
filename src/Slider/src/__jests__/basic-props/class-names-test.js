@@ -3,7 +3,7 @@ import getClassNames from '../../utils/get-class-names';
 describe('components class names logic', () => {
   it('should pass down props className', () => {
     const classString = getClassNames({ className: 'test' }, {});
-    expect(classString).to.contain('test');
+    expect(classString).toContain('test');
   });
 
   it('should adds orientation modifier', () => {
@@ -14,13 +14,13 @@ describe('components class names logic', () => {
     };
 
     classString = getClassNames(props, {});
-    expect(classString).to.contain('horizontal-orientation');
+    expect(classString).toContain('horizontal-orientation');
 
     props = {
       orientation: 'vertical'
     };
 
     classString = getClassNames(props, {});
-    expect(classString).to.contain('vertical-orientation');
+    expect(classString).toContain('vertical-orientation');
   });
 });

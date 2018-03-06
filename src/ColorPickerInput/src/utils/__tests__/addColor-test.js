@@ -21,7 +21,7 @@ describe('addColor', () => {
       palette: ['blue'],
       length: 2
     }))
-      .to.deep.equal(['blue', 'red'])
+      .toEqual(['blue', 'red'])
   })
   it('adds the color at the begining if there is not enough space', () => {
     expect(addColor({
@@ -29,7 +29,7 @@ describe('addColor', () => {
       palette: ['blue', 'yellow'],
       length: 2
     }))
-      .to.deep.equal(['red', 'yellow'])
+      .toEqual(['red', 'yellow'])
   })
   it('if palette is null it must return an array with the color', () => {
     expect(addColor({
@@ -37,6 +37,6 @@ describe('addColor', () => {
       palette: null,
       length: 2
     }))
-      .to.deep.equal(['red'])
+      .toEqual(['red'])
   })
 })

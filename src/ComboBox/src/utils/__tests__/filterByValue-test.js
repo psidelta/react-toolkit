@@ -11,7 +11,7 @@ describe('filterByValue', () => {
     const value = [1, 3];
     const getIdProperty = item => item.id;
 
-    expect(filterByValue({ data, getIdProperty, value })).to.deep.equal(
+    expect(filterByValue({ data, getIdProperty, value })).toEqual(
       expected
     );
   });

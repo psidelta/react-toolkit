@@ -46,7 +46,7 @@ describe('filter', () => {
     });
 
     wrapper.instance().checkNode('1');
-    expect(wrapper.state().checked).to.deep.equal({
+    expect(wrapper.state().checked).toEqual({
       '1': true,
       '1/0': true
     });

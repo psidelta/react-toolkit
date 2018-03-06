@@ -21,7 +21,7 @@ describe('shiftLowerEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-10, 10]);
+    expect(newValueTuple).toEqual([-10, 10]);
   });
 
   it('should clamp new start value if it goes beyond the startValue', () => {
@@ -30,14 +30,14 @@ describe('shiftLowerEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-100, -70]);
+    expect(newValueTuple).toEqual([-100, -70]);
 
     newValueTuple = shiftLowerEdgeOfRange(-10, {
       currentValue: [-100, -70],
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-100, -70]);
+    expect(newValueTuple).toEqual([-100, -70]);
   });
 
   it('should drag end value when maxRange constraint not respected', () => {
@@ -46,14 +46,14 @@ describe('shiftLowerEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-90, -40]);
+    expect(newValueTuple).toEqual([-90, -40]);
 
     newValueTuple = shiftLowerEdgeOfRange(-10, {
       currentValue: [-95, -45],
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-100, -50]);
+    expect(newValueTuple).toEqual([-100, -50]);
   });
 
   it('should drag end value when minRange constraint not respected', () => {
@@ -62,21 +62,21 @@ describe('shiftLowerEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([20, 30]);
+    expect(newValueTuple).toEqual([20, 30]);
 
     newValueTuple = shiftLowerEdgeOfRange(10, {
       currentValue: [85, 95],
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([90, 100]);
+    expect(newValueTuple).toEqual([90, 100]);
 
     newValueTuple = shiftLowerEdgeOfRange(10, {
       currentValue: [90, 100],
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([90, 100]);
+    expect(newValueTuple).toEqual([90, 100]);
   });
 
   it('should play well with offsets that go beyond range', () => {
@@ -85,7 +85,7 @@ describe('shiftLowerEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([90, 100]);
+    expect(newValueTuple).toEqual([90, 100]);
   });
 
   it('should support diff shifting start edge over end edge', () => {
@@ -94,7 +94,7 @@ describe('shiftLowerEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([4, 14]);
+    expect(newValueTuple).toEqual([4, 14]);
   });
 
   it('should support diff shifting on reversed range', () => {
@@ -106,7 +106,7 @@ describe('shiftLowerEdgeOfRange logic', () => {
       isReversed: true
     });
 
-    expect(newValueTuple).to.deep.equal([-1, -15]);
+    expect(newValueTuple).toEqual([-1, -15]);
   });
 
   it('should support shiftin with 0 and isRevered=true', () => {
@@ -131,7 +131,7 @@ describe('shiftUpperEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([0, 20]);
+    expect(newValueTuple).toEqual([0, 20]);
   });
 
   it('should clamp new end value if it goes beyond the endValue', () => {
@@ -140,14 +140,14 @@ describe('shiftUpperEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([80, 100]);
+    expect(newValueTuple).toEqual([80, 100]);
 
     newValueTuple = shiftUpperEdgeOfRange(10, {
       currentValue: [70, 100],
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([70, 100]);
+    expect(newValueTuple).toEqual([70, 100]);
   });
 
   it('should drag start value when maxRange constraint not respected', () => {
@@ -156,14 +156,14 @@ describe('shiftUpperEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-70, -20]);
+    expect(newValueTuple).toEqual([-70, -20]);
 
     newValueTuple = shiftUpperEdgeOfRange(10, {
       currentValue: [45, 95],
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([50, 100]);
+    expect(newValueTuple).toEqual([50, 100]);
   });
 
   it('should drag start value when minRange constraint not respected', () => {
@@ -180,14 +180,14 @@ describe('shiftUpperEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-100, -90]);
+    expect(newValueTuple).toEqual([-100, -90]);
 
     newValueTuple = shiftUpperEdgeOfRange(-10, {
       currentValue: [-100, -90],
       ...baseConfig
     });
 
-    expect(newValueTuple).to.deep.equal([-100, -90]);
+    expect(newValueTuple).toEqual([-100, -90]);
   });
 });
 

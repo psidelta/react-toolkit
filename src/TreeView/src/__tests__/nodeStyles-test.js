@@ -22,7 +22,7 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().domProps.style;
-      expect(test).to.deep.equal({
+      expect(test).toEqual({
         color: 'node color',
         background: 'global background'
       });
@@ -48,7 +48,7 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().domProps.style;
-      expect(test).to.deep.equal({
+      expect(test).toEqual({
         color: 'node color',
         background: 'global background'
       });
@@ -104,7 +104,7 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().labelStyle;
-      expect(test).to.deep.equal({
+      expect(test).toEqual({
         color: 'node color',
         background: 'global background'
       });
@@ -130,7 +130,7 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().labelStyle;
-      expect(test).to.deep.equal({
+      expect(test).toEqual({
         color: 'node color',
         background: 'global background'
       });
@@ -188,7 +188,7 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().contentStyle;
-      expect(test).to.deep.equal({
+      expect(test).toEqual({
         color: 'node color',
         background: 'global background',
         paddingLeft: 20
@@ -217,7 +217,7 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().contentStyle;
-      expect(test).to.deep.equal({
+      expect(test).toEqual({
         color: 'node color',
         background: 'global background',
         paddingLeft: 20

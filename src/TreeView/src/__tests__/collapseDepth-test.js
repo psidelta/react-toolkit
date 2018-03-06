@@ -82,7 +82,7 @@ describe('collapseDepth props', () => {
         '1/2/2': true
       };
 
-      expect(wrapper.state().collapsed).to.deep.equal(test);
+      expect(wrapper.state().collapsed).toEqual(test);
     });
 
     it('should have no effect if selected is controlled or uncontrolled', () => {
@@ -158,7 +158,7 @@ describe('collapseDepth props', () => {
         '1/2/2': true
       };
 
-      expect(wrapper.state().collapsed).to.deep.equal(test);
+      expect(wrapper.state().collapsed).toEqual(test);
     });
   });
 

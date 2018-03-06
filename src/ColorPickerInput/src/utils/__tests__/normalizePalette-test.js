@@ -22,6 +22,6 @@ describe('normalizePalette', () => {
     }
     const test = ['#bbb', '#fff', '#fff', '#fff']
     expect(normalizePalette(input))
-      .to.deep.equal(test)
+      .toEqual(test)
   })
 })

@@ -30,6 +30,6 @@ describe('changeChildrenProperty', () => {
       '0/1/0': true
     };
 
-    expect(changeChildrenProperty(node, true)).to.deep.equal(expected);
+    expect(changeChildrenProperty(node, true)).toEqual(expected);
   });
 });

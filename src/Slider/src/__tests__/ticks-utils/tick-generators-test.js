@@ -15,7 +15,7 @@ describe('generateTickValuesBySteps logic', () => {
       endValue
     });
 
-    expect(tickValues).to.deep.equal([-15, -10, -5, 0, 5, 10, 15]);
+    expect(tickValues).toEqual([-15, -10, -5, 0, 5, 10, 15]);
   });
 
   it('should permit skipping edges', () => {
@@ -30,7 +30,7 @@ describe('generateTickValuesBySteps logic', () => {
       skipEdgeTicks: true
     });
 
-    expect(tickValues).to.deep.equal([-10, -5, 0, 5, 10]);
+    expect(tickValues).toEqual([-10, -5, 0, 5, 10]);
   });
 
   it('should permit reversed generation', () => {
@@ -45,7 +45,7 @@ describe('generateTickValuesBySteps logic', () => {
       skipEdgeTicks: true
     });
 
-    expect(tickValues).to.deep.equal([10, 5, 0, -5, -10]);
+    expect(tickValues).toEqual([10, 5, 0, -5, -10]);
   });
 });
 

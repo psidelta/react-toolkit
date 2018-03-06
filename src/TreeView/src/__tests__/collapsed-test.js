@@ -28,7 +28,7 @@ describe('collapsed props', () => {
   describe('defaultCollapsed', () => {
     it('should default to empty object', () => {
       const wrapper = shallow(<TreeView dataSource={NESTED_DATA_STRUCTURE} />);
-      expect(wrapper.state().collapsed).to.deep.equal({});
+      expect(wrapper.state().collapsed).toEqual({});
     });
 
     it('should be used as initial state', () => {
@@ -63,7 +63,7 @@ describe('collapsed props', () => {
         />
       );
 
-      expect(wrapper.instance().getCurrentCollapsedState()).to.deep.equal({
+      expect(wrapper.instance().getCurrentCollapsedState()).toEqual({
         '3': true
       });
     });

@@ -6,6 +6,6 @@ describe('getListDiff', () => {
     const previous = [1, 2, 3, 4, 5]
     const expected = [2, 1, 5]
 
-    expect(getListDiff(list, previous)).to.deep.equal(expected)
+    expect(getListDiff(list, previous)).toEqual(expected)
   })
 })

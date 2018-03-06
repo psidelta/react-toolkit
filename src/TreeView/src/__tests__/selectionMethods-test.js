@@ -25,8 +25,8 @@ describe('setSelected', () => {
       .setSelected({ '1': true, '1/0': true });
     const expected = { '1': true, '1/0': true };
 
-    expect(newSelectedState).to.deep.equal(expected);
-    expect(wrapper.state().selected).to.deep.equal(expected);
+    expect(newSelectedState).toEqual(expected);
+    expect(wrapper.state().selected).toEqual(expected);
   });
 });
 
@@ -38,8 +38,8 @@ describe('selectNode', () => {
     const newCheckedState = wrapper.instance().selectNode('1');
     const expected = { '1': true };
 
-    expect(newCheckedState).to.deep.equal(expected);
-    expect(wrapper.state().selected).to.deep.equal(expected);
+    expect(newCheckedState).toEqual(expected);
+    expect(wrapper.state().selected).toEqual(expected);
   });
 });
 
@@ -55,8 +55,8 @@ describe('deselectNode', () => {
     const newCheckedState = wrapper.instance().deselectNode('1');
     const expected = {};
 
-    expect(newCheckedState).to.deep.equal(expected);
-    expect(wrapper.state().selected).to.deep.equal(expected);
+    expect(newCheckedState).toEqual(expected);
+    expect(wrapper.state().selected).toEqual(expected);
   });
 });
 
@@ -71,8 +71,8 @@ describe('selectAll', () => {
       '1': true,
       '1/0': true
     };
-    expect(test).to.deep.equal(expected);
-    expect(wrapper.state().selected).to.deep.equal(expected);
+    expect(test).toEqual(expected);
+    expect(wrapper.state().selected).toEqual(expected);
   });
 });
 
@@ -87,7 +87,7 @@ describe('deselectAll', () => {
     );
     const test = wrapper.instance().deselectAll();
     const expected = {};
-    expect(test).to.deep.equal(expected);
-    expect(wrapper.state().selected).to.deep.equal(expected);
+    expect(test).toEqual(expected);
+    expect(wrapper.state().selected).toEqual(expected);
   });
 });

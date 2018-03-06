@@ -116,7 +116,7 @@ describe('FileDropZoneRenderer', () => {
       expect(component.find("[id='empty']"), 'EmptyText').to.have.length(1);
 
       expect(propsSetToChild).to.have.property('style');
-      expect(propsSetToChild.style).to.deep.equal(EmptyStyle);
+      expect(propsSetToChild.style).toEqual(EmptyStyle);
       expect(propsSetToChild.className).to.contain(EmptyClass);
 
       component.setProps({
@@ -129,7 +129,7 @@ describe('FileDropZoneRenderer', () => {
 
       expect(component.find("[id='over']"), 'OverText').to.have.length(1);
       expect(propsSetToChild).to.have.property('style');
-      expect(propsSetToChild.style).to.deep.equal(OverStyle);
+      expect(propsSetToChild.style).toEqual(OverStyle);
       expect(propsSetToChild.className).to.contain(OverClass);
 
       component.setProps({
@@ -142,7 +142,7 @@ describe('FileDropZoneRenderer', () => {
       propsSetToChild = component.props();
 
       expect(component.find("[id='invalid']"), 'InvalidText').to.have.length(1);
-      expect(propsSetToChild.style).to.deep.equal(InvalidStyle);
+      expect(propsSetToChild.style).toEqual(InvalidStyle);
       expect(propsSetToChild.className).to.contain(InvalidClass);
 
       component.setProps({
@@ -205,7 +205,7 @@ describe('FileDropZoneRenderer', () => {
       });
 
       expect(propsSetToChild.className).to.contain(className);
-      expect(propsSetToChild.style).to.deep.equal(style);
+      expect(propsSetToChild.style).toEqual(style);
     });
   });
 

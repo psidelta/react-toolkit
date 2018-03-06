@@ -100,7 +100,7 @@ describe('FileDroppable', () => {
 
             const callArgs = onChangeSpy.getCall(0).args[0];
             expect(callArgs).to.have.property('files');
-            expect(callArgs.files).to.deep.equal([]);
+            expect(callArgs.files).toEqual([]);
             expect(callArgs).to.have.property('event');
             expect(callArgs.event).to.have.property('dataTransfer');
 
@@ -136,10 +136,10 @@ describe('FileDroppable', () => {
 
         function assertProperValidAndInvalidFilesOnSpy(spyEntity) {
           expect(spyEntity.getCall(0).args[0]).to.have.property('validFiles');
-          expect(spyEntity.getCall(0).args[0].validFiles).to.deep.equal(expectedValidFiles);
+          expect(spyEntity.getCall(0).args[0].validFiles).toEqual(expectedValidFiles);
 
           expect(spyEntity.getCall(0).args[0]).to.have.property('invalidFiles');
-          expect(spyEntity.getCall(0).args[0].invalidFiles).to.deep.equal(expectedInValidFiles);
+          expect(spyEntity.getCall(0).args[0].invalidFiles).toEqual(expectedInValidFiles);
 
           expect(spyEntity.getCall(0).args[0]).to.have.property('isValid', false);
 
@@ -158,7 +158,7 @@ describe('FileDroppable', () => {
 
             // TODO split into onChange test
             expect(onChangeSpy.getCall(0).args[0]).to.have.property('files');
-            expect(onChangeSpy.getCall(0).args[0].files).to.deep.equal(expectedValidFiles);
+            expect(onChangeSpy.getCall(0).args[0].files).toEqual(expectedValidFiles);
 
             component.setProps({
               acceptInvalid: true,
@@ -167,7 +167,7 @@ describe('FileDroppable', () => {
 
             instance.onPick({dataTransfer:{files:files}})
               .then(()=>{
-                expect(onChangeSpy.getCall(1).args[0].files).to.deep.equal(files);
+                expect(onChangeSpy.getCall(1).args[0].files).toEqual(files);
                 done();
               })
           })
@@ -201,13 +201,13 @@ describe('FileDroppable', () => {
                 .then(()=>{
                   const callArgs1 = onChangeSpy.getCall(0).args[0];
                   expect(callArgs1).to.have.property('files');
-                  expect(callArgs1.files).to.deep.equal(pickedFiles);
+                  expect(callArgs1.files).toEqual(pickedFiles);
                   return instance.onPick(event2);
                 })
                 .then(() => {
                   const callArgs2 = onChangeSpy.getCall(1).args[0];
                   expect(callArgs2).to.have.property('files');
-                  expect(callArgs2.files, 'should have appended files').to.deep.equal([...pickedFiles, ...moreFiles]);
+                  expect(callArgs2.files, 'should have appended files').toEqual([...pickedFiles, ...moreFiles]);
                   done();
                 })
                 .catch(done);
@@ -232,7 +232,7 @@ describe('FileDroppable', () => {
                 .then(()=>{
                   const callArgs1 = onChangeSpy.getCall(0).args[0];
                   expect(callArgs1).to.have.property('files');
-                  expect(callArgs1.files).to.deep.equal(pickedFiles);
+                  expect(callArgs1.files).toEqual(pickedFiles);
                 })
                 .catch(done);
 
@@ -241,7 +241,7 @@ describe('FileDroppable', () => {
                 .then(() => {
                   const callArgs2 = onChangeSpy.getCall(1).args[0];
                   expect(callArgs2).to.have.property('files');
-                  expect(callArgs2.files, 'should have appended files').to.deep.equal(moreFiles);
+                  expect(callArgs2.files, 'should have appended files').toEqual(moreFiles);
                   done();
                 })
                 .catch(done);
@@ -266,7 +266,7 @@ describe('FileDroppable', () => {
             instance.onPick(event1).then(()=>{
               const callArgs = onChangeSpy.getCall(0).args[0];
               expect(callArgs).to.have.property('files');
-              expect(callArgs.files).to.deep.equal([...initialFiles, ...moreFiles]);
+              expect(callArgs.files).toEqual([...initialFiles, ...moreFiles]);
               done();
             })
             .catch(done);
@@ -333,7 +333,7 @@ describe('FileDroppable', () => {
       instance = component.instance();
       innerClassComponent = component.find(InnerClass);
 
-      expect(instance.getFiles()).to.deep.equal(initialFiles);
+      expect(instance.getFiles()).toEqual(initialFiles);
     });
   });
 
@@ -444,13 +444,13 @@ describe('FileDroppable', () => {
         instance = component.instance();
         innerClassComponent = component.find(InnerClass);
 
-        expect(instance.getFiles()).to.deep.equal(initialFiles);
+        expect(instance.getFiles()).toEqual(initialFiles);
 
         const anotherFile = [{c:1}];
         const event1 = {dataTransfer:{files:anotherFile}};
         instance.onPick(event1)
           .then(()=>{
-            expect(instance.getFiles()).to.deep.equal(initialFiles);
+            expect(instance.getFiles()).toEqual(initialFiles);
             done();
           })
           .catch(done)
@@ -477,7 +477,7 @@ describe('FileDroppable', () => {
         instance.clearFiles();
 
         expect(changeSpy).to.have.been.calledOnce;
-        expect(changeSpy.getCall(0).args[0].files).to.deep.equal([]);
+        expect(changeSpy.getCall(0).args[0].files).toEqual([]);
 
       });
 
@@ -524,14 +524,14 @@ describe('FileDroppable', () => {
         instance = component.instance();
         innerClassComponent = component.find(InnerClass);
 
-        expect(instance.getFiles()).to.deep.equal(initialFiles);
+        expect(instance.getFiles()).toEqual(initialFiles);
 
         const anotherFile = [{c:1}];
         const anotherFile2= [{c:2}];
         const event1 = {dataTransfer:{files:anotherFile}};
         instance.onPick(event1)
           .then(()=>{
-            expect(instance.getFiles()).to.deep.equal([...initialFiles, ...anotherFile]);
+            expect(instance.getFiles()).toEqual([...initialFiles, ...anotherFile]);
 
             component.setProps({
               appendOnDrop: false
@@ -541,7 +541,7 @@ describe('FileDroppable', () => {
             return instance.onPick(event2);
           })
           .then(()=>{
-            expect(instance.getFiles()).to.deep.equal(anotherFile2);
+            expect(instance.getFiles()).toEqual(anotherFile2);
             done();
           })
           .catch(done);
@@ -569,9 +569,9 @@ describe('FileDroppable', () => {
         instance.clearFiles();
 
         expect(changeSpy).to.have.been.calledOnce;
-        expect(changeSpy.getCall(0).args[0].files, 'changeSpy').to.deep.equal([]);
+        expect(changeSpy.getCall(0).args[0].files, 'changeSpy').toEqual([]);
 
-        expect(instance.getFiles(), 'getFiles').to.deep.equal([]);
+        expect(instance.getFiles(), 'getFiles').toEqual([]);
       });
 
       it('should removeFileAt and call onChange', () => {
@@ -614,7 +614,7 @@ describe('FileDroppable', () => {
         instance = component.instance();
         innerClassComponent = component.find(InnerClass);
 
-        expect(instance.getFileNames()).to.deep.equal(['a', 'b', '']);
+        expect(instance.getFileNames()).toEqual(['a', 'b', '']);
       });
 
       it('should return file types with getFileTypes');
@@ -632,7 +632,7 @@ describe('FileDroppable', () => {
         instance = component.instance();
         innerClassComponent = component.find(InnerClass);
 
-        expect(instance.getTotalFileSize()).to.deep.equal(20);
+        expect(instance.getTotalFileSize()).toEqual(20);
       });
 
     });

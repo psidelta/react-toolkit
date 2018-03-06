@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Node from '../index';
 
+import Node from '../index';
 import TreeView from '../../TreeView';
+
 const CLASS_NAME = TreeView.defaultProps.rootClassName;
 
 describe('custom renderers', () => {
@@ -16,13 +17,13 @@ describe('custom renderers', () => {
     it('should call renderLabel', () => {
       const renderLabel = sinon.spy();
       wrapper.setProps({ renderLabel });
-      expect(renderLabel.called).to.be.true;
+      expect(renderLabel.called).toBe(true);
     });
 
     it('should render what renderLabel returns', () => {
       const renderLabel = () => <div id="testCustomLabel" />;
       wrapper.setProps({ renderLabel });
-      expect(wrapper.find('#testCustomLabel')).to.have.length(1);
+      expect(wrapper.find('#testCustomLabel')).toHaveLength(1);
     });
 
     it('mutating props will change label', () => {
@@ -30,9 +31,10 @@ describe('custom renderers', () => {
         domProps.id = 'mutatedId';
       };
       wrapper.setProps({ renderLabel });
-      expect(wrapper.find('#mutatedId')).to.have.length(1);
-      expect(wrapper.find('#mutatedId').hasClass(`${CLASS_NAME}__node__label`))
-        .to.be.true;
+      expect(wrapper.find('#mutatedId')).toHaveLength(1);
+      expect(
+        wrapper.find('#mutatedId').hasClass(`${CLASS_NAME}__node__label`)
+      ).toBe(true);
     });
   });
 
@@ -47,13 +49,13 @@ describe('custom renderers', () => {
     it('should call renderLabel', () => {
       const renderContent = sinon.spy();
       wrapper.setProps({ renderContent });
-      expect(renderContent.called).to.be.true;
+      expect(renderContent.called).toBe(true);
     });
 
     it('should render what renderContent returns', () => {
       const renderContent = () => <div id="testCustomLabel" />;
       wrapper.setProps({ renderContent });
-      expect(wrapper.find('#testCustomLabel')).to.have.length(1);
+      expect(wrapper.find('#testCustomLabel')).toHaveLength(1);
     });
 
     it('mutating props will change content', () => {
@@ -61,10 +63,10 @@ describe('custom renderers', () => {
         domProps.id = 'mutatedId';
       };
       wrapper.setProps({ renderContent });
-      expect(wrapper.find('#mutatedId')).to.have.length(1);
+      expect(wrapper.find('#mutatedId')).toHaveLength(1);
       expect(
         wrapper.find('#mutatedId').hasClass(`${CLASS_NAME}__node__content`)
-      ).to.be.true;
+      ).toBe(true);
     });
   });
 
@@ -72,13 +74,13 @@ describe('custom renderers', () => {
     it('should call render icon if set', () => {
       const renderIcon = sinon.spy();
       const wrapper = shallow(<Node renderIcon={renderIcon} />);
-      expect(renderIcon.called).to.be.true;
+      expect(renderIcon.called).toBe(true);
     });
 
     it('should render what function returns', () => {
       const renderIcon = () => <div id="customIcon" />;
       const wrapper = shallow(<Node renderIcon={renderIcon} />);
-      expect(wrapper.find('#customIcon')).to.have.length(1);
+      expect(wrapper.find('#customIcon')).toHaveLength(1);
     });
 
     it('should be called with nodeProps', () => {
@@ -86,39 +88,53 @@ describe('custom renderers', () => {
       const wrapper = shallow(
         <Node index={1} node={{ color: 'green' }} renderIcon={renderIcon} />
       );
-      expect(renderIcon.args[0][0].index).to.equal(1);
-      expect(renderIcon.args[0][0].node.color).to.equal('green');
+      expect(renderIcon.args[0][0].index).toEqual(1);
+      expect(renderIcon.args[0][0].node.color).toEqual('green');
     });
   });
 
   describe('renderCheck', () => {
-    let wrapper;
-
-    beforeEach(() => {
-      wrapper = mount(<Node enableChecked node={{ label: 'test' }} />);
-    });
-
     it('should call renderCheck', () => {
       const renderCheck = sinon.spy();
-      wrapper.setProps({ renderCheck });
-      expect(renderCheck.called).to.be.true;
+      let wrapper = mount(
+        <Node
+          enableChecked
+          node={{ label: 'test' }}
+          renderCheck={renderCheck}
+        />
+      );
+      expect(renderCheck.called).toBe(true);
     });
 
     it('should render what rendeCheck returns', () => {
       const renderCheck = () => <div id="customCheck" />;
-      wrapper.setProps({ renderCheck });
-      expect(wrapper.find('#customCheck')).to.have.length(1);
+      let wrapper = mount(
+        <Node
+          enableChecked
+          node={{ label: 'test' }}
+          renderCheck={renderCheck}
+        />
+      );
+      expect(wrapper.find('#customCheck')).toHaveLength(1);
     });
 
     it('mutating props will change check', () => {
       const renderCheck = domProps => {
-        domProps.id = 'mutatedId';
+        domProps.id = 'mutatedIdx';
       };
-      wrapper.setProps({ renderCheck });
-      expect(wrapper.find('#mutatedId')).to.have.length(1);
 
-      expect(wrapper.find('#mutatedId').hasClass(`${CLASS_NAME}__node__check`))
-        .to.be.true;
+      let wrapper = shallow(
+        <Node
+          enableChecked
+          node={{ label: 'test' }}
+          renderCheck={renderCheck}
+        />
+      );
+
+      expect(wrapper.find('#mutatedIdx').length).toBe(1);
+      expect(
+        wrapper.find('#mutatedIdx').hasClass(`${CLASS_NAME}__node__checkbox`)
+      ).toBe(true);
     });
   });
 
@@ -132,24 +148,24 @@ describe('custom renderers', () => {
     it('should be called', () => {
       const renderNodeText = sinon.spy();
       wrapper.setProps({ renderNodeText });
-      expect(renderNodeText.called).to.be.true;
+      expect(renderNodeText.called).toBe(true);
     });
 
     it('should render what rendeCheck returns', () => {
       const renderNodeText = () => <div id="customCheck" />;
       wrapper.setProps({ renderNodeText });
-      expect(wrapper.find('#customCheck')).to.have.length(1);
+      expect(wrapper.find('#customCheck')).toHaveLength(1);
     });
 
     it('mutating props will change check', () => {
       const renderNodeText = domProps => {
-        domProps.id = 'mutatedId';
+        domProps.id = 'mutatedId1';
       };
       wrapper.setProps({ renderNodeText });
-      expect(wrapper.find('#mutatedId')).to.have.length(1);
+      expect(wrapper.find('#mutatedId1')).toHaveLength(1);
       expect(
-        wrapper.find('#mutatedId').hasClass(`${CLASS_NAME}__node__label__text`)
-      ).to.be.true;
+        wrapper.find('#mutatedId1').hasClass(`${CLASS_NAME}__node__label__text`)
+      ).toBe(true);
     });
   });
 });

@@ -166,7 +166,7 @@ describe('getValueSelectionRangeFromMaskedSelectionRange', () => {
       }
     );
 
-    expect(selectionRange).to.deep.equal([1, 2]);
+    expect(selectionRange).toEqual([1, 2]);
   });
 
   it('should return selection that is 0 based and not as large as value', () => {
@@ -184,7 +184,7 @@ describe('getValueSelectionRangeFromMaskedSelectionRange', () => {
       }
     );
 
-    expect(selectionRange).to.deep.equal([0, 2]);
+    expect(selectionRange).toEqual([0, 2]);
   });
 
   it('should return selection that is no 0 based and is larger than value', () => {
@@ -202,7 +202,7 @@ describe('getValueSelectionRangeFromMaskedSelectionRange', () => {
       }
     );
 
-    expect(selectionRange).to.deep.equal([1, 2]);
+    expect(selectionRange).toEqual([1, 2]);
   });
 
   it('should return selection that is larger than value', () => {
@@ -220,7 +220,7 @@ describe('getValueSelectionRangeFromMaskedSelectionRange', () => {
       }
     );
 
-    expect(selectionRange).to.deep.equal([0, 3]);
+    expect(selectionRange).toEqual([0, 3]);
   });
 });
 

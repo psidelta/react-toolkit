@@ -51,7 +51,7 @@ describe('checked props', () => {
         />
       );
 
-      expect(wrapper.instance().getCurrentCheckedState()).to.deep.equal(
+      expect(wrapper.instance().getCurrentCheckedState()).toEqual(
         checked
       );
     });
@@ -64,7 +64,7 @@ describe('checked props', () => {
 
       wrapper.instance().checkNode('1/2');
 
-      expect(wrapper.state().checked).to.deep.equal({});
+      expect(wrapper.state().checked).toEqual({});
     });
   });
 
@@ -102,7 +102,7 @@ describe('checked props', () => {
       wrapper.instance().selectNode('0');
       expect(onCheckedChange.called).to.be.true;
       expect(wrapper.state().checked[0]).to.be.true;
-      expect(onCheckedChange.args[0][0].checkedMap).to.deep.equal({
+      expect(onCheckedChange.args[0][0].checkedMap).toEqual({
         '0': true
       });
     });

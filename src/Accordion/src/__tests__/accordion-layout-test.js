@@ -19,13 +19,13 @@ describe('Accordion Layout', () => {
 
   it('should only have on tab expanded in single expand mode', () => {
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
   });
 
   it('should have multiple tabs expanded in multi expand mode', () => {
     component.setProps({ multiExpand: true });
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([0, 1]);
+    expect(instance.getActiveTabs()).toEqual([0, 1]);
   });
 
   it('should handle switch between multi to single expand', () => {
@@ -38,25 +38,25 @@ describe('Accordion Layout', () => {
 
   it('should not collapse last open tab in collapsible=false', () => {
     component.find('[data-test="tab1"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([0]);
+    expect(instance.getActiveTabs()).toEqual([0]);
   });
 
   it('should collapse last open tab in collapsible=true', () => {
     component.setProps({ collapsible: true });
     component.find('[data-test="tab1"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([]);
+    expect(instance.getActiveTabs()).toEqual([]);
   });
 
   it('should support horizontal interaction', () => {
     component.setProps({ horizontal: true });
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([1]);
+    expect(instance.getActiveTabs()).toEqual([1]);
 
     component.setProps({ collapsible: true });
     component.find('[data-test="tab2"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([]);
+    expect(instance.getActiveTabs()).toEqual([]);
 
     component.find('[data-test="tab1"]').simulate('click');
-    expect(instance.getActiveTabs()).to.deep.equal([0]);
+    expect(instance.getActiveTabs()).toEqual([0]);
   });
 });

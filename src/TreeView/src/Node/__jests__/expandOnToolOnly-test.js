@@ -16,7 +16,7 @@ describe('expandOnToolOnly', () => {
       wrapper.find(`.${CLASS_NAME}__node__label`).simulate('click', {
         stopPropagation: () => {}
       });
-      expect(onCollapsedChange.called).to.be.true;
+      expect(onCollapsedChange.called).toBe(true);
     });
   });
 
@@ -34,12 +34,12 @@ describe('expandOnToolOnly', () => {
       wrapper.find(`.${CLASS_NAME}__node__label`).simulate('click', {
         stopPropagation: () => {}
       });
-      expect(onCollapsedChange.called).to.be.false;
+      expect(onCollapsedChange.called).toBe(false);
 
       wrapper.find(ExpandTool).simulate('click', {
         stopPropagation: () => {}
       });
-      expect(onCollapsedChange.called).to.be.true;
+      expect(onCollapsedChange.called).toBe(true);
     });
   });
 });

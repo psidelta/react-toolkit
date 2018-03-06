@@ -22,7 +22,7 @@ describe('disabled', () => {
       wrapper.setProps({ onCollapsedChange });
       expandTool.simulate('click', { stopPropagation: () => {} });
 
-      expect(onCollapsedChange.called).to.be.false;
+      expect(onCollapsedChange.called).toBe(false);
     });
 
     it('should not call onSelectionChange', () => {
@@ -30,7 +30,7 @@ describe('disabled', () => {
       wrapper.setProps({ onSelectionChange });
       label.simulate('click', { stopPropagation: () => {} });
 
-      expect(onSelectionChange.called).to.be.false;
+      expect(onSelectionChange.called).toBe(false);
     });
 
     it('should not call onActiveNodeChange', () => {
@@ -38,7 +38,7 @@ describe('disabled', () => {
       wrapper.setProps({ onActiveNodeChange });
       label.simulate('click', { stopPropagation: () => {} });
 
-      expect(onActiveNodeChange.called).to.be.false;
+      expect(onActiveNodeChange.called).toBe(false);
     });
   });
 
@@ -53,7 +53,7 @@ describe('disabled', () => {
         wrapper.setProps({ onCollapsedChange });
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
 
-        expect(onCollapsedChange.called).to.be.false;
+        expect(onCollapsedChange.called).toBe(false);
       });
     });
 
@@ -63,7 +63,7 @@ describe('disabled', () => {
         wrapper.setProps({ onCollapsedChange });
         label.simulate('doubleClick', { stopPropagation: () => {} });
 
-        expect(onCollapsedChange.called).to.be.false;
+        expect(onCollapsedChange.called).toBe(false);
       });
     });
   });
@@ -73,10 +73,10 @@ describe('disabled', () => {
       const onCheckedChange = sinon.spy();
 
       wrapper.setProps({ onCheckedChange, enableChecked: true });
-      const check = wrapper.find(`.${CLASS_NAME}__node__check`);
+      const check = wrapper.find(`.${CLASS_NAME}__node__checkbox`);
       check.simulate('click', { stopPropagation: () => {} });
 
-      expect(onCheckedChange.called).to.be.false;
+      expect(onCheckedChange.called).toBe(false);
     });
   });
 });

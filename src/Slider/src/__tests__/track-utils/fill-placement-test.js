@@ -12,7 +12,7 @@ describe('getTrackFillPercentages logic', () => {
       endValue: 100
     });
 
-    expect(trackFillPercentages).to.deep.equal([0.1, 0.2]);
+    expect(trackFillPercentages).toEqual([0.1, 0.2]);
   });
 
   it('should return percentages of reversed range', () => {
@@ -24,7 +24,7 @@ describe('getTrackFillPercentages logic', () => {
       endValue: 0
     });
 
-    expect(trackFillPercentages).to.deep.equal([0.7, 0.8]);
+    expect(trackFillPercentages).toEqual([0.7, 0.8]);
   });
 
   it('should return percentages of slide from start', () => {
@@ -35,7 +35,7 @@ describe('getTrackFillPercentages logic', () => {
       trackFillPosition: 'start'
     });
 
-    expect(trackFillPercentages).to.deep.equal([0, 0.6]);
+    expect(trackFillPercentages).toEqual([0, 0.6]);
   });
 
   it('should return percentages of slide from end', () => {
@@ -46,7 +46,7 @@ describe('getTrackFillPercentages logic', () => {
       trackFillPosition: 'end'
     });
 
-    expect(trackFillPercentages).to.deep.equal([0.6, 1]);
+    expect(trackFillPercentages).toEqual([0.6, 1]);
   });
 
   it('should return percentages of slide from start reversed', () => {
@@ -57,7 +57,7 @@ describe('getTrackFillPercentages logic', () => {
       trackFillPosition: 'start'
     });
 
-    expect(trackFillPercentages).to.deep.equal([0, 0.4]);
+    expect(trackFillPercentages).toEqual([0, 0.4]);
   });
 
   it('should return percentages of slide from end reversed', () => {
@@ -68,7 +68,7 @@ describe('getTrackFillPercentages logic', () => {
       trackFillPosition: 'end'
     });
 
-    expect(trackFillPercentages).to.deep.equal([0.4, 1]);
+    expect(trackFillPercentages).toEqual([0.4, 1]);
   });
 
   it('should return percentages assuring lower value first', () => {
@@ -79,6 +79,6 @@ describe('getTrackFillPercentages logic', () => {
       trackFillPosition: 'end'
     });
 
-    expect(trackFillPercentages).to.deep.equal([0.708, 0.781]);
+    expect(trackFillPercentages).toEqual([0.708, 0.781]);
   });
 });

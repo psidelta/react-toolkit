@@ -22,7 +22,7 @@ describe('NotificationBoard', () => {
         .find(Notification)
         .at(0)
         .props().style
-    ).to.deep.equal({
+    ).toEqual({
       backgroundColor: 'lightBlue',
       background: 'blue',
       color: 'purple'

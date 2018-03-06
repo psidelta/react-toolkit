@@ -6,7 +6,7 @@ describe('find', () => {
   });
   it('returns the first item that matches test', () => {
     const test = [{}, null, false, { a: 'test' }];
-    expect(find(test, item => item && item.a === 'test')).to.deep.equal({
+    expect(find(test, item => item && item.a === 'test')).toEqual({
       a: 'test'
     });
   });

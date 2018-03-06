@@ -166,7 +166,7 @@ describe('Notification', () => {
         .props().style;
 
       const { minWidth, maxWidth, minHeight, maxHeight } = style;
-      expect({ minWidth, maxWidth, minHeight, maxHeight }).to.deep.equal({
+      expect({ minWidth, maxWidth, minHeight, maxHeight }).toEqual({
         minWidth: 20,
         maxWidth: 20,
         minHeight: 30,

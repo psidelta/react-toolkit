@@ -295,11 +295,11 @@ describe('keyboard actions ', () => {
       const wrapper = mount(<TreeView dataSource={NESTED_DATA_STRUCTURE} />);
       wrapper.setState({ activeNode: '0' });
 
-      expect(wrapper.state().collapsed).to.deep.equal({});
+      expect(wrapper.state().collapsed).toEqual({});
       wrapper.simulate('keyDown', { key: 'Enter' });
-      expect(wrapper.state().collapsed).to.deep.equal({ 0: true });
+      expect(wrapper.state().collapsed).toEqual({ 0: true });
       wrapper.simulate('keyDown', { key: 'Enter' });
-      expect(wrapper.state().collapsed).to.deep.equal({});
+      expect(wrapper.state().collapsed).toEqual({});
     });
   });
 

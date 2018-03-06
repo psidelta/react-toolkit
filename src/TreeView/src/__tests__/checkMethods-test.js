@@ -22,8 +22,8 @@ describe('checkNode', () => {
     const newCheckedState = wrapper.instance().checkNode('1');
     const expected = { '1': true, '1/0': true };
 
-    expect(newCheckedState).to.deep.equal(expected);
-    expect(wrapper.state().checked).to.deep.equal(expected);
+    expect(newCheckedState).toEqual(expected);
+    expect(wrapper.state().checked).toEqual(expected);
   });
 });
 
@@ -53,8 +53,8 @@ describe('uncheckNode', () => {
     const newCheckedState = wrapper.instance().uncheckNode('1');
     const expected = { '0': true };
 
-    expect(newCheckedState).to.deep.equal(expected);
-    expect(wrapper.state().checked).to.deep.equal(expected);
+    expect(newCheckedState).toEqual(expected);
+    expect(wrapper.state().checked).toEqual(expected);
   });
 });
 
@@ -74,8 +74,8 @@ describe('checkAll', () => {
       '1': true,
       '1/0': true
     };
-    expect(test).to.deep.equal(expected);
-    expect(wrapper.state().checked).to.deep.equal(expected);
+    expect(test).toEqual(expected);
+    expect(wrapper.state().checked).toEqual(expected);
   });
 });
 
@@ -91,7 +91,7 @@ describe('uncheckAll', () => {
     const wrapper = shallow(<TreeView enableChecked dataSource={dataSource} />);
     const test = wrapper.instance().uncheckAll();
     const expected = {};
-    expect(test).to.deep.equal(expected);
-    expect(wrapper.state().checked).to.deep.equal(expected);
+    expect(test).toEqual(expected);
+    expect(wrapper.state().checked).toEqual(expected);
   });
 });

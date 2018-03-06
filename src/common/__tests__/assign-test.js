@@ -11,7 +11,7 @@ describe('assign', () => {
     const test = assign(a, b);
     const expected = { a: 3, b: 3, c: 4 };
     expect(a).to.equal(test);
-    expect(test).to.deep.equal(expected);
+    expect(test).toEqual(expected);
 
     Object.assign = browserAssign;
   });
@@ -24,7 +24,7 @@ describe('assign', () => {
     const input = [target, null, undefined, { b: 3, c: null }];
     const expected = { a: 2, b: 3, c: null };
     const test = assign(...input);
-    expect(test).to.deep.equal(expected);
+    expect(test).toEqual(expected);
     expect(target).to.equal(target);
   });
 });

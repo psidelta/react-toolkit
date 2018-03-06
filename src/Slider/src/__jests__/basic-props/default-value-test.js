@@ -9,22 +9,22 @@ describe('defaultValue prop', () => {
     const sliderComponent = shallow(<Slider />);
     const rangeComponent = shallow(<RangeSlider />);
 
-    expect(sliderComponent.instance()).to.be.instanceOf(Slider);
-    expect(rangeComponent.instance()).to.be.instanceOf(RangeSlider);
+    expect(sliderComponent.instance()).toBeInstanceOf(Slider);
+    expect(rangeComponent.instance()).toBeInstanceOf(RangeSlider);
   });
 
   it('should set default value to slider', () => {
     const DEFAULT_VALUE = 30;
     const component = shallow(<Slider defaultValue={DEFAULT_VALUE} />);
 
-    expect(component.state('value')).to.equal(DEFAULT_VALUE);
+    expect(component.state('value')).toEqual(DEFAULT_VALUE);
   });
 
   it('should set default value to range slider', () => {
     const DEFAULT_VALUE = [30, 40];
     const component = shallow(<RangeSlider defaultValue={DEFAULT_VALUE} />);
 
-    expect(component.state('value')).to.equal(DEFAULT_VALUE);
+    expect(component.state('value')).toEqual(DEFAULT_VALUE);
   });
 
   it('should set default value to reversed range slider', () => {
@@ -33,8 +33,8 @@ describe('defaultValue prop', () => {
       <RangeSlider startValue={100} endValue={0} defaultValue={DEFAULT_VALUE} />
     );
 
-    expect(component.state('value')).to.equal(DEFAULT_VALUE);
-    expect(component.instance().p.currentValue).to.deep.equal([50, 40]);
+    expect(component.state('value')).toEqual(DEFAULT_VALUE);
+    expect(component.instance().p.currentValue).toEqual([50, 40]);
   });
 
   it('should convert default value to value respecting min and max constraints', () => {
@@ -45,11 +45,11 @@ describe('defaultValue prop', () => {
     component = shallow(
       <RangeSlider minRange={30} defaultValue={DEFAULT_VALUE_1} />
     );
-    expect(component.instance().p.currentValue).to.deep.equal([40, 70]);
+    expect(component.instance().p.currentValue).toEqual([40, 70]);
 
     component = shallow(
       <RangeSlider maxRange={30} defaultValue={DEFAULT_VALUE_2} />
     );
-    expect(component.instance().p.currentValue).to.deep.equal([10, 40]);
+    expect(component.instance().p.currentValue).toEqual([10, 40]);
   });
 });

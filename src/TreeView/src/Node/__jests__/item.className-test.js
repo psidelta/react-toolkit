@@ -9,6 +9,6 @@ describe('item.className', () => {
   it('should add className prop on root', () => {
     const className = 'test className';
     const wrapper = shallow(<Node node={{ className }} />);
-    expect(wrapper.hasClass(className)).to.be.true;
+    expect(wrapper.hasClass(className)).toBe(true);
   });
 });

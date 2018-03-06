@@ -14,7 +14,7 @@ describe('changeChildrenCheckProperty', () => {
       }
     ]
   };
-  expect(changeChildrenCheckProperty(test, true)).to.deep.equal({
+  expect(changeChildrenCheckProperty(test, true)).toEqual({
     0: true
   });
 });

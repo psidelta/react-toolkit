@@ -9,6 +9,6 @@ describe('normalizeOffset', () => {
       bottom: 20
     };
 
-    expect(normalizeOffset(20)).to.deep.equal(expected);
+    expect(normalizeOffset(20)).toEqual(expected);
   });
 });

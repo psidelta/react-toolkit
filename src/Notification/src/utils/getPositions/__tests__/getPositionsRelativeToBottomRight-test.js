@@ -40,7 +40,7 @@ describe('getPositionsRelativeToBottomRight', () => {
       isVertical: true
     }).map(extractPosition);
 
-    expect(expected).to.deep.equal(test);
+    expect(expected).toEqual(test);
   });
   it('stacks boxes in correct position when horizontal dominaint', () => {
     /**
@@ -83,7 +83,7 @@ describe('getPositionsRelativeToBottomRight', () => {
       isVertical: false
     }).map(extractPosition);
 
-    expect(expected).to.deep.equal(test);
+    expect(expected).toEqual(test);
   });
 
   it('stacks correct when stacking is only vertical', () => {
@@ -109,7 +109,7 @@ describe('getPositionsRelativeToBottomRight', () => {
       stackingWrap: false
     }).map(extractPosition);
 
-    expect(expected).to.deep.equal(test);
+    expect(expected).toEqual(test);
   });
 
   it('stacks correct when stacking is only horizontal', () => {
@@ -135,6 +135,6 @@ describe('getPositionsRelativeToBottomRight', () => {
       stackingWrap: false
     }).map(extractPosition);
 
-    expect(expected).to.deep.equal(test);
+    expect(expected).toEqual(test);
   });
 });

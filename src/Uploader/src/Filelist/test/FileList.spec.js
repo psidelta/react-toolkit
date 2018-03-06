@@ -51,7 +51,7 @@ describe('FileList', () => {
         expect(instance).to.have.property('getFiles');
 
         const receivedFiles = instance.getFiles();
-        expect(receivedFiles).to.deep.equal(files);
+        expect(receivedFiles).toEqual(files);
       });
 
       it('clearFiles', () => {
@@ -65,7 +65,7 @@ describe('FileList', () => {
         expect(instance).to.have.property('clearFiles');
         instance.clearFiles();
         const receivedFiles = instance.getFiles();
-        expect(receivedFiles).to.deep.equal([]);
+        expect(receivedFiles).toEqual([]);
 
         expect(onChangeSpy).to.have.been.calledWith([]);
 
@@ -88,7 +88,7 @@ describe('FileList', () => {
         instance.addFile(newFile);
         const expectedNewFiles = files.concat([newFile]);
         const receivedFiles = instance.getFiles();
-        expect(receivedFiles).to.deep.equal(expectedNewFiles);
+        expect(receivedFiles).toEqual(expectedNewFiles);
 
         expect(onChangeSpy).to.have.been.calledWith(expectedNewFiles);
       });
@@ -110,7 +110,7 @@ describe('FileList', () => {
         instance.addFiles([newFile]);
         const expectedNewFiles = files.concat([newFile]);
         const receivedFiles = instance.getFiles();
-        expect(receivedFiles).to.deep.equal(expectedNewFiles);
+        expect(receivedFiles).toEqual(expectedNewFiles);
 
         expect(onChangeSpy).to.have.been.calledWith(expectedNewFiles);
       });
@@ -127,7 +127,7 @@ describe('FileList', () => {
         instance.removeFile(files[0].id);
         const expectedNewFiles = files.slice(1);
         const receivedFiles = instance.getFiles();
-        expect(receivedFiles).to.deep.equal(expectedNewFiles);
+        expect(receivedFiles).toEqual(expectedNewFiles);
 
         expect(onChangeSpy).to.have.been.calledWith(expectedNewFiles);
       });
@@ -144,7 +144,7 @@ describe('FileList', () => {
         instance.removeFileAt(0);
         const expectedNewFiles = files.slice(1);
         const receivedFiles = instance.getFiles();
-        expect(receivedFiles).to.deep.equal(expectedNewFiles);
+        expect(receivedFiles).toEqual(expectedNewFiles);
 
         expect(onChangeSpy).to.have.been.calledWith(expectedNewFiles);
       });

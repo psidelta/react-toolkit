@@ -45,13 +45,13 @@ describe('Accordion tab title style props', () => {
 
   describe('tabTitleStyle', () => {
     it('should apply tabTitleStyle to all tab titles', () => {
-      expect(tabTitleComponents.at(0).prop('tabTitleStyle')).to.deep.equal(
+      expect(tabTitleComponents.at(0).prop('tabTitleStyle')).toEqual(
         tabTitleStyle
       );
-      expect(tabTitleComponents.at(1).prop('tabTitleStyle')).to.deep.equal(
+      expect(tabTitleComponents.at(1).prop('tabTitleStyle')).toEqual(
         tabTitleStyle
       );
-      expect(tabTitleComponents.at(2).prop('tabTitleStyle')).to.deep.equal({
+      expect(tabTitleComponents.at(2).prop('tabTitleStyle')).toEqual({
         ...tabTitleStyle,
         ...extraStyleProps
       });

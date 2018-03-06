@@ -24,22 +24,22 @@ describe('expandOnDoubleClick', () => {
 
       it('should call onCollapsedChange onClick on label', () => {
         label.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.true;
+        expect(onCollapsedChange.called).toBe(true);
       });
 
       it('should call onCollapsedChange onClick on expandTool', () => {
         expandTool.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.true;
+        expect(onCollapsedChange.called).toBe(true);
       });
 
       it('should not call onCollapsedChange on doubleClick on label', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.false;
+        expect(onCollapsedChange.called).toBe(false);
       });
 
       it('should not call onCollapsedChange on doubleClick on expandTool', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.false;
+        expect(onCollapsedChange.called).toBe(false);
       });
     });
   });
@@ -65,22 +65,22 @@ describe('expandOnDoubleClick', () => {
 
       it('should not call onCollapsedChange onClick on label', () => {
         label.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.false;
+        expect(onCollapsedChange.called).toBe(false);
       });
 
       it('should not call onCollapsedChange onClick on expandTool', () => {
         expandTool.simulate('click', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.false;
+        expect(onCollapsedChange.called).toBe(false);
       });
 
       it('should call onCollapsedChange on doubleClick on label', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.true;
+        expect(onCollapsedChange.called).toBe(true);
       });
 
       it('should call onCollapsedChange on doubleClick on expandTool', () => {
         expandTool.simulate('doubleClick', { stopPropagation: () => {} });
-        expect(onCollapsedChange.called).to.be.true;
+        expect(onCollapsedChange.called).toBe(true);
       });
     });
   });

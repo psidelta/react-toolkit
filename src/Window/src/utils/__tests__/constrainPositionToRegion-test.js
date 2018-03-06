@@ -8,7 +8,7 @@ describe('constrainPositionToRegion', () => {
     const expected = { top: 10, left: 10 };
     expect(
       constrainPositionToRegion({ constrain, position, region })
-    ).to.deep.equal(expected);
+    ).toEqual(expected);
   });
   it('constrains position top and left when it overflows bottom/right', () => {
     const constrain = { top: 10, left: 10, bottom: 300, right: 300 };
@@ -17,7 +17,7 @@ describe('constrainPositionToRegion', () => {
     const expected = { top: 100, left: 100 };
     expect(
       constrainPositionToRegion({ constrain, position, region })
-    ).to.deep.equal(expected);
+    ).toEqual(expected);
   });
   it('constrains position bottom and right when it overflows bottom/right', () => {
     const region = { width: 100, height: 100 };
@@ -26,7 +26,7 @@ describe('constrainPositionToRegion', () => {
     const expected = { bottom: 0, right: 0 };
     expect(
       constrainPositionToRegion({ constrain, position, region })
-    ).to.deep.equal(expected);
+    ).toEqual(expected);
   });
   it('constrains position bottom and right when it overflows top/left', () => {
     const constrain = { top: 0, left: 0, bottom: 300, right: 300 };
@@ -35,6 +35,6 @@ describe('constrainPositionToRegion', () => {
     const expected = { bottom: 100, right: 100 };
     expect(
       constrainPositionToRegion({ constrain, position, region })
-    ).to.deep.equal(expected);
+    ).toEqual(expected);
   });
 });

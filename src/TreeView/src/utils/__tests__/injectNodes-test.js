@@ -28,6 +28,6 @@ describe('injectNodes', () => {
 
     const test = injectNodes(nodesToInject, [0, 0], data);
 
-    expect(test).to.deep.equal(expected);
+    expect(test).toEqual(expected);
   });
 });

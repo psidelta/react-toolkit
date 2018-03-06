@@ -6,6 +6,6 @@ describe('bringForwards', () => {
     const expected = [1, 2, 3, 5, 4]
 
     expect(bringForwards(4, list))
-      .to.deep.equal(expected)
+      .toEqual(expected)
   })
 })

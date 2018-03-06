@@ -22,8 +22,8 @@ describe('collapseNode', () => {
     const newCollapsedState = wrapper.instance().collapseNode('1');
     const expected = { '1': true };
 
-    expect(newCollapsedState).to.deep.equal(expected);
-    expect(wrapper.state().collapsed).to.deep.equal(expected);
+    expect(newCollapsedState).toEqual(expected);
+    expect(wrapper.state().collapsed).toEqual(expected);
   });
 
   it('calls onCollapsedChange', () => {
@@ -42,11 +42,11 @@ describe('expandNode', () => {
       <TreeView dataSource={dataSource} defaultCollapsed={{ '1': true }} />
     );
 
-    expect(wrapper.state().collapsed).to.deep.equal({ '1': true });
+    expect(wrapper.state().collapsed).toEqual({ '1': true });
     const newCollapsedState = wrapper.instance().expandNode('1');
     const expected = {};
-    expect(newCollapsedState).to.deep.equal(expected);
-    expect(wrapper.state().collapsed).to.deep.equal(expected);
+    expect(newCollapsedState).toEqual(expected);
+    expect(wrapper.state().collapsed).toEqual(expected);
   });
 
   it('calls onCollapsedChange', () => {
@@ -77,7 +77,7 @@ describe('collapseAll', () => {
       '1/0': true
     };
 
-    expect(newCollapsedState).to.deep.equal(expected);
+    expect(newCollapsedState).toEqual(expected);
   });
 
   it('should update state with all nodes collapsed', () => {
@@ -92,7 +92,7 @@ describe('collapseAll', () => {
       '1/0': true
     };
 
-    expect(wrapper.state().collapsed).to.deep.equal(expected);
+    expect(wrapper.state().collapsed).toEqual(expected);
   });
 
   it('calls onCollapsedChange', () => {
@@ -117,7 +117,7 @@ describe('expandAll', () => {
     const newCollapsedState = wrapper.instance().expandAll();
     const expected = {};
 
-    expect(newCollapsedState).to.deep.equal(expected);
+    expect(newCollapsedState).toEqual(expected);
   });
 
   it('should update state with all nodes collapsed', () => {
@@ -128,7 +128,7 @@ describe('expandAll', () => {
     const newCollapsedState = wrapper.instance().expandAll();
     const expected = {};
 
-    expect(wrapper.state().collapsed).to.deep.equal(expected);
+    expect(wrapper.state().collapsed).toEqual(expected);
   });
 
   it('expands only nodes that are not async', () => {
@@ -143,7 +143,7 @@ describe('expandAll', () => {
     const test = wrapper.instance().collapseAll();
     wrapper.instance().expandAll();
 
-    expect(wrapper.state().collapsed).to.deep.equal({
+    expect(wrapper.state().collapsed).toEqual({
       '1/0': true,
       '0': true
     });
@@ -165,7 +165,7 @@ describe('setCollapsed', () => {
     const test = { 0: true };
     expect(wrapper.state().collapsed).to.not.deep.equal(test);
     wrapper.instance().setCollapsed(test);
-    expect(wrapper.state().collapsed).to.deep.equal(test);
+    expect(wrapper.state().collapsed).toEqual(test);
   });
   it('should call onCollapsedChange', () => {
     const onCollapsedChange = sinon.spy();
