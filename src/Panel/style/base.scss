@@ -58,7 +58,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    border-bottom: 2px solid #a1b6d3;
+    border-bottom: 1px solid #a1b6d3;
 
     transform-origin: top right;
     transform: rotate(90deg) translateX(100%);
@@ -72,7 +72,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    border-top: 2px solid #a1b6d3;
+    border-top: 1px solid #a1b6d3;
 
     transform-origin: top right;
     transform: rotate(-90deg) translateY(-100%);
@@ -86,7 +86,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    border-bottom: 2px solid #a1b6d3;
+    border-bottom: 1px solid #a1b6d3;
 
     transform-origin: top left;
     transform: rotate(-90deg) translateX(-100%);
@@ -100,7 +100,7 @@
     position: absolute;
     bottom: 100%;
     left: 0;
-    border-top: 2px solid #a1b6d3;
+    border-top: 1px solid #a1b6d3;
 
     transform-origin: bottom left;
     transform: rotate(90deg);
