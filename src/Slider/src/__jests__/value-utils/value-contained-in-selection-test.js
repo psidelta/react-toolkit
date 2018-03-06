@@ -15,7 +15,8 @@ describe('isValueContainedBySelection logic', () => {
         trackFillPosition: 'end',
         ...baseConfig
       });
-      expect(isContained).to.be.true;
+
+      expect(isContained).toBe(true);
 
       isContained = isValueContainedBySelection(15, {
         currentValue: 10,
@@ -23,14 +24,14 @@ describe('isValueContainedBySelection logic', () => {
         ...baseConfig
       });
 
-      expect(isContained).to.be.false;
+      expect(isContained).toBe(false);
 
       isContained = isValueContainedBySelection(5, {
         currentValue: 10,
         trackFillPosition: 'start',
         ...baseConfig
       });
-      expect(isContained).to.be.true;
+      expect(isContained).toBe(true);
     });
 
     it('shuold return true for value on edges', () => {
@@ -39,7 +40,7 @@ describe('isValueContainedBySelection logic', () => {
         ...baseConfig,
         trackFillPosition: 'end'
       });
-      expect(isContained).to.be.true;
+      expect(isContained).toBe(true);
 
       isContained = isValueContainedBySelection(100, {
         currentValue: 10,
@@ -47,7 +48,7 @@ describe('isValueContainedBySelection logic', () => {
         trackFillPosition: 'end'
       });
 
-      expect(isContained).to.be.true;
+      expect(isContained).toBe(true);
     });
   });
 
@@ -63,14 +64,14 @@ describe('isValueContainedBySelection logic', () => {
         ...baseConfig,
         trackFillPosition: 'end'
       });
-      expect(isContained).to.be.true;
+      expect(isContained).toBe(true);
 
       isContained = isValueContainedBySelection(5, {
         currentValue: 10,
         ...baseConfig,
         trackFillPosition: 'start'
       });
-      expect(isContained).to.be.false;
+      expect(isContained).toBe(false);
     });
 
     it('shuold return true for value on reversed range edges', () => {
@@ -79,14 +80,14 @@ describe('isValueContainedBySelection logic', () => {
         ...baseConfig,
         trackFillPosition: 'end'
       });
-      expect(isContained).to.be.true;
+      expect(isContained).toBe(true);
 
       isContained = isValueContainedBySelection(10, {
         currentValue: 10,
         ...baseConfig,
         trackFillPosition: 'end'
       });
-      expect(isContained).to.be.true;
+      expect(isContained).toBe(true);
     });
   });
 });

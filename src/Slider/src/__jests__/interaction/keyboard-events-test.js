@@ -8,11 +8,11 @@ describe('keyboard interaction events', () => {
     it('should be focusable', () => {
       const component = shallow(<Slider defaultValue={50} />);
       component.simulate('focus');
-      expect(component.state('focused')).to.equal(true);
+      expect(component.state('focused')).toEqual(true);
     });
 
     it('should increment/decrement on arrow left/right', () => {
-      const onChangeSpy = sinon.spy();
+      const onChangeSpy = jest.fn();
 
       const component = shallow(
         <Slider defaultValue={50} onChange={onChangeSpy} />
@@ -22,17 +22,16 @@ describe('keyboard interaction events', () => {
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith(49);
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy.mock.calls[0][0]).toBe(49);
 
-      onChangeSpy.reset();
       component.simulate('keydown', {
         key: 'ArrowRight',
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith(50);
+      expect(onChangeSpy).toHaveBeenCalledTimes(2);
+      expect(onChangeSpy.mock.calls[1][0]).toBe(50);
     });
   });
 
@@ -40,11 +39,11 @@ describe('keyboard interaction events', () => {
     it('should be focusable', () => {
       const component = shallow(<RangeSlider defaultValue={[40, 50]} />);
       component.simulate('focus', { target: null });
-      expect(component.state('focused')).to.equal(true);
+      expect(component.state('focused')).toEqual(true);
     });
 
     it('should increment/decrement left value on arrow left/right', () => {
-      const onChangeSpy = sinon.spy();
+      const onChangeSpy = jest.fn();
 
       const component = shallow(
         <RangeSlider defaultValue={[40, 50]} onChange={onChangeSpy} />
@@ -59,21 +58,20 @@ describe('keyboard interaction events', () => {
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith([39, 50]);
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy.mock.calls[0][0]).toEqual([39, 50]);
 
-      onChangeSpy.reset();
       component.simulate('keydown', {
         key: 'ArrowRight',
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith([41, 50]);
+      expect(onChangeSpy).toHaveBeenCalledTimes(2);
+      expect(onChangeSpy.mock.calls[1][0]).toEqual([41, 50]);
     });
 
     it('should increment/decrement right value on arrow left/right', () => {
-      const onChangeSpy = sinon.spy();
+      const onChangeSpy = jest.fn();
 
       const component = shallow(
         <RangeSlider defaultValue={[40, 50]} onChange={onChangeSpy} />
@@ -88,21 +86,20 @@ describe('keyboard interaction events', () => {
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith([40, 49]);
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy.mock.calls[0][0]).toEqual([40, 49]);
 
-      onChangeSpy.reset();
       component.simulate('keydown', {
         key: 'ArrowRight',
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith([40, 51]);
+      expect(onChangeSpy).toHaveBeenCalledTimes(2);
+      expect(onChangeSpy.mock.calls[1][0]).toEqual([40, 51]);
     });
 
     it('should shift entire range when focusing track fill', () => {
-      const onChangeSpy = sinon.spy();
+      const onChangeSpy = jest.fn();
 
       const component = shallow(
         <RangeSlider defaultValue={[40, 50]} onChange={onChangeSpy} />
@@ -117,17 +114,16 @@ describe('keyboard interaction events', () => {
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith([39, 49]);
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy.mock.calls[0][0]).toEqual([39, 49]);
 
-      onChangeSpy.reset();
       component.simulate('keydown', {
         key: 'ArrowRight',
         preventDefault: () => {},
         stopPropagation: () => {}
       });
-      expect(onChangeSpy).to.have.been.calledOnce;
-      expect(onChangeSpy).to.have.been.calledWith([41, 51]);
+      expect(onChangeSpy).toHaveBeenCalledTimes(2);
+      expect(onChangeSpy.mock.calls[1][0]).toEqual([41, 51]);
     });
   });
 });

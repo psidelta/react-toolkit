@@ -119,8 +119,8 @@ describe('shiftLowerEdgeOfRange logic', () => {
       isReversed: true
     });
 
-    expect(newValueTuple[0]).to.equal(6.5);
-    expect(newValueTuple[1]).to.equal(-1.5);
+    expect(newValueTuple[0]).toEqual(6.5);
+    expect(newValueTuple[1]).toEqual(-1.5);
   });
 });
 
@@ -172,8 +172,8 @@ describe('shiftUpperEdgeOfRange logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(0);
-    expect(newValueTuple[1]).to.equal(10);
+    expect(newValueTuple[0]).toEqual(-0);
+    expect(newValueTuple[1]).toEqual(10);
 
     newValueTuple = shiftUpperEdgeOfRange(-10, {
       currentValue: [-95, -85],
@@ -198,24 +198,24 @@ describe('shiftRangeByValue logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(0);
-    expect(newValueTuple[1]).to.equal(10);
+    expect(newValueTuple[0]).toEqual(0);
+    expect(newValueTuple[1]).toEqual(10);
 
     newValueTuple = shiftRangeByValue(-10, {
       currentValue: [15, 40],
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(5);
-    expect(newValueTuple[1]).to.equal(30);
+    expect(newValueTuple[0]).toEqual(5);
+    expect(newValueTuple[1]).toEqual(30);
 
     newValueTuple = shiftRangeByValue(10, {
       currentValue: [15, 40],
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(25);
-    expect(newValueTuple[1]).to.equal(50);
+    expect(newValueTuple[0]).toEqual(25);
+    expect(newValueTuple[1]).toEqual(50);
   });
 
   it('should respect startValue constraint', () => {
@@ -224,16 +224,16 @@ describe('shiftRangeByValue logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(-100);
-    expect(newValueTuple[1]).to.equal(-60);
+    expect(newValueTuple[0]).toEqual(-100);
+    expect(newValueTuple[1]).toEqual(-60);
 
     newValueTuple = shiftRangeByValue(-10, {
       currentValue: [-95, -85],
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(-100);
-    expect(newValueTuple[1]).to.equal(-90);
+    expect(newValueTuple[0]).toEqual(-100);
+    expect(newValueTuple[1]).toEqual(-90);
   });
 
   it('should respect endValue constraint', () => {
@@ -242,24 +242,24 @@ describe('shiftRangeByValue logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(70);
-    expect(newValueTuple[1]).to.equal(100);
+    expect(newValueTuple[0]).toEqual(70);
+    expect(newValueTuple[1]).toEqual(100);
 
     newValueTuple = shiftRangeByValue(10, {
       currentValue: [55, 100],
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(65);
-    expect(newValueTuple[1]).to.equal(100);
+    expect(newValueTuple[0]).toEqual(65);
+    expect(newValueTuple[1]).toEqual(100);
 
     newValueTuple = shiftRangeByValue(10, {
       currentValue: [55, 100],
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(65);
-    expect(newValueTuple[1]).to.equal(100);
+    expect(newValueTuple[0]).toEqual(65);
+    expect(newValueTuple[1]).toEqual(100);
   });
 
   it('should respect minRange constraint', () => {
@@ -268,16 +268,16 @@ describe('shiftRangeByValue logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(-100);
-    expect(newValueTuple[1]).to.equal(-90);
+    expect(newValueTuple[0]).toEqual(-100);
+    expect(newValueTuple[1]).toEqual(-90);
 
     newValueTuple = shiftRangeByValue(-1000, {
       currentValue: [50, 80],
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(-100);
-    expect(newValueTuple[1]).to.equal(-90);
+    expect(newValueTuple[0]).toEqual(-100);
+    expect(newValueTuple[1]).toEqual(-90);
   });
 
   it('should support ranges that contain 0', () => {
@@ -286,8 +286,8 @@ describe('shiftRangeByValue logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(-11);
-    expect(newValueTuple[1]).to.equal(19);
+    expect(newValueTuple[0]).toEqual(-11);
+    expect(newValueTuple[1]).toEqual(19);
   });
 
   it('should support shifting minRange interval', () => {
@@ -296,8 +296,8 @@ describe('shiftRangeByValue logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(-32);
-    expect(newValueTuple[1]).to.equal(-22);
+    expect(newValueTuple[0]).toEqual(-32);
+    expect(newValueTuple[1]).toEqual(-22);
   });
 
   it('should support shifting with 0', () => {
@@ -306,8 +306,8 @@ describe('shiftRangeByValue logic', () => {
       ...baseConfig
     });
 
-    expect(newValueTuple[0]).to.equal(-33);
-    expect(newValueTuple[1]).to.equal(4);
+    expect(newValueTuple[0]).toEqual(-33);
+    expect(newValueTuple[1]).toEqual(4);
 
     newValueTuple = shiftRangeByValue(0, {
       currentValue: [100, 50],
@@ -317,8 +317,8 @@ describe('shiftRangeByValue logic', () => {
       isReversed: true
     });
 
-    expect(newValueTuple[0]).to.equal(100);
-    expect(newValueTuple[1]).to.equal(50);
+    expect(newValueTuple[0]).toEqual(100);
+    expect(newValueTuple[1]).toEqual(50);
   });
 
   it('should support intermidiate values as diff', () => {
@@ -328,7 +328,7 @@ describe('shiftRangeByValue logic', () => {
       minRange: 1
     });
 
-    expect(newValueTuple[0]).to.equal(44);
-    expect(newValueTuple[1]).to.equal(48);
+    expect(newValueTuple[0]).toEqual(44);
+    expect(newValueTuple[1]).toEqual(48);
   });
 });

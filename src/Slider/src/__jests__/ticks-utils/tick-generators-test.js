@@ -55,7 +55,7 @@ describe('generateLabeldTickSteps logic', () => {
       smallTickStep = 1,
       startValue = -5,
       endValue = 5;
-    const tickValueStub = sinon.stub().returns([]);
+    const tickValueStub = jest.fn(() => []);
     const [
       first,
       second,
@@ -71,12 +71,9 @@ describe('generateLabeldTickSteps logic', () => {
       generateTickValuesBySteps: tickValueStub
     });
 
-    expect(tickValueStub).to.have.been.calledTwice;
-    expect(tickValueStub.getCall(0).args[0]).to.have.property(
-      'tickStep',
-      tickStep
-    );
-    expect(tickValueStub.getCall(1).args[0]).to.have.property(
+    expect(tickValueStub).toHaveBeenCalledTimes(2);
+    expect(tickValueStub.mock.calls[0][0]).toHaveProperty('tickStep', tickStep);
+    expect(tickValueStub.mock.calls[1][0]).toHaveProperty(
       'tickStep',
       smallTickStep
     );
@@ -102,18 +99,19 @@ describe('generateLabeldTickSteps logic', () => {
       endValue
     });
 
-    expect(first).to.have.property('type', 'big');
-    expect(second).to.have.property('type', 'small');
-    expect(third).to.have.property('type', 'small');
-    expect(forth).to.have.property('type', 'small');
-    expect(fifth).to.have.property('type', 'small');
-    expect(sixth).to.have.property('type', 'big');
+    expect(first).toHaveProperty('type', 'big');
+    expect(second).toHaveProperty('type', 'small');
+    expect(third).toHaveProperty('type', 'small');
+    expect(forth).toHaveProperty('type', 'small');
+    expect(fifth).toHaveProperty('type', 'small');
+    expect(sixth).toHaveProperty('type', 'big');
   });
 
   it('should generate proper big steps', () => {
     const tickStep = 10,
       startValue = 0,
       endValue = 100;
+
     const result = generateLabeldTickSteps({
       tickStep,
       startValue,
@@ -122,22 +120,22 @@ describe('generateLabeldTickSteps logic', () => {
       step: 1
     });
 
-    expect(result.length).to.equal(99);
+    expect(result.length).toEqual(99);
 
-    expect(result[0]).to.have.property('type', 'small');
-    expect(result[0]).to.have.property('value', 1);
+    expect(result[0]).toHaveProperty('type', 'small');
+    expect(result[0]).toHaveProperty('value', 1);
 
-    expect(result[result.length - 1]).to.have.property('value', 99);
-    expect(result[result.length - 1]).to.have.property('type', 'small');
+    expect(result[result.length - 1]).toHaveProperty('value', 99);
+    expect(result[result.length - 1]).toHaveProperty('type', 'small');
 
-    expect(result[9]).to.have.property('type', 'big');
-    expect(result[19]).to.have.property('type', 'big');
-    expect(result[29]).to.have.property('type', 'big');
-    expect(result[39]).to.have.property('type', 'big');
-    expect(result[49]).to.have.property('type', 'big');
-    expect(result[59]).to.have.property('type', 'big');
-    expect(result[69]).to.have.property('type', 'big');
-    expect(result[79]).to.have.property('type', 'big');
-    expect(result[89]).to.have.property('type', 'big');
+    expect(result[9]).toHaveProperty('type', 'big');
+    expect(result[19]).toHaveProperty('type', 'big');
+    expect(result[29]).toHaveProperty('type', 'big');
+    expect(result[39]).toHaveProperty('type', 'big');
+    expect(result[49]).toHaveProperty('type', 'big');
+    expect(result[59]).toHaveProperty('type', 'big');
+    expect(result[69]).toHaveProperty('type', 'big');
+    expect(result[79]).toHaveProperty('type', 'big');
+    expect(result[89]).toHaveProperty('type', 'big');
   });
 });

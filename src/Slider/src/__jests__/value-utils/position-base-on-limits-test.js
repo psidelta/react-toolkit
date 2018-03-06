@@ -9,7 +9,7 @@ describe('getPossitionOfValueBasedOnLimits logic', () => {
       startValue,
       endValue
     });
-    expect(tickPosition).to.equal(0.667);
+    expect(tickPosition).toEqual(0.667);
   });
 
   it('should return procentual position of tick between reversed start and end values', () => {
@@ -20,7 +20,7 @@ describe('getPossitionOfValueBasedOnLimits logic', () => {
       startValue,
       endValue
     });
-    expect(tickPosition).to.equal(0.333);
+    expect(tickPosition).toEqual(0.333);
   });
 
   it('should support ticks outside of range', () => {
@@ -31,14 +31,14 @@ describe('getPossitionOfValueBasedOnLimits logic', () => {
       startValue,
       endValue
     });
-    expect(tickPosition).to.equal(0);
+    expect(tickPosition).toEqual(0);
 
     tickValue = -1000;
     tickPosition = getPossitionOfValueBasedOnLimits(tickValue, {
       startValue,
       endValue
     });
-    expect(tickPosition).to.equal(1);
+    expect(tickPosition).toEqual(1);
   });
 
   it('should support ticks on the edge', () => {
@@ -51,13 +51,13 @@ describe('getPossitionOfValueBasedOnLimits logic', () => {
       startValue,
       endValue
     });
-    expect(tickPosition).to.equal(0);
+    expect(tickPosition).toEqual(0);
 
     tickValue = -15;
     tickPosition = getPossitionOfValueBasedOnLimits(tickValue, {
       startValue,
       endValue
     });
-    expect(tickPosition).to.equal(1);
+    expect(tickPosition).toEqual(1);
   });
 });
