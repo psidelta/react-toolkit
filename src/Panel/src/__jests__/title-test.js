@@ -1,6 +1,6 @@
 import React from 'react';
 import Panel, { CLASS_NAME } from '../Panel';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 describe('title', () => {
   let wrapper;
@@ -17,31 +17,30 @@ describe('title', () => {
           .find(`.${CLASS_NAME}__title`)
           .first()
           .text()
-      ).to.equal(title);
+      ).toEqual(title);
     });
 
     it('should render jsx', () => {
       const title = <div id="customId" />;
       wrapper.setProps({ title });
-      expect(wrapper.find('#customId')).to.have.length(1);
+      expect(wrapper.find('#customId')).toHaveLength(1);
     });
   });
 
   describe('function', () => {
     it('should be called and renders what it returns', () => {
-      const title = sinon.stub();
-      title.returns(<div id="customFunctionId" />);
-      wrapper.setProps({ title });
+      const title = jest.fn(() => <div id="customFunctionId" />);
+      const wrapper = mount(<Panel title={title} />);
 
-      expect(title.called).to.be.true;
-      expect(wrapper.find('#customFunctionId')).to.have.length(1);
+      expect(title).toHaveBeenCalledTimes(1);
+      expect(wrapper.find('#customFunctionId')).toHaveLength(1);
     });
     it('should render default title with mutated domProps', () => {
       const title = domProps => {
         domProps.id = 'customMutatedId';
       };
-      wrapper.setProps({ title });
-      expect(wrapper.find('#customMutatedId')).to.have.length(1);
+      const wrapper = shallow(<Panel title={title} />);
+      expect(wrapper.find('#customMutatedId')).toHaveLength(1);
     });
   });
 });

@@ -8,12 +8,12 @@ const rtlClassName = `.${rootClassName}--rtl`;
 describe('rtl', () => {
   it('should default to false', () => {
     const wrapper = mount(<Panel />);
-    expect(wrapper.props().rtl).to.be.false;
+    expect(wrapper.props().rtl).toBe(false);
   });
   it('should add --rlt classname', () => {
     const wrapper = mount(<Panel />);
-    expect(wrapper.find(rtlClassName)).to.have.length(0);
+    expect(wrapper.find(rtlClassName)).toHaveLength(0);
     wrapper.setProps({ rtl: true });
-    expect(wrapper.find(rtlClassName)).to.have.length(1);
+    expect(wrapper.find(rtlClassName)).toHaveLength(1);
   });
 });

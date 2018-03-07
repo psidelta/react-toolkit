@@ -10,7 +10,7 @@ describe('children', () => {
 
   it('should render jsx', () => {
     wrapper.setProps({ children: <div id="childrenId" /> });
-    expect(wrapper.find('#childrenId')).to.have.length(1);
+    expect(wrapper.find('#childrenId')).toHaveLength(1);
   });
 
   it('should be called when it function with props and state', () => {
@@ -20,10 +20,10 @@ describe('children', () => {
     wrapper.setState({ stateId: 'stateId' });
     wrapper.setProps({ children });
 
-    expect(children.called).to.be.true;
-    expect(wrapper.find('#childrenFunctionId')).to.have.length(1);
+    expect(children.called).toBe(true);
+    expect(wrapper.find('#childrenFunctionId')).toHaveLength(1);
 
-    expect(children.args[0][0].id).to.equal('propsId');
-    expect(children.args[0][1].stateId).to.equal('stateId');
+    expect(children.args[0][0].id).toEqual('propsId');
+    expect(children.args[0][1].stateId).toEqual('stateId');
   });
 });

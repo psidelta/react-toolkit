@@ -7,13 +7,9 @@ const bodyClassName = `.${rootClassName}__body`;
 
 describe('bodyStyle', () => {
   it('should default to false', () => {
-    const bodyStyle = { left: 'customLeft' };
-    const wrapper = mount(<Panel bodyStyle={bodyStyle} />);
-    expect(
-      wrapper
-        .find(bodyClassName)
-        .first()
-        .props().style.left
-    ).to.equal('customLeft');
+    const className = 'customClassName';
+    const wrapper = mount(<Panel bodyClassName={className} />);
+
+    expect(wrapper.find(`.${className}`)).toHaveLength(1);
   });
 });

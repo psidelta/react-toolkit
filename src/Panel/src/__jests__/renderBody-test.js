@@ -13,28 +13,26 @@ describe('renderBody', () => {
   });
 
   it('should be caled with domProps and props', () => {
-    const renderBody = sinon.spy();
-    wrapper.setProps({ id: true });
-    wrapper.setProps({ renderBody });
+    const renderBody = jest.fn(() => <div id="body" />);
+    const wrapper = mount(<Panel renderBody={renderBody} />);
 
-    expect(renderBody.called).to.be.true;
-    expect(renderBody.args[0][1].id).to.be.true;
+    expect(renderBody).toHaveBeenCalledTimes(1);
+    expect(wrapper.find('#body')).toHaveLength(1);
   });
 
   it('should render what it returns', () => {
     const renderBody = () => <div id="customId" />;
     wrapper.setProps({ renderBody });
 
-    expect(wrapper.find('#customId')).to.have.length(1);
-    expect(wrapper.find(bodyClassName)).to.have.length(0);
+    expect(wrapper.find('#customId')).toHaveLength(1);
+    expect(wrapper.find(bodyClassName)).toHaveLength(0);
   });
 
   it('should render default body with mutated domProps', () => {
     const renderBody = domProps => {
       domProps.id = 'mutatedId';
     };
-
     wrapper.setProps({ renderBody });
-    expect(wrapper.find('#mutatedId')).to.have.length(1);
+    expect(wrapper.find('#mutatedId')).toHaveLength(1);
   });
 });
