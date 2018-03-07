@@ -55,13 +55,13 @@ describe('Accordion tab style props', () => {
 
   describe('tabClassName', () => {
     it('should add tabClassName to all tabs', () => {
-      expect(tabContentComponents.at(0).prop('wrapperClassName')).to.equal(
+      expect(tabContentComponents.at(0).prop('wrapperClassName')).toEqual(
         CUSTOM_CLASS_NAME
       );
-      expect(tabContentComponents.at(1).prop('wrapperClassName')).to.equal(
+      expect(tabContentComponents.at(1).prop('wrapperClassName')).toEqual(
         CUSTOM_CLASS_NAME
       );
-      expect(tabContentComponents.at(2).prop('wrapperClassName')).to.equal(
+      expect(tabContentComponents.at(2).prop('wrapperClassName')).toEqual(
         `${CUSTOM_CLASS_NAME} ${CUSTOM_CLASS_NAME_2}`
       );
     });

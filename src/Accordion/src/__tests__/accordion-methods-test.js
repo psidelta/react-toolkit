@@ -2,7 +2,7 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import Accordion from '../Accordion';
 import { shallow, mount } from 'enzyme';
-import { render } from './testUtils';
+import { render } from '../../../common/testUtils';
 
 describe('Accordion Methods - Expanding and Collapsing', () => {
   const classOfExpandedTab =
@@ -12,7 +12,9 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
   it('should only expand valid tabs', () => {
     const accordionInstance = render(
       <Accordion transition={false}>
-        <div disabled tabTitle="disabled tab">content</div>
+        <div disabled tabTitle="disabled tab">
+          content
+        </div>
         <div tabTitle="Enabled tab">content</div>
         <div tabProps={{ disabled: true }} tabTitle="Second disabled tab">
           content
@@ -28,8 +30,8 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
       )
     ];
 
-    expect(expandedNodes.length).to.equal(1);
-    expect(expandedNodes[0].innerText.indexOf('Enabled tab')).to.equal(0);
+    expect(expandedNodes.length).toEqual(1);
+    expect(expandedNodes[0].innerHTML.indexOf('Enabled tab')).not.toBe(-1);
 
     accordionInstance.unmount();
   });
@@ -50,7 +52,7 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
         '.zippy-react-toolkit-accordion__tab-title--expanded'
       )
     ];
-    expect(expandedNodes.length).to.equal(3);
+    expect(expandedNodes.length).toEqual(3);
     accordionInstance.unmount();
   });
 
@@ -67,8 +69,8 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
       ...accordionNode.querySelectorAll(classOfExpandedTab)
     ];
 
-    expect(expandedNodes.length).to.equal(1);
-    expect(expandedNodes[0].innerText.indexOf('Expanded tab')).to.equal(0);
+    expect(expandedNodes.length).toEqual(1);
+    expect(expandedNodes[0].innerHTML.indexOf('Expanded tab')).not.toBe(-1);
     component.unmount();
   });
 
@@ -85,9 +87,13 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
   it('should skip expanding disabled tabs', () => {
     const component = mount(
       <Accordion transition={false} multiExpand>
-        <div tabProps={{ disabled: true }} tabTitle="valid tab">Tab 1</div>
+        <div tabProps={{ disabled: true }} tabTitle="valid tab">
+          Tab 1
+        </div>
         <div tabTitle="another valid tab">Tab 2</div>
-        <div disabled tabTitle="this is the default tab">Tab 3</div>
+        <div disabled tabTitle="this is the default tab">
+          Tab 3
+        </div>
       </Accordion>
     );
     component.instance().expandAll();
@@ -123,8 +129,8 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
         '.zippy-react-toolkit-accordion__tab-title--expanded'
       )
     ];
-
-    expect(expandedNodes[0].innerText.indexOf('locked tab')).to.equal(-1);
+    expect(expandedNodes[0].innerHTML.indexOf('locked tab')).toBe(-1);
+    expect(expandedNodes[0].innerHTML.indexOf('enabled tab')).not.toBe(-1);
     accordionInstance.unmount();
   });
 
@@ -137,7 +143,7 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
     );
     const instance = component.instance();
     instance.expandAt(1);
-    expect(instance.getActiveTabs()).to.not.contain(1);
+    expect(instance.getActiveTabs()).not.toContain(1);
   });
 
   it('should not expand a disabled tab', () => {
@@ -149,7 +155,7 @@ describe('Accordion Methods - Expanding and Collapsing', () => {
     );
     const instance = component.instance();
     instance.expandAt(1);
-    expect(instance.getActiveTabs()).to.not.contain(1);
+    expect(instance.getActiveTabs()).not.toContain(1);
   });
 
   it('should collapse when expanding another tab', () => {

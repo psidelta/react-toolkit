@@ -14,12 +14,12 @@ describe('Accordion Callbacks', () => {
     tab2OnExpandSpy;
 
   beforeEach(() => {
-    onActivateSpy = sinon.spy();
-    tab1OnExpandSpy = sinon.spy();
-    tab1OnCollapseSpy = sinon.spy();
-    tab2OnExpandSpy = sinon.spy();
-    onExpandSpy = sinon.spy();
-    onCollapseSpy = sinon.spy();
+    onActivateSpy = jest.fn();
+    tab1OnExpandSpy = jest.fn();
+    tab1OnCollapseSpy = jest.fn();
+    tab2OnExpandSpy = jest.fn();
+    onExpandSpy = jest.fn();
+    onCollapseSpy = jest.fn();
 
     component = mount(
       <Accordion
@@ -28,7 +28,6 @@ describe('Accordion Callbacks', () => {
         onActivate={onActivateSpy}
         transition={false}
       >
-
         <div
           tabProps={{
             onExpand: tab1OnExpandSpy,
@@ -46,49 +45,47 @@ describe('Accordion Callbacks', () => {
         >
           Tab 2
         </div>
-        <div ref="lockedTab" locked tabTitle="locked tab">Tab 3</div>
-        <div disabled tabTitle="disabled tab">Tab 4</div>
-
+        <div ref="lockedTab" locked tabTitle="locked tab">
+          Tab 3
+        </div>
+        <div disabled tabTitle="disabled tab">
+          Tab 4
+        </div>
       </Accordion>
     );
     instance = component.instance();
   });
 
   it('should call onActivate with number on expand/collapse', () => {
-    expect(
-      onActivateSpy.callCount,
-      'on mount should not call onActivate'
-    ).to.equal(0);
+    //should not activate on mount
+    expect(onActivateSpy).toHaveBeenCalledTimes(0);
     instance.expandAt(1);
-    expect(
-      onActivateSpy.callCount,
-      'after expandAt should be called once'
-    ).to.equal(1);
-    expect(onActivateSpy).to.have.been.calledWith(1);
+    expect(onActivateSpy).toHaveBeenCalledTimes(1);
+    expect(onActivateSpy).toHaveBeenCalledWith(1);
     instance.expandAt(0);
-    expect(onActivateSpy).to.have.been.calledWith(0);
+    expect(onActivateSpy).toHaveBeenCalledWith(0);
   });
 
   it('should call onActivate with array on expand/collapse', () => {
     component.setProps({ multiExpand: true });
     instance.expandAt(1);
-    expect(onActivateSpy).to.have.been.calledWith([0, 1]);
+    expect(onActivateSpy).toHaveBeenCalledWith([0, 1]);
   });
 
   it('should call individual callbacks for each tab as well as accordion callbacks', () => {
     instance.expandAt(1);
-    expect(onExpandSpy, 'onExpandSpy').to.have.been.calledOnce;
-    expect(onExpandSpy).to.have.been.calledWith(1);
-    expect(onCollapseSpy, 'onCollapseSpy').to.have.been.calledOnce;
-    expect(onCollapseSpy).to.have.been.calledWith(0);
+    expect(onExpandSpy).toHaveBeenCalledTimes(1);
+    expect(onExpandSpy).toHaveBeenCalledWith(1);
+    expect(onCollapseSpy).toHaveBeenCalledTimes(1);
+    expect(onCollapseSpy).toHaveBeenCalledWith(0);
 
-    expect(tab1OnCollapseSpy).to.have.been.calledOnce;
-    expect(tab2OnExpandSpy).to.have.been.calledOnce;
+    expect(tab1OnCollapseSpy).toHaveBeenCalledTimes(1);
+    expect(tab2OnExpandSpy).toHaveBeenCalledTimes(1);
 
     instance.expandAt(0);
-    expect(onExpandSpy).to.have.been.calledWith(0);
-    expect(onCollapseSpy).to.have.been.calledWith(1);
-    expect(tab1OnExpandSpy).to.have.been.calledOnce;
+    expect(onExpandSpy).toHaveBeenCalledWith(0);
+    expect(onCollapseSpy).toHaveBeenCalledWith(1);
+    expect(tab1OnExpandSpy).toHaveBeenCalledTimes(1);
   });
 
   it('should recalculate tab titles onResize', () => {
@@ -97,18 +94,14 @@ describe('Accordion Callbacks', () => {
     const tabTitle2 = tabTitles[1];
     const tabTitle3 = tabTitles[2];
 
-    const stub1 = sinon.stub(tabTitle1, 'onResize');
-    const stub2 = sinon.stub(tabTitle2, 'onResize');
-    const stub3 = sinon.stub(tabTitle3, 'onResize');
+    const onResize1 = jest.spyOn(tabTitle1, 'onResize');
+    const onResize2 = jest.spyOn(tabTitle2, 'onResize');
+    const onResize3 = jest.spyOn(tabTitle3, 'onResize');
 
     instance.onResize();
 
-    expect(stub1).to.have.been.calledOnce;
-    expect(stub2).to.have.been.calledOnce;
-    expect(stub3).to.have.been.calledOnce;
-
-    stub1.restore();
-    stub2.restore();
-    stub3.restore();
+    expect(onResize1).toHaveBeenCalledTimes(1);
+    expect(onResize2).toHaveBeenCalledTimes(1);
+    expect(onResize3).toHaveBeenCalledTimes(1);
   });
 });

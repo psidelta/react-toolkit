@@ -12,9 +12,15 @@ describe('Accordion tooltip props', () => {
   beforeEach(() => {
     component = mount(
       <Accordion transition={false}>
-        <div locked data-test="tab-content-1" tabTitle="Tab 1">Tab 1</div>
-        <div disabled data-test="tab-content-2" tabTitle="Tab 2">Tab 2</div>
-        <div data-test="tab-content-3" tabTitle="Tab 3">Tab 3</div>
+        <div locked data-test="tab-content-1" tabTitle="Tab 1">
+          Tab 1
+        </div>
+        <div disabled data-test="tab-content-2" tabTitle="Tab 2">
+          Tab 2
+        </div>
+        <div data-test="tab-content-3" tabTitle="Tab 3">
+          Tab 3
+        </div>
       </Accordion>
     );
 
@@ -24,8 +30,8 @@ describe('Accordion tooltip props', () => {
   describe('expandTool', () => {
     it('should render expandTool by default', () => {
       const titleComponent = component.find('ZippyAccordionTabTitle').at(0);
-      expect(titleComponent.prop('expandTool')).to.be.instanceOf(Function);
-      expect(titleComponent.prop('expandTool')).to.equal(
+      expect(typeof titleComponent.prop('expandTool')).toBe('function');
+      expect(titleComponent.prop('expandTool')).toEqual(
         AccordionTabTitle.defaultProps.expandTool
       );
     });
@@ -35,7 +41,7 @@ describe('Accordion tooltip props', () => {
         expandTool: null
       });
       const titleComponent = component.find('ZippyAccordionTabTitle').at(0);
-      expect(titleComponent.prop('expandTool')).to.equal(null);
+      expect(titleComponent.prop('expandTool')).toEqual(null);
     });
 
     it('should support jsx/string as expandTool', () => {
@@ -45,14 +51,20 @@ describe('Accordion tooltip props', () => {
         expandTool: expandTool1
       });
       expect(
-        component.find('ZippyAccordionTabTitle').at(0).prop('expandTool')
-      ).to.equal(expandTool1);
+        component
+          .find('ZippyAccordionTabTitle')
+          .at(0)
+          .prop('expandTool')
+      ).toEqual(expandTool1);
       component.setProps({
         expandTool: expandTool2
       });
       expect(
-        component.find('ZippyAccordionTabTitle').at(0).prop('expandTool')
-      ).to.equal(expandTool2);
+        component
+          .find('ZippyAccordionTabTitle')
+          .at(0)
+          .prop('expandTool')
+      ).toEqual(expandTool2);
     });
 
     it('should support function as expandTool', () => {
@@ -62,9 +74,12 @@ describe('Accordion tooltip props', () => {
       });
 
       expect(
-        component.find('ZippyAccordionTabTitle').at(0).prop('expandTool')
-      ).to.equal(expandToolStub);
-      expect(expandToolStub.callCount).to.equal(3);
+        component
+          .find('ZippyAccordionTabTitle')
+          .at(0)
+          .prop('expandTool')
+      ).toEqual(expandToolStub);
+      expect(expandToolStub.callCount).toEqual(3);
     });
   });
 
@@ -74,22 +89,34 @@ describe('Accordion tooltip props', () => {
         expandOnToolOnly: true
       });
       expect(
-        component.find('ZippyAccordionTabTitle').at(0).prop('expandOnToolOnly')
-      ).to.equal(true);
+        component
+          .find('ZippyAccordionTabTitle')
+          .at(0)
+          .prop('expandOnToolOnly')
+      ).toEqual(true);
     });
   });
 
   it('should warn on props.expandOnToolOnly && props.expandTool === null', () => {
     component = mount(
       <Accordion transition={false} expandOnToolOnly={true} expandTool={null}>
-        <div locked data-test="tab-content-1" tabTitle="Tab 1">Tab 1</div>
-        <div disabled data-test="tab-content-2" tabTitle="Tab 2">Tab 2</div>
-        <div data-test="tab-content-3" tabTitle="Tab 3">Tab 3</div>
+        <div locked data-test="tab-content-1" tabTitle="Tab 1">
+          Tab 1
+        </div>
+        <div disabled data-test="tab-content-2" tabTitle="Tab 2">
+          Tab 2
+        </div>
+        <div data-test="tab-content-3" tabTitle="Tab 3">
+          Tab 3
+        </div>
       </Accordion>
     );
     expect(
-      component.find('ZippyAccordionTabTitle').at(0).prop('expandOnToolOnly')
-    ).to.equal(false);
+      component
+        .find('ZippyAccordionTabTitle')
+        .at(0)
+        .prop('expandOnToolOnly')
+    ).toEqual(false);
   });
 });
 
@@ -103,7 +130,7 @@ describe('AccordionTabTitle expandTool props', () => {
     it('should render default expandTool', () => {
       expect(
         component.find(`.${TITLE_CLASS_NAME}__expand-tool-wrapper`)
-      ).to.have.property('length', 1);
+      ).toHaveProperty('length', 1);
     });
 
     it('should not render if expandTool=null', () => {
@@ -112,7 +139,7 @@ describe('AccordionTabTitle expandTool props', () => {
       });
       expect(
         component.find(`.${TITLE_CLASS_NAME}__expand-tool-wrapper`)
-      ).to.have.property('length', 0);
+      ).toHaveProperty('length', 0);
     });
 
     it('should render custom expandTool calling renderer with proper params', () => {
@@ -132,28 +159,28 @@ describe('AccordionTabTitle expandTool props', () => {
         'focused',
         'transition'
       ].forEach(key => {
-        expect(callArguments).to.have.property(key);
+        expect(callArguments).toHaveProperty(key);
       });
     });
   });
 
   describe('expandOnToolOnly', () => {
     it('binds even listener on wrapper', () => {
-      const onToggleSpy = sinon.spy();
+      const onToggleSpy = jest.fn();
       const component = shallow(
         <AccordionTabTitle onToggle={onToggleSpy} tabTitle="title" />
       );
       const toolWrapper = component.find(
         `.${TITLE_CLASS_NAME}__expand-tool-wrapper`
       );
-      expect(toolWrapper.prop('onClick')).to.be.undefined;
+      expect(toolWrapper.prop('onClick')).toBe(undefined);
 
       component.find(`.${TITLE_CLASS_NAME}`).simulate('click');
-      expect(onToggleSpy).to.have.been.calledOnce;
+      expect(onToggleSpy).toHaveBeenCalledTimes(1);
     });
 
     it('binds even listener only on tooltip when expandOnToolOnly=true', () => {
-      const onToggleSpy = sinon.spy();
+      const onToggleSpy = jest.fn();
       const component = shallow(
         <AccordionTabTitle
           expandOnToolOnly
@@ -164,12 +191,12 @@ describe('AccordionTabTitle expandTool props', () => {
       const toolWrapper = component.find(
         `.${TITLE_CLASS_NAME}__expand-tool-wrapper`
       );
-      expect(toolWrapper.prop('onClick')).to.equal(onToggleSpy);
+      expect(toolWrapper.prop('onClick')).toEqual(onToggleSpy);
 
       component.simulate('click');
-      expect(onToggleSpy).to.not.have.been.called;
+      expect(onToggleSpy).toHaveBeenCalledTimes(0);
       toolWrapper.simulate('click');
-      expect(onToggleSpy).to.have.been.calledOnce;
+      expect(onToggleSpy).toHaveBeenCalledTimes(1);
     });
   });
 });

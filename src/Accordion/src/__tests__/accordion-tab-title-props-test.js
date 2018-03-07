@@ -21,8 +21,12 @@ describe('Accordion tab title style props', () => {
         tabTitleVerticalAlign="top"
         tabTitleEllipsis={false}
       >
-        <div locked data-test="tab-content-1" tabTitle="Tab 1">Tab 1</div>
-        <div disabled data-test="tab-content-2" tabTitle="Tab 2">Tab 2</div>
+        <div locked data-test="tab-content-1" tabTitle="Tab 1">
+          Tab 1
+        </div>
+        <div disabled data-test="tab-content-2" tabTitle="Tab 2">
+          Tab 2
+        </div>
         <div
           tabProps={{
             titleStyle: extraStyleProps,
@@ -60,70 +64,84 @@ describe('Accordion tab title style props', () => {
 
   describe('tabTitleAlign', () => {
     it('should apply tabTitleAlign to all tabs', () => {
-      expect(tabTitleComponents.at(0).prop('tabTitleAlign')).to.equal('start');
-      expect(tabTitleComponents.at(1).prop('tabTitleAlign')).to.equal('start');
-      expect(tabTitleComponents.at(2).prop('tabTitleAlign')).to.equal('end');
+      expect(tabTitleComponents.at(0).prop('tabTitleAlign')).toEqual('start');
+      expect(tabTitleComponents.at(1).prop('tabTitleAlign')).toEqual('start');
+      expect(tabTitleComponents.at(2).prop('tabTitleAlign')).toEqual('end');
     });
 
     it('should map non standard values to start and end', () => {
-      component.setProps({
-        tabTitleAlign: 'left'
-      });
-      tabTitleComponents = component.find('ZippyAccordionTabTitle');
-      expect(
-        tabTitleComponents.at(0).node.refs.tabWrapper.className
-      ).to.contain('align-start');
-      expect(
-        tabTitleComponents.at(1).node.refs.tabWrapper.className
-      ).to.contain('align-start');
+      const component = mount(
+        <Accordion
+          transition={false}
+          tabTitleStyle={tabTitleStyle}
+          tabTitleAlign="start"
+          tabTitleVerticalAlign="top"
+          tabTitleEllipsis={false}
+        >
+          <div locked data-test="tab-content-1" tabTitle="Tab 1">
+            Tab 1
+          </div>
+          <div disabled data-test="tab-content-2" tabTitle="Tab 2">
+            Tab 2
+          </div>
+          <div
+            tabProps={{
+              titleStyle: extraStyleProps,
+              className: CUSTOM_CLASS_NAME_2,
+              titleAlign: 'end',
+              titleVerticalAlign: 'bottom',
+              titleEllipsis: true
+            }}
+            data-test="tab-content-3"
+            tabTitle="Tab 3"
+          >
+            Tab 3
+          </div>
+        </Accordion>
+      );
 
-      component.setProps({
-        tabTitleAlign: 'top'
-      });
-      tabTitleComponents = component.find('ZippyAccordionTabTitle');
-
+      let tabTitleComponents = component.find('ZippyAccordionTabTitle');
       expect(
-        tabTitleComponents.at(0).node.refs.tabWrapper.className
-      ).to.contain('align-start');
+        tabTitleComponents.find(
+          '.zippy-react-toolkit-accordion__tab-title--align-start'
+        )
+      ).toHaveLength(2);
       expect(
-        tabTitleComponents.at(1).node.refs.tabWrapper.className
-      ).to.contain('align-start');
+        tabTitleComponents.find(
+          '.zippy-react-toolkit-accordion__tab-title--align-end'
+        )
+      ).toHaveLength(1);
 
       component.setProps({
         tabTitleAlign: 'right'
       });
+
       tabTitleComponents = component.find('ZippyAccordionTabTitle');
 
       expect(
-        tabTitleComponents.at(0).node.refs.tabWrapper.className
-      ).to.contain('align-end');
-      expect(
-        tabTitleComponents.at(1).node.refs.tabWrapper.className
-      ).to.contain('align-end');
-
-      component.setProps({
-        tabTitleAlign: 'bottom'
-      });
-      tabTitleComponents = component.find('ZippyAccordionTabTitle');
+        tabTitleComponents.find(
+          '.zippy-react-toolkit-accordion__tab-title--align-start'
+        )
+      ).toHaveLength(0);
 
       expect(
-        tabTitleComponents.at(0).node.refs.tabWrapper.className
-      ).to.contain('align-end');
-      expect(
-        tabTitleComponents.at(1).node.refs.tabWrapper.className
-      ).to.contain('align-end');
+        tabTitleComponents.find(
+          '.zippy-react-toolkit-accordion__tab-title--align-end'
+        )
+      ).toHaveLength(3);
+      return;
     });
   });
 
   describe('tabTitleVerticalAlign', () => {
     it('should apply tabTitleVerticalAlign to all tabs', () => {
-      expect(tabTitleComponents.at(0).prop('tabTitleVerticalAlign')).to.equal(
+      expect(tabTitleComponents.at(0).prop('tabTitleVerticalAlign')).toEqual(
         'top'
       );
-      expect(tabTitleComponents.at(1).prop('tabTitleVerticalAlign')).to.equal(
+      expect(tabTitleComponents.at(1).prop('tabTitleVerticalAlign')).toEqual(
         'top'
       );
-      expect(tabTitleComponents.at(2).prop('tabTitleVerticalAlign')).to.equal(
+      expect(tabTitleComponents.at(2).prop('tabTitleVerticalAlign')).toEqual(
         'bottom'
       );
     });
@@ -131,32 +149,59 @@ describe('Accordion tab title style props', () => {
 
   describe('tabTitleEllipsis', () => {
     it('should apply tabTitleEllipsis to all tabs', () => {
-      expect(tabTitleComponents.at(0).prop('tabTitleEllipsis')).to.equal(false);
-      expect(tabTitleComponents.at(1).prop('tabTitleEllipsis')).to.equal(false);
-      expect(tabTitleComponents.at(2).prop('tabTitleEllipsis')).to.equal(true);
+      expect(tabTitleComponents.at(0).prop('tabTitleEllipsis')).toEqual(false);
+      expect(tabTitleComponents.at(1).prop('tabTitleEllipsis')).toEqual(false);
+      expect(tabTitleComponents.at(2).prop('tabTitleEllipsis')).toEqual(true);
     });
   });
 
   describe('renderTabTitle', () => {
     it('should set renderTabTitle to AccordionTabTitle', () => {
-      const renderTabTitleSpy = sinon.spy(domProps => {
+      const renderTabTitleSpy = jest.fn(domProps => {
         return <div {...domProps} />;
       });
-      component.setProps({
-        renderTabTitle: renderTabTitleSpy
-      });
+      const component = mount(
+        <Accordion
+          transition={false}
+          tabTitleStyle={tabTitleStyle}
+          tabTitleAlign="start"
+          tabTitleVerticalAlign="top"
+          tabTitleEllipsis={false}
+          renderTabTitle={renderTabTitleSpy}
+        >
+          <div locked data-test="tab-content-1" tabTitle="Tab 1">
+            Tab 1
+          </div>
+          <div disabled data-test="tab-content-2" tabTitle="Tab 2">
+            Tab 2
+          </div>
+          <div
+            tabProps={{
+              titleStyle: extraStyleProps,
+              className: CUSTOM_CLASS_NAME_2,
+              titleAlign: 'end',
+              titleVerticalAlign: 'bottom',
+              titleEllipsis: true
+            }}
+            data-test="tab-content-3"
+            tabTitle="Tab 3"
+          >
+            Tab 3
+          </div>
+        </Accordion>
+      );
+      const tabTitleComponents = component.find('ZippyAccordionTabTitle');
+      expect(tabTitleComponents.at(0).prop('renderTabTitle')).toEqual(
+        renderTabTitleSpy
+      );
+      expect(tabTitleComponents.at(1).prop('renderTabTitle')).toEqual(
+        renderTabTitleSpy
+      );
+      expect(tabTitleComponents.at(2).prop('renderTabTitle')).toEqual(
+        renderTabTitleSpy
+      );
 
-      expect(tabTitleComponents.at(0).prop('renderTabTitle')).to.equal(
-        renderTabTitleSpy
-      );
-      expect(tabTitleComponents.at(1).prop('renderTabTitle')).to.equal(
-        renderTabTitleSpy
-      );
-      expect(tabTitleComponents.at(2).prop('renderTabTitle')).to.equal(
-        renderTabTitleSpy
-      );
-
-      const callArguments = renderTabTitleSpy.args[0][1];
+      const callArguments = renderTabTitleSpy.mock.calls[0][1];
       [
         'expanded',
         'index',
@@ -167,7 +212,7 @@ describe('Accordion tab title style props', () => {
         'focused',
         'transition'
       ].forEach(key => {
-        expect(callArguments).to.have.property(key);
+        expect(callArguments).toHaveProperty(key);
       });
     });
   });
@@ -179,9 +224,9 @@ describe('Accordion tab title style props', () => {
         tabTitleRotate: -90
       });
 
-      expect(tabTitleComponents.at(0).prop('tabTitleRotate')).to.equal(-90);
-      expect(tabTitleComponents.at(1).prop('tabTitleRotate')).to.equal(-90);
-      expect(tabTitleComponents.at(2).prop('tabTitleRotate')).to.equal(-90);
+      expect(tabTitleComponents.at(0).prop('tabTitleRotate')).toEqual(-90);
+      expect(tabTitleComponents.at(1).prop('tabTitleRotate')).toEqual(-90);
+      expect(tabTitleComponents.at(2).prop('tabTitleRotate')).toEqual(-90);
     });
   });
 });

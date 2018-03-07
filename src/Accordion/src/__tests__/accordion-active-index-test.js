@@ -7,9 +7,15 @@ describe('Accordion Callbacks', () => {
   let accordionInnerContent;
   beforeEach(() => {
     accordionInnerContent = [
-      <div key={1} tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>,
-      <div key={2} tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>,
-      <div key={3} tabTitle="tab3">Tab 3</div>
+      <div key={1} tabTitle={<div data-test="tab1">Tab 1</div>}>
+        Tab 1
+      </div>,
+      <div key={2} tabTitle={<div data-test="tab2">Tab 2</div>}>
+        Tab 2
+      </div>,
+      <div key={3} tabTitle="tab3">
+        Tab 3
+      </div>
     ];
   });
 
@@ -131,7 +137,8 @@ describe('Accordion Callbacks', () => {
   });
 
   it('should call onActivate while controlled component', () => {
-    let activeTabs, onActivateSpy = sinon.spy();
+    let activeTabs,
+      onActivateSpy = jest.fn();
     const component = mount(
       <Accordion
         onActivate={onActivateSpy}
@@ -145,13 +152,13 @@ describe('Accordion Callbacks', () => {
 
     component.find('[data-test="tab2"]').simulate('click');
 
-    expect(onActivateSpy).to.have.been.calledOnce;
+    expect(onActivateSpy).toHaveBeenCalledTimes(1);
 
     component.setProps({
       multiExpand: true
     });
 
     component.find('[data-test="tab1"]').simulate('click');
-    expect(onActivateSpy).to.have.been.calledTwice;
+    expect(onActivateSpy).toHaveBeenCalledTimes(2);
   });
 });

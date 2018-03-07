@@ -33,7 +33,7 @@ describe('Accordion Layout', () => {
     component.find('[data-test="tab2"]').simulate('click');
     component.setProps({ multiExpand: false });
     const activeTabs = component.instance().getActiveTabs();
-    expect(activeTabs).to.have.property('length', 1);
+    expect(activeTabs).toHaveProperty('length', 1);
   });
 
   it('should not collapse last open tab in collapsible=false', () => {

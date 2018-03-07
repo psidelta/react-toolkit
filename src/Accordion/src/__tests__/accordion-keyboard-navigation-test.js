@@ -5,57 +5,48 @@ import { shallow, mount } from 'enzyme';
 
 describe('Accordion Keyboard Navigation', () => {
   let component, instance;
+  const accordion = (
+    <Accordion activateOnFocus data-test="self" transition={false}>
+      <div tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>
+      <div tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>
+      <div tabTitle="tab3">Tab 3</div>
+    </Accordion>
+  );
 
   beforeEach(() => {
-    component = mount(
-      <Accordion data-test="self" transition={false}>
-
-        <div tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>
-        <div tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>
-        <div tabTitle="tab3">Tab 3</div>
-
-      </Accordion>
-    );
+    component = mount(accordion);
     instance = component.instance();
   });
 
   describe('focusing', () => {
     it('should focus with focus event', () => {
       component.simulate('focus');
-      expect(component.find('[data-test="self"]').prop('className')).to.contain(
-        `${CLASS_NAME}--focused`
-      );
+      const self = component.find('div[data-test="self"]');
+      expect(self.hasClass(`${CLASS_NAME}--focused`)).toBe(true);
     });
 
-    xit('should focus on click on expanded tab', () => {
-      component.find('[data-test="tab1"]').simulate('click');
-      expect(component.find('[data-test="self"]').prop('className')).to.contain(
-        `${CLASS_NAME}--focused`
-      );
-    });
+    it('should focus on click on a tab', () => {
+      const tab2 = component.find('[data-test="tab2"]');
 
-    it('should focus on click when expanding tab', () => {
-      component.find('[data-test="tab2"]').simulate('click');
-      expect(component.find('[data-test="self"]').prop('className')).to.contain(
-        `${CLASS_NAME}--focused`
-      );
+      tab2.simulate('click');
+
+      const self = component.find('div[data-test="self"]');
+
+      expect(self.props().className).toContain(`${CLASS_NAME}--focused`);
     });
 
     it('should have tab index set and configurable', () => {
-      const self = component.find('[data-test="self"]');
+      let domProps = component.find('div[data-test="self"]').props();
 
-      expect(component.find('[data-test="self"]').node).to.have.property(
-        'tabIndex',
-        0
-      );
+      expect(domProps).toHaveProperty('tabIndex', 0);
+
       const USER_TAB_INDEX = 32;
       component.setProps({
         tabIndex: USER_TAB_INDEX
       });
-      expect(component.find('[data-test="self"]').node).to.have.property(
-        'tabIndex',
-        USER_TAB_INDEX
-      );
+
+      domProps = component.find('div[data-test="self"]').props();
+      expect(domProps).toHaveProperty('tabIndex', USER_TAB_INDEX);
     });
   });
 
@@ -83,14 +74,21 @@ describe('Accordion Keyboard Navigation', () => {
 
     it('should navigate via Home and End', () => {
       let activeTabs;
+      const component = mount(
+        <Accordion activateOnFocus data-test="self" transition={false}>
+          <div tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>
+          <div tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>
+          <div tabTitle="tab3">Tab 3</div>
+        </Accordion>
+      );
       component.simulate('focus');
       component.simulate('keyDown', { key: 'End' });
-      component.simulate('keyDown', { key: ' ' });
+      component.simulate('keyDown', { key: 'Enter' });
       activeTabs = component.instance().getActiveTabs();
       expect(activeTabs).toEqual([2]);
 
       component.simulate('keyDown', { key: 'Home' });
-      component.simulate('keyDown', { key: ' ' });
+      component.simulate('keyDown', { key: 'Enter' });
       activeTabs = component.instance().getActiveTabs();
       expect(activeTabs).toEqual([0]);
     });
@@ -124,23 +122,41 @@ describe('Accordion Keyboard Navigation', () => {
     });
 
     it('should toggle via " " (space)', () => {
+      const component = mount(
+        <Accordion
+          collapsible
+          activateOnFocus
+          data-test="self"
+          transition={false}
+        >
+          <div tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>
+          <div tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>
+          <div tabTitle="tab3">Tab 3</div>
+        </Accordion>
+      );
       let activeTabs;
-      component.setProps({
-        collapsible: true
-      });
       component.simulate('focus');
-      component.simulate('keyDown', { key: ' ' });
+      component.simulate('keyDown', { key: 'Enter' });
       activeTabs = component.instance().getActiveTabs();
       expect(activeTabs).toEqual([]);
-      component.simulate('keyDown', { key: ' ' });
+      component.simulate('keyDown', { key: 'Enter' });
       activeTabs = component.instance().getActiveTabs();
       expect(activeTabs).toEqual([0]);
     });
 
     it('should support horizontal navigation', () => {
-      component.setProps({
-        horizontal: true
-      });
+      const component = mount(
+        <Accordion
+          horizontal
+          activateOnFocus
+          data-test="self"
+          transition={false}
+        >
+          <div tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>
+          <div tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>
+          <div tabTitle="tab3">Tab 3</div>
+        </Accordion>
+      );
 
       component.simulate('focus');
       component.simulate('keyDown', { key: 'ArrowRight' });
@@ -150,6 +166,13 @@ describe('Accordion Keyboard Navigation', () => {
     });
 
     it('should ignore keyDown when not focused', () => {
+      const component = mount(
+        <Accordion activateOnFocus data-test="self" transition={false}>
+          <div tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>
+          <div tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>
+          <div tabTitle="tab3">Tab 3</div>
+        </Accordion>
+      );
       component.simulate('keyDown', { key: 'ArrowDown' });
       component.simulate('keyDown', { key: ' ' });
       const activeTabs = component.instance().getActiveTabs();
@@ -158,10 +181,10 @@ describe('Accordion Keyboard Navigation', () => {
   });
 
   describe('handling onFocus, onBlur and onKeyDown outside', () => {
-    it('should allow setting custom handlers while keeping navigation functionality', () => {
-      const onFocusSpy = sinon.spy(),
-        onBlurSpy = sinon.spy(),
-        onKeyDownSpy = sinon.spy(),
+    it('should allow setting custom handlers while keeping navigation functionality, and expand tab on arrowdown with activateOnFocus=true', () => {
+      const onFocusSpy = jest.fn(),
+        onBlurSpy = jest.fn(),
+        onKeyDownSpy = jest.fn(),
         component = mount(
           <Accordion
             data-test="self"
@@ -169,29 +192,28 @@ describe('Accordion Keyboard Navigation', () => {
             onBlur={onBlurSpy}
             onKeyDown={onKeyDownSpy}
             transition={false}
+            activateOnFocus={true}
           >
-
             <div tabTitle={<div data-test="tab1">Tab 1</div>}>Tab 1</div>
             <div tabTitle={<div data-test="tab2">Tab 2</div>}>Tab 2</div>
             <div tabTitle="tab3">Tab 3</div>
-
           </Accordion>
         );
 
-      component.simulate('focus', {});
-      component.simulate('keyDown', {});
-      component.simulate('blur', {});
+      component.simulate('focus');
+      component.simulate('keyDown');
+      component.simulate('blur');
 
-      expect(onFocusSpy).to.have.been.calledOnce;
-      expect(onBlurSpy).to.have.been.calledOnce;
-      expect(onKeyDownSpy).to.have.been.calledOnce;
+      expect(onFocusSpy).toHaveBeenCalledTimes(1);
+      expect(onBlurSpy).toHaveBeenCalledTimes(1);
+      expect(onKeyDownSpy).toHaveBeenCalledTimes(1);
 
       component.simulate('focus', {});
       component.simulate('keyDown', { key: 'ArrowDown' });
       component.simulate('keyDown', { key: ' ' });
 
-      expect(onFocusSpy).to.have.been.calledTwice;
-      expect(onKeyDownSpy.callCount).to.equal(3);
+      expect(onFocusSpy).toHaveBeenCalledTimes(2);
+      expect(onKeyDownSpy).toHaveBeenCalledTimes(3);
 
       const activeTabs = component.instance().getActiveTabs();
       expect(activeTabs).toEqual([1]);
