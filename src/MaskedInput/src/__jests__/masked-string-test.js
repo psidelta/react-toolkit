@@ -10,14 +10,14 @@ describe('getMaskedString utils function', () => {
   it('should return value when no mask present', () => {
     const value = 'value';
     const result = getMaskedString(value);
-    expect(result[0]).to.equal(value);
+    expect(result[0]).toEqual(value);
   });
 
   it('should return mask when no mask definition present', () => {
     const value = 'value';
     const mask = '[abc]';
     const result = getMaskedString(value, { mask });
-    expect(result[0]).to.equal(mask);
+    expect(result[0]).toEqual(mask);
   });
 
   it('should replace all positions that are not filled by value with filler char', () => {
@@ -32,7 +32,7 @@ describe('getMaskedString utils function', () => {
       maskDefinitions,
       maskFiller
     });
-    expect(result[0]).to.equal(expectedReplacedChars);
+    expect(result[0]).toEqual(expectedReplacedChars);
   });
 
   it('should match correct value', () => {
@@ -46,7 +46,7 @@ describe('getMaskedString utils function', () => {
       maskDefinitions,
       maskFiller
     });
-    expect(result[0]).to.equal(`^[${value}]`);
+    expect(result[0]).toEqual(`^[${value}]`);
   });
 
   it('should match partial value', () => {
@@ -61,7 +61,7 @@ describe('getMaskedString utils function', () => {
       maskDefinitions,
       maskFiller
     });
-    expect(result[0]).to.equal(expectedReplacedChars);
+    expect(result[0]).toEqual(expectedReplacedChars);
   });
 
   it('should stop accepting values at first incorect value', () => {
@@ -76,9 +76,9 @@ describe('getMaskedString utils function', () => {
       maskDefinitions,
       maskFiller
     });
-    expect(result[0]).to.equal(expectedReplacedChars);
-    expect(result[1]).to.equal(1);
-    expect(result[2]).to.equal(4);
+    expect(result[0]).toEqual(expectedReplacedChars);
+    expect(result[1]).toEqual(1);
+    expect(result[2]).toEqual(4);
   });
 
   it('should work with fully matched mask', () => {
@@ -92,7 +92,7 @@ describe('getMaskedString utils function', () => {
       maskDefinitions,
       maskFiller
     });
-    expect(result[0]).to.equal(expectedReplacedChars);
+    expect(result[0]).toEqual(expectedReplacedChars);
   });
 });
 
@@ -107,7 +107,7 @@ describe('getPositionInMaskedStringBasedOnValue utils function', () => {
       mask,
       maskDefinitions
     });
-    expect(result).to.equal(expectedPosition);
+    expect(result).toEqual(expectedPosition);
   });
 
   it('should return intended caret position when value valid and fills mask available chars', () => {
@@ -120,7 +120,7 @@ describe('getPositionInMaskedStringBasedOnValue utils function', () => {
       mask,
       maskDefinitions
     });
-    expect(result).to.equal(expectedPosition);
+    expect(result).toEqual(expectedPosition);
   });
 
   it('should return intended caret position when value is null and mask has fillers at 0', () => {
@@ -133,7 +133,7 @@ describe('getPositionInMaskedStringBasedOnValue utils function', () => {
       mask,
       maskDefinitions
     });
-    expect(result).to.equal(expectedPosition);
+    expect(result).toEqual(expectedPosition);
   });
 
   it('should return intended caret position when value is null and mask has no fillers at 0', () => {
@@ -146,7 +146,7 @@ describe('getPositionInMaskedStringBasedOnValue utils function', () => {
       mask,
       maskDefinitions
     });
-    expect(result).to.equal(expectedPosition);
+    expect(result).toEqual(expectedPosition);
   });
 });
 
@@ -241,19 +241,19 @@ describe('getNextRealValuePosition utils function', () => {
       mask: mask1,
       maskDefinitions
     });
-    expect(nextPosition1).to.equal(2);
+    expect(nextPosition1).toEqual(2);
 
     const nextPosition2 = getNextRealValuePosition(0, {
       mask: mask2,
       maskDefinitions
     });
-    expect(nextPosition2).to.equal(1);
+    expect(nextPosition2).toEqual(1);
 
     const nextPosition3 = getNextRealValuePosition(0, {
       mask: mask3,
       maskDefinitions
     });
-    expect(nextPosition3).to.equal(2);
+    expect(nextPosition3).toEqual(2);
   });
 
   it('should correctly determine next position when start = last el', () => {
@@ -261,13 +261,13 @@ describe('getNextRealValuePosition utils function', () => {
       mask: mask1,
       maskDefinitions
     });
-    expect(nextPosition1).to.equal(mask1.length);
+    expect(nextPosition1).toEqual(mask1.length);
 
     const nextPosition3 = getNextRealValuePosition(mask3.length - 1, {
       mask: mask3,
       maskDefinitions
     });
-    expect(nextPosition3).to.equal(mask3.length);
+    expect(nextPosition3).toEqual(mask3.length);
   });
 
   it('sould correctly determine next position when start is somewhere in mask', () => {
@@ -275,25 +275,25 @@ describe('getNextRealValuePosition utils function', () => {
       mask: mask1,
       maskDefinitions
     });
-    expect(nextPosition1).to.equal(9);
+    expect(nextPosition1).toEqual(9);
 
     const nextPosition2 = getNextRealValuePosition(19, {
       mask: mask2,
       maskDefinitions
     });
-    expect(nextPosition2).to.equal(20);
+    expect(nextPosition2).toEqual(20);
 
     const nextPosition3 = getNextRealValuePosition(1, {
       mask: mask3,
       maskDefinitions
     });
-    expect(nextPosition3).to.equal(2);
+    expect(nextPosition3).toEqual(2);
 
     const nextPosition4 = getNextRealValuePosition(2, {
       mask: mask4,
       maskDefinitions
     });
-    expect(nextPosition4).to.equal(3);
+    expect(nextPosition4).toEqual(3);
   });
 });
 
@@ -314,7 +314,7 @@ describe('getPreviousRealValuePosition utils function', () => {
       mask: mask1,
       maskDefinitions
     });
-    expect(nextPosition1).to.equal(0);
+    expect(nextPosition1).toEqual(0);
   });
 
   it('should correctly determine previous position when start = last el', () => {
@@ -322,13 +322,13 @@ describe('getPreviousRealValuePosition utils function', () => {
       mask: mask1,
       maskDefinitions
     });
-    expect(nextPosition1).to.equal(20);
+    expect(nextPosition1).toEqual(20);
 
     const nextPosition3 = getPreviousRealValuePosition(mask3.length, {
       mask: mask3,
       maskDefinitions
     });
-    expect(nextPosition3).to.equal(2);
+    expect(nextPosition3).toEqual(2);
   });
 
   it('sould correctly determine previous position when start is somewhere in mask', () => {
@@ -336,18 +336,18 @@ describe('getPreviousRealValuePosition utils function', () => {
       mask: mask1,
       maskDefinitions
     });
-    expect(nextPosition1).to.equal(4);
+    expect(nextPosition1).toEqual(4);
 
     const nextPosition2 = getPreviousRealValuePosition(5, {
       mask: mask2,
       maskDefinitions
     });
-    expect(nextPosition2).to.equal(2);
+    expect(nextPosition2).toEqual(2);
 
     const nextPosition4 = getPreviousRealValuePosition(2, {
       mask: mask4,
       maskDefinitions
     });
-    expect(nextPosition4).to.equal(0);
+    expect(nextPosition4).toEqual(0);
   });
 });

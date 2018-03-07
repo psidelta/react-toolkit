@@ -4,19 +4,19 @@ describe('getClassNames', () => {
   it('should return string containing main class name', () => {
     expect(
       getClassNames({ rootClassName: 'zippy-react-toolkit-masked-input' })
-    ).to.contain(CLASS_NAME);
+    ).toContain(CLASS_NAME);
   });
 
   it('should return focused modifier when focused state', () => {
-    expect(getClassNames({}, { focused: true })).to.contain('--focused');
+    expect(getClassNames({}, { focused: true })).toContain('--focused');
   });
 
   it('should return disabled modifier when disabled state', () => {
-    expect(getClassNames({}, { disabled: true })).to.contain('--disabled');
+    expect(getClassNames({ disabled: true }, {})).toContain(`--disabled`);
   });
 
   it('should return readOnly modifier when readOnly state', () => {
-    expect(getClassNames({}, { readOnly: true })).to.contain('--readOnly');
+    expect(getClassNames({}, { readOnly: true })).toContain('--readOnly');
   });
 
   it('should return empty modifier when empty value', () => {
@@ -24,7 +24,7 @@ describe('getClassNames', () => {
       getClassNames({
         currentValue: ''
       })
-    ).to.contain('--empty');
+    ).toContain('--empty');
   });
 
   it('should return unmasked modifier when no mask value', () => {
@@ -33,7 +33,7 @@ describe('getClassNames', () => {
         currentValue: '',
         mask: false
       })
-    ).to.contain('--unmasked');
+    ).toContain('--unmasked');
   });
 
   it('should return masked modifier when mask value exists', () => {
@@ -42,6 +42,6 @@ describe('getClassNames', () => {
         currentValue: '',
         mask: 'something'
       })
-    ).to.contain('--masked');
+    ).toContain('--masked');
   });
 });
