@@ -18,7 +18,7 @@ describe('BrowserNative', () => {
       </Check>
     );
     const node = findDOMNode(checkbox).querySelector('input');
-    expect(node.indeterminate).to.equal(true);
+    expect(node.indeterminate).toEqual(true);
 
     checkbox.rerender(
       <Check
@@ -29,8 +29,8 @@ describe('BrowserNative', () => {
         indeterminateValue={5}
       />
     );
-    expect(node.indeterminate).to.equal(false);
-    expect(node.checked).to.equal(true);
+    expect(node.indeterminate).toEqual(false);
+    expect(node.checked).toEqual(true);
 
     checkbox.unmount();
   });

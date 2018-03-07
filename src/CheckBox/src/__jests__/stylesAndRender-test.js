@@ -1,6 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-
+import { mount } from 'enzyme';
 import Check from '../CheckBox';
 
 import { render } from '../../../common/testUtils';
@@ -11,7 +11,7 @@ describe('Styles and render', () => {
     const checkbox = render(<Check uncheckedIcon={uncheckedIcon}>hello</Check>);
     const node = findDOMNode(checkbox);
     const img = node.querySelector('span');
-    expect(img.innerHTML).to.equal('valid JSX');
+    expect(img.innerHTML).toEqual('valid JSX');
     checkbox.unmount();
   });
 
@@ -22,9 +22,9 @@ describe('Styles and render', () => {
     const checkbox = render(<Check uncheckedIcon={uncheckedIcon}>hello</Check>);
     const node = findDOMNode(checkbox);
     const img = node.querySelector('span');
-    expect(img.innerHTML).to.equal('valid JSX');
-    expect(img.style.color).to.equal('yellow');
-    expect(img.style.border).to.equal('red');
+    expect(img.innerHTML).toEqual('valid JSX');
+    expect(img.style.color).toEqual('yellow');
+    expect(img.style.border).toEqual('red');
     checkbox.unmount();
   });
 
@@ -33,7 +33,7 @@ describe('Styles and render', () => {
     const checkbox = render(<Check uncheckedIcon={uncheckedIcon}>hello</Check>);
     const node = findDOMNode(checkbox);
     const img = node.querySelector('span');
-    expect(img.innerHTML).to.equal('valid JSX');
+    expect(img.innerHTML).toEqual('valid JSX');
     checkbox.unmount();
   });
 
@@ -45,8 +45,8 @@ describe('Styles and render', () => {
     );
     const node = findDOMNode(checkbox);
     const img = node.querySelector('img');
-    expect(img.style.width).to.equal('30px');
-    expect(img.style.height).to.equal('60px');
+    expect(img.style.width).toEqual('30px');
+    expect(img.style.height).toEqual('60px');
     checkbox.unmount();
   });
 
@@ -57,7 +57,7 @@ describe('Styles and render', () => {
       </Check>
     );
     const node = findDOMNode(checkbox);
-    expect(node.className).to.contain('cls-onlyread');
+    expect(node.className).toContain('cls-onlyread');
     checkbox.unmount();
   });
 
@@ -68,14 +68,14 @@ describe('Styles and render', () => {
       </Check>
     );
     const node = findDOMNode(checkbox);
-    expect(node.className).to.contain('dsbld');
+    expect(node.className).toContain('dsbld');
     checkbox.unmount();
   });
 
   it('should apply iconClassName correctly', () => {
     const checkbox = render(<Check iconClassName="simple-icon">hello</Check>);
     const found = !!findDOMNode(checkbox).querySelector('.simple-icon');
-    expect(found).to.equal(true);
+    expect(found).toEqual(true);
     checkbox.unmount();
   });
 
@@ -90,7 +90,7 @@ describe('Styles and render', () => {
     );
     const node = findDOMNode(checkbox);
     const img = node.querySelector('img');
-    expect(img.className).to.equal('testClassName');
+    expect(img.className).toEqual('testClassName');
     checkbox.unmount();
   });
 
@@ -105,14 +105,14 @@ describe('Styles and render', () => {
       </Check>
     );
     const node = findDOMNode(checkbox);
-    expect(node.tabIndex).to.equal(-1);
+    expect(node.tabIndex).toEqual(-1);
     checkbox.unmount();
   });
 
   it('should have tabIndex 0 if is not disabled', () => {
     const checkbox = render(<Check uncheckedIconSrc="dummy-icon" />);
     const node = findDOMNode(checkbox);
-    expect(node.tabIndex).to.be.equal(0);
+    expect(node.tabIndex).toEqual(0);
     checkbox.unmount();
   });
 
@@ -121,35 +121,34 @@ describe('Styles and render', () => {
       <Check uncheckedIconSrc="dummy-icon" tabIndex={1} />
     );
     const node = findDOMNode(checkbox);
-    expect(node.tabIndex).to.be.equal(1);
+    expect(node.tabIndex).toEqual(1);
     checkbox.unmount();
   });
 
   it('should apply a custom disabledStyle if provided', () => {
-    const checkbox = render(
+    const checkbox = mount(
       <Check
         uncheckedIconSrc="dummy-icon"
         disabled={true}
         disabledStyle={{ color: 'magenta', border: '1px solid yellow' }}
       />
     );
-    const node = findDOMNode(checkbox);
-    expect(node.style.color).to.equal('magenta');
-    expect(node.style.border).to.equal('1px solid yellow');
-    checkbox.unmount();
+    const node = checkbox.find('div').first();
+    expect(node.props().style.color).toEqual('magenta');
+    expect(node.props().style.border).toEqual('1px solid yellow');
   });
 
   it('should apply a custom readonlyStyle if provided', () => {
-    const checkbox = render(
+    const checkbox = mount(
       <Check
         uncheckedIconSrc="dummy-icon"
         readOnly={true}
         readOnlyStyle={{ color: 'magenta', border: '1px solid yellow' }}
       />
     );
-    const node = findDOMNode(checkbox);
-    expect(node.style.color).to.equal('magenta');
-    expect(node.style.border).to.equal('1px solid yellow');
-    checkbox.unmount();
+    const node = checkbox.find('div').first();
+
+    expect(node.props().style.color).toEqual('magenta');
+    expect(node.props().style.border).toEqual('1px solid yellow');
   });
 });

@@ -12,7 +12,7 @@ describe('Default values', () => {
     );
     const node = findDOMNode(checkbox);
     const img = node.querySelector('img');
-    expect(img.src).to.contain('unchecked-dummy-url');
+    expect(img.src).toContain('unchsdsecked-dummy-url');
     checkbox.unmount();
   });
 
@@ -24,7 +24,7 @@ describe('Default values', () => {
     );
     const node = findDOMNode(checkbox);
     const img = node.querySelector('img');
-    expect(img.src).to.contain('/checked-dummy-url');
+    expect(img.src).toContain('checked-dummy-url');
     checkbox.unmount();
   });
 
@@ -41,7 +41,7 @@ describe('Default values', () => {
     );
     const node = findDOMNode(checkbox);
     const img = node.querySelector('img');
-    expect(img.src).to.contain('/checked-dummy-url');
+    expect(img.src).toContain('checked-dummy-url');
     checkbox.unmount();
   });
 });

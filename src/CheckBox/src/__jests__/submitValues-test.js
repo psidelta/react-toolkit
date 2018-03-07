@@ -14,7 +14,7 @@ describe('Hidden submit input', () => {
     const checkbox = render(<Check name="checkboxName" />);
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input[name="checkboxName"]');
-    expect(input.type).to.equal('hidden');
+    expect(input.type).toEqual('hidden');
     checkbox.unmount();
   });
 
@@ -22,7 +22,7 @@ describe('Hidden submit input', () => {
     const checkbox = render(<Check />); //note there is no name here
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input).to.equal(null);
+    expect(input).toEqual(null);
     checkbox.unmount();
   });
 
@@ -30,7 +30,7 @@ describe('Hidden submit input', () => {
     const checkbox = render(<Check name="anyValue" disabled={true} />);
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input).to.equal(null);
+    expect(input).toEqual(null);
     checkbox.unmount();
   });
 
@@ -38,7 +38,7 @@ describe('Hidden submit input', () => {
     const checkbox = render(<Check name="validName" shouldSubmit={false} />);
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input).to.equal(null);
+    expect(input).toEqual(null);
     checkbox.unmount();
   });
 
@@ -46,7 +46,7 @@ describe('Hidden submit input', () => {
     const checkbox = render(<Check name="validName" shouldSubmit={true} />);
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input).not.to.equal(null);
+    expect(input).not.toEqual(null);
     checkbox.unmount();
   });
 
@@ -56,7 +56,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input).to.equal(null);
+    expect(input).toEqual(null);
     checkbox.unmount();
   });
 
@@ -66,7 +66,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input).not.to.equal(null);
+    expect(input).not.toEqual(null);
     checkbox.unmount();
   });
 
@@ -80,7 +80,7 @@ describe('Hidden submit input', () => {
       console.warn = spiedConsoleWarn;
       const checkbox = render(<Check shouldSubmit={() => true} />);
       console.warn = originalConsoleWarning;
-      expect(thrownMessage).to.contain(
+      expect(thrownMessage).toContain(
         'shouldSubmit function returned true, but "name" prop is missing'
       );
       checkbox.unmount();
@@ -99,7 +99,7 @@ describe('Hidden submit input', () => {
         <Check showWarnings={false} shouldSubmit={() => true} />
       );
       console.warn = originalConsoleWarning;
-      expect(errorMessageWasNotLogged).to.equal(true);
+      expect(errorMessageWasNotLogged).toEqual(true);
       checkbox.unmount();
     }
   });
@@ -114,7 +114,7 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check shouldSubmit={true} />);
       console.error = originalConsoleError;
-      expect(thrownMessage).to.contain('requires prop "name" to be submitted');
+      expect(thrownMessage).toContain('requires prop "name" to be submitted');
       checkbox.unmount();
     }
   });
@@ -129,7 +129,7 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check value="checked" />);
       console.error = originalConsoleError;
-      expect(loggedError).to.contain(
+      expect(loggedError).toContain(
         '"value" prop is not supported. Use "checked" instead.'
       );
       checkbox.unmount();
@@ -146,7 +146,7 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check defaultValue="checked" />);
       console.error = originalConsoleError;
-      expect(loggedError).to.contain(
+      expect(loggedError).toContain(
         '"defaultValue" prop is not supported. Use "checked" instead.'
       );
       checkbox.unmount();
@@ -165,7 +165,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal(INDETERMINATE);
+    expect(input.value).toEqual(INDETERMINATE);
     checkbox.unmount();
   });
 
@@ -180,7 +180,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal(INDETERMINATE);
+    expect(input.value).toEqual(INDETERMINATE);
     checkbox.unmount();
   });
 
@@ -195,7 +195,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal('');
+    expect(input.value).toEqual('');
     checkbox.unmount();
   });
 
@@ -205,7 +205,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal(UNCHECKED);
+    expect(input.value).toEqual(UNCHECKED);
     checkbox.unmount();
   });
 
@@ -215,7 +215,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal(UNCHECKED);
+    expect(input.value).toEqual(UNCHECKED);
     checkbox.unmount();
   });
 
@@ -223,7 +223,7 @@ describe('Hidden submit input', () => {
     const checkbox = render(<Check name="someValue" uncheckedValue={null} />);
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal('');
+    expect(input.value).toEqual('');
     checkbox.unmount();
   });
 
@@ -234,7 +234,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal(CHECKED);
+    expect(input.value).toEqual(CHECKED);
     checkbox.unmount();
   });
 
@@ -244,7 +244,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal(CHECKED);
+    expect(input.value).toEqual(CHECKED);
     checkbox.unmount();
   });
 
@@ -259,7 +259,7 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check checkedSubmitValue={null} />);
       console.error = originalConsoleError;
-      expect(thrownMessage).to.contain('checkedSubmitValue is null');
+      expect(thrownMessage).toContain('checkedSubmitValue is null');
       checkbox.unmount();
     }
   });
@@ -275,7 +275,7 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check uncheckedSubmitValue={null} />);
       console.error = originalConsoleError;
-      expect(thrownMessage).to.contain('uncheckedSubmitValue is null');
+      expect(thrownMessage).toContain('uncheckedSubmitValue is null');
       checkbox.unmount();
     }
   });
@@ -291,7 +291,7 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check indeterminateSubmitValue={null} />);
       console.error = originalConsoleError;
-      expect(thrownMessage).to.contain('indeterminateSubmitValue is null');
+      expect(thrownMessage).toContain('indeterminateSubmitValue is null');
       checkbox.unmount();
     }
   });
@@ -302,7 +302,7 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
-    expect(input.value).to.equal('');
+    expect(input.value).toEqual('');
     checkbox.unmount();
   });
 });
