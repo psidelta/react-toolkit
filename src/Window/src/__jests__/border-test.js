@@ -12,7 +12,7 @@ describe('border', () => {
 
   it('renders specified border', () => {
     wrapper.setProps({ border: 'custom border' });
-    expect(wrapper.find(`.${ROOT_CLASS}`).props().style.border).to.equal(
+    expect(wrapper.find(`.${ROOT_CLASS}`).props().style.border).toEqual(
       'custom border'
     );
   });

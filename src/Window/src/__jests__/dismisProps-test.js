@@ -9,26 +9,15 @@ describe('dismiss props', () => {
     wrapper = mount(<Window />);
   });
 
-  describe('closeable', () => {
-    it('renders close icon type close-regular', () => {
-      wrapper.setProps({ closeable: true });
-      const closeIcon = wrapper
-        .find(Icon)
-        .filterWhere(item => item.props().type === 'close-regular');
-      expect(closeIcon).to.have.length(1);
-    });
-  });
   describe('onClose', () => {
     it('is called when Icon is clicked', () => {
-      const onClose = sinon.spy();
+      const onClose = jest.fn();
       wrapper.setProps({ closeable: true, onClose });
-      // wrapper.find(Icon).first().simulate('click');
       const closeIcon = wrapper
-        .find(Icon)
-        .filterWhere(item => item.props().type === 'close-regular')
+        .find('.zippy-react-toolkit-window__close-icon')
         .first();
       closeIcon.simulate('click');
-      expect(onClose.called).to.be.true;
+      expect(onClose).toHaveBeenCalled();
     });
   });
   describe('closeIcon', () => {
@@ -37,7 +26,7 @@ describe('dismiss props', () => {
         closeable: true,
         closeIcon: <div id="closeIcon" />
       });
-      expect(wrapper.find('#closeIcon')).to.have.length(1);
+      expect(wrapper.find('#closeIcon')).toHaveLength(1);
     });
   });
 });

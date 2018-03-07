@@ -13,12 +13,14 @@ describe('size', () => {
   describe('resizable bool', () => {
     it('adds --resizable classname', () => {
       wrapper.setProps({ resizable: true });
-      expect(wrapper.find(`.${ROOT_CLASS}--resizable`)).to.have.length(1);
+      expect(wrapper.find(`.${ROOT_CLASS}--resizable`).length).toBeGreaterThan(
+        0
+      );
     });
     it("false doen't render any resize handlers", () => {
       wrapper.setProps({ resizable: false });
       wrapper.find(`.${ROOT_CLASS}`).simulate('mouseEnter');
-      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).to.have.length(0);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).toHaveLength(0);
     });
   });
 
@@ -31,9 +33,9 @@ describe('size', () => {
       });
       wrapper.find(`.${ROOT_CLASS}`).simulate('mouseEnter');
 
-      expect(wrapper.find(`.${ROOT_CLASS}__handle--l`)).to.have.length(1);
-      expect(wrapper.find(`.${ROOT_CLASS}__handle--r`)).to.have.length(1);
-      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).to.have.length(2);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle--l`)).toHaveLength(1);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle--r`)).toHaveLength(1);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).toHaveLength(2);
     });
     it('renders only top bottom handles when restricted to height', () => {
       wrapper.setProps({
@@ -43,9 +45,9 @@ describe('size', () => {
       });
       wrapper.find(`.${ROOT_CLASS}`).simulate('mouseEnter');
 
-      expect(wrapper.find(`.${ROOT_CLASS}__handle--t`)).to.have.length(1);
-      expect(wrapper.find(`.${ROOT_CLASS}__handle--b`)).to.have.length(1);
-      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).to.have.length(2);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle--t`)).toHaveLength(1);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle--b`)).toHaveLength(1);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).toHaveLength(2);
     });
     it('takes into account resizeHandles', () => {
       wrapper.setProps({
@@ -56,8 +58,8 @@ describe('size', () => {
       });
       wrapper.find(`.${ROOT_CLASS}`).simulate('mouseEnter');
 
-      expect(wrapper.find(`.${ROOT_CLASS}__handle--l`)).to.have.length(1);
-      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).to.have.length(1);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle--l`)).toHaveLength(1);
+      expect(wrapper.find(`.${ROOT_CLASS}__handle`)).toHaveLength(1);
     });
   });
 
@@ -70,20 +72,26 @@ describe('size', () => {
         }
       });
       expect(
-        wrapper.find(`.${ROOT_CLASS}`).first().props().style.width
-      ).to.equal(120);
+        wrapper
+          .find(`.${ROOT_CLASS}`)
+          .first()
+          .props().style.width
+      ).toEqual(120);
       expect(
-        wrapper.find(`.${ROOT_CLASS}`).first().props().style.height
-      ).to.equal(220);
+        wrapper
+          .find(`.${ROOT_CLASS}`)
+          .first()
+          .props().style.height
+      ).toEqual(220);
     });
     it('size overwrites uncontrolled size', () => {
       wrapper.setProps({ size: { width: 20 } });
       wrapper.setState({ size: { width: 10 } });
-      expect(wrapper.instance().getSize().width).to.equal(20);
+      expect(wrapper.instance().getSize().width).toEqual(20);
     });
     it('defaults to defaultSize when size is not set', () => {
       const wrapper = mount(<Window defaultSize={{ width: '30%' }} />);
-      expect(wrapper.instance().getSize().width).to.equal('30%');
+      expect(wrapper.instance().getSize().width).toEqual('30%');
     });
   });
 });

@@ -12,7 +12,7 @@ describe('centered props', () => {
   describe('centered', () => {
     it('adds --  className', () => {
       wrapper.setProps({ centered: true });
-      expect(wrapper.find(`.${ROOT_CLASS}--centered`)).to.have.length(1);
+      expect(wrapper.find(`div.${ROOT_CLASS}--centered`)).toHaveLength(1);
     });
     it('should not set position and size props on style when true', () => {
       wrapper.setProps({
@@ -21,16 +21,24 @@ describe('centered props', () => {
         position: { top: 100, left: 200 }
       });
 
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.top).to.be.empty;
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.left).to.be.empty;
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.width).to.be.empty;
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.height).to.be.empty;
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.top).toEqual(
+        undefined
+      );
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.left).toEqual(
+        undefined
+      );
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.width).toEqual(
+        undefined
+      );
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.height).toEqual(
+        undefined
+      );
     });
   });
   describe('defaultCentered', () => {
     it("uses it's value as default", () => {
       const wrapper = mount(<Window defaultCentered />);
-      expect(wrapper.instance().getCentered()).to.be.true;
+      expect(wrapper.instance().getCentered()).toBe(true);
     });
   });
 });

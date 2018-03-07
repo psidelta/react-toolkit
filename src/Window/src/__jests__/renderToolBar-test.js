@@ -11,7 +11,7 @@ describe('renderToolBar', () => {
   it('renders what it returns', () => {
     const renderToolBar = () => <div id="helloWorld" />;
     wrapper.setProps({ renderToolBar });
-    expect(wrapper.find('#helloWorld')).to.have.length(1);
+    expect(wrapper.find('#helloWorld')).toHaveLength(1);
   });
 
   it('renders with mutated domProps', () => {
@@ -19,6 +19,6 @@ describe('renderToolBar', () => {
       domProps.id = 'helloWorld';
     };
     wrapper.setProps({ renderToolBar });
-    expect(wrapper.find('#helloWorld')).to.have.length(1);
+    expect(wrapper.find('#helloWorld')).toHaveLength(1);
   });
 });

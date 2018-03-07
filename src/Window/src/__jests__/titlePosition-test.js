@@ -14,8 +14,11 @@ describe('titlePosition', () => {
     it('renders title as first child', () => {
       wrapper.setProps({ titlePosition: 'start' });
       expect(
-        wrapper.find(`.${ROOT_CLASS}__title-bar`).childAt(0).props().className
-      ).to.equal(`${ROOT_CLASS}__title-wrapper`);
+        wrapper
+          .find(`.${ROOT_CLASS}__title-bar`)
+          .childAt(0)
+          .props().className
+      ).toEqual(`${ROOT_CLASS}__title-wrapper`);
     });
   });
 
@@ -23,8 +26,11 @@ describe('titlePosition', () => {
     it('renders title as last child', () => {
       wrapper.setProps({ titlePosition: 'end' });
       expect(
-        wrapper.find(`.${ROOT_CLASS}__title-bar`).childAt(1).props().className
-      ).to.equal(`${ROOT_CLASS}__title-wrapper`);
+        wrapper
+          .find(`.${ROOT_CLASS}__title-bar`)
+          .childAt(1)
+          .props().className
+      ).toEqual(`${ROOT_CLASS}__title-wrapper`);
     });
   });
 });

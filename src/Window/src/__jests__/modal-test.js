@@ -11,21 +11,21 @@ describe('modal', () => {
 
   it('adds --modal class name', () => {
     wrapper.setProps({ modal: true });
-    expect(wrapper.find(`.${ROOT_CLASS}--modal`)).to.have.length(1);
+    expect(wrapper.find(`.${ROOT_CLASS}--modal`)).toHaveLength(1);
   });
 
   describe('modal wrapper', () => {
     it('renders a wrapper if it is topmost modal', () => {
       wrapper.setProps({ modal: true });
       wrapper.setState({ isTopModal: true });
-      expect(wrapper.find(`.${ROOT_CLASS}__modal-wrapper`)).to.have.length(1);
+      expect(wrapper.find(`.${ROOT_CLASS}__modal-wrapper`)).toHaveLength(1);
     });
 
     it('adds a wrapper only if it is topmost modal', () => {
       wrapper.setProps({ modal: true });
       wrapper.setState({ isTopModal: false });
 
-      expect(wrapper.find(`.${ROOT_CLASS}__modal-wrapper`)).to.have.length(0);
+      expect(wrapper.find(`.${ROOT_CLASS}__modal-wrapper`)).toHaveLength(0);
     });
   });
 });

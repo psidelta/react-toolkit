@@ -12,16 +12,16 @@ describe('MessageWindow', () => {
 
   describe('dismissOnButtonClick true', () => {
     it('calls onDismiss on okButton click', () => {
-      const onDismiss = sinon.spy();
+      const onDismiss = jest.fn();
       wrapper.setProps({ onDismiss, type: 'info', dismissOnButtonClick: true });
       wrapper
         .find(OkButton)
         .first()
         .simulate('click');
-      expect(onDismiss.called).to.be.true;
+      expect(onDismiss).toHaveBeenCalled();
     });
     it('calls onDismiss on yesButton click', () => {
-      const onDismiss = sinon.spy();
+      const onDismiss = jest.fn();
       wrapper.setProps({
         onDismiss,
         type: 'question',
@@ -31,10 +31,10 @@ describe('MessageWindow', () => {
         .find(YesButton)
         .first()
         .simulate('click');
-      expect(onDismiss.called).to.be.true;
+      expect(onDismiss).toHaveBeenCalled();
     });
     it('calls onDismiss on noButton click', () => {
-      const onDismiss = sinon.spy();
+      const onDismiss = jest.fn();
       wrapper.setProps({
         onDismiss,
         type: 'question',
@@ -44,10 +44,10 @@ describe('MessageWindow', () => {
         .find(NoButton)
         .first()
         .simulate('click');
-      expect(onDismiss.called).to.be.true;
+      expect(onDismiss).toHaveBeenCalled();
     });
     it('calls onDismiss on cancelButton click', () => {
-      const onDismiss = sinon.spy();
+      const onDismiss = jest.fn();
       wrapper.setProps({
         onDismiss,
         type: 'yesNoCancel',
@@ -57,7 +57,7 @@ describe('MessageWindow', () => {
         .find(CancelButton)
         .first()
         .simulate('click');
-      expect(onDismiss.called).to.be.true;
+      expect(onDismiss).toHaveBeenCalled();
     });
   });
 
@@ -68,32 +68,32 @@ describe('MessageWindow', () => {
         .find('.zippy-react-toolkit-message-window')
         .first()
         .props().style.opacity;
-      expect(test).to.equal(0.5);
+      expect(test).toEqual(0.5);
     });
   });
 
   describe('type info', () => {
     it('renders correct icon and buttons', () => {
       wrapper.setProps({ type: 'info' });
-      expect(wrapper.find(OkButton)).to.have.length(1);
-      expect(wrapper.find(InfoIcon)).to.have.length(1);
+      expect(wrapper.find(OkButton)).toHaveLength(1);
+      expect(wrapper.find(InfoIcon)).toHaveLength(1);
     });
   });
 
   describe('type question', () => {
     it('renders correct icon and buttons', () => {
       wrapper.setProps({ type: 'question' });
-      expect(wrapper.find(YesButton)).to.have.length(1);
-      expect(wrapper.find(NoButton)).to.have.length(1);
-      expect(wrapper.find(QuestionIcon)).to.have.length(1);
+      expect(wrapper.find(YesButton)).toHaveLength(1);
+      expect(wrapper.find(NoButton)).toHaveLength(1);
+      expect(wrapper.find(QuestionIcon)).toHaveLength(1);
     });
   });
 
   describe('type error', () => {
     it('renders correct icon and buttons', () => {
       wrapper.setProps({ type: 'error' });
-      expect(wrapper.find(OkButton)).to.have.length(1);
-      expect(wrapper.find(ErrorIcon)).to.have.length(1);
+      expect(wrapper.find(OkButton)).toHaveLength(1);
+      expect(wrapper.find(ErrorIcon)).toHaveLength(1);
     });
   });
 });

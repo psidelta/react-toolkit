@@ -13,7 +13,9 @@ describe('position props', () => {
   describe('draggable', () => {
     it('adds --draggalbe className', () => {
       wrapper.setProps({ draggable: true });
-      expect(wrapper.find(`.${ROOT_CLASS}--draggable`)).has.length(1);
+      expect(wrapper.find(`.${ROOT_CLASS}--draggable`).length).toBeGreaterThan(
+        0
+      );
     });
   });
 
@@ -28,10 +30,10 @@ describe('position props', () => {
         }
       });
 
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.left).to.equal(100);
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.right).to.equal(200);
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.bottom).to.equal(100);
-      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.top).to.equal(50);
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.left).toEqual(100);
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.right).toEqual(200);
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.bottom).toEqual(100);
+      expect(wrapper.find(`.${ROOT_CLASS}`).props().style.top).toEqual(50);
     });
 
     it('controlled ovewrites uncontrolled', () => {
@@ -39,13 +41,13 @@ describe('position props', () => {
         <Window defaultPosition={{ left: 10 }} position={{ left: 20 }} />
       );
 
-      expect(wrapper.instance().getPosition().left).to.equal(20);
+      expect(wrapper.instance().getPosition().left).toEqual(20);
     });
 
     it('uncontrolled gets default from defaultProps', () => {
       const wrapper = mount(<Window defaultPosition={{ left: 10 }} />);
 
-      expect(wrapper.instance().getPosition().left).to.equal(10);
+      expect(wrapper.instance().getPosition().left).toEqual(10);
     });
   });
 });

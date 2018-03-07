@@ -143,12 +143,12 @@ describe('AccordionTabTitle expandTool props', () => {
     });
 
     it('should render custom expandTool calling renderer with proper params', () => {
-      const expandToolStub = sinon.stub().returns(<div />);
+      const expandToolStub = jest.fn(() => <div />);
       component.setProps({
         expandTool: expandToolStub
       });
 
-      const callArguments = expandToolStub.args[0][0];
+      const callArguments = expandToolStub.mock.calls[0][0];
       [
         'expanded',
         'index',

@@ -12,13 +12,13 @@ describe('fixed true', () => {
 
   it('adds --fixed className', () => {
     wrapper.setProps({ relativeToViewport: true });
-    expect(wrapper.find(`.${ROOT_CLASS}--fixed`)).to.have.length(1);
+    expect(wrapper.find(`.${ROOT_CLASS}--fixed`)).toHaveLength(1);
   });
 
   it('adds --fixed className on wrapper if relativeToViewport is true', () => {
     wrapper.setProps({ modal: true, relativeToViewport: true });
     wrapper.setState({ isTopModal: true });
-    expect(wrapper.find(`.${ROOT_CLASS}__modal-wrapper--fixed`)).to.have.length(
+    expect(wrapper.find(`.${ROOT_CLASS}__modal-wrapper--fixed`)).toHaveLength(
       1
     );
   });
