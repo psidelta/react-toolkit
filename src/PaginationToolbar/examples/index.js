@@ -46,6 +46,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <PaginationToolbar totalCount={100} defaultLimit={10} defaultSkip={0} />
         <div
           id="constrain"
           style={{
