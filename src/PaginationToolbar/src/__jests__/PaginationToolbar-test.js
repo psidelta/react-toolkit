@@ -2,8 +2,6 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import { mount } from 'enzyme';
 
-import { render, simulateMouseEvent } from '../../../common/testUtils';
-
 import PaginationToolbar from '../PaginationToolbar';
 
 const getPageInput = toolbar =>
