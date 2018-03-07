@@ -2,46 +2,46 @@ import prepareClassName from '../prepareClassName';
 
 describe('prepareClassName', () => {
   it('adds disabled className', () => {
-    expect(prepareClassName({ disabled: true })).to.have.string('disabled');
+    expect(prepareClassName({ disabled: true })).toContain('disabled');
     expect(
       prepareClassName({ disabled: true }, { disabledClassName: 'test' })
-    ).to.have.string('test');
+    ).toContain('test');
   });
   it('adds wrap className', () => {
-    expect(prepareClassName({ wrap: true })).to.have.string('--wrap');
-    expect(prepareClassName({ wrap: false })).to.have.string('--nowrap');
-    expect(prepareClassName({ wrap: undefined })).to.not.have.string('wrap');
+    expect(prepareClassName({ wrap: true })).toContain('--wrap');
+    expect(prepareClassName({ wrap: false })).toContain('--nowrap');
+    expect(prepareClassName({ wrap: undefined })).not.toContain('wrap');
   });
   it('adds verticalAlign className', () => {
-    expect(prepareClassName({ verticalAlign: 'middle' })).to.have.string(
+    expect(prepareClassName({ verticalAlign: 'middle' })).toContain(
       '--vertical-align-middle'
     );
-    expect(prepareClassName({ verticalAlign: 'top' })).to.have.string(
+    expect(prepareClassName({ verticalAlign: 'top' })).toContain(
       '--vertical-align-top'
     );
   });
   it('adds active className', () => {
-    expect(prepareClassName({ active: true })).to.have.string('active');
+    expect(prepareClassName({ active: true })).toContain('active');
     expect(
       prepareClassName({ active: true }, { activeClassName: 'test' })
-    ).to.have.string('test');
+    ).toContain('test');
   });
   it('adds pressed className', () => {
-    expect(prepareClassName({ pressed: true })).to.have.string('pressed');
+    expect(prepareClassName({ pressed: true })).toContain('pressed');
     expect(
       prepareClassName({ pressed: true }, { pressedClassName: 'test' })
-    ).to.have.string('test');
+    ).toContain('test');
   });
   it('adds over className', () => {
-    expect(prepareClassName({ over: true })).to.have.string('over');
+    expect(prepareClassName({ over: true })).toContain('over');
     expect(
       prepareClassName({ over: true }, { overClassName: 'test' })
-    ).to.have.string('test');
+    ).toContain('test');
   });
   it('adds focused className', () => {
-    expect(prepareClassName({ focused: true })).to.have.string('focused');
+    expect(prepareClassName({ focused: true })).toContain('focused');
     expect(
       prepareClassName({ focused: true }, { focusedClassName: 'test' })
-    ).to.have.string('test');
+    ).toContain('test');
   });
 });
