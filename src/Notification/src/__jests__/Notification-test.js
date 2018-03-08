@@ -12,10 +12,10 @@ describe('Notification', () => {
 
       mount(<Notification autoHideDelay={300} onHide={onHide} id="test" />);
 
-      expect(onHide.called).to.be.false;
+      expect(onHide.called).toBe(false);
       clock.tick(300);
-      expect(onHide.called).to.be.true;
-      expect(onHide.args[0][0].id).to.equal('test');
+      expect(onHide.called).toBe(true);
+      expect(onHide.args[0][0].id).toEqual('test');
 
       clock.restore();
     });
@@ -27,21 +27,21 @@ describe('Notification', () => {
 
       expect(
         wrapper.find('.zippy-react-toolkit-notification--stacking-left-top')
-      ).to.have.length(1);
+      ).toHaveLength(1);
     });
     it('adds --move-transition clasname when true', () => {
       const wrapper = mount(<Notification moveTransition />);
 
       expect(
         wrapper.find('.zippy-react-toolkit-notification--move-transition')
-      ).to.have.length(1);
+      ).toHaveLength(1);
     });
     it('adds non-blocking clasname when true', () => {
       const wrapper = mount(<Notification nonBlocking />);
 
       expect(
         wrapper.find('.zippy-react-toolkit-notification--non-blocking')
-      ).to.have.length(1);
+      ).toHaveLength(1);
     });
   });
 
@@ -53,7 +53,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.color
-      ).to.equal('red');
+      ).toEqual('red');
     });
   });
 
@@ -65,7 +65,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.border
-      ).to.equal('1px solid red');
+      ).toEqual('1px solid red');
     });
   });
 
@@ -77,7 +77,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.borderRadius
-      ).to.equal('1px solid red');
+      ).toEqual('1px solid red');
     });
   });
 
@@ -89,7 +89,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.background
-      ).to.equal('blue');
+      ).toEqual('blue');
     });
   });
 
@@ -101,7 +101,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.padding
-      ).to.equal(20);
+      ).toEqual(20);
     });
   });
 
@@ -113,7 +113,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.width
-      ).to.equal(20);
+      ).toEqual(20);
     });
   });
 
@@ -125,7 +125,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.height
-      ).to.equal(20);
+      ).toEqual(20);
     });
   });
 
@@ -137,18 +137,18 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.opacity
-      ).to.equal(20);
+      ).toEqual(20);
     });
   });
 
-  xdescribe('height and width', () => {
+  describe('height and width', () => {
     it('if both are set it should not call onSizeChange', () => {
       const onSizeChange = sinon.spy();
       const wrapper = mount(
         <Notification onSizeChange={onSizeChange} width={20} height={20} />
       );
 
-      expect(onSizeChange.called).to.be.false;
+      expect(onSizeChange.called).toBe(false);
     });
   });
 
@@ -180,7 +180,7 @@ describe('Notification', () => {
       const wrapper = mount(<Notification shadow />);
       expect(
         wrapper.find('.zippy-react-toolkit-notification--shadow')
-      ).to.have.length(1);
+      ).toHaveLength(1);
     });
   });
 
@@ -194,7 +194,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.opacity
-      ).to.equal(3);
+      ).toEqual(3);
 
       wrapper
         .find('.zippy-react-toolkit-notification')
@@ -205,7 +205,7 @@ describe('Notification', () => {
           .find('.zippy-react-toolkit-notification')
           .at(0)
           .props().style.opacity
-      ).to.equal(1);
+      ).toEqual(1);
     });
   });
 
@@ -213,12 +213,12 @@ describe('Notification', () => {
     it('should trigger on click when Notification is clicked', () => {
       const onHide = sinon.spy();
       const wrapper = shallow(<Notification hideOnClick onHide={onHide} />);
-      expect(onHide.called).to.be.false;
+      expect(onHide.called).toBe(false);
       wrapper
         .find('.zippy-react-toolkit-notification')
         .at(0)
         .simulate('click');
-      expect(onHide.called).to.be.true;
+      expect(onHide.called).toBe(true);
     });
   });
 
@@ -228,27 +228,26 @@ describe('Notification', () => {
         const wrapper = shallow(<Notification title={'hello world'} />);
         const title = wrapper.find('.zippy-react-toolkit-notification__title');
 
-        expect(title).to.have.length(1);
-        expect(title.text()).to.equal('hello world');
+        expect(title).toHaveLength(1);
+        expect(title.text()).toEqual('hello world');
 
         wrapper.setProps({ title: <div id="helloWorld" /> });
-        expect(wrapper.find('#helloWorld')).to.have.length(1);
+        expect(wrapper.find('#helloWorld')).toHaveLength(1);
       });
     });
     describe('function', () => {
       it('renders what it returns', () => {
-        const title = () => {
-          return <div id="childId">hello world</div>;
-        };
-        const wrapper = shallow(<Notification title={title} />);
-        expect(wrapper.find('#childId')).to.have.length(1);
+        const title = <div id="childId">hello world</div>;
+
+        const wrapper = mount(<Notification title={title} />);
+        expect(wrapper.find('#childId')).toHaveLength(1);
       });
       it('can mutate props', () => {
         const title = domProps => {
           domProps.id = 'mutatedId';
         };
         const wrapper = shallow(<Notification title={title} />);
-        expect(wrapper.find('#mutatedId')).to.have.length(1);
+        expect(wrapper.find('#mutatedId')).toHaveLength(1);
       });
     });
   });
@@ -258,8 +257,8 @@ describe('Notification', () => {
       const wrapper = shallow(<Notification closeButton />);
       expect(
         wrapper.find('.zippy-react-toolkit-notification__close-button')
-      ).to.have.length(1);
-      expect(wrapper.find(CloseButton)).to.have.length(1);
+      ).toHaveLength(1);
+      expect(wrapper.find(CloseButton)).toHaveLength(1);
     });
     it('renders custom jsx', () => {
       const wrapper = shallow(
@@ -267,7 +266,7 @@ describe('Notification', () => {
           closeButton={<div id="customCloseButton">hello world</div>}
         />
       );
-      expect(wrapper.find('#customCloseButton')).to.have.length(1);
+      expect(wrapper.find('#customCloseButton')).toHaveLength(1);
     });
     it('render when is a function', () => {
       const wrapper = shallow(
@@ -277,7 +276,7 @@ describe('Notification', () => {
           }}
         />
       );
-      expect(wrapper.find('#customMutatedId')).to.have.length(1);
+      expect(wrapper.find('#customMutatedId')).toHaveLength(1);
     });
     it('renders when a function what it returns', () => {
       const wrapper = shallow(
@@ -287,7 +286,7 @@ describe('Notification', () => {
           }}
         />
       );
-      expect(wrapper.find('#closeButtonCustom')).to.have.length(1);
+      expect(wrapper.find('#closeButtonCustom')).toHaveLength(1);
     });
     it('calls onHide when clicked', () => {
       const onHide = sinon.spy();
@@ -296,21 +295,21 @@ describe('Notification', () => {
         .find(CloseButton)
         .at(0)
         .simulate('click');
-      expect(onHide.called).to.be.true;
+      expect(onHide.called).toBe(true);
     });
   });
 
   describe('icon', () => {
     it('renders jsx', () => {
       const wrapper = shallow(<Notification icon={<div id="icon" />} />);
-      expect(wrapper.find('#icon')).to.have.length(1);
+      expect(wrapper.find('#icon')).toHaveLength(1);
     });
   });
 
   describe('content', () => {
     it('renders jsx', () => {
       const wrapper = shallow(<Notification content={<div id="content" />} />);
-      expect(wrapper.find('#content')).to.have.length(1);
+      expect(wrapper.find('#content')).toHaveLength(1);
     });
   });
 });
