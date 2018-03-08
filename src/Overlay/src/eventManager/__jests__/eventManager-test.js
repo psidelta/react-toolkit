@@ -45,15 +45,15 @@ describe('eventManager', () => {
     const target3 = document.getElementById('target3');
 
     target1.dispatchEvent(clickEvent);
-    expect(onShow.called).to.be.true;
+    expect(onShow.called).toBe(true);
 
     target2.dispatchEvent(mouseenterEvent);
-    expect(onShow.calledTwice).to.be.true;
+    expect(onShow.calledTwice).toBe(true);
 
     // not called on unmatched element
     target3.dispatchEvent(clickEvent);
     target3.dispatchEvent(mouseenterEvent);
-    expect(onShow.calledTwice).to.be.true;
+    expect(onShow.calledTwice).toBe(true);
 
     manager.unregister();
   });
@@ -71,15 +71,15 @@ describe('eventManager', () => {
     const target3 = document.getElementById('target3');
 
     target1.dispatchEvent(clickEvent);
-    expect(onHide.called).to.be.true;
+    expect(onHide.called).toBe(true);
 
     target2.dispatchEvent(mouseenterEvent);
-    expect(onHide.calledTwice).to.be.true;
+    expect(onHide.calledTwice).toBe(true);
 
     // not called on unmatched element
     target3.dispatchEvent(clickEvent);
     target3.dispatchEvent(mouseenterEvent);
-    expect(onHide.calledTwice).to.be.true;
+    expect(onHide.calledTwice).toBe(true);
 
     manager.unregister();
   });
@@ -101,12 +101,12 @@ describe('eventManager', () => {
     manager.unregister();
 
     target1.dispatchEvent(clickEvent);
-    expect(onShow.called).to.be.false;
-    expect(onHide.called).to.be.false;
+    expect(onShow.called).toBe(false);
+    expect(onHide.called).toBe(false);
 
     target2.dispatchEvent(mouseenterEvent);
-    expect(onShow.called).to.be.false;
-    expect(onHide.called).to.be.false;
+    expect(onShow.called).toBe(false);
+    expect(onHide.called).toBe(false);
   });
 
   it('if showEvent and hideEvent have an event in common it toggles between onShow and onHide', () => {
@@ -126,23 +126,23 @@ describe('eventManager', () => {
     });
 
     target1.dispatchEvent(clickEvent);
-    expect(onShow.called).to.be.true;
-    expect(onHide.called).to.be.false;
+    expect(onShow.called).toBe(true);
+    expect(onHide.called).toBe(false);
     visible = true;
 
     target1.dispatchEvent(clickEvent);
-    expect(onShow.calledOnce).to.be.true;
-    expect(onHide.calledOnce).to.be.true;
+    expect(onShow.calledOnce).toBe(true);
+    expect(onHide.calledOnce).toBe(true);
     visible = false;
 
     target1.dispatchEvent(mouseenterEvent);
-    expect(onShow.calledTwice).to.be.true;
-    expect(onHide.calledOnce).to.be.true;
+    expect(onShow.calledTwice).toBe(true);
+    expect(onHide.calledOnce).toBe(true);
     visible = true;
 
     target1.dispatchEvent(mouseenterEvent);
-    expect(onShow.calledTwice).to.be.true;
-    expect(onHide.calledTwice).to.be.true;
+    expect(onShow.calledTwice).toBe(true);
+    expect(onHide.calledTwice).toBe(true);
 
     manager.unregister();
   });
@@ -168,34 +168,34 @@ describe('eventManager', () => {
       });
 
       // click on different item
-      expect(onHide.called).to.be.false;
+      expect(onHide.called).toBe(false);
       const target2 = document.getElementById('target2');
       target2.dispatchEvent(clickEvent);
-      expect(onHide.called).to.be.true;
+      expect(onHide.called).toBe(true);
 
       // not called when is tooltip or target
       targetNode.dispatchEvent(clickEvent);
       overlayNode.dispatchEvent(clickEvent);
-      expect(onHide.calledOnce).to.be.true;
+      expect(onHide.calledOnce).toBe(true);
 
       // not called from a child of tooltip or target
       targetNodeChild.dispatchEvent(clickEvent);
       tooltipChild.dispatchEvent(clickEvent);
-      expect(onHide.calledOnce).to.be.true;
+      expect(onHide.calledOnce).toBe(true);
 
       // called when document is clicked
       document.dispatchEvent(clickEvent);
-      expect(onHide.calledTwice).to.be.true;
+      expect(onHide.calledTwice).toBe(true);
 
       manager.unregister();
 
       // also check it unregisteres
       document.dispatchEvent(clickEvent);
-      expect(onHide.calledTwice).to.be.true;
+      expect(onHide.calledTwice).toBe(true);
 
       // getters
-      expect(getOverlayNode.called).to.be.true;
-      expect(getActiveTargetNode.called).to.be.true;
+      expect(getOverlayNode.called).toBe(true);
+      expect(getActiveTargetNode.called).toBe(true);
     });
   });
 
@@ -211,12 +211,12 @@ describe('eventManager', () => {
 
       const scrollEvent = new CustomEvent('scroll', { bubbles: true });
       document.dispatchEvent(scrollEvent);
-      expect(onHide.calledOnce).to.be.true;
+      expect(onHide.calledOnce).toBe(true);
 
       manager.unregister();
 
       document.dispatchEvent(scrollEvent);
-      expect(onHide.calledOnce).to.be.true;
+      expect(onHide.calledOnce).toBe(true);
     });
     it('it doesnt call onHide when false on scroll', () => {
       const onHide = sinon.spy();
@@ -229,7 +229,7 @@ describe('eventManager', () => {
 
       const scrollEvent = new CustomEvent('scroll', { bubbles: true });
       document.dispatchEvent(scrollEvent);
-      expect(onHide.called).to.be.false;
+      expect(onHide.called).toBe(false);
 
       manager.unregister();
     });
@@ -250,9 +250,9 @@ describe('eventManager', () => {
       });
 
       target1.dispatchEvent(mouseenterEvent);
-      expect(onShow.called).to.be.true;
+      expect(onShow.called).toBe(true);
       target1.dispatchEvent(mouseleaveEvent);
-      expect(onHide.called).to.be.true;
+      expect(onHide.called).toBe(true);
 
       manager.unregister();
     })
@@ -275,7 +275,7 @@ describe('eventManager', () => {
       });
 
       overlay.dispatchEvent(mouseenterEvent);
-      expect(onShow.called).to.be.true;
+      expect(onShow.called).toBe(true);
 
       manager.unregister();
     });
@@ -295,7 +295,7 @@ describe('eventManager', () => {
       });
 
       overlay.dispatchEvent(mouseleaveEvent);
-      expect(onHide.called).to.be.true;
+      expect(onHide.called).toBe(true);
 
       manager.unregister();
     });

@@ -24,14 +24,14 @@ describe('children', () => {
 
   it('should render jsx', () => {
     const wrapper = shallow(<Overlay children={<div id="child" />} />);
-    expect(wrapper.find('#child')).to.have.length(1);
+    expect(wrapper.find('#child')).toHaveLength(1);
   });
 
   describe('function', () => {
     it('accepts a function as children and it is called with activeTargetNode', () => {
       const children = sinon.spy();
       const wrapper = shallow(<Overlay children={children} />);
-      expect(children.called).to.be.true;
+      expect(children.called).toBe(true);
     });
     it('called with correct param', () => {
       const children = sinon.spy();
@@ -42,7 +42,7 @@ describe('children', () => {
       );
       target1.dispatchEvent(mouseenterEvent);
 
-      expect(children.args[1][0].targetNode).to.equal(target1);
+      expect(children.args[1][0].targetNode).toEqual(target1);
     });
   });
 
@@ -54,7 +54,7 @@ describe('children', () => {
       target1.dispatchEvent(mouseenterEvent);
       const test = wrapper.instance().getChildrenProps();
 
-      expect(test.dangerouslySetInnerHTML.__html).to.contain('customId');
+      expect(test.dangerouslySetInnerHTML.__html).toContain('customId');
     });
   });
 });

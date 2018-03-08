@@ -43,10 +43,10 @@ describe('eventManager delays', () => {
 
     targetNode.dispatchEvent(mouseenterEvent);
     clock.tick(100);
-    expect(onShow.called).to.be.false;
+    expect(onShow.called).toBe(false);
 
     clock.tick(350);
-    expect(onShow.called).to.be.true;
+    expect(onShow.called).toBe(true);
 
     manager.unregister();
   });
@@ -63,10 +63,10 @@ describe('eventManager delays', () => {
 
     targetNode.dispatchEvent(mouseenterEvent);
     clock.tick(100);
-    expect(onHide.called).to.be.false;
+    expect(onHide.called).toBe(false);
 
     clock.tick(350);
-    expect(onHide.called).to.be.true;
+    expect(onHide.called).toBe(true);
 
     manager.unregister();
   });
@@ -91,13 +91,13 @@ describe('eventManager delays', () => {
       clock.tick(200);
 
       targetNode.dispatchEvent(mouseenterEvent);
-      expect(onShow.called).to.be.false;
+      expect(onShow.called).toBe(false);
       clock.tick(400);
-      expect(onShow.calledOnce).to.be.true;
+      expect(onShow.calledOnce).toBe(true);
 
       targetNode.dispatchEvent(mouseenterEvent);
       clock.tick(900);
-      expect(onShow.calledTwice).to.be.true;
+      expect(onShow.calledTwice).toBe(true);
 
       manager.unregister();
     });
@@ -129,8 +129,8 @@ describe('eventManager delays', () => {
       target2.dispatchEvent(newTargetMouseEnterEvent);
 
       clock.tick(600);
-      expect(onShow.calledOnce).to.be.true;
-      expect(onShow.args[0][0].target).to.equal(target2);
+      expect(onShow.calledOnce).toBe(true);
+      expect(onShow.args[0][0].target).toEqual(target2);
 
       manager.unregister();
     });
@@ -157,7 +157,7 @@ describe('eventManager delays', () => {
       targetNode.dispatchEvent(mouseleaveEvent);
       clock.tick(400);
 
-      expect(onShow.called).to.be.false;
+      expect(onShow.called).toBe(false);
 
       manager.unregister();
     });
@@ -184,9 +184,9 @@ describe('eventManager delays', () => {
       clock.tick(100);
       targetNode.dispatchEvent(mouseleaveEvent);
       clock.tick(200);
-      expect(onHide.calledOnce).to.be.true;
+      expect(onHide.calledOnce).toBe(true);
       clock.tick(400);
-      expect(onHide.calledOnce).to.be.true;
+      expect(onHide.calledOnce).toBe(true);
 
       manager.unregister();
     });
@@ -215,7 +215,7 @@ describe('eventManager delays', () => {
       target2.dispatchEvent(mouseenterEvent);
       clock.tick(400);
 
-      expect(onHide.called).to.be.false;
+      expect(onHide.called).toBe(false);
 
       manager.unregister();
     });
