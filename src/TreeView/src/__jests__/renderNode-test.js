@@ -10,25 +10,25 @@ describe('renderNode', () => {
   });
 
   it('is called', () => {
-    const renderNode = sinon.spy();
+    const renderNode = jest.fn();
     wrapper.setProps({ renderNode });
-    expect(renderNode.called).to.be.true;
+    expect(renderNode).toHaveBeenCalled();
   });
 
   it('renders what renderNode returns', () => {
     const renderNode = () => <div key={1} id="customRow" />;
     wrapper.setProps({ renderNode });
-    expect(wrapper.find('#customRow')).to.have.length(1);
+    expect(wrapper.find('#customRow')).toHaveLength(1);
   });
 
   it('mutating props changes props used for rendering row', () => {
-    const renderNode = ({ domProps, nodeProps }) => {
+    const renderNode = (domProps, nodeProps) => {
       domProps.id = 'mutatedId';
       domProps.className = 'customRowClass';
     };
     wrapper.setProps({ renderNode });
 
-    expect(wrapper.find('#mutatedId')).to.have.length(1);
+    expect(wrapper.find('#mutatedId')).toHaveLength(1);
     // expect(wrapper.find('.customRowClass')).to.have.length(1)
     // expect(wrapper.find('.react-tree-view__node')).to.have.length(0)
   });

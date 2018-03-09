@@ -32,14 +32,14 @@ describe('path creation', () => {
         .find(Node)
         .first()
         .prop('path')
-    ).to.equal('0');
+    ).toEqual('0');
     // second node
     expect(
       wrapper
         .find(Node)
         .at(1)
         .prop('path')
-    ).to.equal('0/0');
+    ).toEqual('0/0');
   });
 
   describe('pathProperty', () => {
@@ -52,14 +52,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-        ).to.equal('node_path_1');
+        ).toEqual('node_path_1');
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-        ).to.equal('node_path_1/node_path_2');
+        ).toEqual('node_path_1/node_path_2');
       });
     });
     describe('as a function', () => {
@@ -71,14 +71,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-        ).to.equal('node_fn_path_1');
+        ).toEqual('node_fn_path_1');
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-        ).to.equal('node_fn_path_1/node_fn_path_2');
+        ).toEqual('node_fn_path_1/node_fn_path_2');
       });
     });
   });
@@ -94,14 +94,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-        ).to.equal('node_1');
+        ).toEqual('node_1');
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-        ).to.equal('node_2');
+        ).toEqual('node_2');
       });
     });
     describe('it is a function', () => {
@@ -112,14 +112,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-        ).to.equal('node_fn_1');
+        ).toEqual('node_fn_1');
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-        ).to.equal('node_fn_2');
+        ).toEqual('node_fn_2');
       });
     });
   });

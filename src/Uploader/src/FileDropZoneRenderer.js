@@ -220,14 +220,16 @@ class FileDropZoneRenderer extends Component {
   }
 
   onDragEnter(callback, dispatch, event) {
-    callback(dispatch, event);
+    if (callback) {
+      callback(dispatch, event);
+    }
   }
 
   render() {
     const { props } = this;
 
     const { children, forwardProp, forwardProp: { events, files } } = props;
-    const { onDragEnter } = events;
+    const { onDragEnter } = events || {};
     return (
       <div
         {...cleanProps(props, FileDropZoneRenderer.propTypes)}

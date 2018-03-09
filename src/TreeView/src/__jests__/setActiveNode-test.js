@@ -25,7 +25,7 @@ describe('setActiveNode', () => {
     const newCollapsedState = wrapper.instance().setActiveNode('1/0');
     const expected = '1/0';
 
-    expect(newCollapsedState).to.be.equal(expected);
-    expect(wrapper.state().activeNode).to.be.equal(expected);
+    expect(newCollapsedState).toEqual(expected);
+    expect(wrapper.state().activeNode).toEqual(expected);
   });
 });

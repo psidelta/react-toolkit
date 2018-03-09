@@ -10,23 +10,22 @@ describe('node.label', () => {
     window.wrapper = wrapper;
     expect(
       wrapper.find(`.zippy-react-toolkit-tree-view__node__label__text`).text()
-    ).to.be.equal('hello world');
+    ).toEqual('hello world');
   });
 
   it('should render as jsx', () => {
     const wrapper = mount(
       <Node node={{ label: <div id="labelJSX">hello world</div> }} />
     );
-    expect(wrapper.find('#labelJSX')).to.have.length(1);
+    expect(wrapper.find('#labelJSX')).toHaveLength(1);
   });
 
   it('should render as a function', () => {
-    const label = sinon.stub();
-    label.returns(<div id="functionLabel">hello world</div>);
+    const label = jest.fn(() => <div id="functionLabel">hello world</div>);
     const wrapper = mount(<Node id="customId" node={{ label }} />);
 
-    expect(label.called).to.be.true;
-    expect(wrapper.find('#functionLabel')).to.have.length(1);
-    expect(label.args[0][0].id).to.be.equal('customId');
+    expect(label).toHaveBeenCalled();
+    expect(wrapper.find('#functionLabel')).toHaveLength(1);
+    expect(label.mock.calls[0][0].id).toEqual('customId');
   });
 });

@@ -7,6 +7,6 @@ describe('style', () => {
   it('should be applied on comp', () => {
     const style = { color: 'blue' };
     const wrapper = shallow(<TreeView style={style} dataSource={[]} />);
-    expect(wrapper.find(`.${CLASS_NAME}`).prop('style')).to.equal(style);
+    expect(wrapper.find(`.${CLASS_NAME}`).prop('style')).toEqual(style);
   });
 });

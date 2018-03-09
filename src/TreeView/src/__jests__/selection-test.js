@@ -27,7 +27,7 @@ describe('selection props', () => {
   describe('enableSelection', () => {
     it('should default to false', () => {
       const wrapper = mount(<TreeView dataSource={NESTED_DATA_STRUCTURE} />);
-      expect(wrapper.props().enableSelection).to.be.false;
+      expect(wrapper.props().enableSelection).toBe(false);
     });
 
     it('nodes should not be selected when if false and there is a selection', () => {
@@ -40,7 +40,7 @@ describe('selection props', () => {
           .find(Node)
           .first()
           .props().selected
-      ).to.be.falsey;
+      ).toBe(undefined);
     });
   });
 
@@ -51,11 +51,13 @@ describe('selection props', () => {
       );
       wrapper
         .find(Node)
-        .get(0)
+        .at(0)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
       wrapper
         .find(Node)
-        .get(1)
+        .at(1)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).toEqual({
         '0': true,
@@ -72,7 +74,7 @@ describe('selection props', () => {
           dataSource={NESTED_DATA_STRUCTURE}
         />
       );
-      expect(wrapper.state().selected['0']).to.be.true;
+      expect(wrapper.state().selected['0']).toBe(true);
     });
   });
 
@@ -84,9 +86,10 @@ describe('selection props', () => {
       const initialState = wrapper.state().selected;
       wrapper
         .find(Node)
-        .get(1)
+        .at(1)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
-      expect(wrapper.state().selected).to.be.deep.equal(initialState);
+      expect(wrapper.state().selected).toEqual(initialState);
     });
 
     it('should use correct selected state', () => {
@@ -99,9 +102,7 @@ describe('selection props', () => {
         />
       );
 
-      expect(wrapper.instance().getCurrentSelectedState()).toEqual(
-        selected
-      );
+      expect(wrapper.instance().getCurrentSelectedState()).toEqual(selected);
     });
   });
 
@@ -118,7 +119,8 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
-        .get(1)
+        .at(1)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).toEqual({
         '1': true
@@ -128,7 +130,7 @@ describe('selection props', () => {
 
   describe('onSelectionChange', () => {
     it('should not call onSelectionChange when enableSelection is false', () => {
-      const onSelectionChange = sinon.spy();
+      const onSelectionChange = jest.fn();
       const wrapper = mount(
         <TreeView
           dataSource={NESTED_DATA_STRUCTURE}
@@ -138,14 +140,15 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
-        .get(0)
+        .at(0)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
 
-      expect(onSelectionChange.called).to.be.false;
+      expect(onSelectionChange).toHaveBeenCalledTimes(0);
     });
 
     it('should call onSelectionChange when is enabled', () => {
-      const onSelectionChange = sinon.spy();
+      const onSelectionChange = jest.fn();
       const wrapper = mount(
         <TreeView
           enableSelection
@@ -156,13 +159,14 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
-        .get(0)
+        .at(0)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
-      expect(onSelectionChange.called).to.be.true;
+      expect(onSelectionChange).toHaveBeenCalled();
     });
 
     it('should call onSelectionChange with correct new selected', () => {
-      const onSelectionChange = sinon.spy();
+      const onSelectionChange = jest.fn();
       const wrapper = mount(
         <TreeView
           enableSelection
@@ -173,17 +177,19 @@ describe('selection props', () => {
       wrapper.setProps({ enableSelection: true, onSelectionChange });
       wrapper
         .find(Node)
-        .get(0)
+        .at(0)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
       wrapper
         .find(Node)
-        .get(1)
+        .at(1)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
 
-      const test = onSelectionChange.args[1][0];
+      const test = onSelectionChange.mock.calls[1][0];
 
-      expect(test.selected).to.be.true;
-      expect(test.path).to.be.equal('1');
+      expect(test.selected).toBe(true);
+      expect(test.path).toEqual('1');
       expect(test.selectedMap).toEqual({
         '0': true,
         '1': true
@@ -210,19 +216,20 @@ describe('selection props', () => {
 
         wrapper
           .find(Node)
-          .get(0)
+          .at(0)
+          .instance()
           .onLabelClick({ stopPropagation: () => {} });
 
-        expect(newDataSource).to.be.ok;
-        expect(wrapper.state().data).to.not.equal(newDataSource);
-        expect(newDataSource[0].customPropertyInjecter).to.be.true;
+        expect(newDataSource).toBeDefined();
+        expect(wrapper.state().data).not.toEqual(newDataSource);
+        expect(newDataSource[0].customPropertyInjecter).toBe(true);
       });
     });
   });
 
   describe('isNodeSelected', () => {
     it('should be called with correct props', () => {
-      const isNodeSelected = sinon.spy();
+      const isNodeSelected = jest.fn();
       const wrapper = mount(
         <TreeView
           enableSelection
@@ -231,10 +238,10 @@ describe('selection props', () => {
         />
       );
 
-      const args = isNodeSelected.args[0][0];
+      const args = isNodeSelected.mock.calls[0][0];
 
-      expect(isNodeSelected.called).to.be.true;
-      expect(args.index).to.be.equal(0);
+      expect(isNodeSelected).toHaveBeenCalled();
+      expect(args.index).toEqual(0);
     });
 
     it('should overwrite selection', () => {
@@ -250,12 +257,12 @@ describe('selection props', () => {
       );
 
       const test = wrapper.find(Node).get(0).props.selected;
-      expect(test).to.be.false;
+      expect(test).toBe(false);
     });
 
     it('should take into account isNodeSelected state when selected changes', () => {
       const isNodeSelected = () => false;
-      const onSelectionChange = sinon.spy();
+      const onSelectionChange = jest.fn();
 
       const wrapper = mount(
         <TreeView
@@ -269,9 +276,10 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
-        .get(0)
+        .at(0)
+        .instance()
         .onLabelClick({ stopPropagation: () => {} });
-      expect(onSelectionChange.args[0][0].selectedMap).to.be.deep.equal({
+      expect(onSelectionChange.mock.calls[0][0].selectedMap).toEqual({
         0: true
       });
     });

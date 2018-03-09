@@ -10,6 +10,6 @@ describe('getLastRootNode', () => {
       { id: 5, parent: null }
     ];
 
-    expect(getLastRootNode(1, visibleNodes).id).to.equal(5);
+    expect(getLastRootNode(1, visibleNodes).id).toEqual(5);
   });
 });

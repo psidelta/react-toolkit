@@ -5,7 +5,9 @@ describe('client file id', () => {
     const GIVEN_FILE = {
       name: 'some name'
     };
-    expect(clientUniqueFileId(GIVEN_FILE)).to.equal(clientUniqueFileId(GIVEN_FILE));
+    expect(clientUniqueFileId(GIVEN_FILE)).toEqual(
+      clientUniqueFileId(GIVEN_FILE)
+    );
   });
 
   it('should generate file based on size', () => {
@@ -13,6 +15,6 @@ describe('client file id', () => {
       name: 'some name',
       size: 1234
     };
-    expect(clientUniqueFileId(GIVEN_FILE)).to.contain('1234');
+    expect(clientUniqueFileId(GIVEN_FILE)).toContain('1234');
   });
 });
