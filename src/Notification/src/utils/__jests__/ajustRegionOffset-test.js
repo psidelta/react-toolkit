@@ -21,6 +21,6 @@ describe('adjustRegionOffset', () => {
     });
 
     const test = adjustRegionOffset({ region, offset });
-    expect(expected.equals(test)).to.be.true;
+    expect(expected.equals(test)).toBe(true);
   });
 });

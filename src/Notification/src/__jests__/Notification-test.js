@@ -6,18 +6,17 @@ import Notification from '../Notification';
 
 describe('Notification', () => {
   describe('autoHideDelay', () => {
-    it('calls onHide after a delay', () => {
-      const clock = sinon.useFakeTimers();
-      const onHide = sinon.spy();
+    it('calls onHide after a delay', done => {
+      const onHide = jest.fn();
 
       mount(<Notification autoHideDelay={300} onHide={onHide} id="test" />);
 
-      expect(onHide.called).toBe(false);
-      clock.tick(300);
-      expect(onHide.called).toBe(true);
-      expect(onHide.args[0][0].id).toEqual('test');
-
-      clock.restore();
+      expect(onHide).toHaveBeenCalledTimes(0);
+      setTimeout(() => {
+        expect(onHide).toHaveBeenCalledTimes(1);
+        expect(onHide.mock.calls[0][0].id).toEqual('test');
+        done();
+      }, 300);
     });
   });
 
@@ -143,12 +142,12 @@ describe('Notification', () => {
 
   describe('height and width', () => {
     it('if both are set it should not call onSizeChange', () => {
-      const onSizeChange = sinon.spy();
+      const onSizeChange = jest.fn();
       const wrapper = mount(
         <Notification onSizeChange={onSizeChange} width={20} height={20} />
       );
 
-      expect(onSizeChange.called).toBe(false);
+      expect(onSizeChange).toHaveBeenCalledTimes(0);
     });
   });
 
@@ -211,14 +210,14 @@ describe('Notification', () => {
 
   describe('hideOnClick', () => {
     it('should trigger on click when Notification is clicked', () => {
-      const onHide = sinon.spy();
+      const onHide = jest.fn();
       const wrapper = shallow(<Notification hideOnClick onHide={onHide} />);
-      expect(onHide.called).toBe(false);
+      expect(onHide).toHaveBeenCalledTimes(0);
       wrapper
         .find('.zippy-react-toolkit-notification')
         .at(0)
         .simulate('click');
-      expect(onHide.called).toBe(true);
+      expect(onHide).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -289,13 +288,13 @@ describe('Notification', () => {
       expect(wrapper.find('#closeButtonCustom')).toHaveLength(1);
     });
     it('calls onHide when clicked', () => {
-      const onHide = sinon.spy();
+      const onHide = jest.fn();
       const wrapper = shallow(<Notification closeButton onHide={onHide} />);
       wrapper
         .find(CloseButton)
         .at(0)
         .simulate('click');
-      expect(onHide.called).toBe(true);
+      expect(onHide).toHaveBeenCalledTimes(1);
     });
   });
 
