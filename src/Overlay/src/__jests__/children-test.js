@@ -29,12 +29,12 @@ describe('children', () => {
 
   describe('function', () => {
     it('accepts a function as children and it is called with activeTargetNode', () => {
-      const children = sinon.spy();
+      const children = jest.fn();
       const wrapper = shallow(<Overlay children={children} />);
-      expect(children.called).toBe(true);
+      expect(children.mock.calls.length).toBe(1);
     });
     it('called with correct param', () => {
-      const children = sinon.spy();
+      const children = jest.fn();
       const mouseenterEvent = new CustomEvent('mouseenter', { bubbles: true });
       const target1 = document.getElementById('target1');
       const wrapper = mount(
@@ -42,7 +42,7 @@ describe('children', () => {
       );
       target1.dispatchEvent(mouseenterEvent);
 
-      expect(children.args[1][0].targetNode).toEqual(target1);
+      expect(children.mock.calls[1][0].targetNode).toEqual(target1);
     });
   });
 

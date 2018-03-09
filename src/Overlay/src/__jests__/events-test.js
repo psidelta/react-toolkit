@@ -5,16 +5,16 @@ import Overlay from '../Overlay';
 
 describe('events', () => {
   it('onShow called when visibile changes to true', () => {
-    const onShow = sinon.spy();
+    const onShow = jest.fn();
     const wrapper = shallow(<Overlay onShow={onShow} defaultVisible={false} />);
     wrapper.instance().setVisible(true);
-    expect(onShow.called).toBe(true);
+    expect(onShow.mock.calls.length).toBe(1);
   });
   it('onHide called when visibile changes to false', () => {
-    const onHide = sinon.spy();
+    const onHide = jest.fn();
     const wrapper = shallow(<Overlay onHide={onHide} defaultVisible />);
     wrapper.instance().setVisible(false);
-    expect(onHide.called).toBe(true);
+    expect(onHide.mock.calls.length).toBe(1);
   });
   it('onVisibleChange is called whenever visibile changes, it is called with new state', () => {
     const onVisibleChange = jest.fn();

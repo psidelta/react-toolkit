@@ -20,10 +20,10 @@ describe('visible', () => {
     expect(wrapper.instance().getVisible()).toBe(true);
   });
   it('calls onVisibleChange', () => {
-    const onVisibleChange = sinon.spy();
+    const onVisibleChange = jest.fn();
     const wrapper = shallow(<Overlay onVisibleChange={onVisibleChange} />);
     wrapper.instance().setVisible(true);
-    expect(onVisibleChange.called).toBe(true);
+    expect(onVisibleChange).toHaveBeenCalled();
   });
   it('visible state changes when uncontrolled', () => {
     const wrapper = shallow(<Overlay />);
