@@ -11,9 +11,9 @@ describe('selected', () => {
     ];
 
     it('renders a custom input', () => {
-      const renderCheckInput = sinon
-        .stub()
-        .returns(<div className="customCheckInput" />);
+      const renderCheckInput = jest.fn(() => (
+        <div className="customCheckInput" />
+      ));
       const wrapper = mount(
         <Menu
           items={items}
@@ -21,8 +21,8 @@ describe('selected', () => {
           enableSelection
         />
       );
-      expect(renderCheckInput.called).to.be.true;
-      expect(wrapper.find('.customCheckInput')).to.have.length(1);
+      expect(renderCheckInput).toHaveBeenCalled();
+      expect(wrapper.find('.customCheckInput').length).toBe(1);
     });
     it('renders an input with mutated props', () => {
       const wrapper = mount(
@@ -31,10 +31,13 @@ describe('selected', () => {
           enableSelection
           renderCheckInput={({ domProps }) => {
             domProps.id = 'customCheckInput';
+            domProps.className = 'customCheckInput';
           }}
         />
       );
-      expect(wrapper.find('#customCheckInput')).to.have.length(1);
+      expect(wrapper.find('div#customCheckInput.customCheckInput').length).toBe(
+        1
+      );
     });
   });
   describe('renderRadioInput', () => {
@@ -45,9 +48,10 @@ describe('selected', () => {
     ];
 
     it('renders a custom input', () => {
-      const renderRadioInput = sinon
-        .stub()
-        .returns(<div className="customRadioInput" />);
+      const renderRadioInput = jest.fn(() => (
+        <div className="customRadioInput" />
+      ));
+
       const wrapper = mount(
         <Menu
           items={items}
@@ -55,8 +59,8 @@ describe('selected', () => {
           enableSelection
         />
       );
-      expect(renderRadioInput.called).to.be.true;
-      expect(wrapper.find('.customRadioInput')).to.have.length(2);
+      expect(renderRadioInput).toHaveBeenCalled();
+      expect(wrapper.find('div.customRadioInput').length).toBe(2);
     });
     it('renders with mutated props', () => {
       const wrapper = mount(
@@ -68,7 +72,7 @@ describe('selected', () => {
           enableSelection
         />
       );
-      expect(wrapper.find('.customRadioInput')).to.have.length(2);
+      expect(wrapper.find('div.customRadioInput').length).toBe(2);
     });
   });
 });

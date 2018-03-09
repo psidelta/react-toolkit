@@ -13,7 +13,7 @@ describe('expander', () => {
       }
     ];
     const wrapper = mount(<Menu items={items} />);
-    expect(wrapper.find(Expander)).to.have.length(1);
+    expect(wrapper.find(Expander).length).toBe(1);
   });
 
   it('custom render from expander', () => {
@@ -30,7 +30,7 @@ describe('expander', () => {
       />
     );
 
-    expect(wrapper.find(Expander)).to.have.length(0);
-    expect(wrapper.find('#customExpander')).to.have.length(1);
+    expect(wrapper.find(Expander).length).toBe(0);
+    expect(wrapper.find('#customExpander').length).toBe(1);
   });
 });

@@ -2,21 +2,21 @@ import React from 'react';
 import Menu from '../Menu';
 import MenuItem from '../MenuItem';
 import { shallow, mount } from 'enzyme';
-import getSubMenu from './getSubMenu';
+import getSubMenu from '../utils/getSubMenu';
 
 const ROOT_CLASS = Menu.defaultProps.rootClassName;
 
 describe('disabled', () => {
   it('should not call onClick', () => {
     const items = [{ label: 'test', disabled: true }];
-    const onClick = sinon.spy();
+    const onClick = jest.fn();
     const wrapper = mount(<Menu onClick={onClick} items={items} />);
 
     wrapper
       .find(MenuItem)
       .first()
       .simulate('click');
-    expect(onClick.called).to.be.false;
+    expect(onClick).toHaveBeenCalledTimes(0);
   });
 
   xit('should not call onChildClick', () => {
@@ -48,7 +48,7 @@ describe('disabled', () => {
       .first()
       .simulate('click');
 
-    expect(onChildClick.called).to.be.false;
+    expect(onChildClick.called).toBe(false);
   });
 
   it('should not trigger onClick when Enter key is pressed on focused item', () => {
@@ -74,7 +74,7 @@ describe('disabled', () => {
       .find(MenuItem)
       .first()
       .simulate('keyPress', { key: 'Enter' });
-    expect(onClick.called).to.be.false;
+    expect(onClick.called).toBe(false);
   });
 
   xit('should apply disabled style if provided', () => {
@@ -131,6 +131,6 @@ describe('disabled', () => {
       .find(MenuItem)
       .find('tr')
       .hasClass(`${ROOT_CLASS}__row--disabled`);
-    expect(test).to.be.true;
+    expect(test).toBe(true);
   });
 });

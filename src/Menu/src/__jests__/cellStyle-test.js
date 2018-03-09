@@ -50,14 +50,14 @@ describe('cellStyle', () => {
     .prop('style');
 
   it('width should come from cellStyle', () => {
-    expect(test.width).to.equal(cellStyle.width);
+    expect(test.width).toBe(cellStyle.width);
   });
 
   it('color should come from columnCellStyle', () => {
-    expect(test.color).to.equal(columnCellStyle.color);
+    expect(test.color).toBe(columnCellStyle.color);
   });
 
   it('maxWidth should come from item.style', () => {
-    expect(test.maxWidth).to.equal(cellStyle.maxWidth);
+    expect(test.maxWidth).toBe(cellStyle.maxWidth);
   });
 });

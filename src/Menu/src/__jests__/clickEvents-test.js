@@ -2,13 +2,13 @@ import React from 'react';
 import Menu from '../Menu';
 import MenuItem from '../MenuItem';
 import { mount, shallow } from 'enzyme';
-import getSubMenu from './getSubMenu';
+import getSubMenu from '../utils/getSubMenu';
 
 describe('click events', () => {
   describe('onClick', () => {
     it('should work on direct children', () => {
       const items = [{ label: 'test' }];
-      const onClick = sinon.spy();
+      const onClick = jest.fn();
       const wrapper = mount(<Menu onClick={onClick} items={items} />);
 
       wrapper
@@ -16,14 +16,14 @@ describe('click events', () => {
         .first()
         .simulate('click');
 
-      expect(onClick.called).to.be.true;
-      expect(onClick.args[0]).to.have.length(3);
-      expect(onClick.args[0][1].index).to.be.equal(0);
+      expect(onClick).toHaveBeenCalled();
+      expect(onClick.mock.calls[0].length).toBe(3);
+      expect(onClick.mock.calls[0][1].index).toBe(0);
     });
 
     xit('should not be called when a submenu item had been clicked', () => {
       const items = [{ label: 'test', items: [{ label: 'submenu item' }] }];
-      const onClick = sinon.spy();
+      const onClick = jest.fn();
       const wrapper = mount(<Menu items={items} onClick={onClick} />);
 
       wrapper
@@ -36,15 +36,15 @@ describe('click events', () => {
       expect(subMenu).to.exist;
       subMenu.find(MenuItem).simulate('click');
 
-      expect(onClick.called).to.be.false;
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 
   describe('onChildClick', () => {
     xit('should be called only from items from submenus', () => {
       const items = [{ label: 'test', items: [{ label: 'submenu item' }] }];
-      const onClick = sinon.spy();
-      const onChildClick = sinon.spy();
+      const onClick = jest.fn();
+      const onChildClick = jest.fn();
       const wrapper = mount(
         <Menu items={items} onClick={onClick} onChildClick={onChildClick} />
       );
@@ -59,21 +59,21 @@ describe('click events', () => {
       expect(subMenu).to.exist;
       subMenu.find(MenuItem).simulate('click');
 
-      expect(onClick.called).to.be.false;
-      expect(onChildClick.calledOnce).to.be.true;
+      expect(onClick).not.toHaveBeenCalled();
+      expect(onChildClick).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('item.onClick', () => {
     it('should be called', () => {
-      const onClick = sinon.spy();
+      const onClick = jest.fn();
       const items = [{ label: 'test', onClick }];
       const wrapper = mount(<Menu items={items} />);
       wrapper
         .find(MenuItem)
         .first()
         .simulate('click');
-      expect(onClick.called).to.be.true;
+      expect(onClick).toHaveBeenCalled();
     });
   });
 });
