@@ -132,15 +132,20 @@ describe('NotificationBoard', () => {
     });
   });
   describe('destroyOnHide', () => {
-    it('removes the notification when true', () => {
-      const clock = sinon.useFakeTimers();
+    it('removes the notification when true', done => {
       const wrapper = mount(<NotificationBoard removeOnHide />);
       const instance = wrapper.instance();
-      instance.addNotification({ autoHideDelay: 100, hideAnimation: false });
-      expect(instance.getNotifications()).toHaveLength(1);
-      clock.tick(600);
-      expect(instance.getNotifications()).toHaveLength(0);
-      clock.restore();
+      instance.addNotification({
+        autoHideDelay: 100,
+        hideAnimation: false
+      });
+      setTimeout(() => {
+        expect(instance.getNotifications()).toHaveLength(1);
+        setTimeout(() => {
+          expect(instance.getNotifications()).toHaveLength(0);
+          done();
+        }, 600);
+      }, 90);
     });
   });
   describe('hideNotification', () => {

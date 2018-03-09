@@ -19,9 +19,9 @@ describe('getClassNames', () => {
 
     const className = getClassNames(props);
 
-    expect(className).to.contain('zippy-react-toolkit-checkbox');
-    expect(className).to.contain('zippy-react-toolkit-checkbox--rtl');
-    expect(className).to.contain('zippy-react-toolkit-checkbox--read-only');
+    expect(className).toContain('zippy-react-toolkit-checkbox');
+    expect(className).toContain('zippy-react-toolkit-checkbox--rtl');
+    expect(className).toContain('zippy-react-toolkit-checkbox--read-only');
   });
 });
 
@@ -32,12 +32,12 @@ describe('Check.props.className', () => {
 
     const className = node.className;
 
-    expect(className).to.contain('zippy-react-toolkit-checkbox');
-    expect(className).to.not.contain('zippy-react-toolkit-checkbox--rtl');
-    expect(className).to.contain('zippy-react-toolkit-checkbox--read-only');
+    expect(className).toContain('zippy-react-toolkit-checkbox');
+    expect(className).not.toContain('zippy-react-toolkit-checkbox--rtl');
+    expect(className).toContain('zippy-react-toolkit-checkbox--read-only');
 
     checkbox.rerender(<Check />);
-    expect(node.className).to.not.contain(
+    expect(node.className).not.toContain(
       'zippy-react-toolkit-checkbox--read-only'
     );
 

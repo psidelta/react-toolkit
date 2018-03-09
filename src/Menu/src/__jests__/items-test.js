@@ -1,6 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import getSubMenu from './getSubMenu';
+import getSubMenu from '../utils/getSubMenu';
 import Menu from '../Menu';
 import MenuItem from '../MenuItem';
 import MenuSeparator from '../MenuSeparator';
@@ -34,8 +34,8 @@ describe('items', () => {
 
       setTimeout(() => {
         const subMenu = dom.querySelector(`.${ROOT_CLASS_NAME}`);
-        expect(subMenu.textContent).to.equal('NY');
-        expect(subMenu.style.padding).to.equal('50px');
+        expect(subMenu.textContent).toBe('NY');
+        expect(subMenu.style.padding).toBe('50px');
         wrapper.unmount();
         done();
       }, 150);
@@ -54,7 +54,7 @@ describe('items', () => {
       ];
 
       const wrapper = shallow(<Menu items={items} />);
-      expect(wrapper.find('tbody').children()).to.have.length(items.length);
+      expect(wrapper.find('tbody').children().length).toBe(items.length);
     });
 
     it('correct number of items with separator', () => {
@@ -71,7 +71,7 @@ describe('items', () => {
       ];
 
       const wrapper = shallow(<Menu items={items} />);
-      expect(wrapper.find('tbody').children()).to.have.length(items.length);
+      expect(wrapper.find('tbody').children().length).toBe(items.length);
     });
   });
 
@@ -79,12 +79,12 @@ describe('items', () => {
     it('1 should be rendered', () => {
       const items = ['-'];
       const wrapper = shallow(<Menu items={items} />);
-      expect(wrapper.find(MenuSeparator)).to.have.length(1);
+      expect(wrapper.find(MenuSeparator).length).toBe(1);
     });
     it('separator should be rendered between items', () => {
       const items = [{ label: 'test1' }, '-', { label: 'test1' }, '-'];
       const wrapper = shallow(<Menu items={items} />);
-      expect(wrapper.find(MenuSeparator)).to.have.length(2);
+      expect(wrapper.find(MenuSeparator).length).toBe(2);
     });
   });
 });

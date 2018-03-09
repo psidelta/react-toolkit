@@ -11,7 +11,7 @@ describe('columns', () => {
   it('default should render 1 column', () => {
     const items = [{ label: 'test' }];
     const wrapper = mount(<Menu items={items} />);
-    expect(wrapper.find(MenuItem).find(MenuCell)).to.have.length(1);
+    expect(wrapper.find(MenuItem).find(MenuCell).length).toBe(1);
   });
 
   it('renders custom columns', () => {
@@ -19,7 +19,7 @@ describe('columns', () => {
     const columns = ['label', 'name'];
     const wrapper = mount(<Menu items={items} columns={columns} />);
 
-    expect(wrapper.find(MenuItem).find(MenuCell)).to.have.length(2);
+    expect(wrapper.find(MenuItem).find(MenuCell).length).toBe(2);
   });
 
   it('should use column.render when present', () => {
@@ -37,7 +37,7 @@ describe('columns', () => {
     ];
     const wrapper = mount(<Menu items={items} columns={columns} />);
 
-    expect(wrapper.find(Flag)).to.have.length(1);
+    expect(wrapper.find(Flag).length).toBe(1);
   });
 
   it('should add className', () => {
@@ -62,8 +62,8 @@ describe('columns', () => {
 
     const cell = wrapper.find(`.${ROOT_CLASS_NAME}__cell`);
 
-    expect(cell.prop('className')).to.contain('custom-class-name');
-    expect(cell.prop('className')).to.contain('a-cell-class-name');
-    expect(wrapper.find('tr').prop('className')).to.contain('xxx');
+    expect(cell.prop('className')).toContain('custom-class-name');
+    expect(cell.prop('className')).toContain('a-cell-class-name');
+    expect(wrapper.find('tr').prop('className')).toContain('xxx');
   });
 });
