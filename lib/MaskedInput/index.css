@@ -52,7 +52,8 @@
   min-height: 32px;
   border: 1px solid #c5c5c5;
   color: #525252;
-  transition: border 0.2s; }
+  transition: border 0.2s;
+  background: white; }
   .zippy-react-toolkit-masked-input.zippy-react-toolkit-masked-input--theme-default:hover {
     border: 1px solid #a1b6d3; }
   .zippy-react-toolkit-masked-input.zippy-react-toolkit-masked-input--theme-default .zippy-react-toolkit-masked-input--input {
