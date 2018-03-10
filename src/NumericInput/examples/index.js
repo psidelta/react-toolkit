@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 import NumberInput from '../index';
-import TextInput from '../../TextInput';
-import MaskedInput from '../../MaskedInput';
-import ComboBox from '../../ComboBox';
-import { DateInput } from '../../Calendar';
-import '../../Calendar/style/index.scss';
-import '../../ComboBox/style/index.scss';
-import '../../MaskedInput/style/index.scss';
-import '../../TextInput/style/index.scss';
 import '../style/index.scss';
-import './index.css';
 
 class App extends Component {
   constructor(props) {
@@ -36,39 +27,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{ padding: 50 }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            border: '1px solid red',
-            height: 32
+      <div className="App" style={{ padding: 50, xbackground: 'antiquewhite' }}>
+        <NumberInput
+          style={{ width: 100 }}
+          value={this.state.value}
+          onChange={this.onChange.bind(this)}
+          wrapperProps={{
+            style: {
+              xbackground: 'green',
+              xborder: '5px solid red',
+              borderRadius: 10
+            }
           }}
-        >
-          <TextInput
-            style={{ marginRight: 5, width: 200 }}
-            placeholder="text"
-          />
-          <MaskedInput style={{ marginRight: 5 }} placeholder="masked" />
-          <DateInput style={{ marginRight: 5 }} />
-          <ComboBox
-            dataSource={[{ id: 1, label: 'x' }]}
-            idProperty="id"
-            inlineFlex
-            style={{ marginRight: 5 }}
-          />
-          <NumberInput
-            style={{ width: 100 }}
-            precision={3}
-            placeholder="number"
-            initialStep={1000}
-            step={50}
-            minValue={0}
-            maxValue={11150}
-            value={this.state.value}
-            onChange={this.onChange.bind(this)}
-          />
-        </div>
+        />
       </div>
     );
   }
