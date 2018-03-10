@@ -6,6 +6,7 @@
   border: $ZIPPY_MASKED_INPUT_BORDER;
   color: $ZIPPY_MASKED_INPUT_COLOR;
   transition: border 0.2s;
+  background: $ZIPPY_MASKET_INPUT_WHITE_BG;
 
   &:hover {
     border: $ZIPPY_MASKED_INPUT_BORDER_HOVER;
@@ -22,7 +23,7 @@
   }
 
   &.#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}--disabled {
-    background: white;
+    background: $ZIPPY_MASKET_INPUT_WHITE_BG;
     color: $ZIPPY_MASKED_INPUT_COLOR;
     opacity: 0.5;
 
@@ -30,7 +31,7 @@
       border: $ZIPPY_MASKED_INPUT_BORDER;
     }
     .#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}--input {
-      background: white;
+      background: $ZIPPY_MASKET_INPUT_WHITE_BG;
       color: $ZIPPY_MASKED_INPUT_COLOR;
     }
   }
