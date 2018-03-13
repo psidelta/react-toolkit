@@ -16,7 +16,7 @@ class App extends React.Component {
   }
   addNotification() {
     count++;
-    zippyui.notification.first.addNotification({
+    zippy.notification.first.addNotification({
       title: this.state.title ? <div>Notification number </div> : null,
       autoHideDelay: false,
       // visible: false,
@@ -30,7 +30,7 @@ class App extends React.Component {
     });
   }
   showAll() {
-    zippyui.notification.first.showAll();
+    zippy.notification.first.showAll();
   }
 
   hideAll() {

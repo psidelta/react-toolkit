@@ -181,6 +181,9 @@ class ZippyNotifyResize extends React.Component {
     this.getDimensions(size => {
       const { notifyResizeWidth, notifyResizeHeight } = size;
 
+      if (this.__willUnmount) {
+        return;
+      }
       // Resize tool will be bigger than its parent by 1 pixel in each direction
       this.setState(
         {

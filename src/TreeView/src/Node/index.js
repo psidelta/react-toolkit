@@ -187,7 +187,11 @@ class ZippyNode extends Component {
 
     icon =
       typeof icon === 'string' ? (
-        <img className={`${this.props.rootClassName}__icon-img`} src={icon} />
+        <img
+          key="icon"
+          className={`${this.props.rootClassName}__icon-img`}
+          src={icon}
+        />
       ) : (
         icon
       );
@@ -308,6 +312,7 @@ class ZippyNode extends Component {
     }
 
     let checkProps = {
+      key: 'checkbox',
       // can be null only if it is a parent
       supportIndeterminate: !!(
         this.props.children && this.props.children.length

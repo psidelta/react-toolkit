@@ -84,16 +84,14 @@ describe('NotificationBoard', () => {
   describe('global instance access', () => {
     it('should register itself in the zippy.notification namespace', () => {
       const wrapper = mount(<NotificationBoard id="helloWorld" />);
-      expect(wrapper.instance()).to.equal(
-        global.zippyui.notification.helloWorld
-      );
+      expect(wrapper.instance()).to.equal(global.zippy.notification.helloWorld);
     });
   });
 
   describe('addNotification', () => {
     it('adds and renders notifications', () => {
       const wrapper = mount(<NotificationBoard />);
-      const instance = global.zippyui.notification.main;
+      const instance = global.zippy.notification.main;
 
       expect(wrapper.find(Notification)).to.have.length(0);
       instance.addNotification({ title: 'hello world' });
@@ -101,7 +99,7 @@ describe('NotificationBoard', () => {
     });
     it('returns a notification id', () => {
       const wrapper = mount(<NotificationBoard />);
-      const instance = global.zippyui.notification.main;
+      const instance = global.zippy.notification.main;
       const id = instance.addNotification({});
       expect(id).to.equal(0);
       const id2 = instance.addNotification({});

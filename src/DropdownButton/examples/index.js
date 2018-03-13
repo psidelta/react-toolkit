@@ -64,6 +64,7 @@ class App extends Component {
             renderMenuWhenCollapsed
             theme={this.state.theme}
             items={items}
+            icon={<div>x</div>}
           >
             Hello
           </DropDownButton>

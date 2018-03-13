@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { cloneElement, Component } from 'react';
 import PropTypes from 'prop-types';
 import region from '@zippytech/region-align';
 import join from '../../common/join';
@@ -130,7 +130,10 @@ class ZippyDropDownButton extends Component {
       onFocus: this.handleFocus,
       onBlur: this.handleBlur,
       onKeyDown: this.handleKeyDown,
-      icon: [props.icon, this.renderArrow()],
+      icon: [
+        cloneElement(props.icon, { key: 'zippy-ddbuttonicon' }),
+        this.renderArrow()
+      ],
       children: props.children,
       tagName: 'div'
     };
