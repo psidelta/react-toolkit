@@ -103,6 +103,7 @@ class ZippyPanel extends Component {
     }
 
     const domProps = {
+      key: 'title',
       className,
       children,
       style: props.titleStyle

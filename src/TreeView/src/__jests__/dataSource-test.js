@@ -39,8 +39,13 @@ describe('dataSource', () => {
       const wrapper = shallow(<TreeView dataSource={dataPromise} />);
 
       setTimeout(() => {
+<<<<<<< HEAD:src/TreeView/src/__jests__/dataSource-test.js
         expect(wrapper.state('loading')).toBe(false);
         expect(wrapper.state('data')).toEqual(data);
+=======
+        expect(wrapper.state('loading')).to.be.false;
+        expect(wrapper.state('data')).to.equal(data);
+>>>>>>> dev:src/TreeView/src/__tests__/dataSource-test.js
         done();
       }, 110);
     });
@@ -75,11 +80,19 @@ describe('dataSource', () => {
           dataSource={dataPromise}
         />
       );
+<<<<<<< HEAD:src/TreeView/src/__jests__/dataSource-test.js
       expect(onDataSourceLoad).toHaveBeenCalledTimes(0);
       setTimeout(() => {
         expect(onDataSourceLoad).toHaveBeenCalledTimes(1);
         done();
       }, 100);
+=======
+      expect(onDataSourceLoad.called).to.be.false;
+      setTimeout(() => {
+        expect(onDataSourceLoad.called).to.be.true;
+        done();
+      }, 50);
+>>>>>>> dev:src/TreeView/src/__tests__/dataSource-test.js
     });
   });
 

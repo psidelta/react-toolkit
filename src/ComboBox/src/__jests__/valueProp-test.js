@@ -47,7 +47,11 @@ describe('value props', () => {
 
   describe('onChange', () => {
     it('should be called when setValue is called', () => {
+<<<<<<< HEAD:src/ComboBox/src/__jests__/valueProp-test.js
       const onChange = jest.fn();
+=======
+      const onChange = sinon.spy();
+>>>>>>> dev:src/ComboBox/src/__tests__/valueProp-test.js
       const wrapper = shallow(
         <Combo defaultValue={20} value={30} onChange={onChange} />
       );

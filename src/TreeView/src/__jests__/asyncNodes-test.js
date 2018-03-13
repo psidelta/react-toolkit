@@ -18,12 +18,20 @@ describe('async nodes', () => {
 
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
       .onExpanderClick({
         stopPropagation: () => {}
       });
     expect(loadNode).toHaveBeenCalled();
+=======
+      .get(0)
+      .onExpanderClick({
+        stopPropagation: () => {}
+      });
+    expect(loadNode.called).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   it('loadNode should update dataSource', () => {
@@ -49,8 +57,12 @@ describe('async nodes', () => {
 
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
+=======
+      .get(0)
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
       .onExpanderClick({
         stopPropagation: () => {}
       });
@@ -85,8 +97,12 @@ describe('async nodes', () => {
 
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
+=======
+      .get(0)
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
       .onExpanderClick({
         stopPropagation: () => {}
       });
@@ -127,12 +143,17 @@ describe('async nodes', () => {
 
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
+=======
+      .get(0)
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
       .onExpanderClick({
         stopPropagation: () => {}
       });
 
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     expect(wrapper.state().nodesLoading['0']).toBe(true);
     // expect(
     //   wrapper
@@ -140,10 +161,20 @@ describe('async nodes', () => {
     //     .first()
     //     .props().loading
     // ).toBe(true);
+=======
+    expect(wrapper.state().nodesLoading['0']).to.be.true;
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().loading
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
 
     setTimeout(() => {
       expect(wrapper.state().nodesLoading['0']).toBe(false);
       done();
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     }, 150);
   });
 
@@ -183,6 +214,44 @@ describe('async nodes', () => {
       .onExpanderClick({ stopPropagation: () => {} });
 
     expect(loadNode).toHaveBeenCalledTimes(3);
+=======
+    }, 50);
+
+    it('should be called every time a node is expanded', () => {
+      const loadNode = sinon.spy();
+      const dataSource = [
+        {
+          label: 'test loadNode',
+          async: true,
+          nodes: []
+        }
+      ];
+      const wrapper = mount(
+        <TreeView
+          dataSource={dataSource}
+          collapsed={{ '0': true }}
+          loadNode={loadNode}
+        />
+      );
+
+      // it is called every time because
+      // collapsed is controlled and it doesn't really change state
+      wrapper
+        .find(Node)
+        .get(0)
+        .onExpanderClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onExpanderClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(0)
+        .onExpanderClick({ stopPropagation: () => {} });
+
+      expect(loadNode.calledThrice).to.be.true;
+    });
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   it('should call loadNondeOnce', () => {
@@ -205,6 +274,7 @@ describe('async nodes', () => {
     // collapsed is controlled and it doesn't really change state
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
       .onExpanderClick({ stopPropagation: () => {} });
@@ -220,6 +290,20 @@ describe('async nodes', () => {
       .onExpanderClick({ stopPropagation: () => {} });
 
     expect(loadNodeOnce).toHaveBeenCalledTimes(1);
+=======
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+
+    expect(loadNodeOnce.calledOnce).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   it('should call loadNondeOnce first time and the folowing expand change loadNode', () => {
@@ -245,6 +329,7 @@ describe('async nodes', () => {
     // collapsed is controlled and it doesn't really change state
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
       .onExpanderClick({ stopPropagation: () => {} });
@@ -265,6 +350,25 @@ describe('async nodes', () => {
 
     expect(loadNode).toHaveBeenCalledTimes(2);
     expect(loadNodeOnce).toHaveBeenCalledTimes(1);
+=======
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+
+    expect(loadNode.called).to.be.false;
+    expect(loadNodeOnce.called).to.be.true;
+
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+    wrapper
+      .find(Node)
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+
+    expect(loadNode.calledTwice).to.be.true;
+    expect(loadNodeOnce.calledOnce).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   it("removes loader and nodes don't change if promise is rejected", done => {
@@ -292,10 +396,16 @@ describe('async nodes', () => {
 
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
       .onExpanderClick({ stopPropagation: () => {} });
     expect(wrapper.state().nodesLoading[0]).toBe(true);
+=======
+      .get(0)
+      .onExpanderClick({ stopPropagation: () => {} });
+    expect(wrapper.state().nodesLoading[0]).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
     setTimeout(() => {
       expect(wrapper.state().nodesLoading[0]).toBe(false);
       expect(wrapper.state().data[0].nodes).toEqual(nodes);
@@ -332,8 +442,12 @@ describe('async nodes', () => {
 
     wrapper
       .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
       .at(0)
       .instance()
+=======
+      .get(0)
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
       .onExpanderClick({ stopPropagation: () => {} });
 
     expect(onNodeLoad).toHaveBeenCalledTimes(0);
@@ -385,7 +499,11 @@ describe('async nodes', () => {
         .find(Node)
         .first()
         .props().async
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   it('should have on props what isNodeAsync returns and should overwrite node.async', () => {
@@ -402,7 +520,11 @@ describe('async nodes', () => {
         .find(Node)
         .first()
         .props().async
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   it('should consider a node to have children if the node is async', () => {
@@ -419,7 +541,11 @@ describe('async nodes', () => {
         .find(Node)
         .first()
         .props().hasChildren
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   it('should call loadNode/loadNodeOnce only on node that is async', () => {
@@ -461,13 +587,21 @@ describe('async nodes', () => {
         .find(Node)
         .first()
         .props().async
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
     expect(
       wrapper
         .find(Node)
         .at(1)
         .props().async
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 
   xit('should consider node async only if node.nodes === null when loadNodeOnce is specified and loadNode is not', () => {
@@ -491,15 +625,28 @@ describe('async nodes', () => {
       />
     );
 
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     const firstNode = wrapper.find(Node).at(0);
 
     console.log(firstNode.props());
     expect(firstNode.props().async).toBe(false);
+=======
+    expect(
+      wrapper
+        .find(Node)
+        .first()
+        .props().async
+    ).to.be.falsey;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
     expect(
       wrapper
         .find(Node)
         .at(1)
         .props().async
+<<<<<<< HEAD:src/TreeView/src/__jests__/asyncNodes-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/asyncNodes-test.js
   });
 });

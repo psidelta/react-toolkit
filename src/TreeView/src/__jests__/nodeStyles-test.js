@@ -22,7 +22,11 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().domProps.style;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeStyles-test.js
       expect(test).toEqual({
+=======
+      expect(test).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/nodeStyles-test.js
         color: 'node color',
         background: 'global background'
       });
@@ -48,7 +52,11 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().domProps.style;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeStyles-test.js
       expect(test).toEqual({
+=======
+      expect(test).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/nodeStyles-test.js
         color: 'node color',
         background: 'global background'
       });
@@ -104,7 +112,11 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().labelStyle;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeStyles-test.js
       expect(test).toEqual({
+=======
+      expect(test).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/nodeStyles-test.js
         color: 'node color',
         background: 'global background'
       });
@@ -130,7 +142,11 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().labelStyle;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeStyles-test.js
       expect(test).toEqual({
+=======
+      expect(test).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/nodeStyles-test.js
         color: 'node color',
         background: 'global background'
       });
@@ -188,7 +204,11 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().contentStyle;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeStyles-test.js
       expect(test).toEqual({
+=======
+      expect(test).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/nodeStyles-test.js
         color: 'node color',
         background: 'global background',
         paddingLeft: 20
@@ -217,7 +237,11 @@ describe('nodeStyles', () => {
         .find(Node)
         .first()
         .props().contentStyle;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeStyles-test.js
       expect(test).toEqual({
+=======
+      expect(test).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/nodeStyles-test.js
         color: 'node color',
         background: 'global background',
         paddingLeft: 20

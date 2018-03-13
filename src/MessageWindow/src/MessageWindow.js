@@ -92,6 +92,7 @@ class MessageWindow extends Component {
     }
     let result;
     let domProps = {
+      key: 'icon',
       size: this.props.iconSize,
       className: `${this.props.rootClassName}__icon`
     };

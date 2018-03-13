@@ -27,6 +27,10 @@ describe('getSingleSelectNames', () => {
         items,
         nameProperty: 'name'
       })
+<<<<<<< HEAD
     ).toEqual(expected);
+=======
+    ).to.deep.equal(expected);
+>>>>>>> dev
   });
 });

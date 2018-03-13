@@ -35,6 +35,7 @@ class Tag extends Component {
 
     const domProps = {
       ...cleanProps(props, Tag.propTypes),
+      key: `tag_${index}`,
       style,
       className,
       onMouseDown: event => {
@@ -46,7 +47,13 @@ class Tag extends Component {
       },
       children: [
         closeIconPosition === 'start' && closeIcon,
+<<<<<<< HEAD
         <span className={labelClassName}>{label}</span>,
+=======
+        <span key="tag_label" className={labelClassName}>
+          {label}
+        </span>,
+>>>>>>> dev
         closeIconPosition === 'end' && closeIcon
       ]
     };
@@ -171,6 +178,7 @@ class Tag extends Component {
     }
 
     const closeIconProps = {
+      key: 'close_icon',
       onClick: isMultiple ? this.handleOnMultipleClose : this.handleOnClose,
       className: closeClassName
     };

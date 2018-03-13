@@ -12,6 +12,8 @@ import getClassNames from './utils/getClassNames';
 
 import { checkedIcon, uncheckedIcon, indeterminateIcon } from './icons';
 
+const stopPropagation = e => e.stopPropagation();
+
 const isValidCheckValue = (value, props) =>
   value === props.checkedValue ||
   value === props.uncheckedValue ||
@@ -482,7 +484,11 @@ class ZippyCheckBox extends Component {
     const Factory = iconCheckOnly ? 'div' : 'label';
 
     return (
-      <Factory {...domProps}>
+      <Factory
+        {...domProps}
+        onClick={this.props.onClick}
+        onChange={stopPropagation}
+      >
         {this.renderBrowserNativeInput()}
         {children}
       </Factory>

@@ -23,7 +23,11 @@ describe('node classNames', () => {
         .find(Node)
         .first()
         .props().domProps.className;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeClassNames-test.js
       expect(test).toEqual(`${globalClassName} ${nodeClassName}`);
+=======
+      expect(test).to.equal(`${globalClassName} ${nodeClassName}`);
+>>>>>>> dev:src/TreeView/src/__tests__/nodeClassNames-test.js
     });
 
     it('should compute correct classname using a function', () => {
@@ -46,7 +50,11 @@ describe('node classNames', () => {
         .find(Node)
         .first()
         .props().domProps.className;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeClassNames-test.js
       expect(test).toEqual(`${globalClassName} ${nodeClassName}`);
+=======
+      expect(test).to.equal(`${globalClassName} ${nodeClassName}`);
+>>>>>>> dev:src/TreeView/src/__tests__/nodeClassNames-test.js
     });
 
     it('should call className function with correct args', () => {
@@ -96,7 +104,11 @@ describe('node classNames', () => {
         .find(Node)
         .first()
         .props().labelClassName;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeClassNames-test.js
       expect(test).toEqual(`${globalClassName} ${nodeClassName}`);
+=======
+      expect(test).to.equal(`${globalClassName} ${nodeClassName}`);
+>>>>>>> dev:src/TreeView/src/__tests__/nodeClassNames-test.js
     });
 
     it('shoud compute correct classname using a function', () => {
@@ -119,7 +131,11 @@ describe('node classNames', () => {
         .find(Node)
         .first()
         .props().labelClassName;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeClassNames-test.js
       expect(test).toEqual(`${globalClassName} ${nodeClassName}`);
+=======
+      expect(test).to.equal(`${globalClassName} ${nodeClassName}`);
+>>>>>>> dev:src/TreeView/src/__tests__/nodeClassNames-test.js
     });
 
     it('should call className function with correct args', () => {
@@ -169,7 +185,11 @@ describe('node classNames', () => {
         .find(Node)
         .first()
         .props().contentClassName;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeClassNames-test.js
       expect(test).toEqual(`${globalClassName} ${nodeClassName}`);
+=======
+      expect(test).to.equal(`${globalClassName} ${nodeClassName}`);
+>>>>>>> dev:src/TreeView/src/__tests__/nodeClassNames-test.js
     });
 
     it('shoud compute correct classname using a function', () => {
@@ -192,7 +212,11 @@ describe('node classNames', () => {
         .find(Node)
         .first()
         .props().contentClassName;
+<<<<<<< HEAD:src/TreeView/src/__jests__/nodeClassNames-test.js
       expect(test).toEqual(`${globalClassName} ${nodeClassName}`);
+=======
+      expect(test).to.equal(`${globalClassName} ${nodeClassName}`);
+>>>>>>> dev:src/TreeView/src/__tests__/nodeClassNames-test.js
     });
 
     it('should call className function with correct args', () => {

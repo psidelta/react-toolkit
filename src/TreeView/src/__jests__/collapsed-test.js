@@ -97,7 +97,11 @@ describe('collapsed props', () => {
           .find(Node)
           .first()
           .props().collapsed
+<<<<<<< HEAD:src/TreeView/src/__jests__/collapsed-test.js
       ).toBe(true);
+=======
+      ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/collapsed-test.js
     });
 
     it('should take into account isNodeCollapsed state when collapse changes', () => {

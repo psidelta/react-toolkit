@@ -1,0 +1,38 @@
+import getNextItem from '../getNextItem';
+
+describe('getNextItem', () => {
+  it('returns next item when direction is 1', () => {
+    const test = getNextItem({
+      data: [{ id: 1 }, { id: 2 }],
+      id: 1,
+      getIdProperty: item => item.id
+    });
+    expect(test).to.equal(2);
+  });
+  it('if it has length 1 it returns the same id', () => {
+    const test = getNextItem({
+      data: [{ id: 1 }],
+      id: 1,
+      getIdProperty: item => item.id
+    });
+    expect(test).to.equal(1);
+  });
+  it('returns previous item whe direction is -1', () => {
+    const test = getNextItem({
+      data: [{ id: 1 }, { id: 2 }, { id: 3 }],
+      id: 2,
+      getIdProperty: item => item.id,
+      direction: -1
+    });
+    expect(test).to.equal(1);
+  });
+  it('navigates to next item if the curret item is disabled', () => {
+    const test = getNextItem({
+      data: [{ id: 1 }, { id: 2, disabled: true }, { id: 3 }],
+      id: 1,
+      getIdProperty: item => item.id,
+      direction: 1
+    });
+    expect(test).to.equal(3);
+  });
+});

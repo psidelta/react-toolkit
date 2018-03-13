@@ -406,6 +406,7 @@ class ZippyComboBox extends Component {
     }
 
     const inputProps = {
+      key: 'text_input',
       value,
       suggestion,
       placeholder: this.props.placeholder,

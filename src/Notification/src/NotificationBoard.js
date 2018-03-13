@@ -449,24 +449,24 @@ class NotificationBoard extends Component {
 
   // register/unregister to global namespace
   register() {
-    if (!global.zippyui) {
-      global.zippyui = {};
+    if (!global.zippy) {
+      global.zippy = {};
     }
 
-    if (!global.zippyui.notification) {
-      global.zippyui.notification = {};
+    if (!global.zippy.notification) {
+      global.zippy.notification = {};
     }
 
-    global.zippyui.notification[this.props.id] = this;
+    global.zippy.notification[this.props.id] = this;
   }
 
   unregister() {
     if (
-      global.zippyui &&
-      global.zippyui.notification &&
-      global.zippyui.notification[this.props.id]
+      global.zippy &&
+      global.zippy.notification &&
+      global.zippy.notification[this.props.id]
     ) {
-      global.zippyui.notification[this.props.id] = null;
+      global.zippy.notification[this.props.id] = null;
     }
   }
 

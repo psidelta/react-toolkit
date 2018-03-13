@@ -28,6 +28,18 @@ describe('constrainPositionToRegion', () => {
       constrainPositionToRegion({ constrain, position, region })
     ).toEqual(expected);
   });
+<<<<<<< HEAD:src/Window/src/utils/__jests__/constrainPositionToRegion-test.js
+=======
+  it('constrains position bottom and right when it overflows bottom/right', () => {
+    const region = { width: 100, height: 100 };
+    const constrain = { top: 0, left: 0, bottom: 300, right: 300 };
+    const position = { bottom: -10, right: -10 };
+    const expected = { bottom: 0, right: 0 };
+    expect(
+      constrainPositionToRegion({ constrain, position, region })
+    ).to.deep.equal(expected);
+  });
+>>>>>>> dev:src/Window/src/utils/__tests__/constrainPositionToRegion-test.js
   it('constrains position bottom and right when it overflows top/left', () => {
     const constrain = { top: 0, left: 0, bottom: 300, right: 300 };
     const region = { width: 200, height: 200 };

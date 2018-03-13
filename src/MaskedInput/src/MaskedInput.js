@@ -742,6 +742,11 @@ ZippyMaskedInput.propTypes = {
 
   hideMaskFillOnBlur: PropTypes.bool,
 
+  className: PropTypes.string,
+  inputClassName: PropTypes.string,
+  style: PropTypes.object,
+  inputStyle: PropTypes.object,
+
   placeholder: PropTypes.string,
   rootClassName: PropTypes.string,
   disabled: PropTypes.bool,

@@ -340,8 +340,15 @@ class ZippyNumericInput extends Component {
     return (
       <div
         {...propsToWrapper}
-        className={className}
-        style={style}
+        className={join(
+          className,
+          wrapperProps ? wrapperProps.className : null
+        )}
+        style={
+          wrapperProps && wrapperProps.style
+            ? { ...style, ...wrapperProps.style }
+            : style
+        }
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
       >
@@ -712,6 +719,18 @@ class ZippyNumericInput extends Component {
   }
 
   setValue(value, { silent } = {}) {
+    if (this.props.allowNegative && value === '-') {
+      this.setIntermediateValue(value);
+      return;
+    }
+    if (this.props.allowFloat && value === '.') {
+      this.setIntermediateValue(value);
+      return;
+    }
+    if (this.props.allowFloat && this.props.allowNegative && value === '-.') {
+      this.setIntermediateValue(value);
+      return;
+    }
     const parseResult = parseFloat(value);
 
     const parsedValue = isNaN(parseResult)

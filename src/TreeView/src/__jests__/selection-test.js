@@ -40,7 +40,11 @@ describe('selection props', () => {
           .find(Node)
           .first()
           .props().selected
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
       ).toBe(undefined);
+=======
+      ).to.be.falsey;
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
     });
   });
 
@@ -51,6 +55,7 @@ describe('selection props', () => {
       );
       wrapper
         .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
         .at(0)
         .instance()
         .onLabelClick({ stopPropagation: () => {} });
@@ -60,6 +65,15 @@ describe('selection props', () => {
         .instance()
         .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).toEqual({
+=======
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
+      expect(wrapper.state().selected).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
         '0': true,
         '1': true
       });
@@ -86,10 +100,16 @@ describe('selection props', () => {
       const initialState = wrapper.state().selected;
       wrapper
         .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
         .at(1)
         .instance()
         .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).toEqual(initialState);
+=======
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
+      expect(wrapper.state().selected).to.be.deep.equal(initialState);
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
     });
 
     it('should use correct selected state', () => {
@@ -119,10 +139,16 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
         .at(1)
         .instance()
         .onLabelClick({ stopPropagation: () => {} });
       expect(wrapper.state().selected).toEqual({
+=======
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
+      expect(wrapper.state().selected).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
         '1': true
       });
     });
@@ -140,8 +166,12 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
         .at(0)
         .instance()
+=======
+        .get(0)
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
         .onLabelClick({ stopPropagation: () => {} });
 
       expect(onSelectionChange).toHaveBeenCalledTimes(0);
@@ -159,10 +189,16 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
         .at(0)
         .instance()
         .onLabelClick({ stopPropagation: () => {} });
       expect(onSelectionChange).toHaveBeenCalled();
+=======
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
+      expect(onSelectionChange.called).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
     });
 
     it('should call onSelectionChange with correct new selected', () => {
@@ -177,6 +213,7 @@ describe('selection props', () => {
       wrapper.setProps({ enableSelection: true, onSelectionChange });
       wrapper
         .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
         .at(0)
         .instance()
         .onLabelClick({ stopPropagation: () => {} });
@@ -191,6 +228,20 @@ describe('selection props', () => {
       expect(test.selected).toBe(true);
       expect(test.path).toEqual('1');
       expect(test.selectedMap).toEqual({
+=======
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
+      wrapper
+        .find(Node)
+        .get(1)
+        .onLabelClick({ stopPropagation: () => {} });
+
+      const test = onSelectionChange.args[1][0];
+
+      expect(test.selected).to.be.true;
+      expect(test.path).to.be.equal('1');
+      expect(test.selectedMap).to.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
         '0': true,
         '1': true
       });
@@ -216,8 +267,12 @@ describe('selection props', () => {
 
         wrapper
           .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
           .at(0)
           .instance()
+=======
+          .get(0)
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
           .onLabelClick({ stopPropagation: () => {} });
 
         expect(newDataSource).toBeDefined();
@@ -276,10 +331,16 @@ describe('selection props', () => {
 
       wrapper
         .find(Node)
+<<<<<<< HEAD:src/TreeView/src/__jests__/selection-test.js
         .at(0)
         .instance()
         .onLabelClick({ stopPropagation: () => {} });
       expect(onSelectionChange.mock.calls[0][0].selectedMap).toEqual({
+=======
+        .get(0)
+        .onLabelClick({ stopPropagation: () => {} });
+      expect(onSelectionChange.args[0][0].selectedMap).to.be.deep.equal({
+>>>>>>> dev:src/TreeView/src/__tests__/selection-test.js
         0: true
       });
     });

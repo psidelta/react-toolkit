@@ -121,7 +121,11 @@ describe('Styles and render', () => {
       <Check uncheckedIconSrc="dummy-icon" tabIndex={1} />
     );
     const node = findDOMNode(checkbox);
+<<<<<<< HEAD:src/CheckBox/src/__jests__/stylesAndRender-test.js
     expect(node.tabIndex).toEqual(1);
+=======
+    expect(node.tabIndex).to.be.equal(1);
+>>>>>>> dev:src/CheckBox/src/__tests__/stylesAndRender-test.js
     checkbox.unmount();
   });
 

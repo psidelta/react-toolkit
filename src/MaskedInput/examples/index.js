@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import MaskedInput from '.././src/MaskedInput';
 
 import '../style/index.scss';
+import './index.css';
 
 const onChange = props => {
   console.log('onChange', props);
@@ -44,6 +45,10 @@ class App extends Component {
           onChange={({ currentValue }) => {
             this.setState({ value: currentValue });
           }}
+          inputClassName="masked-input-custom-class"
+          className="custom-class"
+          inputStyle={{ color: 'red' }}
+          style={{ border: '1px solid green' }}
         />
         <br />
         <br />

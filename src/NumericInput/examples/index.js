@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 import NumberInput from '../index';
-import TextInput from '../../TextInput';
-import MaskedInput from '../../MaskedInput';
-import ComboBox from '../../ComboBox';
-import { DateInput } from '../../Calendar';
-import '../../Calendar/style/index.scss';
-import '../../ComboBox/style/index.scss';
-import '../../MaskedInput/style/index.scss';
-import '../../TextInput/style/index.scss';
 import '../style/index.scss';
 
 class App extends Component {
@@ -35,14 +27,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{ padding: 50 }}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            border: '1px solid red',
-            height: 32
+      <div className="App" style={{ padding: 50, xbackground: 'antiquewhite' }}>
+        <NumberInput
+          style={{ width: 100 }}
+          value={this.state.value}
+          onChange={this.onChange.bind(this)}
+          wrapperProps={{
+            style: {
+              xbackground: 'green',
+              xborder: '5px solid red',
+              borderRadius: 10
+            }
           }}
+<<<<<<< HEAD
         >
           <TextInput
             style={{ marginRight: 5, width: 200 }}
@@ -77,6 +74,8 @@ class App extends Component {
           maxValue={11150}
           value={this.state.value}
           onChange={this.onChange.bind(this)}
+=======
+>>>>>>> dev
         />
       </div>
     );

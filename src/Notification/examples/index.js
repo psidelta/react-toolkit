@@ -16,12 +16,17 @@ class App extends React.Component {
   }
   addNotification() {
     count++;
+<<<<<<< HEAD
     zippyui.notification.first.addNotification({
       // title: this.state.title ? <div>Notification number </div> : null,
       title: domProps => {
         domProps.id = '#mutatedId';
         domProps.children = 'hello world!!!';
       },
+=======
+    zippy.notification.first.addNotification({
+      title: this.state.title ? <div>Notification number </div> : null,
+>>>>>>> dev
       autoHideDelay: false,
       // visible: false,
       // showTransitionDuration: 2000,
@@ -38,7 +43,7 @@ class App extends React.Component {
     });
   }
   showAll() {
-    zippyui.notification.first.showAll();
+    zippy.notification.first.showAll();
   }
 
   hideAll() {

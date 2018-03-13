@@ -18,7 +18,11 @@ describe('MessageWindow', () => {
         .find(OkButton)
         .first()
         .simulate('click');
+<<<<<<< HEAD:src/MessageWindow/src/__jests__/MessageWindow-test.js
       expect(onDismiss).toHaveBeenCalled();
+=======
+      expect(onDismiss.called).to.be.true;
+>>>>>>> dev:src/MessageWindow/src/__tests__/MessageWindow-test.js
     });
     it('calls onDismiss on yesButton click', () => {
       const onDismiss = jest.fn();
@@ -31,7 +35,11 @@ describe('MessageWindow', () => {
         .find(YesButton)
         .first()
         .simulate('click');
+<<<<<<< HEAD:src/MessageWindow/src/__jests__/MessageWindow-test.js
       expect(onDismiss).toHaveBeenCalled();
+=======
+      expect(onDismiss.called).to.be.true;
+>>>>>>> dev:src/MessageWindow/src/__tests__/MessageWindow-test.js
     });
     it('calls onDismiss on noButton click', () => {
       const onDismiss = jest.fn();
@@ -44,7 +52,11 @@ describe('MessageWindow', () => {
         .find(NoButton)
         .first()
         .simulate('click');
+<<<<<<< HEAD:src/MessageWindow/src/__jests__/MessageWindow-test.js
       expect(onDismiss).toHaveBeenCalled();
+=======
+      expect(onDismiss.called).to.be.true;
+>>>>>>> dev:src/MessageWindow/src/__tests__/MessageWindow-test.js
     });
     it('calls onDismiss on cancelButton click', () => {
       const onDismiss = jest.fn();
@@ -57,7 +69,11 @@ describe('MessageWindow', () => {
         .find(CancelButton)
         .first()
         .simulate('click');
+<<<<<<< HEAD:src/MessageWindow/src/__jests__/MessageWindow-test.js
       expect(onDismiss).toHaveBeenCalled();
+=======
+      expect(onDismiss.called).to.be.true;
+>>>>>>> dev:src/MessageWindow/src/__tests__/MessageWindow-test.js
     });
   });
 

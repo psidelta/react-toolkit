@@ -76,7 +76,11 @@ describe('checked props', () => {
           .find(Node)
           .first()
           .props().enableChecked
+<<<<<<< HEAD:src/TreeView/src/__jests__/check-test.js
       ).toBe(false);
+=======
+      ).to.be.false;
+>>>>>>> dev:src/TreeView/src/__tests__/check-test.js
     });
   });
 
@@ -159,7 +163,11 @@ describe('checked props', () => {
           .find(Node)
           .first()
           .props().checked
+<<<<<<< HEAD:src/TreeView/src/__jests__/check-test.js
       ).toBe(true);
+=======
+      ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/check-test.js
     });
 
     it('should take into account isNodeChecked state when selected changes', () => {

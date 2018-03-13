@@ -123,6 +123,20 @@ describe('eventManager delays', () => {
 
       // trigger mouseenter from targetNode
       targetNode.dispatchEvent(mouseenterEvent);
+<<<<<<< HEAD:src/Overlay/src/eventManager/__jests__/delay-test.js
+=======
+      clock.tick(100);
+
+      // trigger mouseneter form another target
+      const newTargetMouseEnterEvent = new CustomEvent('mouseenter', {
+        bubbles: true
+      });
+      target2.dispatchEvent(newTargetMouseEnterEvent);
+
+      clock.tick(600);
+      expect(onShow.calledOnce).to.be.true;
+      expect(onShow.args[0][0].target).to.equal(target2);
+>>>>>>> dev:src/Overlay/src/eventManager/__tests__/delay-test.js
 
       setTimeout(() => {
         const newTargetMouseEnterEvent = new CustomEvent('mouseenter', {

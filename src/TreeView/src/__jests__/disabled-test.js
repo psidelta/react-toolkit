@@ -38,19 +38,31 @@ describe('disabled prop', () => {
         .find(Node)
         .first()
         .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
     expect(
       wrapper
         .find(Node)
         .at(1)
         .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
     ).toBe(false);
+=======
+    ).to.be.falsey;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
     expect(
       wrapper
         .find(Node)
         .at(2)
         .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
   });
 });
 
@@ -86,26 +98,42 @@ describe('isNodeDisabled', () => {
         .find(Node)
         .first()
         .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
     ).toBe(true);
 
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
     expect(
       wrapper
         .find(Node)
         .at(1)
         .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
     ).toEqual(false);
+=======
+    ).to.be.falsey;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
     expect(
       wrapper
         .find(Node)
         .at(2)
         .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
     ).toBe(true);
+=======
+    ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
     expect(
       wrapper
         .find(Node)
         .at(3)
         .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
     ).toBe(false);
+=======
+    ).to.be.falsey;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
   });
 
   describe('node.disabled', () => {
@@ -119,7 +147,11 @@ describe('isNodeDisabled', () => {
           .find(Node)
           .first()
           .props().disabled
+<<<<<<< HEAD:src/TreeView/src/__jests__/disabled-test.js
       ).toBe(true);
+=======
+      ).to.be.true;
+>>>>>>> dev:src/TreeView/src/__tests__/disabled-test.js
     });
   });
 });

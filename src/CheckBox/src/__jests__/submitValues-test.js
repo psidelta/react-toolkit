@@ -80,7 +80,11 @@ describe('Hidden submit input', () => {
       console.warn = spiedConsoleWarn;
       const checkbox = render(<Check shouldSubmit={() => true} />);
       console.warn = originalConsoleWarning;
+<<<<<<< HEAD:src/CheckBox/src/__jests__/submitValues-test.js
       expect(thrownMessage).toContain(
+=======
+      expect(thrownMessage).to.contain(
+>>>>>>> dev:src/CheckBox/src/__tests__/submitValues-test.js
         'shouldSubmit function returned true, but "name" prop is missing'
       );
       checkbox.unmount();
@@ -99,7 +103,11 @@ describe('Hidden submit input', () => {
         <Check showWarnings={false} shouldSubmit={() => true} />
       );
       console.warn = originalConsoleWarning;
+<<<<<<< HEAD:src/CheckBox/src/__jests__/submitValues-test.js
       expect(errorMessageWasNotLogged).toEqual(true);
+=======
+      expect(errorMessageWasNotLogged).to.equal(true);
+>>>>>>> dev:src/CheckBox/src/__tests__/submitValues-test.js
       checkbox.unmount();
     }
   });
@@ -129,7 +137,11 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check value="checked" />);
       console.error = originalConsoleError;
+<<<<<<< HEAD:src/CheckBox/src/__jests__/submitValues-test.js
       expect(loggedError).toContain(
+=======
+      expect(loggedError).to.contain(
+>>>>>>> dev:src/CheckBox/src/__tests__/submitValues-test.js
         '"value" prop is not supported. Use "checked" instead.'
       );
       checkbox.unmount();
@@ -146,7 +158,11 @@ describe('Hidden submit input', () => {
       console.error = spiedConsoleError;
       const checkbox = render(<Check defaultValue="checked" />);
       console.error = originalConsoleError;
+<<<<<<< HEAD:src/CheckBox/src/__jests__/submitValues-test.js
       expect(loggedError).toContain(
+=======
+      expect(loggedError).to.contain(
+>>>>>>> dev:src/CheckBox/src/__tests__/submitValues-test.js
         '"defaultValue" prop is not supported. Use "checked" instead.'
       );
       checkbox.unmount();
@@ -180,7 +196,11 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
+<<<<<<< HEAD:src/CheckBox/src/__jests__/submitValues-test.js
     expect(input.value).toEqual(INDETERMINATE);
+=======
+    expect(input.value).to.equal(INDETERMINATE);
+>>>>>>> dev:src/CheckBox/src/__tests__/submitValues-test.js
     checkbox.unmount();
   });
 
@@ -215,7 +235,11 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
+<<<<<<< HEAD:src/CheckBox/src/__jests__/submitValues-test.js
     expect(input.value).toEqual(UNCHECKED);
+=======
+    expect(input.value).to.equal(UNCHECKED);
+>>>>>>> dev:src/CheckBox/src/__tests__/submitValues-test.js
     checkbox.unmount();
   });
 
@@ -244,7 +268,11 @@ describe('Hidden submit input', () => {
     );
     const node = findDOMNode(checkbox);
     const input = node.querySelector('input');
+<<<<<<< HEAD:src/CheckBox/src/__jests__/submitValues-test.js
     expect(input.value).toEqual(CHECKED);
+=======
+    expect(input.value).to.equal(CHECKED);
+>>>>>>> dev:src/CheckBox/src/__tests__/submitValues-test.js
     checkbox.unmount();
   });
 
