@@ -44,7 +44,17 @@ class App extends Component {
 
     return (
       <form className="App" style={{ padding: 20 }}>
-        <Checkbox supportIndeterminate onFocus={focus}>
+        <Checkbox
+          supportIndeterminate
+          checked={this.state.checked}
+          browserNative
+          onFocus={focus}
+          onChange={checked => {
+            this.setState({
+              checked
+            });
+          }}
+        >
           test
         </Checkbox>
         <Checkbox supportIndeterminate onFocus={focus} focusable={false}>
