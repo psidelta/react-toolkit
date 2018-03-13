@@ -87,7 +87,7 @@ class Demo extends Component {
       searchable: true,
       comboValue: 'RO',
       expanded: true,
-      comboBoxValue: undefined
+      comboBoxValue: 'Algeria'
     };
     this.loadLazyDataSource = this.loadLazyDataSource.bind(this);
   }
@@ -127,10 +127,11 @@ class Demo extends Component {
           </button>
           <ZippyComboBox
             style={{ width: 300 }}
-            multiple
+            // multiple
+            disabled
             dataSource={countries}
             value={this.state.comboBoxValue}
-            placeholder="select country"
+            // placeholder="select country"
             loading={this.state.loading}
             onChange={comboBoxValue =>
               this.setState({ index: this.state.index + 1, comboBoxValue })
