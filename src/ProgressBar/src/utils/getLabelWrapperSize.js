@@ -1,5 +1,5 @@
 /**
- * depricated
+ * deprecated
  */
 function getLabelWrapperSize(size) {
   // wrapper must be as big as the entire progressbar
@@ -13,4 +13,4 @@ function getLabelWrapperSize(size) {
   return 10000 / size;
 }
 
-export default getLabelWrapperSize
+export default getLabelWrapperSize;

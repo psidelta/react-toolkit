@@ -38,7 +38,7 @@ if ('ALL' === MODULE_NAME) {
     .then(buildGlobalIndex)
     .then(buildCommon)
     .then(buildGlobalPackageJSON)
-    .then(copyThemesList)
+    // .then(copyThemesList)
     .catch(err => console.log(err));
 } else {
   buildComponent(MODULE_NAME);

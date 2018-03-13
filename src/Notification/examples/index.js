@@ -1,16 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import NotificationBoard from '../src';
@@ -30,7 +17,11 @@ class App extends React.Component {
   addNotification() {
     count++;
     zippyui.notification.first.addNotification({
-      title: this.state.title ? <div>Notification number </div> : null,
+      // title: this.state.title ? <div>Notification number </div> : null,
+      title: domProps => {
+        domProps.id = '#mutatedId';
+        domProps.children = 'hello world!!!';
+      },
       autoHideDelay: false,
       // visible: false,
       // showTransitionDuration: 2000,
@@ -39,7 +30,11 @@ class App extends React.Component {
         <p>
           This is the <b>content</b> of the <b>{count}</b> notification!
         </p>
-      )
+      ),
+      style: {
+        background: 'blue',
+        color: 'purple'
+      }
     });
   }
   showAll() {
@@ -78,7 +73,7 @@ class App extends React.Component {
           pinButton
           autoHideDelay={50000000}
           zIndex={100000}
-          // rtl
+          style={{ color: 'red', backgroundColor: 'lightBlue' }}
         />
       </div>
     );

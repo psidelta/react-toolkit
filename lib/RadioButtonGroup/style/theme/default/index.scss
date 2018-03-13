@@ -1,6 +1,6 @@
-@import '../../variables';
+@import '../../variables.scss';
 
-@import './variables';
+@import './variables.scss';
 
 .#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--theme-#{$ZIPPY_RADIO_BUTTON_GROUP_THEME_NAME} {
   outline: none;

@@ -1,6 +1,6 @@
 @import '../src/Filelist/style/base.scss';
 @import '../../ProgressBar/style/base.scss';
-@import './variables';
+@import './variables.scss';
 
 .zippy-react-uploader-file-input {
   input[type='file'] {

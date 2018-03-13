@@ -12,37 +12,34 @@
  * limitations under the License.
  */
 
-const loaders = require('./build/loaders.js')
+const loaders = require('./build/loaders.js');
 
-const MODULE_NAME = process.env.npm_config_module
-const isWindows = MODULE_NAME && MODULE_NAME.split('-').length === 2
+const MODULE_NAME = process.env.npm_config_module;
+const isWindows = MODULE_NAME && MODULE_NAME.split('-').length === 2;
 
-var filesPattern
+var filesPattern;
 if (MODULE_NAME === 'ALL') {
-  filesPattern = `${__dirname}/src/**/*-test.js`
+  filesPattern = `${__dirname}/src/**/*-test.js`;
 } else {
-  filesPattern = `${__dirname}/src/${MODULE_NAME}/**/*-test.js`
+  filesPattern = `${__dirname}/src/${MODULE_NAME}/**/*-test.js`;
 }
 
-console.log(filesPattern)
+console.log(filesPattern);
 
-const browsers = isWindows ?
-  ['IE'] :
-  ['Chrome']
+const browsers = isWindows ? ['IE'] : ['Chrome'];
 
 module.exports = function(config) {
   config.set({
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
     webpack: {
       devtool: 'inline-source-map',
       externals: {
-        'cheerio': 'window',
-        'react/addons': true, // important!!
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
+        cheerio: 'window',
+        'react/addons': true // important!!
+        // 'react/lib/ExecutionEnvironment': true,
+        // 'react/lib/ReactContext': true
       },
       module: {
         loaders: loaders
@@ -60,6 +57,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      {
+        pattern: `${__dirname}/src/setupEnzyme.js`,
+        watched: false
+      },
       { pattern: filesPattern, watched: false }
     ],
 
@@ -102,5 +103,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};

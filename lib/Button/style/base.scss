@@ -1,8 +1,4 @@
-/**
- * Copyright 2015-present, Zippy Technologies.
- * All rights reserved.
- */
-@import './variables';
+@import './variables.scss';
 
 .#{$ZIPPY_BUTTON_ROOT_CLASS} {
   &,

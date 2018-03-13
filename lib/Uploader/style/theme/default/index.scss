@@ -1,6 +1,6 @@
 @import '../../../src/Filelist/style/theme/default/index.scss';
 @import '../../../../ProgressBar/style/theme/default/index.scss';
-@import './variables';
+@import './variables.scss';
 
 .#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}--theme-default {
   min-height: 320px;

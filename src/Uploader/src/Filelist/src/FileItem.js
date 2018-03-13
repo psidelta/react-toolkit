@@ -27,11 +27,11 @@ const shouldShowUploadButton = props => {
 };
 
 const renderUploadButton = props => {
-  if (props.isLabel) {
-    return <div {...props} />;
-  } else {
-    return <Button {...props} />;
+  const { isLabel, ...domProps } = props;
+  if (isLabel) {
+    return <div {...domProps} />;
   }
+  return <Button {...domProps} />;
 };
 
 const renderFileExtensionIcon = props => {
@@ -162,18 +162,18 @@ const getUploadActionText = ({
   i18n
 }) => {
   if (inDoneState) {
-    return i18n.UPLOADED;
+    return i18n ? i18n.UPLOADED : 'uploaded';
   }
 
   if (inQuedState) {
-    return i18n.QUEUED;
+    return i18n ? i18n.QUEUED : 'queued';
   }
 
   if (inProgressState) {
-    return i18n.UPLOADING;
+    return i18n ? i18n.UPLOADING : 'uploading';
   }
 
-  return i18n.UPLOAD;
+  return i18n ? i18n.UPLOAD : 'upload';
 };
 
 const renderSuccessState = ({
@@ -404,20 +404,21 @@ class FileItem extends Component {
       >
         {this.getFileExtensionContent(props)}
 
-        {shouldShowJustTheNameOfTheFile(props) && this.getNameContent()}
+        {shouldShowJustTheNameOfTheFile(props) ? this.getNameContent() : null}
 
-        {shouldShowError(props) && this.getErrorContent()}
-        {inDoneState && this.getSuccessContent()}
-        {inQuedState && this.getQueuedContent()}
+        {shouldShowError(props) ? this.getErrorContent() : null}
+        {inDoneState ? this.getSuccessContent() : null}
+        {inQuedState ? this.getQueuedContent() : null}
 
-        {inProgressState && this.getUploaderProgressContent()}
+        {inProgressState ? this.getUploaderProgressContent() : null}
 
-        {shouldShowUploadButton(props) &&
-          this.getUploadButtonContent({
-            inDoneState,
-            inQuedState,
-            inProgressState
-          })}
+        {shouldShowUploadButton(props)
+          ? this.getUploadButtonContent({
+              inDoneState,
+              inQuedState,
+              inProgressState
+            })
+          : null}
         {this.getClearIconContent()}
       </div>
     );

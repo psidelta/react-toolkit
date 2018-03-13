@@ -1,5 +1,4 @@
-@import '../../variables';
-
+@import '../../variables.scss';
 @import './variables.scss';
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}.#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}--theme-#{$ZIPPY_ARROW_SCROLLER_THEME_NAME} {

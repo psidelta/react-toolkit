@@ -1,18 +1,4 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import React from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import Component from '@zippytech/react-class';
@@ -117,15 +103,26 @@ export default class TabTitle extends Component {
   }
 
   prepareChildren(props) {
-    const title =
+    let title =
       (props.tabTitle !== undefined ? props.tabTitle : props.children) ||
       '\u00a0';
 
-    if (props.closeable) {
-      return [title, this.renderCloseIcon()];
+    if (typeof title == 'string') {
+      title = <span>{title}</span>;
     }
 
-    return title;
+    if (props.closeable) {
+      if (Array.isArray(title)) {
+        return [title, this.renderCloseIcon()];
+      }
+      return [cloneElement(title, { key: 'title' }), this.renderCloseIcon()];
+    }
+
+    if (Array.isArray(title)) {
+      return title;
+    }
+
+    return cloneElement(title, { key: 'title' });
   }
 
   renderCloseIcon() {
@@ -293,11 +290,7 @@ export default class TabTitle extends Component {
             height = Math.max(height || 0, hiddenSize.width || 0);
 
             return [
-              <div
-                key="inner"
-                {...innerProps}
-                style={{ ...innerStyle, width: height }}
-              />,
+              <div {...innerProps} style={{ ...innerStyle, width: height }} />,
               verticalFix
             ];
           }}
@@ -369,7 +362,7 @@ TabTitle.propTypes = {
   focused: PropTypes.bool,
 
   tabStyle: PropTypes.string,
-  tabActiveStyle: PropTypes.string,
+  tabActiveStyle: PropTypes.object,
   tabDisabledStyle: PropTypes.string,
   rootClassName: PropTypes.string,
 

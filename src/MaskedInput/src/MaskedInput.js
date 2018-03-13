@@ -529,6 +529,7 @@ class ZippyMaskedInput extends Component {
     );
 
     const svgProps = {};
+    const tabIndex = this.props.acceptClearToolFocus ? 0 : -1;
 
     if (clearButtonColor) {
       svgProps.fill = clearButtonColor;
@@ -551,6 +552,7 @@ class ZippyMaskedInput extends Component {
         onMouseDown={preventDefault}
         className={clearButtonClassName}
         style={{ ...clearButtonStyle }}
+        tabIndex={tabIndex}
       >
         <svg style={{ ...svgProps }} viewBox="4 4 16 16">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
@@ -709,11 +711,7 @@ class ZippyMaskedInput extends Component {
     );
 
     return (
-      <div
-        {...cleanedProps}
-        className={className}
-        style={style}
-      >
+      <div {...cleanedProps} className={className} style={style}>
         {input}
         {this.renderClearButtonWrapper()}
       </div>
@@ -728,6 +726,7 @@ ZippyMaskedInput.defaultProps = {
   enableClearButton: true,
   clearButtonSize: 10,
   hideMaskFillOnBlur: false,
+  acceptClearToolFocus: false,
   theme: 'default',
   rootClassName: 'zippy-react-toolkit-masked-input'
 };
@@ -749,6 +748,8 @@ ZippyMaskedInput.propTypes = {
   locked: PropTypes.bool,
   readOnly: PropTypes.bool,
   tabIndex: PropTypes.any,
+
+  acceptClearToolFocus: PropTypes.bool,
 
   enableClearButton: PropTypes.bool,
   clearButtonColor: PropTypes.string,

@@ -1,17 +1,3 @@
-/**
- * Copyright 2015-present Zippy Technologies
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *   http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 
@@ -32,11 +18,11 @@ import 'typeface-roboto';
 
 import '../style/base.scss';
 import '../style/theme/default/index.scss';
-import '../style/theme/red/index.scss';
-import '../style/theme/blue/index.scss';
-import '../style/theme/flat/index.scss';
+// import '../style/theme/red/index.scss';
+// import '../style/theme/blue/index.scss';
+// import '../style/theme/flat/index.scss';
 
-import './index.css';
+// import './index.css';
 
 import { home, features, about, signup } from './tabContent';
 
@@ -187,6 +173,7 @@ class App extends Component {
             }}
             // defaultActiveIndex={2}
             enableKeyboardNavigation
+            tabActiveStyle={{ background: '#c9c9da', color: '#f75353' }}
             stretchTabContent
             tabAlign={this.state.tabAlign}
             tabPosition={this.state.tabPosition}
@@ -215,7 +202,7 @@ class App extends Component {
                 {about}
               </div>
               <div tabTitle="Sign up">{signup}</div>
-              {[...Array(20)].map((_, i) => i).map(i => (
+              {[...Array(2)].map((_, i) => i).map(i => (
                 <div tabTitle={`tab ${i}`} key={i}>
                   tab content {i}
                 </div>
@@ -231,7 +218,7 @@ class App extends Component {
           </Accordion>
           <TabStrip
             tabs={[
-              { title: <div className="tab-strip">{icon} Home</div> },
+              { title: [<div className="tab-strip">{icon} Home</div>] },
               { title: <div className="tab-strip">Features</div> },
               { title: <div className="tab-strip">About us</div> },
               { title: <div className="tab-strip">Sign up</div> }

@@ -1,9 +1,5 @@
-/**
- * Copyright 2015-present, Zippy Technologies.
- * All rights reserved.
- */
-@import './variables';
+@import './variables.scss';
 
-@import './base';
+@import './base.scss';
 @import './theme/default/index.scss';
 @import './theme/light/index.scss';
