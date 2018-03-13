@@ -11,7 +11,7 @@ describe('filterByText', () => {
     const getFilterProperty = item => item.label;
     const test = filterByText({ data, getFilterProperty, text: 'foo' });
 
-    expect(test).to.deep.equal([{ label: 'foo' }, { label: 'fooBar' }]);
+    expect(test).toEqual([{ label: 'foo' }, { label: 'fooBar' }]);
   });
   it('returns a list that matches text', () => {
     const data = [
@@ -28,7 +28,7 @@ describe('filterByText', () => {
       mode: 'startsWidth'
     });
 
-    expect(test).to.deep.equal([{ label: 'foo' }]);
+    expect(test).toEqual([{ label: 'foo' }]);
   });
   it('returns a list with items for which filterFunction returned true', () => {
     const data = [
@@ -46,6 +46,6 @@ describe('filterByText', () => {
       filterFunction
     });
 
-    expect(test).to.deep.equal([{ label: 'foo' }]);
+    expect(test).toEqual([{ label: 'foo' }]);
   });
 });

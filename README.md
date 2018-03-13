@@ -8,13 +8,7 @@ The purpose of the `React Toolkit (@zippytech/react-toolkit)` is to provide a se
 
 ## Installation
 
-**Zippy React Toolkit** is distributed via **npm** - more exactly, via a **custom npm registry** (https://registry.zippytech.io). Getting it installed requires an additional step: you have to point the npm CLI to the correct registry for packages in the `@zippytech` scope:
-
-```sh
-$ npm config set @zippytech:registry https://registry.zippytech.io
-```
-
-After this, you can install install it with
+**Zippy React Toolkit** is distributed via **NPM**. So getting started is as easy as:
 
 ```sh
 $ npm install @zippytech/react-toolkit --save
@@ -22,17 +16,17 @@ $ npm install @zippytech/react-toolkit --save
 
 ## List of Components
 
-* Accordion
-* Button
-* ButtonGroup
-* Calendar
-* CheckBox
-* ComboBox
-* DateInput
-* DropdownButton
-* LoadMask
-* MaskedInput
-* Menu
+* [Accordion](https://docs.zippytech.io/accordion)
+* [Button](https://docs.zippytech.io/button)
+* [ButtonGroup](https://docs.zippytech.io/buttongroup)
+* [Calendar](https://docs.zippytech.io/calendar)
+* [CheckBox](https://docs.zippytech.io/checkbox)
+* [ComboBox](https://docs.zippytech.io/combobox)
+* [DateInput](https://docs.zippytech.io/dateinput)
+* [DropdownButton](https://docs.zippytech.io/dropdownbutton)
+* [LoadMask](https://docs.zippytech.io/loadmask)
+* [MaskedInput](https://docs.zippytech.io/maskedinput)
+* [Menu](https://docs.zippytech.io/menu)
 * MessageWindow
 * Notification
 * NumericInput

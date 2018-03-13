@@ -79,16 +79,20 @@ class App extends React.Component {
           titleBarPosition={this.state.titleBarPosition}
           titleAlign={this.state.titleAlign}
           titleRotate={this.state.titleRotate * 1}
+          // onTitleBarResize={{ width: 200, height: 200 }}
           // titleEllipsis={false}
           // bodyScrollable={true}
-          // renderAfterTitle={() => 'xxx'}
-          // renderBeforeTitle={() => 'yyy'}
+          renderAfterTitle={() => <Icon type="save" />}
+          renderBeforeTitle={() => <Icon type="close" />}
           // xtitleBarPosition="right"
-          // renderFooter={props => (
-          //   <div {...props} style={{ color: 'green' }}>
-          //     Dolore dolore sit irure amet velit reprehenderit enim officia ad.
-          //   </div>
-          // )}
+          renderFooter={props => {
+            return (
+              <div style={{ color: 'green' }}>
+                Dolore dolore sit irure amet velit reprehenderit enim officia
+                ad.
+              </div>
+            );
+          }}
         >
           <p>
             {' '}

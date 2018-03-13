@@ -61,12 +61,12 @@ describe('value props', () => {
     it('multiple adds correct values', () => {
       const wrapper = shallow(<Combo multiple dataSource={dataSource} />);
       wrapper.instance().handleItemClick(1);
-      expect(wrapper.instance().getValue()).to.deep.equal([1]);
+      expect(wrapper.instance().getValue()).toEqual([1]);
       wrapper.instance().handleItemClick(1);
       expect(wrapper.instance().getValue()).to.equal(null);
       wrapper.instance().handleItemClick(1);
       wrapper.instance().handleItemClick(3);
-      expect(wrapper.instance().getValue()).to.deep.equal([1, 3]);
+      expect(wrapper.instance().getValue()).toEqual([1, 3]);
     });
   });
 
@@ -82,9 +82,9 @@ describe('value props', () => {
         />
       );
       const instance = wrapper.instance();
-      expect(instance.getValue()).to.deep.equal([1, 3]);
+      expect(instance.getValue()).toEqual([1, 3]);
       instance.selectItem(2);
-      expect(instance.getValue()).to.deep.equal([1, 3]);
+      expect(instance.getValue()).toEqual([1, 3]);
     });
   });
 
@@ -94,11 +94,11 @@ describe('value props', () => {
         <Combo searchable defaultText="hello world" defaultValue={['test']} />
       );
       const instance = wrapper.instance();
-      expect(instance.getValue()).to.deep.equal(['test']);
-      expect(instance.getText()).to.deep.equal('hello world');
+      expect(instance.getValue()).toEqual(['test']);
+      expect(instance.getText()).toEqual('hello world');
       instance.clear();
-      expect(instance.getValue()).to.deep.equal(null);
-      expect(instance.getText()).to.deep.equal(null);
+      expect(instance.getValue()).toEqual(null);
+      expect(instance.getText()).toEqual(null);
     });
   });
 

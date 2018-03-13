@@ -48,6 +48,29 @@ class App extends Component {
   render() {
     return (
       <div>
+        <RadioButtonGroup
+          uncheckedValue="x"
+          radioOptions={[
+            {
+              value: 'v1',
+              label: 'bananas'
+            },
+            {
+              value: 'v2',
+              label: 'apples'
+            },
+            {
+              value: 'v3',
+              label: 'strawberries'
+            },
+            {
+              value: 'v4',
+              label: 'chocolate'
+            }
+          ]}
+          name="validName"
+          shouldSubmit={() => false}
+        />
         hello world
         <button onClick={this.getCurrentValue.bind(this)}>
           Get current checked value

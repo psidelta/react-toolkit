@@ -341,7 +341,7 @@ class ZippyNode extends Component {
       result = this.props.renderCheck(domProps, nodeProps);
     }
 
-    if (result == undefined) {
+    if (result === undefined) {
       result = (
         <Check
           {...checkProps}

@@ -6,7 +6,7 @@ import '../style/index.scss';
 
 const App = () => {
   return (
-    <Flex style={{ width: '100vw', height: '100vh' }}>
+    <Flex flex={2} style={{ width: '100vw', height: '100vh' }}>
       <Item flex={1}>one</Item>
       <Item flex={2}>two</Item>
     </Flex>

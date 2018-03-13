@@ -16,8 +16,17 @@ class App extends React.Component {
   }
   addNotification() {
     count++;
+<<<<<<< HEAD
     zippy.notification.first.addNotification({
       title: this.state.title ? <div>Notification number </div> : null,
+=======
+    zippyui.notification.first.addNotification({
+      // title: this.state.title ? <div>Notification number </div> : null,
+      title: domProps => {
+        domProps.id = '#mutatedId';
+        domProps.children = 'hello world!!!';
+      },
+>>>>>>> update-tests
       autoHideDelay: false,
       // visible: false,
       // showTransitionDuration: 2000,
@@ -26,7 +35,11 @@ class App extends React.Component {
         <p>
           This is the <b>content</b> of the <b>{count}</b> notification!
         </p>
-      )
+      ),
+      style: {
+        background: 'blue',
+        color: 'purple'
+      }
     });
   }
   showAll() {
@@ -65,7 +78,7 @@ class App extends React.Component {
           pinButton
           autoHideDelay={50000000}
           zIndex={100000}
-          // rtl
+          style={{ color: 'red', backgroundColor: 'lightBlue' }}
         />
       </div>
     );

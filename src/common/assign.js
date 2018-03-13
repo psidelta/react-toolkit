@@ -1,4 +1,4 @@
-function assign(target, ...to) {
+export function assign(target, ...to) {
   if (target === null || target === undefined) {
     throw new TypeError(
       'Object.assign cannot be called with null or undefined'

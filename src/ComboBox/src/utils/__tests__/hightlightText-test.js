@@ -10,7 +10,7 @@ describe('hightlightText', () => {
         text: test,
         mode: 'contains'
       })
-    ).to.deep.equal(expected);
+    ).toEqual(expected);
   });
   it('starts width - returns a structure marking the matched text', () => {
     const text = 'hello world';
@@ -21,6 +21,6 @@ describe('hightlightText', () => {
       queryText: 'hell',
       mode: 'startsWidth'
     });
-    expect(test).to.deep.equal(expected);
+    expect(test).toEqual(expected);
   });
 });

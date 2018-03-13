@@ -50,6 +50,10 @@ const asyncCheckDirectory = fileDescriptor => {
       resolve(true);
     });
 
-    reader.readAsText(fileDescriptor);
+    try {
+      reader.readAsText(fileDescriptor);
+    } catch (ex) {
+      resolve(false);
+    }
   });
 };

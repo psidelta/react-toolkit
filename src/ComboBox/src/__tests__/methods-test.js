@@ -6,7 +6,7 @@ describe('methods', () => {
   it('addItem appends at the end of the dataSource an item', () => {
     const wrapper = shallow(<Combo dataSource={[{ id: 1 }]} />);
     wrapper.instance().addItem({ id: 2 });
-    expect(wrapper.instance().getData()).to.deep.equal([{ id: 1 }, { id: 2 }]);
+    expect(wrapper.instance().getData()).toEqual([{ id: 1 }, { id: 2 }]);
   });
   it('clear - clears value and text', () => {
     const wrapper = shallow(<Combo defaultText="hello" defaultValue={3} />);
@@ -35,7 +35,7 @@ describe('methods', () => {
       const data = [{ id: 1 }, { id: 3 }];
       const wrapper = shallow(<Combo dataSource={data} idProperty="id" />);
       wrapper.instance().insertItem({ index: 1, item: { id: 2 } });
-      expect(wrapper.instance().getData()[1]).to.deep.equal({ id: 2 });
+      expect(wrapper.instance().getData()[1]).toEqual({ id: 2 });
     });
   });
   describe('removeItems', () => {
@@ -43,7 +43,7 @@ describe('methods', () => {
       const data = [{ id: 1 }, { id: 2 }, { id: 3 }];
       const wrapper = shallow(<Combo dataSource={data} idProperty="id" />);
       wrapper.instance().removeItems([1, 3]);
-      expect(wrapper.instance().getData()).to.deep.equal([{ id: 2 }]);
+      expect(wrapper.instance().getData()).toEqual([{ id: 2 }]);
     });
   });
   describe('toggle', () => {

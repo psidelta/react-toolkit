@@ -448,7 +448,6 @@ ZippyButton.propTypes = {
   onMouseLeave: PropTypes.func,
   onActivate: PropTypes.func,
 
-  pressed: PropTypes.bool,
   showWarnings: PropTypes.bool
 };
 

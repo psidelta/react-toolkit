@@ -136,8 +136,7 @@ class DemoPage extends Component {
               type="checkbox"
               checked={this.state.expandToolPosition}
               onChange={ev =>
-                this.setState({ expandToolPosition: ev.target.checked })
-              }
+                this.setState({ expandToolPosition: ev.target.checked })}
             />{' '}
             | rtl:{' '}
             <input
@@ -167,8 +166,7 @@ class DemoPage extends Component {
             | tabTitleVerticalAlign:{' '}
             <select
               onChange={ev =>
-                this.setState({ verticalAlgnment: ev.target.value })
-              }
+                this.setState({ verticalAlgnment: ev.target.value })}
               value={this.state.verticalAlgnment}
             >
               <option value="top">top</option>
@@ -178,8 +176,7 @@ class DemoPage extends Component {
             | tabTitleRotate:{' '}
             <select
               onChange={ev =>
-                this.setState({ tabTitleRotate: ev.target.value })
-              }
+                this.setState({ tabTitleRotate: ev.target.value })}
               value={this.state.tabTitleRotate}
             >
               <option value={90}>90</option>
@@ -196,22 +193,20 @@ class DemoPage extends Component {
               type="checkbox"
               checked={this.state.stretchTabContent}
               onChange={ev =>
-                this.setState({ stretchTabContent: ev.target.checked })
-              }
+                this.setState({ stretchTabContent: ev.target.checked })}
             />{' '}
           </div>
           <div
-            style={
-              {
-                /*height: 1500*/
-              }
-            }
+            style={{
+              /*height: 1500*/
+            }}
           >
             <Tooltip target={'[data-tooltip]'} />
             <input />
             <br />
             <br />
             <Accordion
+              activateOnFocus
               horizontal={this.state.horizontal}
               tabTitleAlign={this.state.alignment}
               expandToolPosition={

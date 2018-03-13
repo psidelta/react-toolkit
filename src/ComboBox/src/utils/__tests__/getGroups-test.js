@@ -38,6 +38,6 @@ describe('getGroups', () => {
     ];
 
     const test = getGroups(data);
-    expect(test).to.deep.equal(expected);
+    expect(test).toEqual(expected);
   });
 });

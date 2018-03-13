@@ -655,7 +655,7 @@ Notification.propTypes = {
   relativeToViewport: PropTypes.bool,
 
   // Subcomponents
-  title: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
+  title: PropTypes.oneOfType([PropTypes.node, PropTypes.bool, PropTypes.func]),
   titleEllipsis: PropTypes.bool,
   content: PropTypes.node,
   closeButton: PropTypes.oneOfType([

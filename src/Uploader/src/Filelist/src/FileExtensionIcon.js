@@ -9,7 +9,9 @@ import splitFileInNameAndType from './utils/split-file-in-name-and-type';
 const CLASS_NAME = 'zippy-react-file-extension-icon';
 
 const renderExtensionBox = extension => {
-  const upperExtension = extension.toUpperCase().replace('.', '');
+  const upperExtension = extension
+    ? extension.toUpperCase().replace('.', '')
+    : '';
   return (
     <svg width={28} height={28} viewBox="0 0 24 28">
       <g fill="none" fillRule="evenodd">
