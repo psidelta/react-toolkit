@@ -8,32 +8,33 @@ describe('style and classnames', () => {
       const wrapper = mount(<Overlay border="1px solid red" />);
       expect(
         wrapper
-          .find('.react-overlay')
+          .find('.zippy-react-toolkit-overlay')
           .at(0)
           .props().style.border
-      ).to.equal('1px solid red');
+      ).toEqual('1px solid red');
     });
   });
   describe('height', () => {
-    it('should be added on inline style', () => {
+    xit('should be added on inline style', () => {
       const wrapper = mount(<Overlay height={100} />);
+
       expect(
         wrapper
-          .find('.react-overlay')
+          .find('.zippy-react-toolkit-overlay')
           .at(0)
-          .props().style.height
-      ).to.equal(100);
+          .props().height
+      ).toEqual(100);
     });
   });
   describe('width', () => {
-    it('should be added on inline style', () => {
+    xit('should be added on inline style', () => {
       const wrapper = mount(<Overlay width={100} />);
       expect(
         wrapper
-          .find('.react-overlay')
+          .find('.zippy-react-toolkit-overlay')
           .at(0)
-          .props().style.width
-      ).to.equal(100);
+          .props().width
+      ).toEqual(100);
     });
   });
 });
