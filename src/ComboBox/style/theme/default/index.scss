@@ -11,7 +11,7 @@
   box-shadow: none;
   transition: all 0.2s;
 
-  &:hover {
+  &:hover:not(.zippy-react-toolkit-combo-box--disabled) {
     border: $ZIPPY_COMBO_BOX_HOVERED_BORDER;
   }
 
@@ -51,7 +51,8 @@
   }
 
   &.#{$ZIPPY_COMBO_BOX_ROOT_CLASS}--disabled {
-    fill: rgba($ZIPPY_COMBO_BOX_ICON_FILL_COLOR, 0.7);
+    fill: $ZIPPY_COMBO_BOX_ICON_FILL_COLOR;
+    opacity: 0.5;
   }
 
   &.#{$ZIPPY_COMBO_BOX_ROOT_CLASS}--shadow
@@ -108,7 +109,7 @@
   }
 
   .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__list__item--disabled {
-    color: $ZIPPY_COMBO_BOX_DISABLED_ITEM_COLOR;
+    color: $ZIPPY_COMBO_BOX_COLOR;
     cursor: default;
   }
 
