@@ -14,16 +14,15 @@ describe('children', () => {
   });
 
   it('should be called when it function with props and state', () => {
-    const children = sinon.stub();
-    children.returns(<div id="childrenFunctionId" />);
+    const children = jest.fn(() => <div id="childrenFunctionId" />);
     wrapper.setProps({ id: 'propsId' });
     wrapper.setState({ stateId: 'stateId' });
     wrapper.setProps({ children });
 
-    expect(children.called).toBe(true);
+    expect(children).toHaveBeenCalled();
     expect(wrapper.find('#childrenFunctionId')).toHaveLength(1);
 
-    expect(children.args[0][0].id).toEqual('propsId');
-    expect(children.args[0][1].stateId).toEqual('stateId');
+    expect(children.mock.calls[0][0].id).toEqual('propsId');
+    expect(children.mock.calls[0][1].stateId).toEqual('stateId');
   });
 });

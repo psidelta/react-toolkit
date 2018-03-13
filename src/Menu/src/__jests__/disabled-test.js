@@ -53,7 +53,7 @@ describe('disabled', () => {
 
   it('should not trigger onClick when Enter key is pressed on focused item', () => {
     let subMenu;
-    const onClick = sinon.spy();
+    const onClick = jest.fn();
     const items = [
       {
         label: 'test',
@@ -74,7 +74,7 @@ describe('disabled', () => {
       .find(MenuItem)
       .first()
       .simulate('keyPress', { key: 'Enter' });
-    expect(onClick.called).toBe(false);
+    expect(onClick).toHaveBeenCalledTimes(0);
   });
 
   xit('should apply disabled style if provided', () => {
