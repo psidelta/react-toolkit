@@ -155,27 +155,23 @@ class App extends React.Component {
               );
             }}
           >
-            {this.state.visible2
-              ? portal(
-                  <Window
-                    title="Zippy Toolkit 2"
-                    modal={true}
-                    visible={true}
-                    onClose={() => this.setState({ visible2: false })}
-                    defaultCentered
-                    relativeToViewport
-                  >
-                    Zippy React Toolkit is designed to be a comprehensive set of
-                    rich UI components built with React and that can be easily
-                    integrated into existing or new applications. We've gone
-                    through a lot of iterations to make sure we provide a rich
-                    and flexible component set that is actually useful and help
-                    you speed-up app development. We focus on building
-                    components, so you can focus on what actually matters to you
-                    - building & shipping your app faster to the market.
-                  </Window>
-                )
-              : null}
+            <Window
+              title="Zippy Toolkit 2"
+              modal={true}
+              visible={this.state.visible2}
+              onClose={() => this.setState({ visible2: false })}
+              defaultCentered
+              relativeToViewport
+            >
+              Zippy React Toolkit is designed to be a comprehensive set of rich
+              UI components built with React and that can be easily integrated
+              into existing or new applications. We've gone through a lot of
+              iterations to make sure we provide a rich and flexible component
+              set that is actually useful and help you speed-up app development.
+              We focus on building components, so you can focus on what actually
+              matters to you - building & shipping your app faster to the
+              market.
+            </Window>
             Minim consectetur consectetur labore ut sit sunt adipisicing
             consectetur do pariatur enim dolor tempor eiusmod. Dolore sint
             laboris reprehenderit in excepteur deserunt ullamco aute et esse

@@ -1,4 +1,3 @@
-
 /**
  * Returns the top most modal
  * window id
@@ -7,15 +6,17 @@
  * @return {Number} top most window id
  */
 function getTopModalWindow(list, instances) {
-  let topMostModalId = null
-  for(let i = list.length - 1; i >= 0; i--) {
-    if (instances[list[i]].props && instances[list[i]].props.modal) {
-      topMostModalId = list[i]
-      break
+  let topMostModalId = null;
+  let instance;
+  for (let i = list.length - 1; i >= 0; i--) {
+    instance = instances[list[i]];
+    if (instance.props && instance.props.modal && instance.getVisible()) {
+      topMostModalId = list[i];
+      break;
     }
   }
 
-  return topMostModalId
+  return topMostModalId;
 }
 
-export default getTopModalWindow
+export default getTopModalWindow;
