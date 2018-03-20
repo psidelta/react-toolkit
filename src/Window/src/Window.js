@@ -218,8 +218,8 @@ class ZippyWindow extends Component {
       </Panel>
     );
 
-    if (props.modal && state.isTopModal && this.state.visible) {
-      return this.renderWrapper(panel, style);
+    if (props.modal && this.state.visible) {
+      return this.renderModalWrapper(panel, style);
     }
     return panel;
   }
@@ -239,7 +239,7 @@ class ZippyWindow extends Component {
     );
   }
 
-  renderWrapper(panel, style) {
+  renderModalWrapper(panel, style) {
     // Wrapper must have the same position as window
     let wrapperStyle = {
       ...this.getTransitionStyle()
@@ -255,6 +255,9 @@ class ZippyWindow extends Component {
 
     const className = join(
       `${this.props.rootClassName}__modal-wrapper`,
+      `${this.props.rootClassName}__modal-wrapper--theme-${this.props.theme}`,
+      this.state.isTopModal &&
+        `${this.props.rootClassName}__modal-wrapper--top`,
       this.getRelativeToViewport() &&
         `${this.props.rootClassName}__modal-wrapper--fixed`,
       this.getTransitionClassNames(this.props.rootClassName)
@@ -1997,7 +2000,7 @@ class ZippyWindow extends Component {
           (position == 'left' || position == 'right')) ||
         (centered === 'vertical' && (position == 'top' || position == 'bottom'))
       ) {
-        var oldValue = acc[position]
+        var oldValue = acc[position];
         // if we are centered, marginTop is really the value for top, ...etc
         var newValue = pxToFloat(
           computedStyle['margin' + toUpperFirst(position)]
@@ -2007,7 +2010,7 @@ class ZippyWindow extends Component {
         if (oldValue && !newValue) {
           // skip FF
         } else {
-          acc[position] = newValue
+          acc[position] = newValue;
         }
       }
       if (computedStyle[position] === 'auto') {
