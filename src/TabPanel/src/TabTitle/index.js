@@ -361,9 +361,9 @@ TabTitle.propTypes = {
 
   focused: PropTypes.bool,
 
-  tabStyle: PropTypes.string,
+  tabStyle: PropTypes.object,
   tabActiveStyle: PropTypes.object,
-  tabDisabledStyle: PropTypes.string,
+  tabDisabledStyle: PropTypes.object,
   rootClassName: PropTypes.string,
 
   tabAlign: PropTypes.string,
@@ -377,6 +377,7 @@ TabTitle.propTypes = {
   closeableOnOver: PropTypes.bool,
   disabled: PropTypes.bool,
   tabEllipsis: PropTypes.bool,
+  isTabPanelTab: PropTypes.bool,
   activateEvent: PropTypes.oneOf([
     'onClick',
     'onMouseEnter',
