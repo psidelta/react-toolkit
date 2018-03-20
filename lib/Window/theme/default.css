@@ -1,3 +1,6 @@
+.zippy-react-toolkit-window__modal-wrapper--top.zippy-react-toolkit-window__modal-wrapper--theme-default {
+  background: rgba(73, 94, 133, 0.5); }
+
 .zippy-react-toolkit-window.zippy-react-toolkit-window--theme-default {
   font-size: 14px; }
   .zippy-react-toolkit-window.zippy-react-toolkit-window--theme-default.zippy-react-toolkit-window {
@@ -7,8 +10,6 @@
     border-bottom: none; }
   .zippy-react-toolkit-window.zippy-react-toolkit-window--theme-default .zippy-react-toolkit-window__body-footer {
     border-bottom: 1px solid #a1b6d3; }
-  .zippy-react-toolkit-window.zippy-react-toolkit-window--theme-default.zippy-react-toolkit-window__modal-wrapper {
-    background: rgba(73, 94, 133, 0.5); }
   .zippy-react-toolkit-window.zippy-react-toolkit-window--theme-default.zippy-react-toolkit-window--shadow {
     box-shadow: 0 1px 4px 0 #a1b6d3; }
   .zippy-react-toolkit-window.zippy-react-toolkit-window--theme-default.zippy-react-toolkit-window--dragging {

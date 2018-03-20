@@ -132,8 +132,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(73, 94, 133, 0.5); }
+  bottom: 0; }
 
 .zippy-react-toolkit-window__modal-wrapper--fixed {
   position: fixed; }

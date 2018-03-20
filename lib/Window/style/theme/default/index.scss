@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__modal-wrapper--top.#{$ZIPPY_WINDOW_ROOT_CLASS}__modal-wrapper--theme-#{$ZIPPY_WINDOW_THEME_NAME} {
+  background: $ZIPPY_WINDOW_MODAL_WRAPPER_BACKGROUND;
+}
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}.#{$ZIPPY_WINDOW_ROOT_CLASS}--theme-#{$ZIPPY_WINDOW_THEME_NAME} {
   font-size: $ZIPPY_WINDOW_FONT_SIZE;
 
@@ -15,11 +19,6 @@
   .#{$ZIPPY_WINDOW_ROOT_CLASS}__body-footer {
     border-bottom: $ZIPPY_WINDOW_BORDER;
   }
-
-  &.#{$ZIPPY_WINDOW_ROOT_CLASS}__modal-wrapper {
-    background: $ZIPPY_WINDOW_MODAL_WRAPPER_BACKGROUND;
-  }
-
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--shadow {
     box-shadow: $ZIPPY_WINDOW_SHADOW;
   }

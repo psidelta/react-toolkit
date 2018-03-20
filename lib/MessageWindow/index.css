@@ -132,8 +132,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(73, 94, 133, 0.5); }
+  bottom: 0; }
 
 .zippy-react-toolkit-message-window__modal-wrapper--fixed {
   position: fixed; }
@@ -389,6 +388,9 @@ button.zippy-react-toolkit-button {
   .zippy-react-toolkit-button.zippy-react-toolkit-button--theme-default.zippy-react-toolkit-button--has-icon:not(.zippy-react-toolkit-button--no-children):not(.zippy-react-toolkit-dropdown-button__button):not(.zippy-react-toolkit-split-button__button).zippy-react-toolkit-button--rtl.zippy-react-toolkit-button--icon-last .zippy-react-toolkit-button__icon-wrap {
     margin-right: 6px; }
 
+.zippy-react-toolkit-message-window__modal-wrapper--top.zippy-react-toolkit-message-window__modal-wrapper--theme-default {
+  background: rgba(73, 94, 133, 0.5); }
+
 .zippy-react-toolkit-message-window.zippy-react-toolkit-message-window--theme-default {
   font-size: 14px; }
   .zippy-react-toolkit-message-window.zippy-react-toolkit-message-window--theme-default.zippy-react-toolkit-message-window {
@@ -398,8 +400,6 @@ button.zippy-react-toolkit-button {
     border-bottom: none; }
   .zippy-react-toolkit-message-window.zippy-react-toolkit-message-window--theme-default .zippy-react-toolkit-message-window__body-footer {
     border-bottom: 1px solid #a1b6d3; }
-  .zippy-react-toolkit-message-window.zippy-react-toolkit-message-window--theme-default.zippy-react-toolkit-message-window__modal-wrapper {
-    background: rgba(73, 94, 133, 0.5); }
   .zippy-react-toolkit-message-window.zippy-react-toolkit-message-window--theme-default.zippy-react-toolkit-message-window--shadow {
     box-shadow: 0 1px 4px 0 #a1b6d3; }
   .zippy-react-toolkit-message-window.zippy-react-toolkit-message-window--theme-default.zippy-react-toolkit-message-window--dragging {
