@@ -68,7 +68,7 @@ describe('Accordion tooltip props', () => {
     });
 
     it('should support function as expandTool', () => {
-      const expandToolStub = sinon.stub().returns(<div />);
+      const expandToolStub = jest.fn(() => <div />);
       component.setProps({
         expandTool: expandToolStub
       });
@@ -79,7 +79,7 @@ describe('Accordion tooltip props', () => {
           .at(0)
           .prop('expandTool')
       ).toEqual(expandToolStub);
-      expect(expandToolStub.callCount).toEqual(3);
+      expect(expandToolStub).toHaveBeenCalledTimes(3);
     });
   });
 

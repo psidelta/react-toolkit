@@ -14,7 +14,6 @@ describe('props passed from items[0] to MenuItem', () => {
           .find(MenuItem)
           .find('tr')
           .prop('style').color
-<<<<<<< HEAD:src/Menu/src/__jests__/itemProps-test.js
       ).toBe(items[0].style.color);
     });
 
@@ -50,37 +49,6 @@ describe('props passed from items[0] to MenuItem', () => {
         expect(menuItem.prop('className')).to.contain('over-className');
       }
     );
-=======
-      ).to.equal(items[0].style.color);
-    });
-
-    // overwrite is already tested in cellStyle
-    it('item.overStyle is added on tr when menuitem receives mouseEnter', () => {
-      const items = [{ label: 'test', overStyle: { color: 'over color' } }];
-      const wrapper = mount(<Menu items={items} />);
-      const menuItem = wrapper
-        .find(MenuItem)
-        .first()
-        .find('tr');
-      expect(menuItem.prop('style').color).to.not.equal(
-        items[0].overStyle.color
-      );
-      menuItem.simulate('mouseEnter');
-      expect(menuItem.prop('style').color).to.equal(items[0].overStyle.color);
-    });
-
-    it('item.overClassName is added on tr when menuitem receives mouseEnter', () => {
-      const items = [{ label: 'test', overClassName: 'over-className' }];
-      const wrapper = mount(<Menu items={items} />);
-      const menuItem = wrapper
-        .find(MenuItem)
-        .first()
-        .find('tr');
-      expect(menuItem.prop('className')).to.not.contain('over-className');
-      menuItem.simulate('mouseEnter');
-      expect(menuItem.prop('className')).to.contain('over-className');
-    });
->>>>>>> dev:src/Menu/src/__tests__/itemProps-test.js
 
     xit('item.overStyle global.overStyle', () => {
       const items = [{ label: 'test', overStyle: { color: '#123456' } }];
@@ -91,15 +59,8 @@ describe('props passed from items[0] to MenuItem', () => {
           items={items}
         />
       );
-<<<<<<< HEAD:src/Menu/src/__jests__/itemProps-test.js
       const menuItem = wrapper.find(MenuItem).first();
       //.find('tr');
-=======
-      const menuItem = wrapper
-        .find(MenuItem)
-        .first()
-        .find('tr');
->>>>>>> dev:src/Menu/src/__tests__/itemProps-test.js
 
       menuItem.simulate('mouseEnter');
       expect(menuItem.find('tr').props().style.color).toBe(
@@ -120,11 +81,7 @@ describe('props passed from items[0] to MenuItem', () => {
         .find(MenuItem)
         .first()
         .find('tr');
-<<<<<<< HEAD:src/Menu/src/__jests__/itemProps-test.js
       expect(menuItem.prop('style').color).not.toBeGreaterThan(
-=======
-      expect(menuItem.prop('style').color).to.not.equal(
->>>>>>> dev:src/Menu/src/__tests__/itemProps-test.js
         items[0].disabled.color
       );
     });
@@ -159,11 +116,7 @@ describe('props passed from items[0] to MenuItem', () => {
           .find('td')
           .first()
           .prop('style').color
-<<<<<<< HEAD:src/Menu/src/__jests__/itemProps-test.js
       ).toBe(items[0].cellStyle.color);
-=======
-      ).to.equal(items[0].cellStyle.color);
->>>>>>> dev:src/Menu/src/__tests__/itemProps-test.js
     });
 
     it('item.expanderStyle style should be aplied on expander', () => {

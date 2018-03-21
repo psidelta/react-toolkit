@@ -4,6 +4,7 @@
 
 .#{$ZIPPY_TOOLBAR_ROOT_CLASS} {
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
   text-align: start;
   direction: ltr;

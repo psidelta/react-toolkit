@@ -10,17 +10,10 @@ describe('arrow', () => {
       wrapper.setState({ arrowConfig: {} });
       expect(
         wrapper
-<<<<<<< HEAD:src/Overlay/src/__jests__/arrow-test.js
           .find('.zippy-react-toolkit-overlay__arrow')
           .at(0)
           .props().style.color
       ).toEqual('red');
-=======
-          .find('.react-overlay__arrow')
-          .at(0)
-          .props().style.color
-      ).to.equal('red');
->>>>>>> dev:src/Overlay/src/__tests__/arrow-test.js
     });
   });
   describe('arrowClassName', () => {
@@ -36,17 +29,10 @@ describe('arrow', () => {
       wrapper.setState({ arrowConfig: {} });
       expect(
         wrapper
-<<<<<<< HEAD:src/Overlay/src/__jests__/arrow-test.js
           .find('.zippy-react-toolkit-overlay__arrow')
           .at(0)
           .props().style.border
       ).toEqual('1px solid red');
-=======
-          .find('.react-overlay__arrow')
-          .at(0)
-          .props().style.border
-      ).to.equal('1px solid red');
->>>>>>> dev:src/Overlay/src/__tests__/arrow-test.js
     });
   });
   describe('arrow', () => {
@@ -70,23 +56,10 @@ describe('arrow', () => {
       wrapper.setProps({ arrowSize: 20 });
       expect(
         wrapper
-<<<<<<< HEAD:src/Overlay/src/__jests__/arrow-test.js
           .find('.zippy-react-toolkit-overlay__arrow')
           .at(0)
           .props().size
       ).toEqual(20);
-=======
-          .find('.react-overlay__arrow')
-          .at(0)
-          .props().style.width
-      ).to.equal(20);
-      expect(
-        wrapper
-          .find('.react-overlay__arrow')
-          .at(0)
-          .props().style.height
-      ).to.equal(20);
->>>>>>> dev:src/Overlay/src/__tests__/arrow-test.js
     });
 
     it('if object is applied on style', () => {
@@ -95,7 +68,6 @@ describe('arrow', () => {
       wrapper.setProps({ arrowSize: { width: 20, height: 30 } });
       expect(
         wrapper
-<<<<<<< HEAD:src/Overlay/src/__jests__/arrow-test.js
           .find('.zippy-react-toolkit-overlay__arrow')
           .at(0)
           .props().size.width
@@ -106,18 +78,6 @@ describe('arrow', () => {
           .at(0)
           .props().size.height
       ).toEqual(30);
-=======
-          .find('.react-overlay__arrow')
-          .at(0)
-          .props().style.width
-      ).to.equal(20);
-      expect(
-        wrapper
-          .find('.react-overlay__arrow')
-          .at(0)
-          .props().style.height
-      ).to.equal(30);
->>>>>>> dev:src/Overlay/src/__tests__/arrow-test.js
     });
   });
 });

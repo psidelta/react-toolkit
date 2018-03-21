@@ -212,20 +212,12 @@ describe('Notification', () => {
     it('should trigger on click when Notification is clicked', () => {
       const onHide = jest.fn();
       const wrapper = shallow(<Notification hideOnClick onHide={onHide} />);
-<<<<<<< HEAD:src/Notification/src/__jests__/Notification-test.js
       expect(onHide).toHaveBeenCalledTimes(0);
-=======
-      expect(onHide.called).to.be.false;
->>>>>>> dev:src/Notification/src/__tests__/Notification-test.js
       wrapper
         .find('.zippy-react-toolkit-notification')
         .at(0)
         .simulate('click');
-<<<<<<< HEAD:src/Notification/src/__jests__/Notification-test.js
       expect(onHide).toHaveBeenCalledTimes(1);
-=======
-      expect(onHide.called).to.be.true;
->>>>>>> dev:src/Notification/src/__tests__/Notification-test.js
     });
   });
 
@@ -302,11 +294,7 @@ describe('Notification', () => {
         .find(CloseButton)
         .at(0)
         .simulate('click');
-<<<<<<< HEAD:src/Notification/src/__jests__/Notification-test.js
       expect(onHide).toHaveBeenCalledTimes(1);
-=======
-      expect(onHide.called).to.be.true;
->>>>>>> dev:src/Notification/src/__tests__/Notification-test.js
     });
   });
 

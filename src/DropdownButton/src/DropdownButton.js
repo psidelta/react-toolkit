@@ -135,7 +135,9 @@ class ZippyDropDownButton extends Component {
       onBlur: this.handleBlur,
       onKeyDown: this.handleKeyDown,
       icon: [
-        cloneElement(props.icon, { key: 'zippy-ddbuttonicon' }),
+        props.icon && props.icon.type
+          ? cloneElement(props.icon, { key: 'zippy-ddbuttonicon' })
+          : props.icon,
         this.renderArrow()
       ],
       children: props.children,

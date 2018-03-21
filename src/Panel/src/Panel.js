@@ -358,7 +358,7 @@ ZippyPanel.propTypes = {
   titleEllipsis: PropTypes.bool,
 
   // body
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.any]),
   renderBody: PropTypes.func,
   bodyClassName: PropTypes.string,
   bodyStyle: PropTypes.object,

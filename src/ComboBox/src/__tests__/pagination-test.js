@@ -11,7 +11,7 @@ describe('pagination', () => {
 
     wrapper.instance().loadNextpage();
     expect(loadNextPage.called).to.be.true;
-    expect(loadNextPage.args[0][0]).to.deep.equal({
+    expect(loadNextPage.args[0][0]).toEqual({
       skip: 20,
       limit: 20
     });
@@ -24,9 +24,9 @@ describe('pagination', () => {
     const wrapper = mount(
       <Combo loadNextPage={() => nextPageData} dataSource={initialData} />
     );
-    expect(wrapper.instance().getData()).to.deep.equal(initialData);
+    expect(wrapper.instance().getData()).toEqual(initialData);
     wrapper.instance().loadNextpage();
-    expect(wrapper.instance().getData()).to.deep.equal(finalData);
+    expect(wrapper.instance().getData()).toEqual(finalData);
   });
   it('loadNextPage appends promise rezolve to dataSource', done => {
     const clock = sinon.useFakeTimers();
@@ -46,14 +46,14 @@ describe('pagination', () => {
         dataSource={initialData}
       />
     );
-    expect(wrapper.instance().getData()).to.deep.equal(initialData);
+    expect(wrapper.instance().getData()).toEqual(initialData);
     wrapper.instance().loadNextpage();
-    expect(wrapper.instance().getData()).to.deep.equal(initialData);
+    expect(wrapper.instance().getData()).toEqual(initialData);
     clock.tick(400);
     clock.restore();
 
     setTimeout(() => {
-      expect(wrapper.instance().getData()).to.deep.equal(finalData);
+      expect(wrapper.instance().getData()).toEqual(finalData);
       done();
     }, 0);
   });

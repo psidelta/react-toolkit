@@ -16,11 +16,7 @@ describe('disabled', () => {
       .find(MenuItem)
       .first()
       .simulate('click');
-<<<<<<< HEAD:src/Menu/src/__jests__/disabled-test.js
     expect(onClick).toHaveBeenCalledTimes(0);
-=======
-    expect(onClick.called).to.be.false;
->>>>>>> dev:src/Menu/src/__tests__/disabled-test.js
   });
 
   xit('should not call onChildClick', () => {
@@ -57,7 +53,7 @@ describe('disabled', () => {
 
   it('should not trigger onClick when Enter key is pressed on focused item', () => {
     let subMenu;
-    const onClick = sinon.spy();
+    const onClick = jest.fn();
     const items = [
       {
         label: 'test',
@@ -78,11 +74,7 @@ describe('disabled', () => {
       .find(MenuItem)
       .first()
       .simulate('keyPress', { key: 'Enter' });
-<<<<<<< HEAD:src/Menu/src/__jests__/disabled-test.js
-    expect(onClick.called).toBe(false);
-=======
-    expect(onClick.called).to.be.false;
->>>>>>> dev:src/Menu/src/__tests__/disabled-test.js
+    expect(onClick).toHaveBeenCalledTimes(0);
   });
 
   xit('should apply disabled style if provided', () => {

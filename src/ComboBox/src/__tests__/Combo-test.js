@@ -81,7 +81,7 @@ describe('Combo.js', () => {
         />
       );
       wrapper.instance().selectItem(3);
-      expect(wrapper.instance().getValue()).to.deep.equal([1, 2]);
+      expect(wrapper.instance().getValue()).toEqual([1, 2]);
     });
   });
 

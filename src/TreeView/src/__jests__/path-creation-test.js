@@ -32,22 +32,14 @@ describe('path creation', () => {
         .find(Node)
         .first()
         .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
     ).toEqual('0');
-=======
-    ).to.equal('0');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
     // second node
     expect(
       wrapper
         .find(Node)
         .at(1)
         .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
     ).toEqual('0/0');
-=======
-    ).to.equal('0/0');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
   });
 
   describe('pathProperty', () => {
@@ -60,22 +52,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_path_1');
-=======
-        ).to.equal('node_path_1');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_path_1/node_path_2');
-=======
-        ).to.equal('node_path_1/node_path_2');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
       });
     });
     describe('as a function', () => {
@@ -87,22 +71,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_fn_path_1');
-=======
-        ).to.equal('node_fn_path_1');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_fn_path_1/node_fn_path_2');
-=======
-        ).to.equal('node_fn_path_1/node_fn_path_2');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
       });
     });
   });
@@ -118,22 +94,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_1');
-=======
-        ).to.equal('node_1');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_2');
-=======
-        ).to.equal('node_2');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
       });
     });
     describe('it is a function', () => {
@@ -144,22 +112,14 @@ describe('path creation', () => {
             .find(Node)
             .first()
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_fn_1');
-=======
-        ).to.equal('node_fn_1');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
         // second node
         expect(
           wrapper
             .find(Node)
             .at(1)
             .prop('path')
-<<<<<<< HEAD:src/TreeView/src/__jests__/path-creation-test.js
         ).toEqual('node_fn_2');
-=======
-        ).to.equal('node_fn_2');
->>>>>>> dev:src/TreeView/src/__tests__/path-creation-test.js
       });
     });
   });

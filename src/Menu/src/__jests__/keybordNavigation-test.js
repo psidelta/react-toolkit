@@ -115,28 +115,16 @@ describe('keyboard navigation', () => {
       );
 
       wrapper.simulate('keyDown', { key: 'ArrowDown' });
-<<<<<<< HEAD:src/Menu/src/__jests__/keybordNavigation-test.js
       expect(wrapper.state('focusedItem')).toBe(max);
 
       wrapper.simulate('keyDown', { key: 'ArrowDown' });
       wrapper.simulate('keyDown', { key: 'ArrowDown' });
       expect(wrapper.state('focusedItem')).toBe(max);
-=======
-      expect(wrapper.state('focusedItem')).to.equal(max);
-
-      wrapper.simulate('keyDown', { key: 'ArrowDown' });
-      wrapper.simulate('keyDown', { key: 'ArrowDown' });
-      expect(wrapper.state('focusedItem')).to.equal(max);
->>>>>>> dev:src/Menu/src/__tests__/keybordNavigation-test.js
 
       wrapper.simulate('keyDown', { key: 'ArrowDown' });
       wrapper.simulate('keyDown', { key: 'ArrowDown' });
       wrapper.simulate('keyDown', { key: 'ArrowDown' });
-<<<<<<< HEAD:src/Menu/src/__jests__/keybordNavigation-test.js
       expect(wrapper.state('focusedItem')).toBe(max);
-=======
-      expect(wrapper.state('focusedItem')).to.equal(max);
->>>>>>> dev:src/Menu/src/__tests__/keybordNavigation-test.js
     });
   });
 
@@ -244,25 +232,19 @@ describe('keyboard navigation', () => {
       expect(submenu).toBe(null);
     });
 
-    xit('should close itself on arrow left, after it was navigated up and down', () => {
-      // navigate
-      submenu.simulate('keyDown', { key: 'ArrowDown' });
-      submenu.simulate('keyDown', { key: 'ArrowUp' });
+    xit(
+      'should close itself on arrow left, after it was navigated up and down',
+      () => {
+        // navigate
+        submenu.simulate('keyDown', { key: 'ArrowDown' });
+        submenu.simulate('keyDown', { key: 'ArrowUp' });
 
-<<<<<<< HEAD:src/Menu/src/__jests__/keybordNavigation-test.js
         // close
         submenu.simulate('keyDown', { key: 'ArrowLeft' });
         submenu = getSubMenu(wrapper);
         expect(submenu).toBe(null);
       }
     );
-=======
-      // close
-      submenu.simulate('keyDown', { key: 'ArrowLeft' });
-      submenu = getSubMenu(wrapper);
-      expect(submenu).to.be.null;
-    });
->>>>>>> dev:src/Menu/src/__tests__/keybordNavigation-test.js
 
     it('first item should have --focused className', () => {
       const items = [
@@ -283,13 +265,8 @@ describe('keyboard navigation', () => {
         wrapper
           .find(MenuItem)
           .first()
-<<<<<<< HEAD:src/Menu/src/__jests__/keybordNavigation-test.js
           .find(`.${ROOT_CLASS}__row--focused`).length
       ).toBe(1);
-=======
-          .find(`.${ROOT_CLASS}__row--focused`)
-      ).to.have.length(1);
->>>>>>> dev:src/Menu/src/__tests__/keybordNavigation-test.js
     });
 
     xit('submenu opened with keyboard, is closed on mouseleave', done => {
@@ -300,23 +277,19 @@ describe('keyboard navigation', () => {
       setTimeout(() => {
         // submenu should be null
         submenu = getSubMenu(wrapper);
-<<<<<<< HEAD:src/Menu/src/__jests__/keybordNavigation-test.js
         expect(submenu).toBe(null);
-=======
-        expect(submenu).to.be.null;
->>>>>>> dev:src/Menu/src/__tests__/keybordNavigation-test.js
 
         done();
       }, 20);
     });
 
-    xit(`
+    xit(
+      `
         - menu has focus, and a focusedItem
         - hover over a menu item
         - submenu opens
         - if arrow right is pressed on the same menu item, the first item should
         be focused
-<<<<<<< HEAD:src/Menu/src/__jests__/keybordNavigation-test.js
       `,
       () => {
         const items = [
@@ -340,34 +313,9 @@ describe('keyboard navigation', () => {
           .first()
           .simulate('mouseEnter');
         submenu = getSubMenu(wrapper);
-=======
-      `, () => {
-      const items = [
-        {
-          label: 'test',
-          items: [
-            { label: 'submenu item' },
-            { label: 'submenu item 2' },
-            { label: 'submenu item 3' }
-          ]
-        },
-        { label: 'test2' }
-      ];
-      const wrapper = mount(
-        <Menu defaultFocusedItem={0} enableKeyboardNavigation items={items} />
-      );
->>>>>>> dev:src/Menu/src/__tests__/keybordNavigation-test.js
 
-      // open by mouse enter
-      wrapper
-        .find(MenuItem)
-        .first()
-        .simulate('mouseEnter');
-      submenu = getSubMenu(wrapper);
+        expect(submenu).to.exist;
 
-      expect(submenu).to.exist;
-
-<<<<<<< HEAD:src/Menu/src/__jests__/keybordNavigation-test.js
         // submenu should have focusedIndex null
         expect(submenu.get(0).state.focusedItem).toBe(null);
 
@@ -376,15 +324,6 @@ describe('keyboard navigation', () => {
         expect(submenu.get(0).state.focusedItem).toBe(0);
       }
     );
-=======
-      // submenu should have focusedIndex null
-      expect(submenu.get(0).state.focusedItem).to.be.null;
-
-      // simulate open on same menu
-      wrapper.simulate('keyDown', { key: 'ArrowRight' });
-      expect(submenu.get(0).state.focusedItem).to.equal(0);
-    });
->>>>>>> dev:src/Menu/src/__tests__/keybordNavigation-test.js
   });
 
   describe('rtl', () => {

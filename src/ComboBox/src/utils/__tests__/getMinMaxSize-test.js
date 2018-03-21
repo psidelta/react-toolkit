@@ -6,7 +6,7 @@ describe('getMinMaxSize', () => {
       getMinMaxSize({
         minSize: 20
       })
-    ).to.deep.equal({
+    ).toEqual({
       minWidth: 20,
       minHeight: 20
     });
@@ -15,7 +15,7 @@ describe('getMinMaxSize', () => {
       getMinMaxSize({
         maxSize: 20
       })
-    ).to.deep.equal({
+    ).toEqual({
       maxWidth: 20,
       maxHeight: 20
     });
@@ -25,7 +25,7 @@ describe('getMinMaxSize', () => {
         maxSize: 20,
         minSize: 22
       })
-    ).to.deep.equal({
+    ).toEqual({
       maxWidth: 20,
       maxHeight: 20,
       minWidth: 22,
@@ -38,7 +38,7 @@ describe('getMinMaxSize', () => {
       getMinMaxSize({
         minSize: { width: 20, height: 22 }
       })
-    ).to.deep.equal({
+    ).toEqual({
       minWidth: 20,
       minHeight: 22
     });
@@ -47,7 +47,7 @@ describe('getMinMaxSize', () => {
       getMinMaxSize({
         minSize: { width: 20 }
       })
-    ).to.deep.equal({
+    ).toEqual({
       minWidth: 20
     });
 
@@ -55,7 +55,7 @@ describe('getMinMaxSize', () => {
       getMinMaxSize({
         maxSize: { width: 20, height: 22 }
       })
-    ).to.deep.equal({
+    ).toEqual({
       maxWidth: 20,
       maxHeight: 22
     });
@@ -65,7 +65,7 @@ describe('getMinMaxSize', () => {
         maxSize: { width: 20, height: 22 },
         minSize: { width: 21, height: 24 }
       })
-    ).to.deep.equal({
+    ).toEqual({
       maxWidth: 20,
       maxHeight: 22,
       minWidth: 21,

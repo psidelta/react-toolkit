@@ -36,21 +36,13 @@ describe('collapseDepth props', () => {
           .find(Node)
           .first()
           .props().depth
-<<<<<<< HEAD:src/TreeView/src/__jests__/collapseDepth-test.js
       ).toEqual(0);
-=======
-      ).to.equal(0);
->>>>>>> dev:src/TreeView/src/__tests__/collapseDepth-test.js
       expect(
         wrapper
           .find(Node)
           .last()
           .props().depth
-<<<<<<< HEAD:src/TreeView/src/__jests__/collapseDepth-test.js
       ).toEqual(1);
-=======
-      ).to.equal(1);
->>>>>>> dev:src/TreeView/src/__tests__/collapseDepth-test.js
     });
 
     it('has all node collapsed on collapseDepth=0', () => {
@@ -107,11 +99,7 @@ describe('collapseDepth props', () => {
           .find(Node)
           .first()
           .props().collapsed
-<<<<<<< HEAD:src/TreeView/src/__jests__/collapseDepth-test.js
       ).toBe(true);
-=======
-      ).to.be.true;
->>>>>>> dev:src/TreeView/src/__tests__/collapseDepth-test.js
 
       wrapper.setProps({ collapsed: { 1: true } });
       expect(
@@ -119,11 +107,7 @@ describe('collapseDepth props', () => {
           .find(Node)
           .at(1)
           .props().collapsed
-<<<<<<< HEAD:src/TreeView/src/__jests__/collapseDepth-test.js
       ).toBe(true);
-=======
-      ).to.be.true;
->>>>>>> dev:src/TreeView/src/__tests__/collapseDepth-test.js
     });
   });
 

@@ -12,7 +12,7 @@ describe('Default values', () => {
     );
     const node = findDOMNode(checkbox);
     const img = node.querySelector('img');
-    expect(img.src).toContain('unchsdsecked-dummy-url');
+    expect(img.src).toContain('unchecked-dummy-url');
     checkbox.unmount();
   });
 

@@ -14,13 +14,12 @@ class App extends React.Component {
       size: 23,
       titleBarPosition: 'top',
       titleRotate: -90,
-      titleAlign: 'start',
-      titleEllipsis: true
+      titleAlign: 'start'
     };
   }
   render() {
     return (
-      <div style={{ /*background: 'lightgreen',*/ height: '100vh' }}>
+      <div style={{ background: 'lightgreen', height: '100vh' }}>
         <div style={{ margin: '0 20px 20px 30px', paddingTop: 20 }}>
           Icon size:{' '}
           <input
@@ -66,33 +65,22 @@ class App extends React.Component {
               <option value="right">right</option>
             </select>
           </div>
-          <div>
-            <input
-              type="checkbox"
-              checked={this.state.titleEllipsis}
-              onChange={ev =>
-                this.setState({ titleEllipsis: ev.target.checked })
-              }
-            />titleEllipsis
-          </div>
         </div>
         <Panel
           style={{
-            width: 500,
+            width: 300,
             height: 250,
             marginLeft: 30
             // background: 'blue'
           }}
           // rtl
-          title="Employees When we started building the toolkit, we've made a checklist of
-          features that our components need to include out-of-the-box"
+          title="Employees Sint cillum dolor fugiat Lorem sit est fugiat deserunt."
           titleIcon={<Icon type="leads" size={this.state.size} />}
           titleBarPosition={this.state.titleBarPosition}
           titleAlign={this.state.titleAlign}
           titleRotate={this.state.titleRotate * 1}
-          titleEllipsis={this.state.titleEllipsis}
-          style={{ width: 300 }}
-
+          // onTitleBarResize={{ width: 200, height: 200 }}
+          titleEllipsis={true}
           // bodyScrollable={true}
           renderAfterTitle={() => <Icon type="save" />}
           renderBeforeTitle={() => <Icon type="close" />}
@@ -116,31 +104,6 @@ class App extends React.Component {
             in a toy store, because you're here shopping for an infant named
             Jeb.{' '}
           </p>
-          <p>
-            When we started building the toolkit, we've made a checklist of
-            features that our components need to include out-of-the-box:
-          </p>
-          <ul>
-            <li>
-              <b>Performance</b> - a component is only useful if it does its job
-              quickly. This will generally not be a problem with smaller
-              components like buttons, dialogs, color pickers, etc - but menus,
-              lists and grids need a lot of performance considerations in order
-              to be really snappy.
-            </li>
-            <li>
-              <b>Simplicity</b> - components need to be simple to use in the
-              most common scenario. For this, default values for components have
-              been carefully considered, so you need to add a minimum of code
-              when you want to add some custom property and/or logic.
-            </li>
-            <li>
-              <b>Flexibility & extensibility</b> - all components need to be
-              very flexible in adapting to a wide spectrum of needs. Changing
-              some styles, replacing some rendering logic or adding a custom
-              validation should all be possible and easily achievable.
-            </li>
-          </ul>
         </Panel>
       </div>
     );

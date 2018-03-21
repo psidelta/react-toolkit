@@ -37,18 +37,8 @@ describe('titleBarPosition', () => {
     it('titleBar width should be equal to container height', () => {
       const titleBarWrapper = wrapper.find(`.${titleBarClassName}`);
       wrapper.setProps({ titleBarPosition: 'left' });
-<<<<<<< HEAD:src/Panel/src/__jests__/titleBarPosition-test.js
       wrapper.instance().onTitleBarResize({ width: 20, height: 20 });
       expect(titleBarWrapper.root().state().titleWidth).toEqual(20);
-=======
-      wrapper.instance().onResize({ width: 20, height: 20 });
-      expect(
-        wrapper
-          .find(`.${titleBarClassName}`)
-          .first()
-          .props().style.width
-      ).to.equal(20);
->>>>>>> dev:src/Panel/src/__tests__/titleBarPosition-test.js
     });
 
     describe('left', () => {

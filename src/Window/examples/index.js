@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { render, createPortal } from 'react-dom';
 import Window from '../src';
 import Icon from '../../common/Icon';
 import Button from '../../Button';
@@ -17,6 +17,8 @@ class Cmp extends React.Component {
     return <div>content here</div>;
   }
 }
+
+const portal = node => createPortal(node, document.getElementById('portal'));
 
 // class App extends React.Component {
 //   constructor(props) {
@@ -83,7 +85,7 @@ class App extends React.Component {
       visible4: true,
       relativeToViewport: false,
       centered: false,
-      modal: false,
+      modal: true,
       position: { left: '10%', top: '20%' }
     };
   }
@@ -122,54 +124,6 @@ class App extends React.Component {
         </div>
         <div style={{ marginBottom: 20 }} />
 
-        <Window
-          title="Zippy Toolkit 1"
-          // modal={true}
-          visible={this.state.visible1}
-          onClose={() => this.setState({ visible1: false })}
-          defaultPosition={{ left: '35%', top: '40%' }}
-          // relativeToViewport
-        >
-          Zippy React Toolkit is designed to be a comprehensive set of rich UI
-          components built with React and that can be easily integrated into
-          existing or new applications. We've gone through a lot of iterations
-          to make sure we provide a rich and flexible component set that is
-          actually useful and help you speed-up app development. We focus on
-          building components, so you can focus on what actually matters to you
-          - building & shipping your app faster to the market.
-        </Window>
-        <Window
-          title="Zippy Toolkit 2"
-          modal={true}
-          visible={this.state.visible2}
-          onClose={() => this.setState({ visible2: false })}
-          defaultPosition={{ left: '35%', top: '40%' }}
-          relativeToViewport
-        >
-          Zippy React Toolkit is designed to be a comprehensive set of rich UI
-          components built with React and that can be easily integrated into
-          existing or new applications. We've gone through a lot of iterations
-          to make sure we provide a rich and flexible component set that is
-          actually useful and help you speed-up app development. We focus on
-          building components, so you can focus on what actually matters to you
-          - building & shipping your app faster to the market.
-        </Window>
-        <Window
-          title="Zippy Toolkit 3"
-          modal={true}
-          visible={this.state.visible3}
-          onClose={() => this.setState({ visible3: false })}
-          defaultPosition={{ left: '35%', top: '40%' }}
-          relativeToViewport
-        >
-          Zippy React Toolkit is designed to be a comprehensive set of rich UI
-          components built with React and that can be easily integrated into
-          existing or new applications. We've gone through a lot of iterations
-          to make sure we provide a rich and flexible component set that is
-          actually useful and help you speed-up app development. We focus on
-          building components, so you can focus on what actually matters to you
-          - building & shipping your app faster to the market.
-        </Window>
         <div
           id="constrain-to"
           style={{
@@ -182,7 +136,7 @@ class App extends React.Component {
           <Window
             title="Zippy Toolkit 4"
             constrainTo="#constrain-to"
-            modal={this.state.modal}
+            modal={true}
             titleBarStyle={{ zIndex: 111 }}
             relativeToViewport={this.state.relativeToViewport}
             position={this.state.position}
@@ -194,10 +148,30 @@ class App extends React.Component {
             keepCenteredOnResize={false}
             onPositionChange={position => this.setState({ position })}
             renderFooter={() => {
-              return <button>x</button>;
+              return (
+                <button onClick={() => this.setState({ visible2: true })}>
+                  x
+                </button>
+              );
             }}
           >
-            <LoadMask visible />
+            <Window
+              title="Zippy Toolkit 2"
+              modal={true}
+              visible={this.state.visible2}
+              onClose={() => this.setState({ visible2: false })}
+              defaultCentered
+              relativeToViewport
+            >
+              Zippy React Toolkit is designed to be a comprehensive set of rich
+              UI components built with React and that can be easily integrated
+              into existing or new applications. We've gone through a lot of
+              iterations to make sure we provide a rich and flexible component
+              set that is actually useful and help you speed-up app development.
+              We focus on building components, so you can focus on what actually
+              matters to you - building & shipping your app faster to the
+              market.
+            </Window>
             Minim consectetur consectetur labore ut sit sunt adipisicing
             consectetur do pariatur enim dolor tempor eiusmod. Dolore sint
             laboris reprehenderit in excepteur deserunt ullamco aute et esse

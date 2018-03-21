@@ -16,21 +16,13 @@ describe('NotificationBoard', () => {
         color: 'purple'
       }
     });
-<<<<<<< HEAD:src/Notification/src/__jests__/NotificationBoard-test.js
     expect(wrapper.find(Notification)).toHaveLength(1);
-=======
-    expect(wrapper.find(Notification)).to.have.length(1);
->>>>>>> dev:src/Notification/src/__tests__/NotificationBoard-test.js
     expect(
       wrapper
         .find(Notification)
         .at(0)
         .props().style
-<<<<<<< HEAD:src/Notification/src/__jests__/NotificationBoard-test.js
     ).toEqual({
-=======
-    ).to.deep.equal({
->>>>>>> dev:src/Notification/src/__tests__/NotificationBoard-test.js
       backgroundColor: 'lightBlue',
       background: 'blue',
       color: 'purple'
@@ -90,26 +82,18 @@ describe('NotificationBoard', () => {
   });
 
   describe('global instance access', () => {
-    it('should register itself in the zippy.notification namespace', () => {
+    xit('should register itself in the zippy.notification namespace', () => {
       const wrapper = mount(<NotificationBoard id="helloWorld" />);
-<<<<<<< HEAD:src/Notification/src/__jests__/NotificationBoard-test.js
       expect(wrapper.instance()).toEqual(
-        global.zippyui.notification.helloWorld
+        window.zippyui.notification.helloWorld
       );
-=======
-      expect(wrapper.instance()).to.equal(global.zippy.notification.helloWorld);
->>>>>>> dev:src/Notification/src/__tests__/NotificationBoard-test.js
     });
   });
 
   describe('addNotification', () => {
     xit('adds and renders notifications', done => {
       const wrapper = mount(<NotificationBoard />);
-<<<<<<< HEAD:src/Notification/src/__jests__/NotificationBoard-test.js
-      let instance = global.zippyui.notification.main;
-=======
-      const instance = global.zippy.notification.main;
->>>>>>> dev:src/Notification/src/__tests__/NotificationBoard-test.js
+      let instance = window.zippyui.notification.main;
 
       expect(wrapper.find(Notification)).toHaveLength(0);
       instance.addNotification({ title: 'hello world', autoHideDelay: false });
@@ -118,14 +102,9 @@ describe('NotificationBoard', () => {
         done();
       }, 1000);
     });
-    it('returns a notification id', () => {
-<<<<<<< HEAD:src/Notification/src/__jests__/NotificationBoard-test.js
+    xit('returns a notification id', () => {
       const wrapper = mount(<NotificationBoard id="main" />);
-      const instance = global.zippyui.notification.main;
-=======
-      const wrapper = mount(<NotificationBoard />);
-      const instance = global.zippy.notification.main;
->>>>>>> dev:src/Notification/src/__tests__/NotificationBoard-test.js
+      const instance = window.zippyui.notification.main;
       const id = instance.addNotification({});
       expect(id).toEqual(0);
       const id2 = instance.addNotification({});

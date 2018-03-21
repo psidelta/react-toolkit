@@ -233,7 +233,7 @@ describe('FileDroppable', () => {
 
         describe('when component is uncontrolled', () => {
           beforeEach(() => {
-            onChangeSpy = sinon.spy();
+            onChangeSpy = jest.fn();
             component.setProps({
               onChange: onChangeSpy,
               acceptDuplicates: true
@@ -251,13 +251,13 @@ describe('FileDroppable', () => {
               const firstPick = instance
                 .onPick({ dataTransfer: { files: pickedFiles } })
                 .then(() => {
-                  const callArgs1 = onChangeSpy.getCall(0).args[0];
+                  const callArgs1 = onChangeSpy.mock.calls[0][0];
                   expect(callArgs1).toHaveProperty('files');
                   expect(callArgs1.files).toEqual(pickedFiles);
                   return instance.onPick(event2);
                 })
                 .then(() => {
-                  const callArgs2 = onChangeSpy.getCall(1).args[0];
+                  const callArgs2 = onChangeSpy.mock.calls[1][0];
                   expect(callArgs2).toHaveProperty('files');
                   expect(
                     callArgs2.files /*, 'should have appended files'*/
@@ -283,7 +283,7 @@ describe('FileDroppable', () => {
               const firstPick = instance
                 .onPick({ dataTransfer: { files: pickedFiles } })
                 .then(() => {
-                  const callArgs1 = onChangeSpy.getCall(0).args[0];
+                  const callArgs1 = onChangeSpy.mock.calls[0][0];
                   expect(callArgs1).toHaveProperty('files');
                   expect(callArgs1.files).toEqual(pickedFiles);
                 })
@@ -292,7 +292,7 @@ describe('FileDroppable', () => {
               firstPick
                 .then(() => instance.onPick(event2))
                 .then(() => {
-                  const callArgs2 = onChangeSpy.getCall(1).args[0];
+                  const callArgs2 = onChangeSpy.mock.calls[1][0];
                   expect(callArgs2).toHaveProperty('files');
                   expect(
                     callArgs2.files /*, 'should have appended files'*/
@@ -307,7 +307,7 @@ describe('FileDroppable', () => {
         describe('when component is controlled', () => {
           let initialFiles = [{ a: 1 }, { b: 2 }];
           beforeEach(() => {
-            onChangeSpy = sinon.spy();
+            onChangeSpy = jest.fn();
             component.setProps({
               onChange: onChangeSpy,
               files: initialFiles,
@@ -321,7 +321,7 @@ describe('FileDroppable', () => {
             instance
               .onPick(event1)
               .then(() => {
-                const callArgs = onChangeSpy.getCall(0).args[0];
+                const callArgs = onChangeSpy.mock.calls[0][0];
                 expect(callArgs).toHaveProperty('files');
                 expect(callArgs.files).toEqual([...initialFiles, ...moreFiles]);
                 done();
@@ -853,7 +853,7 @@ describe('FileDroppable', () => {
           <WrappedClass flagDirectories={() => Promise.resolve(false)} />
         );
 
-        const idFuctionSpy = sinon.spy(file => file.name);
+        const idFuctionSpy = jest.fn(file => file.name);
         const FILES = [{ name: 'first', size: 2 }, { name: 'second', size: 3 }];
         component.setProps({
           generateUniqueFileIdentifier: idFuctionSpy

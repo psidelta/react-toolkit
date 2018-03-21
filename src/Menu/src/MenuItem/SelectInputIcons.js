@@ -5,7 +5,7 @@ const checkedIcon = ({ style, size = 24 }) => (
     <title>check button checked disabled</title>
     <desc>Created with Sketch.</desc>
     <defs />
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g stroke="none" stroke-width="1" fill="none" fillRule="evenodd">
       <g id="Artboard" transform="translate(-374.000000, -156.000000)">
         <g
           id="check-button-checked-disabled"
@@ -33,7 +33,7 @@ const checkedIcon = ({ style, size = 24 }) => (
 
 const uncheckedIcon = ({ style, size = 24 }) => (
   <svg style={style} width={size} height={size} viewBox="0 0 50 50">
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g stroke="none" stroke-width="1" fill="none" fillRule="evenodd">
       <g
         id="Artboard"
         transform="translate(-374.000000, -70.000000)"

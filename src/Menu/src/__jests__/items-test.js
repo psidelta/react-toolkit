@@ -34,13 +34,8 @@ describe('items', () => {
 
       setTimeout(() => {
         const subMenu = dom.querySelector(`.${ROOT_CLASS_NAME}`);
-<<<<<<< HEAD:src/Menu/src/__jests__/items-test.js
         expect(subMenu.textContent).toBe('NY');
         expect(subMenu.style.padding).toBe('50px');
-=======
-        expect(subMenu.textContent).to.equal('NY');
-        expect(subMenu.style.padding).to.equal('50px');
->>>>>>> dev:src/Menu/src/__tests__/items-test.js
         wrapper.unmount();
         done();
       }, 150);

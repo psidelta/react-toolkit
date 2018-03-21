@@ -353,6 +353,9 @@ class ZippyArrowScroller extends Component {
   }
 
   updateScrollInfo() {
+    if (this.componentIsMounted === false) {
+      return;
+    }
     const availableSize = this.getAvailableSize();
     const listSize = this.getCurrentListSize();
     const scrollInfo = assign(this.scrollInfo, {
