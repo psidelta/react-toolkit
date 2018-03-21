@@ -68,19 +68,19 @@ class App extends React.Component {
         </div>
         <Panel
           style={{
-            width: 500,
+            width: 300,
             height: 250,
             marginLeft: 30
             // background: 'blue'
           }}
           // rtl
-          title="Employees"
+          title="Employees Sint cillum dolor fugiat Lorem sit est fugiat deserunt."
           titleIcon={<Icon type="leads" size={this.state.size} />}
           titleBarPosition={this.state.titleBarPosition}
           titleAlign={this.state.titleAlign}
           titleRotate={this.state.titleRotate * 1}
           // onTitleBarResize={{ width: 200, height: 200 }}
-          // titleEllipsis={false}
+          titleEllipsis={true}
           // bodyScrollable={true}
           renderAfterTitle={() => <Icon type="save" />}
           renderBeforeTitle={() => <Icon type="close" />}
