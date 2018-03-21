@@ -1,6 +1,6 @@
-@import './variables.scss';
-@import '../../ArrowScroller/style/base.scss';
-@import '../../DropdownButton/style/base.scss';
+@import "./variables.scss";
+@import "../../ArrowScroller/style/base.scss";
+@import "../../DropdownButton/style/base.scss";
 
 .#{$ZIPPY_TOOLBAR_ROOT_CLASS} {
   display: flex;
@@ -38,6 +38,7 @@
     flex-flow: column;
   }
 }
+
 .#{$ZIPPY_TOOLBAR_ROOT_CLASS}--rtl {
   direction: rtl;
 }

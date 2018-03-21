@@ -1,9 +1,10 @@
-@import './round.scss';
+@import "./round.scss";
 
 @keyframes zippy-react-toolkit-load-mask-animation__loader-fade {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0.25;
   }
@@ -49,9 +50,12 @@
   opacity: 0;
 }
 
+/* stylelint-disable */
 @for $index from 0 through 11 {
   .zippy-react-toolkit-load-mask__loader-loadbar--#{$index + 1} {
-    transform: rotate(#{30*$index}deg) translate(0, -142%);
-    animation-delay: -($index*1s - decimal-round($index/12, 4));
+    transform: rotate(#{30 * $index}deg) translate(0, -142%);
+    animation-delay: -($index * 1s - decimal-round($index/12, 4));
   }
 }
+
+/* stylelint-enable */

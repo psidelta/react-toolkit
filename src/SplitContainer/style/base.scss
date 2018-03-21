@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS} {
   box-sizing: border-box;
@@ -45,8 +45,8 @@
 
     &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__side--collapsed {
       position: absolute;
-      top: 0px;
-      left: 0px;
+      top: 0;
+      left: 0;
       height: 100%;
       z-index: -1;
     }
@@ -60,13 +60,14 @@
   max-height: 100%; // needed for IE/Firefox in order to not extend the Side beyond the available container space - since items could be a lot bigger
   max-width: 100%; // needed for IE/Firefox in order to not extend the Side beyond the available container space - since items could be a lot bigger
   & > :first-child {
-    flex: 1 1 0px;
-    -ms-flex: 1 1 0px;
+    flex: 1 1 0;
+    -ms-flex: 1 1 0;
   }
 }
 
 .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__side--collapsed {
   visibility: hidden;
+
   &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__side--orientation-horizontal {
     max-width: 100%;
   }
@@ -99,6 +100,7 @@
         cursor: s-resize;
         cursor: pointer;
       }
+
       &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--collapsed-end {
         cursor: n-resize;
         cursor: pointer;
@@ -119,6 +121,7 @@
       cursor: e-resize;
       cursor: pointer;
     }
+
     &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--collapsed-end {
       cursor: w-resize;
       cursor: pointer;
@@ -166,4 +169,4 @@
   }
 }
 
-@import '../../Flex/style/index.scss';
+@import "../../Flex/style/index.scss";

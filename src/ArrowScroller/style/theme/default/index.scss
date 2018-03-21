@@ -1,21 +1,26 @@
-@import '../../variables.scss';
-@import './variables.scss';
+@import "../../variables.scss";
+@import "./variables.scss";
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}.#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}--theme-#{$ZIPPY_ARROW_SCROLLER_THEME_NAME} {
   .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow {
     background: $ZIPPY_ARROW_SCROLLER_BG_COLOR;
+
     &:hover {
       background: $ZIPPY_ARROW_SCROLLER_HOVER_BG;
     }
+
     &--direction-right {
       border-left: 1px solid $ZIPPY_ARROW_SCROLLER_BORDER_COLOR;
     }
+
     &--direction-left {
       border-right: 1px solid $ZIPPY_ARROW_SCROLLER_BORDER_COLOR;
     }
+
     &--direction-down {
       border-top: 1px solid $ZIPPY_ARROW_SCROLLER_BORDER_COLOR;
     }
+
     &--direction-up {
       border-bottom: 1px solid $ZIPPY_ARROW_SCROLLER_BORDER_COLOR;
     }

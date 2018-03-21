@@ -1,14 +1,16 @@
-@import '../../variables.scss';
-@import './variables.scss';
+@import "../../variables.scss";
+@import "./variables.scss";
 
 .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}--theme-#{$ZIPPY_SPLIT_CONTAINER_THEME_NAME} {
   &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}--bordered {
     border: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
+
     .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter:not(.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--zero-size) {
       &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--orientation-horizontal {
         border-top: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
         border-bottom: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
       }
+
       &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--orientation-vertical {
         border-left: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
         border-right: 1px solid $ZIPPY_SPLIT_CONTAINER_BORDER_COLOR;
@@ -27,6 +29,7 @@
   .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__resize-proxy {
     background: $ZIPPY_SPLIT_CONTAINER_PROXY_BG_COLOR;
   }
+
   .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__resize-proxy {
     opacity: $ZIPPY_SPLIT_CONTAINER_PROXY_OPACITY;
   }
@@ -39,6 +42,7 @@
 
   .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter--constrained {
     border: none;
+
     svg {
       visibility: hidden;
     }

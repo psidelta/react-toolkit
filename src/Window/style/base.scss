@@ -1,14 +1,14 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS} {
   position: absolute;
+
   /**
    * box-sizing must be border-box, if not,
    * resize will buggy if dilog has a border
    */
   box-sizing: border-box;
   text-align: start;
-
   top: inherit;
   left: inherit;
   right: inherit;
@@ -44,12 +44,14 @@
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__body {
   flex: 1;
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__body:not(.#{$ZIPPY_WINDOW_ROOT_CLASS}__body--scrollable) {
   overflow: hidden;
 }
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__body-footer {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__body-footer-scrollable {
   overflow: auto;
 }
@@ -99,10 +101,10 @@
   // top: 50%;
   // left: 50%;
   // transform: translateY(-50%) translateX(-50%);
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   margin: auto;
 
   .#{$ZIPPY_WINDOW_ROOT_CLASS}__proxy {
@@ -115,8 +117,8 @@
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__body-move-proxy {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: white;
@@ -139,8 +141,8 @@
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}--centered-vertical {
   margin: auto;
-  top: 0px;
-  bottom: 0px;
+  top: 0;
+  bottom: 0;
   // top: 50%;
   // transform: translateY(-50%);
 }
@@ -153,8 +155,8 @@
 }
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}--centered-horizontal {
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   margin: auto;
   // left: 50%;
   // transform: translateX(-50%);
@@ -177,7 +179,7 @@
   transform: none;
 
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--draggable
-    .#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar {
+  .#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar {
     cursor: initial;
   }
 }
@@ -260,6 +262,7 @@
     .#{$ZIPPY_WINDOW_ROOT_CLASS}__body {
       overflow: hidden;
     }
+
     opacity: 0;
   }
 }
@@ -267,19 +270,27 @@
 // handles
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--t {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--b {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--l {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--r {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--tl {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--tr {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--bl {
 }
+
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__handle--br {
 }

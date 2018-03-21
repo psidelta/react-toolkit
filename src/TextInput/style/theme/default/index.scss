@@ -1,5 +1,5 @@
-@import '../../variables.scss';
-@import './variables.scss';
+@import "../../variables.scss";
+@import "./variables.scss";
 
 .#{$ZIPPY_TEXT_INPUT_ROOT_CLASS}.#{$ZIPPY_TEXT_INPUT_ROOT_CLASS}--theme-#{$THEME_NAME} {
   font-size: $ZIPPY_TEXT_INPUT_FONT_SIZE;
@@ -26,6 +26,7 @@
   &.#{$ZIPPY_TEXT_INPUT_ROOT_CLASS}--disabled {
     fill: $ZIPPY_TEXT_INPUT_DISABLED_ICON_FILL;
     opacity: 0.5;
+
     &:hover {
       border: $ZIPPY_TEXT_INPUT_BORDER;
     }

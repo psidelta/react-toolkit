@@ -1,6 +1,6 @@
 $ZIPPY-REACT-FLEX_MAX-SIZE: 100 !default;
 
-$ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
+$ZIPPY-REACT-FLEX-PREFIX: "zippy-react-toolkit-flex-v3";
 
 .#{$ZIPPY-REACT-FLEX-PREFIX} {
   display: flex;
@@ -22,16 +22,20 @@ $ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-items-center {
   align-items: center;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-items-stretch {
   align-items: stretch;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-items-baseline {
   align-items: baseline;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-items-end,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-items-flex-end {
   align-items: flex-end;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-items-start,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-items-flex-start {
   align-items: flex-start;
@@ -41,19 +45,24 @@ $ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-center {
   align-self: center;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-stretch {
   align-self: stretch;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-baseline {
   align-self: baseline;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-auto {
   align-self: auto;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-end,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-flex-end {
   align-self: flex-end;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-start,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-self-flex-start {
   align-self: flex-start;
@@ -63,21 +72,26 @@ $ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-center {
   align-content: center;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-stretch {
   align-content: stretch;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-around,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-space-around {
   align-content: space-around;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-between,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-space-between {
   align-content: space-between;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-end,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-flex-end {
   align-content: flex-end;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-start,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--align-content-flex-start {
   align-content: flex-start;
@@ -93,15 +107,19 @@ $ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
 .#{$ZIPPY-REACT-FLEX-PREFIX}--justify-content-flex-end {
   justify-content: flex-end;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--justify-content-center {
   justify-content: center;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--justify-content-space-around {
   justify-content: space-around;
 }
+
 .#{$ZIPPY-REACT-FLEX-PREFIX}--justify-content-space-between {
   justify-content: space-between;
 }
+
 /* WRAP */
 .#{$ZIPPY-REACT-FLEX-PREFIX}--wrap {
   flex-wrap: wrap;
@@ -132,7 +150,7 @@ $ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
 
 .#{$ZIPPY-REACT-FLEX-PREFIX}--flex-basis-none,
 .#{$ZIPPY-REACT-FLEX-PREFIX}--flex-basis-0 {
-  flex-basis: 0px;
+  flex-basis: 0;
 }
 
 .#{$ZIPPY-REACT-FLEX-PREFIX}--flex-basis-fill {
@@ -161,6 +179,7 @@ $ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
   flex: none;
 }
 
+/* stylelint-disable */
 @for $i from 1 through $ZIPPY-REACT-FLEX_MAX-SIZE {
   .#{$ZIPPY-REACT-FLEX-PREFIX}--flex-#{$i} {
     flex: $i;
@@ -180,3 +199,5 @@ $ZIPPY-REACT-FLEX-PREFIX: 'zippy-react-toolkit-flex-v3';
     flex-shrink: $i;
   }
 }
+
+/* stylelint-enable */

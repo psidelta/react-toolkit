@@ -1,6 +1,6 @@
-@import './variables.scss';
-@import '../../DropdownButton/style/base.scss';
-@import '../../Button/style/base.scss';
+@import "./variables.scss";
+@import "../../DropdownButton/style/base.scss";
+@import "../../Button/style/base.scss";
 
 .#{$ZIPPY_SPLIT_BUTTON_ROOT_CLASS} {
   display: inline-flex;
@@ -10,7 +10,7 @@
 }
 
 .#{$ZIPPY_SPLIT_BUTTON_ROOT_CLASS}__dropdown-button
-  .zippy-react-toolkit-button__text {
+.zippy-react-toolkit-button__text {
   display: none;
 }
 

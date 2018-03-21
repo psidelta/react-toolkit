@@ -1,5 +1,5 @@
-@import '../../variables.scss';
-$ZIPPY-UPLOADER-THEME_NAME: 'default' !default;
+@import "../../variables.scss";
+$ZIPPY-UPLOADER-THEME_NAME: "default" !default;
 
 $border_color: #a1b6d3;
 $background-color: #d2dff0;
@@ -11,7 +11,7 @@ $drop-hover-color: rgba(73, 94, 133, 0.5);
 $button-text-color: #e9ecf0;
 $button-disabled-text-color: rgba(233, 236, 240, 0.5);
 $secondary-label-text-color: rgba(82, 82, 82, 0.7);
-$file-bg-color: #ffffff;
+$file-bg-color: #fff;
 $file-hover-bg-color: #fff0d9;
 $file-border-color: #c5c5c5;
 $progress-bar-active-color: #5c8eeb;

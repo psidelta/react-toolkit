@@ -1,7 +1,7 @@
-$ZIPPY_BUTTON_THEME_NAME: 'default' !default;
+$ZIPPY_BUTTON_THEME_NAME: "default" !default;
 
-@import '../../variables.scss';
-@import './variables.scss';
+@import "../../variables.scss";
+@import "./variables.scss";
 
 .#{$ZIPPY_BUTTON_ROOT_CLASS}.#{$ZIPPY_BUTTON_ROOT_CLASS}--theme-#{$ZIPPY_BUTTON_THEME_NAME} {
   color: $ZIPPY_BUTTON_COLOR;
@@ -11,7 +11,7 @@ $ZIPPY_BUTTON_THEME_NAME: 'default' !default;
 
   &:not(.zippy-react-toolkit-dropdown-button__button):not(.zippy-react-toolkit-split-button__button) {
     background: $ZIPPY_BUTTON_BG_COLOR padding-box;
-    transform: translateY(0px);
+    transform: translateY(0);
 
     &:not(.zippy-react-toolkit-button--disabled):active {
       transform: translateY(1px);
@@ -20,18 +20,22 @@ $ZIPPY_BUTTON_THEME_NAME: 'default' !default;
     &:not(.zippy-react-toolkit-button--disabled):hover {
       background: $ZIPPY_BUTTON_HOVER_BG_COLOR padding-box;
     }
+
     &:not(.zippy-react-toolkit-button--disabled).zippy-react-toolkit-button--pressed {
       background: $ZIPPY_BUTTON_PRESSED_BG_COLOR padding-box;
+
       &:hover {
         background: $ZIPPY_BUTTON_PRESSED_HOVER_BG_COLOR padding-box;
       }
     }
 
     border: $ZIPPY_BUTTON_UNFOCUSED_BORDER;
+
     &.zippy-react-toolkit-button--focused {
       border: $ZIPPY_BUTTON_FOCUSED_BORDER;
       transition: border 0.2s;
     }
+
     min-height: 32px;
     padding: 4px 8px;
   }
@@ -49,6 +53,7 @@ $ZIPPY_BUTTON_THEME_NAME: 'default' !default;
           margin-right: 6px;
         }
       }
+
       &.#{$ZIPPY_BUTTON_ROOT_CLASS}--icon-last {
         .#{$ZIPPY_BUTTON_ROOT_CLASS}__icon-wrap {
           margin-left: 6px;
@@ -62,6 +67,7 @@ $ZIPPY_BUTTON_THEME_NAME: 'default' !default;
           margin-left: 6px;
         }
       }
+
       &.#{$ZIPPY_BUTTON_ROOT_CLASS}--icon-last {
         .#{$ZIPPY_BUTTON_ROOT_CLASS}__icon-wrap {
           margin-right: 6px;

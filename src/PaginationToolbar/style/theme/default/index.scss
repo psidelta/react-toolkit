@@ -1,11 +1,12 @@
-@import '../../variables.scss';
+@import "../../variables.scss";
 
-$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME: 'default' !default;
+$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME: "default" !default;
 
 .#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS}.#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS}--theme-#{$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME} {
   padding: 2px 8px;
   background: $ZIPPY_PAGINATION_TOOLBAR_BG;
   fill: $ZIPPY_PAGINATION_TOOLBAR_ICON_FILL_COLOR;
+
   &,
   input {
     color: $ZIPPY_PAGINATION_TOOLBAR_COLOR;
@@ -45,11 +46,12 @@ $ZIPPY_PAGINATION_TOOLBAR_THEME_NAME: 'default' !default;
   .zippy-react-toolkit-numeric-input--theme-#{$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME},
   .zippy-react-toolkit-combo-box--theme-#{$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME},
   .zippy-react-toolkit-combo-box--theme-#{$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME}
-    .zippy-react-toolkit-combo-box__list,
+  .zippy-react-toolkit-combo-box__list,
   input:not(.zippy-react-toolkit-numeric-input__input) {
     border: 1px solid $ZIPPY_PAGINATION_TOOLBAR_BORDER_COLOR;
     outline: none;
   }
+
   .zippy-react-toolkit-combo-box--focus.zippy-react-toolkit-combo-box--theme-#{$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME},
   .zippy-react-toolkit-numeric-input.zippy-react-toolkit-numeric-input--focused,
   input:not(.zippy-react-toolkit-numeric-input__input):focus {
@@ -63,11 +65,13 @@ $ZIPPY_PAGINATION_TOOLBAR_THEME_NAME: 'default' !default;
   .#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS}__current-page {
     margin: 0 8px;
   }
+
   .#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS}__page-size-combo {
     margin-right: 2px;
     margin-left: 8px;
     background: white;
   }
+
   .#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS}__icon {
     user-select: none;
     fill: $ZIPPY_PAGINATION_TOOLBAR_ICON_FILL_COLOR;
@@ -83,6 +87,7 @@ $ZIPPY_PAGINATION_TOOLBAR_THEME_NAME: 'default' !default;
     &--named--PREV_PAGE {
       margin-right: 10px;
     }
+
     &--named--NEXT_PAGE {
       margin-left: 10px;
     }

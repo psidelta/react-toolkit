@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_OVERLAY_ROOT_CLASS} {
   position: absolute;
@@ -72,28 +72,24 @@
   &--top {
     left: 50%;
     top: 0;
-
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
   }
 
   &--left {
     top: 50%;
     left: 0;
-
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
   }
 
   &--right {
     right: 0;
     top: 50%;
-
     transform: translateX(50%) translateY(-50%) rotate(45deg);
   }
 
   &--bottom {
     left: 50%;
     bottom: 0;
-
     transform: translateX(-50%) translateY(50%) rotate(45deg);
   }
 }

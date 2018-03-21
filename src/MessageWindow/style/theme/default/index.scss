@@ -1,6 +1,5 @@
-@import './variables.scss';
-
-@import '../../../../Window/style/theme/default/index.scss';
+@import "./variables.scss";
+@import "../../../../Window/style/theme/default/index.scss";
 
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}.#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}--theme-#{$ZIPPY_MESSAGE_WINDOW_THEME_NAME} {
   font-size: $ZIPPY_MESSAGE_WINDOW_FONT_SIZE;
@@ -16,6 +15,7 @@
   // the close button class is specified three times to override the class from the Button.
   .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__tool.#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__tool.#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__tool {
     background: $ZIPPY_MESSAGE_WINDOW_MAIN_COLOR;
+
     &:hover {
       background: $ZIPPY_MESSAGE_WINDOW_MAIN_COLOR;
     }

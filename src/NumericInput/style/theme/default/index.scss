@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}.#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}--theme-#{$ZIPPY_NUMERIC_INPUT_THEME_NAME} {
   font-size: $ZIPPY_NUMERIC_FONT_SIZE;
@@ -36,6 +36,7 @@
     margin: $ZIPPY_NUMERIC_SPINNER_MARGIN;
     min-height: $ZIPPY_NUMERIC_INPUT_TOOL_DIMENSION;
   }
+
   .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__spinner-wrapper-hidden {
     margin: $ZIPPY_NUMERIC_SPINNER_MARGIN_HIDDEN;
   }
@@ -47,7 +48,7 @@
 
   .#{$ZIPPY_NUMERIC_INPUT_ROOT_CLASS}__spinner-arrow {
     svg {
-      transform: translateY(0px);
+      transform: translateY(0);
       pointer-events: none;
     }
   }

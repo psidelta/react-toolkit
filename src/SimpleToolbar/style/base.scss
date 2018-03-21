@@ -1,4 +1,4 @@
-@import '../../Flex/style/index.scss';
+@import "../../Flex/style/index.scss";
 
 .zippy-react-simple-toolbar {
   box-sizing: border-box;
@@ -10,7 +10,6 @@
   }
 
   display: inline-flex;
-
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -23,16 +22,15 @@
   }
 
   &--orientation-vertical {
-    height: '100%';
-    flex-flow: 'column';
-    align-items: 'stretch';
-    align-content: 'center';
+    height: "100%";
+    flex-flow: "column";
+    align-items: "stretch";
+    align-content: "center";
   }
 }
 
 .zippy-react-simple-toolbar__region {
   position: relative;
-
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -40,9 +38,11 @@
   &--text-align-start {
     text-align: start;
   }
+
   &--text-align-end {
     text-align: end;
   }
+
   &--text-align-center {
     text-align: center;
   }

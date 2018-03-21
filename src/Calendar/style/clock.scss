@@ -1,7 +1,8 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock {
   box-sizing: border-box;
+
   *,
   *:before,
   *:after {
@@ -22,6 +23,7 @@
   top: 50%;
   left: 50%;
 }
+
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock-hand,
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__clock-tick {
   position: absolute;
@@ -29,7 +31,6 @@
 
   left: 50%;
   top: 50%;
-
   width: 1px;
   background: gray;
 }

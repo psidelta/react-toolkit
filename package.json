@@ -29,19 +29,31 @@
     "build:package": "node ./scripts/buildGlobalPackageJSON.js",
     "pretty":
       "prettier --single-quite es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
-    "prettystyle": "stylelint \"src/Accordion/**/*.scss\" --syntax scss --fix",
+    "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
       "no-duplicate-selectors": null,
+      "no-empty-source": null,
+      "block-no-empty": null,
+      "selector-combinator-space-before": null,
+      "no-descending-specificity": null,
+      "function-comma-space-after": null,
+      "declaration-bang-space-before": null,
+      "selector-pseudo-element-colon-notation": null,
+      "declaration-colon-newline-after": null,
       "selector-descendant-combinator-no-non-space": null
     }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json}": ["prettier --write", "git add"],
-    "src/**/*.scss": ["stylelint --syntax scss --fix", "git add"]
+    "src/**/*.scss": [
+      "prettier --write",
+      "stylelint --syntax scss --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@zippytech/react-scroll-container-pro": "^1.0.98",

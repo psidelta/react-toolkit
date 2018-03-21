@@ -1,9 +1,10 @@
-@import './variables.scss';
-@import '../../Window/style/base.scss';
+@import "./variables.scss";
+@import "../../Window/style/base.scss";
 
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__modal-wrapper {
   background: rgba(73, 94, 133, 0.5);
   position: absolute;
+
   &--fixed {
     position: fixed;
   }
@@ -39,11 +40,13 @@
     justify-content: flex-start;
   }
 }
+
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}--buttons-align-end {
   .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__footer {
     justify-content: flex-end;
   }
 }
+
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}--buttons-align-center {
   .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__footer {
     justify-content: center;
@@ -75,11 +78,15 @@
 
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__button {
 }
+
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__button--ok {
 }
+
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__button--cancel {
 }
+
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__button--no {
 }
+
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__button--yes {
 }

@@ -42,7 +42,7 @@
   // }
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button
-    + .#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button {
+  + .#{$ZIPPY_CALENDAR_ROOT_CLASS}__footer-button {
     margin-left: 4px;
   }
 }

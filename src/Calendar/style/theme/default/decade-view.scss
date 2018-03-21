@@ -1,5 +1,5 @@
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view--theme-#{$ZIPPY_CALENDAR_THEME_NAME} {
-  padding: 2px 0px;
+  padding: 2px 0;
   min-height: 92px;
   min-width: 238px;
 
@@ -26,6 +26,7 @@
       }
     }
   }
+
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view-arrow--next {
     &:not(.#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view-arrow--disabled) {
       &:active {
@@ -37,13 +38,11 @@
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view-year {
     margin: 5px 1px;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 36px;
     max-height: 36px;
-
     min-width: 36px;
     max-width: 36px;
     height: 36px;

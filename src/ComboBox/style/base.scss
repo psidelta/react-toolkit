@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import '../../Overlay/style/base.scss';
+@import "./variables.scss";
+@import "../../Overlay/style/base.scss";
 
 .#{$ZIPPY_COMBO_BOX_ROOT_CLASS} {
   display: flex;
@@ -39,6 +39,7 @@
 
   &--relative-to-viewport {
   }
+
   &:not(.#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__list--relative-to-viewport) {
     position: absolute;
   }
@@ -148,7 +149,7 @@
 }
 
 .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag--ellipsis
-  .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag__label {
+.#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag__label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

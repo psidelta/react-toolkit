@@ -1,37 +1,46 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_SLIDER_ROOT_CLASS}.#{$ZIPPY_SLIDER_ROOT_CLASS}--theme-#{$ZIPPY_SLIDER_THEME_NAME} {
   outline: 0;
   border: 1px solid transparent;
+
   &.#{$ZIPPY_SLIDER_ROOT_CLASS}--focused {
     border: $ZIPPY_SLIDER_BORDER_FOCUS;
   }
+
   .#{$ZIPPY_SLIDER_ROOT_CLASS} {
     &__track {
       background-color: $ZIPPY_SLIDER_SLIDER_BAR_BACKGROUND;
     }
+
     &__handle {
       outline: 0;
       background-color: $ZIPPY_SLIDER_HANDLERS_BACKGROUND;
       transition: background-color 0.2s;
+
       &:hover {
         background-color: $ZIPPY_SLIDER_HANDLERS_BACKGROUND_FOCUS;
       }
+
       &--focused {
         background-color: $ZIPPY_SLIDER_HANDLERS_BACKGROUND_FOCUS;
       }
     }
+
     &__track-fill {
       background-color: $ZIPPY_SLIDER_TRACK_BAR_BACKGROUND;
       outline: 0;
       transition: background-color 0.2s;
+
       &:hover {
         background-color: $ZIPPY_SLIDER_TRACK_BAR_BACKGROUND_FOCUS;
       }
+
       &--focused {
         background-color: $ZIPPY_SLIDER_TRACK_BAR_BACKGROUND_FOCUS;
       }
     }
+
     &__tick {
       // cursor: pointer;
       display: flex;
@@ -40,14 +49,17 @@
       color: $ZIPPY_SLIDER_TICK_COLOR;
       background-color: $ZIPPY_SLIDER_TICKS_BIG_BACKGROUND;
       line-height: 1px;
+
       &--contained-value,
       &--current-value {
         color: $ZIPPY_SLIDER_TICK_COLOR;
       }
+
       &--small {
         background-color: $ZIPPY_SLIDER_TICKS_SMALL_BACKGROUND;
       }
     }
+
     &__control-button {
       border: none;
       background-color: transparent;
@@ -57,9 +69,11 @@
       padding: 0;
       outline: 0;
       border-radius: 50%;
+
       svg {
         fill: $ZIPPY_SLIDER_BUTTONS_FILL;
       }
+
       &:hover {
         svg {
           fill: $ZIPPY_SLIDER_BUTTONS_FILL_HOVER;
@@ -100,6 +114,7 @@
               bottom: 20px;
             }
           }
+
           &--tick-bars-position-end {
             .#{$ZIPPY_SLIDER_ROOT_CLASS}__tick-label {
               top: 20px;

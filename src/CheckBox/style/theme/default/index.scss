@@ -1,17 +1,20 @@
-@import './variables';
+@import "./variables";
 
 .#{$ZIPPY_CHECKBOX_ROOT_CLASS}.#{$ZIPPY_CHECKBOX_ROOT_CLASS}--theme-#{$ZIPPY_CHECKBOX_THEME_NAME} {
   outline: none;
   color: $ZIPPY_CHECKBOX_COLOR;
   font-size: $ZIPPY_CHECKBOX_FONT_SIZE;
+
   .#{$ZIPPY_CHECKBOX_ROOT_CLASS}__icon-wrapper {
     border: 1px solid transparent;
   }
+
   &.#{$ZIPPY_CHECKBOX_ROOT_CLASS}--focused {
     .#{$ZIPPY_CHECKBOX_ROOT_CLASS}__icon-wrapper {
       border: 1px dotted $ZIPPY_CHECKBOX_FOCUSED_BORDER_COLOR;
     }
   }
+
   &.#{$ZIPPY_CHECKBOX_ROOT_CLASS}--checked,
   &.#{$ZIPPY_CHECKBOX_ROOT_CLASS}--indeterminate {
     fill: $ZIPPY_CHECKBOX_CHECKED_FILL;
@@ -31,6 +34,7 @@
       fill: rgba($ZIPPY_CHECKBOX_CHECKED_FILL, 0.5);
       color: rgba($ZIPPY_CHECKBOX_CHECKED_FILL, 0.5);
     }
+
     &.#{$ZIPPY_CHECKBOX_ROOT_CLASS}--indeterminate,
     &.#{$ZIPPY_CHECKBOX_ROOT_CLASS}--unchecked {
       fill: rgba($ZIPPY_CHECKBOX_UNCHECKED_FILL, 0.5);

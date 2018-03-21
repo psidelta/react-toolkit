@@ -17,7 +17,7 @@
   }
 
   .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__input {
-    padding: 0px 8px;
+    padding: 0 8px;
     min-height: 30px;
     height: 30px;
     color: $ZIPPY_DATE_INPUT_COLOR;
@@ -67,8 +67,8 @@
     margin-right: 6px;
     padding: 6px 7px;
     opacity: 0.9;
+    transform: translateY(0);
 
-    transform: translateY(0px);
     &:active {
       transform: translateY(1px);
     }
@@ -99,8 +99,8 @@
     fill: $ZIPPY_CALENDAR_MAIN_COLOR;
     margin-right: 4px;
     flex: 1 0 auto;
+    transform: translateY(0);
 
-    transform: translateY(0px);
     &:active {
       transform: translateY(1px);
     }
@@ -118,6 +118,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -134,7 +135,7 @@
   }
 
   &.#{$ZIPPY_DATE_INPUT_ROOT_CLASS}--focused
-    .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__clear-icon {
+  .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__clear-icon {
     color: $ZIPPY_CALENDAR_ICON_COLOR;
     fill: $ZIPPY_CALENDAR_ICON_COLOR;
   }
@@ -162,13 +163,13 @@
   }
 
   &.#{$ZIPPY_DATE_INPUT_ROOT_CLASS}--focused
-    .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon,
+  .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon,
   &.#{$ZIPPY_DATE_INPUT_ROOT_CLASS}--focused
-    .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon:hover,
+  .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon:hover,
   &.#{$ZIPPY_DATE_INPUT_ROOT_CLASS}--focused
-    .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon:active,
+  .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon:active,
   &:not(.#{$ZIPPY_DATE_INPUT_ROOT_CLASS}--disabled)
-    .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon:active {
+  .#{$ZIPPY_DATE_INPUT_ROOT_CLASS}__calendar-icon:active {
     border-color: $ZIPPY_CALENDAR_ICON_COLOR_ACTIVE;
 
     &:after,

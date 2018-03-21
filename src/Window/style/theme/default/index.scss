@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__modal-wrapper--top.#{$ZIPPY_WINDOW_ROOT_CLASS}__modal-wrapper--theme-#{$ZIPPY_WINDOW_THEME_NAME} {
   background: $ZIPPY_WINDOW_MODAL_WRAPPER_BACKGROUND;
@@ -19,6 +19,7 @@
   .#{$ZIPPY_WINDOW_ROOT_CLASS}__body-footer {
     border-bottom: $ZIPPY_WINDOW_BORDER;
   }
+
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--shadow {
     box-shadow: $ZIPPY_WINDOW_SHADOW;
   }
@@ -88,22 +89,25 @@
     cursor: pointer;
     transition: all 0.2s;
     fill: $ZIPPY_WINDOW_BUTTON_FILL;
-
     min-width: 32px;
     min-height: 32px;
     padding: 0;
-
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     &:hover {
       background: $ZIPPY_WINDOW_TOOLS_ICONS_HOVER_BACKGROUND;
     }
-    transform: translateY(0px);
+
+    transform: translateY(0);
+
     &:active {
       transform: translateY(1px);
     }
-    &:fist-child {
+
+    &:first-child {
       margin-left: 0;
     }
+
     &:last-child {
       margin-right: 0;
     }

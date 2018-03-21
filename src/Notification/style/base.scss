@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_NOTIFICATION_ROOT_CLASS_WRAPPER} {
   position: absolute;
@@ -74,6 +74,7 @@
 // animation
 .#{$ZIPPY_NOTIFICATION_ROOT_CLASS}--has-transition {
   visibility: visible;
+
   &.#{$ZIPPY_NOTIFICATION_ROOT_CLASS}--transition-enter {
     // opacity: 0;
   }
@@ -156,7 +157,7 @@
 
 .#{$ZIPPY_NOTIFICATION_ROOT_CLASS}__close-button,
 .#{$ZIPPY_NOTIFICATION_ROOT_CLASS}__pin-button {
-  line-height: 0px;
+  line-height: 0;
   cursor: pointer;
   align-self: flex-start;
 }

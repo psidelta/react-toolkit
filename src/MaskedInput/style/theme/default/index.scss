@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}.#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}--theme-#{$ZIPPY_MASKED_INPUT_THEME_NAME} {
   padding: 6px 0 5px 8px;
@@ -30,6 +30,7 @@
     &:hover {
       border: $ZIPPY_MASKED_INPUT_BORDER;
     }
+
     .#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}--input {
       background: $ZIPPY_MASKET_INPUT_WHITE_BG;
       color: $ZIPPY_MASKED_INPUT_COLOR;

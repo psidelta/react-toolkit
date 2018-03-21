@@ -1,6 +1,6 @@
-@import './variables.scss';
-@import '../../Flex/style/index.scss';
-@import '../../ArrowScroller/style/base.scss';
+@import "./variables.scss";
+@import "../../Flex/style/index.scss";
+@import "../../ArrowScroller/style/base.scss";
 
 .#{$ZIPPY_TAB_PANEL_ROOT_CLASS},
 .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip {
@@ -43,6 +43,7 @@
       flex: 1;
     }
   }
+
   &--scroll-tab-content > * {
     overflow: auto;
   }
@@ -62,7 +63,7 @@
 
   &--transition {
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--out {
-      transform: translate3d(0px, 0px, 0px);
+      transform: translate3d(0, 0, 0);
       transition-property: transform;
       transition-duration: $ZIPPY_TAB_PANEL_TRANSITION_DURATION;
     }
@@ -76,7 +77,7 @@
 
     &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--orientation-horizontal {
       .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--in {
-        top: 0px;
+        top: 0;
       }
 
       &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--transition-next {
@@ -87,10 +88,11 @@
 
         &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--transitioning {
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--out {
-            transform: translate3d(-100%, 0px, 0px);
+            transform: translate3d(-100%, 0, 0);
           }
+
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--in {
-            left: 0px;
+            left: 0;
           }
         }
       }
@@ -103,11 +105,11 @@
 
         &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--transitioning {
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--out {
-            transform: translate3d(100%, 0px, 0px);
+            transform: translate3d(100%, 0, 0);
           }
 
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--in {
-            right: 0px;
+            right: 0;
           }
         }
       }
@@ -115,7 +117,7 @@
 
     &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--orientation-vertical {
       .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--in {
-        left: 0px;
+        left: 0;
       }
 
       &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--transition-next {
@@ -126,10 +128,11 @@
 
         &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--transitioning {
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--out {
-            transform: translate3d(0px, -100%, 0px);
+            transform: translate3d(0, -100%, 0);
           }
+
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--in {
-            top: 0px;
+            top: 0;
           }
         }
       }
@@ -142,11 +145,11 @@
 
         &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body--transitioning {
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--out {
-            transform: translate3d(0px, 100%, 0px);
+            transform: translate3d(0, 100%, 0);
           }
 
           .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__content--in {
-            bottom: 0px;
+            bottom: 0;
           }
         }
       }
@@ -164,6 +167,7 @@
     &--direction-horizontal {
       min-width: 100%;
     }
+
     &--direction-vertical {
       min-height: 100%;
     }
@@ -195,45 +199,51 @@
     }
   }
 }
+
 .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip-scroll-wrap {
   overflow: hidden;
   position: relative;
 }
+
 .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip {
   .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow {
     display: flex;
     align-items: center;
     justify-content: center;
+
     &--auto {
       position: absolute;
       z-index: 100;
     }
 
     &--direction-left {
-      left: 0px;
+      left: 0;
       z-index: 200;
     }
+
     &--direction-right {
-      right: 0px;
+      right: 0;
     }
+
     &--direction-up {
-      top: 0px;
+      top: 0;
       z-index: 200;
     }
+
     &--direction-down {
-      bottom: 0px;
+      bottom: 0;
     }
 
     &--direction-left,
     &--direction-right {
-      top: 0px;
-      bottom: 0px;
+      top: 0;
+      bottom: 0;
     }
 
     &--direction-up,
     &--direction-down {
-      left: 0px;
-      right: 0px;
+      left: 0;
+      right: 0;
     }
 
     &--disabled {
@@ -304,9 +314,11 @@
     //have a flex of 1 to make sure the tabstrip is always filled
     flex: 1;
   }
+
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip__between {
     flex: none;
   }
+
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title,
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title__inner {
     flex: 1000 0 auto; //0 for no shrink
@@ -317,7 +329,7 @@
   }
 
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title:focus {
-    outline: 0px solid transparent;
+    outline: 0 solid transparent;
   }
 
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title--active {
@@ -333,7 +345,6 @@
   position: relative;
   flex-shrink: 0;
   transition: background-color $ZIPPY_TAB_PANEL_TRANSITION_DURATION;
-
   white-space: nowrap;
 
   &__inner--ellipsis,
@@ -354,13 +365,13 @@
     position: absolute;
     z-index: 1;
     top: 100%;
-    left: 0px;
+    left: 0;
   }
 
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-left {
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title__inner {
       top: 100%;
-      left: 0px;
+      left: 0;
       transform-origin: 0 0;
       transform: translate(0%, 0%) rotate(-90deg);
     }
@@ -369,11 +380,12 @@
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-right {
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title__inner {
       left: 100%;
-      top: 0px;
+      top: 0;
       transform-origin: 0 0;
       transform: translate(0%, 0%) rotate(90deg);
     }
   }
+
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title__inner--hidden {
     transform: none !important;
     position: absolute !important;
@@ -389,10 +401,12 @@
     vertical-align: middle;
   }
 }
+
 .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title--closeable-on-over {
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title__close-icon {
     visibility: hidden;
   }
+
   &:hover {
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title__close-icon {
       visibility: visible;
