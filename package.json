@@ -24,7 +24,15 @@
     "lib:themes": "node ./scripts/lib-themes",
     "lint": "eslint src/**/*.js",
     "build": "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
-    "build:package": "node ./scripts/buildGlobalPackageJSON.js"
+    "build:package": "node ./scripts/buildGlobalPackageJSON.js",
+    "pretty": "prettier --single-quite es5 --write \"src/**/*.{js,jsx,json,css,scss}\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@zippytech/react-scroll-container-pro": "^1.0.98",
@@ -56,6 +64,7 @@
     "fs-promise": "^2.0.0",
     "github-markdown-css": "^2.4.1",
     "globby": "^6.1.0",
+    "husky": "^0.14.3",
     "jest": "^22.4.2",
     "jest-environment-node": "^22.4.1",
     "json-loader": "^0.5.4",
@@ -69,11 +78,13 @@
     "karma-mocha": "^1.1.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.13",
+    "lint-staged": "^7.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^5.0.1",
     "moment": "2.18.1",
     "node-sass": "^4.7.2",
     "pify": "^2.3.0",
+    "prettier": "^1.11.1",
     "prop-types": "^15.6.1",
     "puppeteer": "^1.1.1",
     "raw-loader": "^0.5.1",
