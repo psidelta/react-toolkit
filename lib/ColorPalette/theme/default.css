@@ -1,9 +1,0 @@
-.zippy-react-toolkit-color-palette.zippy-react-toolkit-color-palette--theme-default .zippy-react-toolkit-color-palette__item {
-  border: 1px solid transparent; }
-
-.zippy-react-toolkit-color-palette.zippy-react-toolkit-color-palette--theme-default .zippy-react-toolkit-color-palette__item--active {
-  border: 1px solid #fff;
-  box-shadow: 0px 0px 1px 1px rgba(2, 2, 2, 0.27); }
-
-.zippy-react-toolkit-color-palette.zippy-react-toolkit-color-palette--theme-default .zippy-react-toolkit-color-palette__item:hover {
-  box-shadow: 0px 0px 1px 1px rgba(2, 2, 2, 0.27); }
