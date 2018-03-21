@@ -98,17 +98,6 @@ class ZippyWindow extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.visible !== nextProps.visible) {
-      this.handleVisibleChange(nextProps.visible);
-      if (this.isAutoFocus()) {
-        raf(() => {
-          if (nextProps.visible) {
-            this.focus();
-          }
-        });
-      }
-    }
-
     if (
       this.isMaximiedControlled() &&
       this.props.maximized !== nextProps.maximized
@@ -127,6 +116,17 @@ class ZippyWindow extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.modal != prevProps.modal) {
       this.refreshZIndex();
+    }
+
+    if (this.props.visible !== prevProps.visible) {
+      this.handleVisibleChange(this.props.visible);
+      if (this.isAutoFocus()) {
+        raf(() => {
+          if (this.props.visible) {
+            this.focus();
+          }
+        });
+      }
     }
   }
 
@@ -258,6 +258,8 @@ class ZippyWindow extends Component {
       `${this.props.rootClassName}__modal-wrapper--theme-${this.props.theme}`,
       this.state.isTopModal &&
         `${this.props.rootClassName}__modal-wrapper--top`,
+      !this.isVisible() &&
+        `${this.props.rootClassName}__modal-wrapper--invisible`,
       this.getRelativeToViewport() &&
         `${this.props.rootClassName}__modal-wrapper--fixed`,
       this.getTransitionClassNames(this.props.rootClassName)
@@ -442,7 +444,7 @@ class ZippyWindow extends Component {
     let className = join(
       props.className,
       `${rootClassName}--theme-${this.props.theme}`,
-      !state.visible && `${rootClassName}--invisible`,
+      !this.isVisible() && `${rootClassName}--invisible`,
       props.rtl && `${rootClassName}--rtl`,
       this.getRelativeToViewport() && `${rootClassName}--fixed`,
       this.getCenteredClassName(),
@@ -547,6 +549,10 @@ class ZippyWindow extends Component {
   }
 
   onWindowFocus(event) {
+    if (this.props.modal && !this.state.isTopModal) {
+      event.stopPropagation();
+      return;
+    }
     if (!this.state.isTop) {
       this.bringToFront(this.id);
     }
@@ -2154,6 +2160,10 @@ class ZippyWindow extends Component {
     return this.state.visible;
   }
 
+  isVisible() {
+    return this.props.visible != null ? this.props.visible : this.state.visible;
+  }
+
   // maxmized
   isMaximiedControlled() {
     return this.props.maximized !== undefined;
@@ -2300,6 +2310,8 @@ class ZippyWindow extends Component {
     if (visible) {
       // bring a window to front when it becomes visible
       this.bringToFront();
+    } else {
+      this.sendToBack();
     }
     if (!this.props.transition) {
       this.setState({ visible });

@@ -9,15 +9,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "jest": "jest",
-    "watch-jest": "jest --watch",
+    "test": "jest",
+    "test-watch": "jest --watch",
     "dev":
       "webpack-dev-server --progress --colors --config ./build/dev.config.js",
-    "test": "npm run test:all",
-    "test:watch": "karma start ./karma.conf.js",
-    "test:single-run": "karma start ./karma.conf.js --single-run",
-    "test:all": "npm run test:single-run --module=ALL && npm run test:lib",
-    "test:lib": "mocha ./__tests__/*",
     "lib": "node ./scripts/lib.js",
     "lib:all": "npm run lib --module=ALL",
     "lib:style": "node ./scripts/lib-style.js",

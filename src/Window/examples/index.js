@@ -82,7 +82,7 @@ class App extends React.Component {
       visible1: false,
       visible2: false,
       visible3: false,
-      visible4: true,
+      visible4: false,
       relativeToViewport: false,
       centered: false,
       modal: true,
@@ -90,6 +90,11 @@ class App extends React.Component {
     };
   }
   render() {
+    global.show1 = () => {
+      this.setState({
+        visible1: true
+      });
+    };
     return (
       <div style={{ position: 'relative', height: '100%' }}>
         <div style={{ marginBottom: 20 }}>
@@ -123,6 +128,54 @@ class App extends React.Component {
           </button>
         </div>
         <div style={{ marginBottom: 20 }} />
+        <Window
+          title="Zippy Toolkit 1"
+          modal
+          titleBarStyle={{ zIndex: 111 }}
+          relativeToViewport={this.state.relativeToViewport}
+          visible={this.state.visible1}
+          onClose={() => this.setState({ visible1: false })}
+          defaultCentered
+          keepAspectRatio={true}
+          keepChildrenOnMove={true}
+          keepCenteredOnResize={false}
+          renderFooter={() => {
+            return (
+              <button onClick={() => this.setState({ visible2: true })}>
+                x
+              </button>
+            );
+          }}
+        >
+          Minim consectetur consectetur labore ut sit sunt adipisicing
+          consectetur do pariatur enim dolor tempor eiusmod. Dolore sint laboris
+          reprehenderit in excepteur deserunt ullamco aute et esse exercitation
+          magna enim. Et reprehenderit consectetur quis excepteur ad et
+          incididunt esse ut duis adipisicing proident. Enim ad aute id sint
+          excepteur pariatur sunt tempor officia. Minim consectetur consectetur
+          labore ut sit sunt adipisicing consectetur do pariatur enim dolor
+          tempor eiusmod. Dolore sint laboris reprehenderit in excepteur
+          deserunt ullamco aute et esse exercitation magna enim. Et
+          reprehenderit consectetur quis excepteur ad et incididunt esse ut duis
+          adipisicing proident. Enim ad aute id sint excepteur pariatur sunt
+          tempor officia. Minim consectetur consectetur labore ut sit sunt
+          adipisicing consectetur do pariatur enim dolor tempor eiusmod. Dolore
+          sint laboris reprehenderit in excepteur deserunt ullamco aute et esse
+          exercitation magna enim. Et reprehenderit consectetur quis excepteur
+          ad et incididunt esse ut duis adipisicing proident. Enim ad aute id
+          sint excepteur pariatur sunt tempor officia. Minim consectetur
+          consectetur labore ut sit sunt adipisicing consectetur do pariatur
+          enim dolor tempor eiusmod. Dolore sint laboris reprehenderit in
+          excepteur deserunt ullamco aute et esse exercitation magna enim. Et
+          reprehenderit consectetur quis excepteur ad et incididunt esse ut duis
+          adipisicing proident. Enim ad aute id sint excepteur pariatur sunt
+          tempor officia. Minim consectetur consectetur labore ut sit sunt
+          adipisicing consectetur do pariatur enim dolor tempor eiusmod. Dolore
+          sint laboris reprehenderit in excepteur deserunt ullamco aute et esse
+          exercitation magna enim. Et reprehenderit consectetur quis excepteur
+          ad et incididunt esse ut duis adipisicing proident. Enim ad aute id
+          sint excepteur pariatur sunt tempor officia.
+        </Window>
 
         <div
           id="constrain-to"
@@ -135,18 +188,18 @@ class App extends React.Component {
         >
           <Window
             title="Zippy Toolkit 4"
+            modal
+            xnameSpace="x"
             constrainTo="#constrain-to"
-            modal={true}
             titleBarStyle={{ zIndex: 111 }}
             relativeToViewport={this.state.relativeToViewport}
-            position={this.state.position}
+            xposition={this.state.position}
             visible={this.state.visible4}
             onClose={() => this.setState({ visible4: false })}
             defaultCentered
             keepAspectRatio={true}
             keepChildrenOnMove={true}
             keepCenteredOnResize={false}
-            onPositionChange={position => this.setState({ position })}
             renderFooter={() => {
               return (
                 <button onClick={() => this.setState({ visible2: true })}>
@@ -155,23 +208,6 @@ class App extends React.Component {
               );
             }}
           >
-            <Window
-              title="Zippy Toolkit 2"
-              modal={true}
-              visible={this.state.visible2}
-              onClose={() => this.setState({ visible2: false })}
-              defaultCentered
-              relativeToViewport
-            >
-              Zippy React Toolkit is designed to be a comprehensive set of rich
-              UI components built with React and that can be easily integrated
-              into existing or new applications. We've gone through a lot of
-              iterations to make sure we provide a rich and flexible component
-              set that is actually useful and help you speed-up app development.
-              We focus on building components, so you can focus on what actually
-              matters to you - building & shipping your app faster to the
-              market.
-            </Window>
             Minim consectetur consectetur labore ut sit sunt adipisicing
             consectetur do pariatur enim dolor tempor eiusmod. Dolore sint
             laboris reprehenderit in excepteur deserunt ullamco aute et esse

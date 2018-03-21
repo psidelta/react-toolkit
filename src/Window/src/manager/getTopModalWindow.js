@@ -10,7 +10,11 @@ function getTopModalWindow(list, instances) {
   let instance;
   for (let i = list.length - 1; i >= 0; i--) {
     instance = instances[list[i]];
-    if (instance.props && instance.props.modal && instance.getVisible()) {
+    if (
+      instance.props &&
+      instance.props.modal &&
+      (typeof instance.isVisible == 'function' ? instance.isVisible() : true)
+    ) {
       topMostModalId = list[i];
       break;
     }

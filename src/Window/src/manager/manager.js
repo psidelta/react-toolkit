@@ -153,7 +153,7 @@ function manager() {
      * @instance getListDiff
      * @return {Bool} true if something changed, false if not
      */
-    ajustZIndex(nameSpace = defaultNameSpace, ajustAll = false) {
+    ajustZIndex(nameSpace = defaultNameSpace, ajustAll = true) {
       const { list, previousList, instances } = this.getWindows(nameSpace);
 
       const changedWindows = ajustAll ? list : getListDiff(list, previousList);
