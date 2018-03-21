@@ -1,9 +1,9 @@
-import React, { Component, cloneElement } from 'react';
-import PropTypes from 'prop-types';
-import cleanProps from '../../common/cleanProps';
-import join from './utils/join';
-import getMinMaxSize from './utils/getMinMaxSize';
-import { CloseIcon } from './Icons';
+import React, { Component, cloneElement } from "react";
+import PropTypes from "prop-types";
+import cleanProps from "../../common/cleanProps";
+import join from "./utils/join";
+import getMinMaxSize from "./utils/getMinMaxSize";
+import { CloseIcon } from "./Icons";
 
 class Tag extends Component {
   constructor(props) {
@@ -46,20 +46,16 @@ class Tag extends Component {
         onClick(item.id);
       },
       children: [
-        closeIconPosition === 'start' && closeIcon,
-<<<<<<< HEAD
-        <span className={labelClassName}>{label}</span>,
-=======
+        closeIconPosition === "start" && closeIcon,
         <span key="tag_label" className={labelClassName}>
           {label}
         </span>,
->>>>>>> dev
-        closeIconPosition === 'end' && closeIcon
+        closeIconPosition === "end" && closeIcon
       ]
     };
 
     let result;
-    if (typeof renderTag === 'function') {
+    if (typeof renderTag === "function") {
       result = renderTag({
         domProps,
         item,
@@ -148,7 +144,7 @@ class Tag extends Component {
       } else {
         label =
           items.length === item.length
-            ? `${item.length} item${item.length ? 's' : ''} selected`
+            ? `${item.length} item${item.length ? "s" : ""} selected`
             : `and other ${item.length} selected`;
       }
     }
@@ -178,13 +174,13 @@ class Tag extends Component {
     }
 
     const closeIconProps = {
-      key: 'close_icon',
+      key: "close_icon",
       onClick: isMultiple ? this.handleOnMultipleClose : this.handleOnClose,
       className: closeClassName
     };
 
     let closeIconEl = closeIcon;
-    if (typeof closeIcon === 'function') {
+    if (typeof closeIcon === "function") {
       const closeIconParams = {
         item,
         onDeselect: closeIconProps.onClick,
@@ -193,7 +189,7 @@ class Tag extends Component {
 
       closeIconEl = closeIcon(closeIconParams);
     } else {
-      if (closeIcon && typeof closeIcon == 'object') {
+      if (closeIcon && typeof closeIcon == "object") {
         closeIconEl = cloneElement(closeIcon, {
           className: join(
             closeIcon.props && closeIcon.props.className,
@@ -233,7 +229,7 @@ class Tag extends Component {
   }
 }
 
-Tag.displayName = 'Tag';
+Tag.displayName = "Tag";
 
 function emptyFn() {}
 
@@ -241,7 +237,7 @@ Tag.defaultProps = {
   onCloseTagClick: emptyFn,
   onMultipleTagClose: emptyFn,
   onClick: emptyFn,
-  closeIconPosition: 'end',
+  closeIconPosition: "end",
   item: {},
   ellipsis: true,
   closeIcon: true
@@ -259,7 +255,7 @@ Tag.propTypes = {
     PropTypes.node,
     PropTypes.func
   ]),
-  closeIconPosition: PropTypes.oneOf(['start', 'end']),
+  closeIconPosition: PropTypes.oneOf(["start", "end"]),
   isRemaining: PropTypes.bool,
   onClick: PropTypes.func,
 
