@@ -1,14 +1,14 @@
-@import "./variables.scss";
-@import "./field.scss";
-@import "./clock.scss";
-@import "./footer.scss";
-@import "./spinner.scss";
-@import "./year-view.scss";
-@import "./decade-view.scss";
-@import "./month-decade-view.scss";
-@import "./navbar.scss";
-@import "./picker.scss";
-@import "./input.scss";
+@import './variables.scss';
+@import './field.scss';
+@import './clock.scss';
+@import './footer.scss';
+@import './spinner.scss';
+@import './year-view.scss';
+@import './decade-view.scss';
+@import './month-decade-view.scss';
+@import './navbar.scss';
+@import './picker.scss';
+@import './input.scss';
 
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__calendar--theme-#{$ZIPPY_CALENDAR_THEME_NAME},
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view--theme-#{$ZIPPY_CALENDAR_THEME_NAME},
@@ -110,7 +110,7 @@
           bottom: 0;
           width: 500%;
           z-index: -1;
-          content: "";
+          content: '';
         }
 
         &:before {

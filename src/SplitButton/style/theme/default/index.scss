@@ -1,7 +1,7 @@
-@import "../../variables.scss";
-@import "./variables.scss";
-@import "../../../../Button/style/theme/default/index.scss";
-@import "../../../../Menu/style/theme/default/index.scss";
+@import '../../variables.scss';
+@import './variables.scss';
+@import '../../../../Button/style/theme/default/index.scss';
+@import '../../../../Menu/style/theme/default/index.scss';
 
 /* stylelint-disable */
 @mixin apply-separator-styles($separatorColor, $separatorHoverColor) {

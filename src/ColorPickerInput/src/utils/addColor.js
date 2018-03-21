@@ -21,16 +21,16 @@
  */
 function addColor({ color, palette, length }) {
   if (!color) {
-    return palette
+    return palette;
   }
   if (!Array.isArray(palette)) {
-    return [color]
+    return [color];
   }
   if (palette && palette.length >= length) {
-    return [color, ...palette.slice(1)]
+    return [color, ...palette.slice(1)];
   }
 
-  return [...palette, color]
+  return [...palette, color];
 }
 
-export default addColor
+export default addColor;

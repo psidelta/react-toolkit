@@ -1,7 +1,7 @@
-@import "../../ArrowScroller/style/base.scss";
-@import "../../CheckBox/style/base.scss";
-@import "../../RadioButton/style/base.scss";
-@import "./variables.scss";
+@import '../../ArrowScroller/style/base.scss';
+@import '../../CheckBox/style/base.scss';
+@import '../../RadioButton/style/base.scss';
+@import './variables.scss';
 
 .#{$ZIPPY_MENU_ROOT_CLASS} {
   box-sizing: border-box;

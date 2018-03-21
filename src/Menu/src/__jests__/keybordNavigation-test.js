@@ -232,19 +232,16 @@ describe('keyboard navigation', () => {
       expect(submenu).toBe(null);
     });
 
-    xit(
-      'should close itself on arrow left, after it was navigated up and down',
-      () => {
-        // navigate
-        submenu.simulate('keyDown', { key: 'ArrowDown' });
-        submenu.simulate('keyDown', { key: 'ArrowUp' });
+    xit('should close itself on arrow left, after it was navigated up and down', () => {
+      // navigate
+      submenu.simulate('keyDown', { key: 'ArrowDown' });
+      submenu.simulate('keyDown', { key: 'ArrowUp' });
 
-        // close
-        submenu.simulate('keyDown', { key: 'ArrowLeft' });
-        submenu = getSubMenu(wrapper);
-        expect(submenu).toBe(null);
-      }
-    );
+      // close
+      submenu.simulate('keyDown', { key: 'ArrowLeft' });
+      submenu = getSubMenu(wrapper);
+      expect(submenu).toBe(null);
+    });
 
     it('first item should have --focused className', () => {
       const items = [
@@ -283,47 +280,44 @@ describe('keyboard navigation', () => {
       }, 20);
     });
 
-    xit(
-      `
+    xit(`
         - menu has focus, and a focusedItem
         - hover over a menu item
         - submenu opens
         - if arrow right is pressed on the same menu item, the first item should
         be focused
-      `,
-      () => {
-        const items = [
-          {
-            label: 'test',
-            items: [
-              { label: 'submenu item' },
-              { label: 'submenu item 2' },
-              { label: 'submenu item 3' }
-            ]
-          },
-          { label: 'test2' }
-        ];
-        const wrapper = mount(
-          <Menu defaultFocusedItem={0} enableKeyboardNavigation items={items} />
-        );
+      `, () => {
+      const items = [
+        {
+          label: 'test',
+          items: [
+            { label: 'submenu item' },
+            { label: 'submenu item 2' },
+            { label: 'submenu item 3' }
+          ]
+        },
+        { label: 'test2' }
+      ];
+      const wrapper = mount(
+        <Menu defaultFocusedItem={0} enableKeyboardNavigation items={items} />
+      );
 
-        // open by mouse enter
-        wrapper
-          .find(MenuItem)
-          .first()
-          .simulate('mouseEnter');
-        submenu = getSubMenu(wrapper);
+      // open by mouse enter
+      wrapper
+        .find(MenuItem)
+        .first()
+        .simulate('mouseEnter');
+      submenu = getSubMenu(wrapper);
 
-        expect(submenu).to.exist;
+      expect(submenu).to.exist;
 
-        // submenu should have focusedIndex null
-        expect(submenu.get(0).state.focusedItem).toBe(null);
+      // submenu should have focusedIndex null
+      expect(submenu.get(0).state.focusedItem).toBe(null);
 
-        // simulate open on same menu
-        wrapper.simulate('keyDown', { key: 'ArrowRight' });
-        expect(submenu.get(0).state.focusedItem).toBe(0);
-      }
-    );
+      // simulate open on same menu
+      wrapper.simulate('keyDown', { key: 'ArrowRight' });
+      expect(submenu.get(0).state.focusedItem).toBe(0);
+    });
   });
 
   describe('rtl', () => {

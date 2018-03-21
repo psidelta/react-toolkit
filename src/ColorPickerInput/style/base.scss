@@ -3,11 +3,11 @@
  * All rights reserved.
  */
 
-@import "./variables";
-@import "../../ColorTextInput/style/base.scss";
-@import "../../Button/style/base.scss";
-@import "../../ColorPalette/style/base.scss";
-@import "../../ColorPicker/style/base.scss";
+@import './variables';
+@import '../../ColorTextInput/style/base.scss';
+@import '../../Button/style/base.scss';
+@import '../../ColorPalette/style/base.scss';
+@import '../../ColorPicker/style/base.scss';
 
 .#{$ZIPPY_COLOR_PICKER_INPUT_ROOT_CLASS} {
   position: relative;

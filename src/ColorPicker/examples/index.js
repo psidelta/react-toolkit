@@ -12,44 +12,52 @@
  * limitations under the License.
  */
 
-import '../style/index.scss'
+import '../style/index.scss';
 
-import React from 'react'
-import { render } from 'react-dom'
-import autoBind from '@zippytech/react-class/autoBind'
-import ColorPicker from '../src'
+import React from 'react';
+import { render } from 'react-dom';
+import autoBind from '@zippytech/react-class/autoBind';
+import ColorPicker from '../src';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
-    autoBind(this)
+    super(props);
+    autoBind(this);
     this.state = {
-      color: "#1b3f9c"
-    }
+      color: '#1b3f9c'
+    };
   }
 
   onChange(stringColor, color) {
     this.setState({
-      color,
+      color
       // stringColor
-    })
+    });
   }
 
   render() {
-    return <div style={{ display: 'flex', width: 320 }}>
-      <ColorPicker
+    return (
+      <div style={{ display: 'flex', width: 320 }}>
+        <ColorPicker
         // value={this.state.color}
         // onDrag={this.onDrag}
         // saturationWidth={400}
         // onChange={this.onChange}
-      />
+        />
 
-      <div style={{background: this.state.stringColor, width: 100, height: 50, color: 'white'}}>
-        {JSON.stringify(this.state.color)}
+        <div
+          style={{
+            background: this.state.stringColor,
+            width: 100,
+            height: 50,
+            color: 'white'
+          }}
+        >
+          {JSON.stringify(this.state.color)}
+        </div>
       </div>
-    </div>
+    );
   }
-
 }
 
-render(<App />, document.getElementById('content'))
+render(<App />, document.getElementById('content'));

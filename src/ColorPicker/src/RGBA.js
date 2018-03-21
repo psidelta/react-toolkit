@@ -27,7 +27,8 @@ const NumberInput = ({ value, name, onChange, ...rest }) => {
       placeholder={name}
       value={value || ''}
       onChange={event =>
-        onChange({ [name]: parseFloat(event.target.value, 10) })}
+        onChange({ [name]: parseFloat(event.target.value, 10) })
+      }
     />
   );
 };
@@ -52,7 +53,9 @@ class ZippyRGBA extends Component {
         <NumberInput
           min={0}
           max={255}
-          className={`${props.rootClassName}__input ${props.rootClassName}__input--r`}
+          className={`${props.rootClassName}__input ${
+            props.rootClassName
+          }__input--r`}
           name="r"
           value={r}
           onChange={this.onChange}
@@ -62,7 +65,9 @@ class ZippyRGBA extends Component {
           max={255}
           name="g"
           value={g}
-          className={`${props.rootClassName}__input ${props.rootClassName}__input--g`}
+          className={`${props.rootClassName}__input ${
+            props.rootClassName
+          }__input--g`}
           onChange={this.onChange}
         />
         <NumberInput
@@ -70,7 +75,9 @@ class ZippyRGBA extends Component {
           max={255}
           name="b"
           value={b}
-          className={`${props.rootClassName}__input ${props.rootClassName}__input--b`}
+          className={`${props.rootClassName}__input ${
+            props.rootClassName
+          }__input--b`}
           onChange={this.onChange}
         />
         <NumberInput
@@ -78,7 +85,9 @@ class ZippyRGBA extends Component {
           // max={1}
           name="a"
           value={a}
-          className={`${props.rootClassName}__input ${props.rootClassName}__input--a`}
+          className={`${props.rootClassName}__input ${
+            props.rootClassName
+          }__input--a`}
           onChange={this.onChange}
         />
       </div>

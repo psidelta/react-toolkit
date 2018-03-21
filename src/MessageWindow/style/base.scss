@@ -1,5 +1,5 @@
-@import "./variables.scss";
-@import "../../Window/style/base.scss";
+@import './variables.scss';
+@import '../../Window/style/base.scss';
 
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}__modal-wrapper {
   background: rgba(73, 94, 133, 0.5);

@@ -1,5 +1,5 @@
-@import "../../variables.scss";
-@import "./variables.scss";
+@import '../../variables.scss';
+@import './variables.scss';
 
 .#{$ZIPPY_TEXT_INPUT_ROOT_CLASS}.#{$ZIPPY_TEXT_INPUT_ROOT_CLASS}--theme-#{$THEME_NAME} {
   font-size: $ZIPPY_TEXT_INPUT_FONT_SIZE;

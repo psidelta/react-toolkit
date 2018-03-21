@@ -1,6 +1,6 @@
-@import "../../variables.scss";
-@import "./variables.scss";
-@import "../../../../SplitButton/style/theme/default/index.scss";
+@import '../../variables.scss';
+@import './variables.scss';
+@import '../../../../SplitButton/style/theme/default/index.scss';
 
 .#{$ZIPPY_TOOLBAR_ROOT_CLASS}.#{$ZIPPY_TOOLBAR_ROOT_CLASS}--theme-#{$ZIPPY_TOOLBAR_THEME_NAME} {
   border: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;

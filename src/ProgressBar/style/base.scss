@@ -1,6 +1,6 @@
 $stroke: 15px;
 
-@import "./variables.scss";
+@import './variables.scss';
 
 .#{$ZIPPY_PROGRESS_BAR_ROOT_CLASS} {
   box-sizing: content-box;
@@ -49,13 +49,13 @@ $stroke: 15px;
 }
 
 // label position
-@import "./base-label-position.scss";
+@import './base-label-position.scss';
 
 // steps
-@import "./base-steps.scss";
+@import './base-steps.scss';
 
 // ticks
-@import "./base-ticks.scss";
+@import './base-ticks.scss';
 
 // ideterminate
-@import "./base-indeterminate.scss";
+@import './base-indeterminate.scss';

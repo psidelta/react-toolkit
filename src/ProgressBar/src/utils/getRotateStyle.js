@@ -1,20 +1,19 @@
 function getRotateStyle(rotateLabel) {
-  let rotateValue
+  let rotateValue;
 
   if (rotateLabel === true) {
-    rotateValue = '90deg'
-  } else 	if (rotateLabel === false ) {
-    rotateValue = false
+    rotateValue = '90deg';
+  } else if (rotateLabel === false) {
+    rotateValue = false;
   } else {
-    rotateValue = `${rotateLabel}deg`
+    rotateValue = `${rotateLabel}deg`;
   }
 
-  const rotateStyle = rotateValue?
-                { transform: `rotate(${rotateValue})` }
-                :
-                {}
+  const rotateStyle = rotateValue
+    ? { transform: `rotate(${rotateValue})` }
+    : {};
 
   return rotateStyle;
 }
 
-export default getRotateStyle
+export default getRotateStyle;

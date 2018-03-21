@@ -167,9 +167,8 @@ class ZippyAlphaSpectrum extends Component {
   }
 
   changeColorAlpha(value) {
-    const newA = typeof value === 'number'
-      ? parseFloat((value / 1000).toFixed(2))
-      : null;
+    const newA =
+      typeof value === 'number' ? parseFloat((value / 1000).toFixed(2)) : null;
 
     return {
       ...this.getValue(),

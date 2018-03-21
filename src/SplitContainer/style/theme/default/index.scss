@@ -1,5 +1,5 @@
-@import "../../variables.scss";
-@import "./variables.scss";
+@import '../../variables.scss';
+@import './variables.scss';
 
 .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}--theme-#{$ZIPPY_SPLIT_CONTAINER_THEME_NAME} {
   &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}--bordered {

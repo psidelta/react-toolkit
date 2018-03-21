@@ -39,21 +39,18 @@ class App extends Component {
               borderRadius: 10
             }
           }}
-<<<<<<< HEAD
-        >
-          <TextInput
-            style={{ marginRight: 5, width: 200 }}
-            placeholder="text"
-          />
-          <MaskedInput style={{ marginRight: 5 }} placeholder="masked" />
-          <DateInput style={{ marginRight: 5 }} />
-          <ComboBox
-            dataSource={[{ id: 1, label: 'x' }]}
-            idProperty="id"
-            inlineFlex
-            style={{ marginRight: 5 }}
-          />
-        </div>
+        />
+
+        <TextInput style={{ marginRight: 5, width: 200 }} placeholder="text" />
+        <MaskedInput style={{ marginRight: 5 }} placeholder="masked" />
+        <DateInput style={{ marginRight: 5 }} />
+        <ComboBox
+          dataSource={[{ id: 1, label: 'x' }]}
+          idProperty="id"
+          inlineFlex
+          style={{ marginRight: 5 }}
+        />
+
         <br />
         <br />
         <div>
@@ -74,8 +71,6 @@ class App extends Component {
           maxValue={11150}
           value={this.state.value}
           onChange={this.onChange.bind(this)}
-=======
->>>>>>> dev
         />
       </div>
     );

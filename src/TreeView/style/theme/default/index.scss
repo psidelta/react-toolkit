@@ -1,5 +1,5 @@
-@import "./variables.scss";
-@import "./searchTreeView.scss";
+@import './variables.scss';
+@import './searchTreeView.scss';
 
 .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--theme-#{$ZIPPY-TREEVIEW-THEME_NAME} {
   &.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--enable-hover-style {

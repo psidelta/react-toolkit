@@ -43,7 +43,10 @@ class ZippyEditColorPicker extends Component {
     );
 
     return (
-      <div {...cleanProps(props, ZippyEditColorPicker.propTypes)} className={className}>
+      <div
+        {...cleanProps(props, ZippyEditColorPicker.propTypes)}
+        className={className}
+      >
         <ColorPicker
           {...props.colorPickerProps}
           value={state.objectValue}

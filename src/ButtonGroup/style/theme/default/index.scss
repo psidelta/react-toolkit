@@ -1,6 +1,6 @@
-@import "./variables.scss";
-@import "../../../../Button/style/theme/default/index.scss";
-@import "../../../../DropdownButton/style/theme/default/index.scss";
+@import './variables.scss';
+@import '../../../../Button/style/theme/default/index.scss';
+@import '../../../../DropdownButton/style/theme/default/index.scss';
 
 .#{$ZIPPY_BUTTON_GROUP_ROOT_CLASS}.#{$ZIPPY_BUTTON_GROUP_ROOT_CLASS}--theme-#{$ZIPPY_BUTTON_GROUP_THEME_NAME}
 &:not(.#{$ZIPPY_BUTTON_GROUP_ROOT_CLASS}.#{$ZIPPY_BUTTON_GROUP_ROOT_CLASS}--rtl) {

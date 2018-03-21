@@ -1,6 +1,6 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
-$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME: "default" !default;
+$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME: 'default' !default;
 
 .#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS}.#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS}--theme-#{$ZIPPY_PAGINATION_TOOLBAR_THEME_NAME} {
   padding: 2px 8px;

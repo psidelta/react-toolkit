@@ -1,6 +1,6 @@
-@import "../../../src/Filelist/style/theme/default/index.scss";
-@import "../../../../ProgressBar/style/theme/default/index.scss";
-@import "./variables.scss";
+@import '../../../src/Filelist/style/theme/default/index.scss';
+@import '../../../../ProgressBar/style/theme/default/index.scss';
+@import './variables.scss';
 
 .#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}--theme-default {
   min-height: 320px;
@@ -223,7 +223,7 @@
   }
 }
 
-$FILE_UPLOADER: "zippy-react-uploader";
+$FILE_UPLOADER: 'zippy-react-uploader';
 
 .#{$FILE_UPLOADER}--theme-default {
   // background-color: #2a2a2a;

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-=======
 import React, { cloneElement, Component } from 'react';
->>>>>>> dev
 import PropTypes from 'prop-types';
 import region from '@zippytech/region-align';
 import join from '../../common/join';

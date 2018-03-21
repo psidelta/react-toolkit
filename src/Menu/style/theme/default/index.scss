@@ -1,6 +1,6 @@
-@import "../../variables.scss";
-@import "./variables.scss";
-@import "../../../../ArrowScroller/style/theme/default/index.scss";
+@import '../../variables.scss';
+@import './variables.scss';
+@import '../../../../ArrowScroller/style/theme/default/index.scss';
 
 .#{$ZIPPY_MENU_ROOT_CLASS}.#{$ZIPPY_MENU_ROOT_CLASS}--theme-#{$ZIPPY_MENU_THEME_NAME} {
   font-size: $ZIPPY_MENU_FONT_SIZE;
@@ -41,7 +41,7 @@
 
       &:before {
         position: absolute;
-        content: " ";
+        content: ' ';
         top: 1px;
         bottom: 1px;
         left: 0;
@@ -75,7 +75,7 @@
       // border 2
       &:before {
         position: absolute;
-        content: " ";
+        content: ' ';
         top: 0;
         bottom: 0;
         left: 0;
@@ -106,7 +106,7 @@
         // border 1
         &:before {
           position: absolute;
-          content: " ";
+          content: ' ';
           top: 1px;
           bottom: 1px;
           left: 0;

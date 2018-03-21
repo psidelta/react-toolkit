@@ -7,7 +7,9 @@ import AccordionTabTitle, {
 import { shallow, mount } from 'enzyme';
 
 describe('Accordion transition props', () => {
-  let component, instance, raf = cb => cb();
+  let component,
+    instance,
+    raf = cb => cb();
 
   beforeEach(() => {
     component = mount(

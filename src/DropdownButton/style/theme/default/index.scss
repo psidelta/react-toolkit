@@ -1,7 +1,7 @@
-@import "../../variables.scss";
-@import "./variables.scss";
-@import "../../../../Menu/style/theme/default/index.scss";
-@import "../../../../Button/style/theme/default/index.scss";
+@import '../../variables.scss';
+@import './variables.scss';
+@import '../../../../Menu/style/theme/default/index.scss';
+@import '../../../../Button/style/theme/default/index.scss';
 
 .#{$ZIPPY_DROPDOWN_BUTTON_ROOT_CLASS}.#{$ZIPPY_DROPDOWN_BUTTON_ROOT_CLASS}--theme-#{$ZIPPY_DROPDOWN_BUTTON_THEME_NAME} {
   color: $ZIPPY_DROPDOWN_BUTTON_COLOR;

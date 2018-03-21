@@ -1,6 +1,6 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
-$ZIPPY_BUTTON_THEME_NAME: "default" !default;
+$ZIPPY_BUTTON_THEME_NAME: 'default' !default;
 $ZIPPY_BUTTON_BG_COLOR: #495e85 !default;
 $ZIPPY_BUTTON_HOVER_BG_COLOR: lighten($ZIPPY_BUTTON_BG_COLOR, 5%) !default;
 $ZIPPY_BUTTON_PRESSED_BG_COLOR: darken($ZIPPY_BUTTON_BG_COLOR, 5%) !default;

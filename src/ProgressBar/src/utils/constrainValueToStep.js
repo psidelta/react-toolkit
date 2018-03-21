@@ -1,21 +1,21 @@
 function constrainValueToStep(value, formatedStep, direction) {
   // interested only to `to`
   // value is floored to closest step
-  let limits
+  let limits;
 
   if (direction === 1) {
-    limits = formatedStep.map(step => step.from)
+    limits = formatedStep.map(step => step.from);
   } else {
-    limits = formatedStep.map(step => step.to)
+    limits = formatedStep.map(step => step.to);
   }
-  
-  let constrainedValue = 0
+
+  let constrainedValue = 0;
 
   // iterate over each to
   // and see which one is biggest less than value
   for (let i = formatedStep.length - 1; i >= 0; i--) {
     if (value >= limits[i]) {
-      constrainedValue = limits[i]
+      constrainedValue = limits[i];
 
       break;
     }
@@ -23,10 +23,10 @@ function constrainValueToStep(value, formatedStep, direction) {
 
   // if last limit is smaller or equal than value, than limit is the last one
   if (100 <= value) {
-    return 100
+    return 100;
   }
 
-  return constrainedValue
+  return constrainedValue;
 }
 
-export default constrainValueToStep
+export default constrainValueToStep;

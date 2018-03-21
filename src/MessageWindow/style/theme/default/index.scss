@@ -1,5 +1,5 @@
-@import "./variables.scss";
-@import "../../../../Window/style/theme/default/index.scss";
+@import './variables.scss';
+@import '../../../../Window/style/theme/default/index.scss';
 
 .#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}.#{$ZIPPY_MESSAGE_WINDOW_ROOT_CLASS}--theme-#{$ZIPPY_MESSAGE_WINDOW_THEME_NAME} {
   font-size: $ZIPPY_MESSAGE_WINDOW_FONT_SIZE;

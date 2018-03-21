@@ -1,15 +1,14 @@
-const getDataProp = (propName) => {
+const getDataProp = propName => {
   if (propName == null) {
-    return null
+    return null;
   }
 
-  return (item) => {
+  return item => {
     if (!item) {
-      return null
+      return null;
     }
-    return typeof propName === 'function' ?
-        propName(item) : item[propName]
-  }
-}
+    return typeof propName === 'function' ? propName(item) : item[propName];
+  };
+};
 
-export default getDataProp
+export default getDataProp;

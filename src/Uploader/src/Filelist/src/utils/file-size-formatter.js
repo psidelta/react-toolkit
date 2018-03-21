@@ -1,6 +1,7 @@
-const formatNumber = (number, locale) => (number.toLocaleString(locale, {
-  maximumFractionDigits: 2
-}));
+const formatNumber = (number, locale) =>
+  number.toLocaleString(locale, {
+    maximumFractionDigits: 2
+  });
 
 const defaultProps = {
   gbSingular: 'GB',
@@ -9,17 +10,16 @@ const defaultProps = {
   mbPlural: 'MBs',
   kbSingular: 'KB',
   kbPlural: 'KBs',
-  byteSingular: "B",
+  byteSingular: 'B',
   bytePlural: 'Bs',
   formatNumber
 };
 
 const KB = 1024;
-const MB = 1024*KB;
-const GB = 1024*MB;
+const MB = 1024 * KB;
+const GB = 1024 * MB;
 
-export default function fileSizeFormatter (size = 0, config = {}) {
-
+export default function fileSizeFormatter(size = 0, config = {}) {
   const {
     gbSingular,
     gbPlural,
@@ -34,7 +34,7 @@ export default function fileSizeFormatter (size = 0, config = {}) {
   } = {
     ...defaultProps,
     ...config
-  }
+  };
 
   const isByte = size === 0 || size === 1;
   const isBytes = size < KB;
@@ -47,26 +47,26 @@ export default function fileSizeFormatter (size = 0, config = {}) {
 
   let suffix;
 
-  if ( isByte ) {
+  if (isByte) {
     suffix = byteSingular;
-  } else if ( isBytes ) {
+  } else if (isBytes) {
     suffix = bytePlural;
-  } else if ( isKByte ) {
+  } else if (isKByte) {
     suffix = kbSingular;
     size = size / KB;
-  } else if ( isKBytes ) {
+  } else if (isKBytes) {
     suffix = kbPlural;
     size = size / KB;
-  } else if ( isMB ) {
+  } else if (isMB) {
     suffix = mbSingular;
     size = size / MB;
-  } else if ( isMBs ) {
+  } else if (isMBs) {
     suffix = mbPlural;
     size = size / MB;
-  } else if ( isGByte ) {
+  } else if (isGByte) {
     suffix = gbSingular;
     size = size / GB;
-  } else if ( isGBytes ) {
+  } else if (isGBytes) {
     suffix = gbPlural;
     size = size / GB;
   }
@@ -74,4 +74,4 @@ export default function fileSizeFormatter (size = 0, config = {}) {
   return `${formatNumber(size, locale)}${suffix}`;
 }
 
-export {formatNumber};
+export { formatNumber };

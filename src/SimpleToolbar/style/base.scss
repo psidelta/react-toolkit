@@ -1,4 +1,4 @@
-@import "../../Flex/style/index.scss";
+@import '../../Flex/style/index.scss';
 
 .zippy-react-simple-toolbar {
   box-sizing: border-box;
@@ -22,10 +22,10 @@
   }
 
   &--orientation-vertical {
-    height: "100%";
-    flex-flow: "column";
-    align-items: "stretch";
-    align-content: "center";
+    height: '100%';
+    flex-flow: 'column';
+    align-items: 'stretch';
+    align-content: 'center';
   }
 }
 

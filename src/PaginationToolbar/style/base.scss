@@ -1,8 +1,8 @@
-@import "./variables.scss";
-@import "../../ToolBar/style/index.scss";
-@import "../../NumericInput/style/index.scss";
-@import "../../ComboBox/style/index.scss";
-@import "../../Button/style/index.scss";
+@import './variables.scss';
+@import '../../ToolBar/style/index.scss';
+@import '../../NumericInput/style/index.scss';
+@import '../../ComboBox/style/index.scss';
+@import '../../Button/style/index.scss';
 
 .#{$ZIPPY_PAGINATION_TOOLBAR_ROOT_CLASS} {
   box-sizing: border-box;

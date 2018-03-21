@@ -5,17 +5,17 @@
  * @return {Array} newList
  */
 function bringForwards(id, list) {
-  let newList = [...list]
-  const indexOfId = newList.indexOf(id)
+  let newList = [...list];
+  const indexOfId = newList.indexOf(id);
   if (indexOfId === newList.length - 1 || indexOfId === -1) {
-    return list // nothing changed
+    return list; // nothing changed
   }
 
-  const copy = list[indexOfId + 1]
-  newList[indexOfId + 1] = id
-  newList[indexOfId] = copy
+  const copy = list[indexOfId + 1];
+  newList[indexOfId + 1] = id;
+  newList[indexOfId] = copy;
 
-  return newList
+  return newList;
 }
 
-export default bringForwards
+export default bringForwards;

@@ -1,6 +1,6 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
-$ZIPPY_SPLIT_BUTTON_THEME_NAME: "light";
+$ZIPPY_SPLIT_BUTTON_THEME_NAME: 'light';
 $ZIPPY_SPLIT_BUTTON_BG_COLOR: #e4e7ed;
 $ZIPPY_SPLIT_BUTTON_HOVER_BG_COLOR: lighten($ZIPPY_SPLIT_BUTTON_BG_COLOR, 3%);
 $ZIPPY_SPLIT_BUTTON_UNFOCUSED_BORDER: 1px solid transparent;

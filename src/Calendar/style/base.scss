@@ -1,13 +1,13 @@
-@import "./variables.scss";
-@import "./field.scss";
-@import "./clock.scss";
-@import "./spinner.scss";
-@import "./time-picker.scss";
-@import "./year-view.scss";
-@import "./decade-view.scss";
-@import "./month-decade-view.scss";
-@import "./navbar.scss";
-@import "../../Overlay/style/base.scss";
+@import './variables.scss';
+@import './field.scss';
+@import './clock.scss';
+@import './spinner.scss';
+@import './time-picker.scss';
+@import './year-view.scss';
+@import './decade-view.scss';
+@import './month-decade-view.scss';
+@import './navbar.scss';
+@import '../../Overlay/style/base.scss';
 
 .#{$ZIPPY_OVERLAY_ROOT_CLASS} {
   border: 0;
@@ -135,4 +135,4 @@
   flex-basis: auto;
 }
 
-@import "../../Flex/style/index.scss";
+@import '../../Flex/style/index.scss';

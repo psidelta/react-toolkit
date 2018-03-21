@@ -1,10 +1,10 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 $ZIPPY_TAB_PANEL_STRIP_COLOR: #495e85;
 
 $PADDING: 10px !default;
 $BORDER_RADIUS: 5px !default;
-$THEME_NAME: "default" !default;
+$THEME_NAME: 'default' !default;
 
 $BG_FOCUSED: #f9f9f9 !default;
 $BG_DISABLED: #eaeaea !default;
@@ -134,7 +134,7 @@ $HOVER_BORDER_COLOR: #eee !default;
 
     &--focused {
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         border: 1px dotted $ZIPPY_TAB_PANEL_STRIP_COLOR;
         top: 1px;

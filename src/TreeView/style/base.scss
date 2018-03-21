@@ -1,6 +1,6 @@
-@import "./variables.scss";
-@import "../../CheckBox/style/base.scss";
-@import "../../Menu/style/index.scss";
+@import './variables.scss';
+@import '../../CheckBox/style/base.scss';
+@import '../../Menu/style/index.scss';
 
 .#{$ZIPPY_TREE_VIEW_ROOT_CLASS} {
   margin-right: 8px;
@@ -218,7 +218,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  content: "";
+  content: '';
 }
 
 .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__loader:after {
@@ -226,7 +226,7 @@
   width: 75%;
   height: 75%;
   border-radius: 50%;
-  content: "";
+  content: '';
   margin: auto;
   position: absolute;
   top: 0;

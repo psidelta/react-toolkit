@@ -6,12 +6,12 @@
  */
 function bringToFront(id, list) {
   if (list.length === 1) {
-    return list
+    return list;
   }
-  let newList = list.filter(item => item !== id)
-  newList = [...newList, id]
+  let newList = list.filter(item => item !== id);
+  newList = [...newList, id];
 
-  return newList
+  return newList;
 }
 
-export default bringToFront
+export default bringToFront;

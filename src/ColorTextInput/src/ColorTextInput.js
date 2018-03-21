@@ -61,7 +61,10 @@ class ZippyColorTextInput extends Component {
     const colorPreviewPositionStart = props.colorPreviewPosition === 'start';
 
     return (
-      <div {...cleanProps(props, ZippyColorTextInput.propTypes)} className={className}>
+      <div
+        {...cleanProps(props, ZippyColorTextInput.propTypes)}
+        className={className}
+      >
         {colorPreviewPositionStart && this.renderColorPreview()}
         <TextInput {...this.getInputProps()} />
         {!colorPreviewPositionStart && this.renderColorPreview()}
@@ -88,9 +91,10 @@ class ZippyColorTextInput extends Component {
 
     let sizeStyle;
     if (colorPreviewSize) {
-      sizeStyle = typeof colorPreviewSize === 'number'
-        ? { width: colorPreviewSize, height: colorPreviewSize }
-        : colorPreviewSize;
+      sizeStyle =
+        typeof colorPreviewSize === 'number'
+          ? { width: colorPreviewSize, height: colorPreviewSize }
+          : colorPreviewSize;
     }
 
     const value = this.getValue();

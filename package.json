@@ -28,7 +28,7 @@
       "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
     "build:package": "node ./scripts/buildGlobalPackageJSON.js",
     "pretty":
-      "prettier --single-quite es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
+      "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged"
   },
@@ -48,9 +48,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json}": ["prettier --write", "git add"],
+    "src/**/*.{js,jsx,json}": ["prettier --single-quote --write", "git add"],
     "src/**/*.scss": [
-      "prettier --write",
+      "prettier --single-quote --write",
       "stylelint --syntax scss --fix",
       "git add"
     ]

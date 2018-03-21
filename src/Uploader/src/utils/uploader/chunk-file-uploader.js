@@ -1,27 +1,28 @@
-import {uploadBlob} from './blob-file-uploader';
+import { uploadBlob } from './blob-file-uploader';
 
 const getNumberOfChunksForSize = (size, chunkSize) => {
   const numberOfChunkcs = size / chunkSize;
-  let roundedNumberOfChunks = Math.round(numberOfChunkcs)
-  if ( roundedNumberOfChunks < numberOfChunkcs ) {
+  let roundedNumberOfChunks = Math.round(numberOfChunkcs);
+  if (roundedNumberOfChunks < numberOfChunkcs) {
     roundedNumberOfChunks = roundedNumberOfChunks + 1;
   }
 
   return roundedNumberOfChunks;
-}
+};
 
 // returns an array of offsets for chunkcs, based on chunkSize and chunkCount
 // for exmaple, if chunkcSize is 2B, and chunkCount is 5, will return
 // [[0,2], [2,4], [4,6], [6,8], [8,10]]
 const generateChunkOffsets = (fileSize, chunkSize, chunkCount) => {
-  let count = 0, endOffset;
+  let count = 0,
+    endOffset;
   const chunkedOffset = [];
-  while (count < chunkCount ) {
-    endOffset = chunkSize*(count+1);
-    if ( endOffset > fileSize ) {
+  while (count < chunkCount) {
+    endOffset = chunkSize * (count + 1);
+    if (endOffset > fileSize) {
       endOffset = fileSize;
     }
-    chunkedOffset.push([chunkSize*count, endOffset]);
+    chunkedOffset.push([chunkSize * count, endOffset]);
     count++;
   }
   return chunkedOffset;
@@ -53,17 +54,25 @@ const uploadChunkedBlob = (file, params) => {
   }
 
   const {
-    headers, targetUrl, xhr, chunkSize, simultaneousChunksPerFile,
-    onBeforeStart, onStart, onProgress, onDone, onError, onAbort
+    headers,
+    targetUrl,
+    xhr,
+    chunkSize,
+    simultaneousChunksPerFile,
+    onBeforeStart,
+    onStart,
+    onProgress,
+    onDone,
+    onError,
+    onAbort
   } = params;
 
-  const {id, name, size} = file;
+  const { id, name, size } = file;
   const numberOfChunkcs = getNumberOfChunksForSize(size, chunkSize);
 
   const chunkedOffsets = generateChunkOffsets(size, chunkSize, numberOfChunkcs);
 
   const wrappedBloblsArray = wrapChunksWithProgressData(chunkedOffsets, {
-
     // TODO blob callbacks don't have to be on blob Wrappers, they can be on
     // upper level object
     onBlobError: (chunk, error) => {
@@ -91,18 +100,27 @@ const uploadChunkedBlob = (file, params) => {
   });
 
   // before upload hook
-  const resultOfBeforeStart = onBeforeStart ? onBeforeStart({
-    file, numberOfChunkcs, chunkedOffsets, chunkWrappers: wrappedBloblsArray
-  }) : true;
+  const resultOfBeforeStart = onBeforeStart
+    ? onBeforeStart({
+        file,
+        numberOfChunkcs,
+        chunkedOffsets,
+        chunkWrappers: wrappedBloblsArray
+      })
+    : true;
 
-  if ( !resultOfBeforeStart ) {
+  if (!resultOfBeforeStart) {
     return;
   }
 
   // start upload hook
-  onStart && onStart({
-    file, numberOfChunkcs, chunkedOffsets, chunkWrappers: wrappedBloblsArray
-  });
+  onStart &&
+    onStart({
+      file,
+      numberOfChunkcs,
+      chunkedOffsets,
+      chunkWrappers: wrappedBloblsArray
+    });
 
   const requestHeaders = {
     ...headers,
@@ -111,40 +129,47 @@ const uploadChunkedBlob = (file, params) => {
     Chunked: true
   };
 
-  return uploadAllChunkcsInSequence(file, simultaneousChunksPerFile, wrappedBloblsArray, {...params, headers: requestHeaders}, () => {
-    onDone(id, wrappedBloblsArray);
-  });
+  return uploadAllChunkcsInSequence(
+    file,
+    simultaneousChunksPerFile,
+    wrappedBloblsArray,
+    { ...params, headers: requestHeaders },
+    () => {
+      onDone(id, wrappedBloblsArray);
+    }
+  );
 };
 
 const initialiseFileSliceForChunk = (file, chunkWrapper) => {
-  if ( !chunkWrapper.chunk ) {
-    const {chunkOffsets:[startOffset, endOffset]} = chunkWrapper;
+  if (!chunkWrapper.chunk) {
+    const { chunkOffsets: [startOffset, endOffset] } = chunkWrapper;
     chunkWrapper.chunk = file.slice(startOffset, endOffset);
     chunkWrapper.chunk.id = chunkWrapper.chunkId;
   }
   return chunkWrapper;
-}
+};
 
 const getNextAvailableChunks = (file, simultaneousChunksPerFile, chunks) => {
   const chunksInProgressCount = countInProgressChunks(chunks);
-  if ( chunksInProgressCount >= simultaneousChunksPerFile ) {
+  if (chunksInProgressCount >= simultaneousChunksPerFile) {
     return null;
   }
 
-  const queuedChunks = chunks.filter((chunkWrapper)=>(chunkWrapper.status === 'queued'));
-  if ( !queuedChunks.length ) {
+  const queuedChunks = chunks.filter(
+    chunkWrapper => chunkWrapper.status === 'queued'
+  );
+  if (!queuedChunks.length) {
     return null;
   }
 
   return queuedChunks
-    .slice(0,simultaneousChunksPerFile-chunksInProgressCount)
-    .map((chunkWrapper)=>(initialiseFileSliceForChunk(file, chunkWrapper)));
-
+    .slice(0, simultaneousChunksPerFile - chunksInProgressCount)
+    .map(chunkWrapper => initialiseFileSliceForChunk(file, chunkWrapper));
 };
 
 const wrapChunksWithProgressData = (chunks, progressData) => {
-  const {fileId} = progressData;
-  return chunks.map((chunkOffsets, idx)=>{
+  const { fileId } = progressData;
+  return chunks.map((chunkOffsets, idx) => {
     return {
       ...progressData,
       chunkId: `${fileId}-chunk-${idx}`,
@@ -153,44 +178,53 @@ const wrapChunksWithProgressData = (chunks, progressData) => {
       status: 'queued'
     };
   });
-}
-
+};
 
 const getChunkUploadParams = (chunkSpecificParams, uploaderSpecificParams) => {
   return {
     ...uploaderSpecificParams,
     ...chunkSpecificParams
-  }
-}
+  };
+};
 
-const countRemaningQueuedChunks = (chunkWrappers) => {
-  return chunkWrappers.filter((chunkWrapper)=>(chunkWrapper.status==='queued')).length;
-}
+const countRemaningQueuedChunks = chunkWrappers => {
+  return chunkWrappers.filter(chunkWrapper => chunkWrapper.status === 'queued')
+    .length;
+};
 
-const countAbortedChunks = (chunkWrappers) => {
-  return chunkWrappers.filter((chunkWrapper)=>(chunkWrapper.status==='aborted')).length;
-}
+const countAbortedChunks = chunkWrappers => {
+  return chunkWrappers.filter(chunkWrapper => chunkWrapper.status === 'aborted')
+    .length;
+};
 
-const countInProgressChunks = (chunkWrappers) => {
-  return chunkWrappers.filter((chunkWrapper)=>(chunkWrapper.status==='uploading')).length;
-}
+const countInProgressChunks = chunkWrappers => {
+  return chunkWrappers.filter(
+    chunkWrapper => chunkWrapper.status === 'uploading'
+  ).length;
+};
 
-const uploadValidityHolds = (chunkWrappers) => {
+const uploadValidityHolds = chunkWrappers => {
   return !countAbortedChunks(chunkWrappers);
-}
+};
 
 const setChunksStatus = (chunkWrappers, status) => {
-  if ( !chunkWrappers ) {
+  if (!chunkWrappers) {
     return [];
   }
-  return chunkWrappers.map((chunkWrapper)=>{
+  return chunkWrappers.map(chunkWrapper => {
     chunkWrapper.status = status;
     return chunkWrapper;
   });
-}
+};
 
-const uploadAllChunkcsInSequence = (file, simultaneousChunksPerFile, chunkWrappers, params, onDone) => {
-  if ( countRemaningQueuedChunks(chunkWrappers) === 0 ) {
+const uploadAllChunkcsInSequence = (
+  file,
+  simultaneousChunksPerFile,
+  chunkWrappers,
+  params,
+  onDone
+) => {
+  if (countRemaningQueuedChunks(chunkWrappers) === 0) {
     onDone && onDone();
     return;
   }
@@ -200,56 +234,60 @@ const uploadAllChunkcsInSequence = (file, simultaneousChunksPerFile, chunkWrappe
     'uploading'
   );
 
-  if ( !currentChunks.length ) {
+  if (!currentChunks.length) {
     return;
   }
 
-  const currentChunksUploads = currentChunks.map((currentChunk)=>{
+  const currentChunksUploads = currentChunks.map(currentChunk => {
     return uploadBlob(
-
       currentChunk.chunk,
 
-      getChunkUploadParams({
-        onError: (chunkId, xhrParams) => {
-          currentChunk.onBlobError(currentChunk, xhrParams)
+      getChunkUploadParams(
+        {
+          onError: (chunkId, xhrParams) => {
+            currentChunk.onBlobError(currentChunk, xhrParams);
+          },
+          onAbort: (chunkId, xhrParams) => {
+            currentChunk.onBlobAbort(currentChunk, xhrParams);
+          },
+          onDone: (chunkId, xhrParams) => {
+            currentChunk.onBlobDone(currentChunk, xhrParams);
+          },
+          onProgress: (chunkId, xhrParams) => {
+            currentChunk.onBlobProgress(currentChunk, xhrParams);
+          },
+          headers: {
+            ...params.headers,
+            FileClientId: currentChunk.fileId,
+            ChunkID: currentChunk.chunkId,
+            ChunkNumber: currentChunk.idx
+          }
         },
-        onAbort: (chunkId, xhrParams) => {
-          currentChunk.onBlobAbort(currentChunk, xhrParams)
-        },
-        onDone: (chunkId, xhrParams) => {
-          currentChunk.onBlobDone(currentChunk, xhrParams)
-        },
-        onProgress: (chunkId, xhrParams) => {
-          currentChunk.onBlobProgress(currentChunk, xhrParams)
-        },
-        headers: {
-          ...params.headers,
-          FileClientId: currentChunk.fileId,
-          ChunkID: currentChunk.chunkId,
-          ChunkNumber: currentChunk.idx
-        }
-      }, params)
-
-    ).then(()=>{
-      if ( uploadValidityHolds(chunkWrappers) ) {
-        return uploadAllChunkcsInSequence(file, simultaneousChunksPerFile, chunkWrappers, params, onDone);
+        params
+      )
+    ).then(() => {
+      if (uploadValidityHolds(chunkWrappers)) {
+        return uploadAllChunkcsInSequence(
+          file,
+          simultaneousChunksPerFile,
+          chunkWrappers,
+          params,
+          onDone
+        );
       }
     });
-
   });
 
   return Promise.all(currentChunksUploads);
 };
 
-
-const abortAnyChunksInProgress = (uplaodProgress) => {
-  const {chunkWrappers} = uplaodProgress;
-  chunkWrappers.filter((chunkWrapper)=>(chunkWrapper.status==='uploading')).forEach((chunkWrapper)=>{
-    chunkWrapper.chunk._uploadRequest.abort();
-  });
-}
-
-export {
-  uploadChunkedBlob,
-  abortAnyChunksInProgress
+const abortAnyChunksInProgress = uplaodProgress => {
+  const { chunkWrappers } = uplaodProgress;
+  chunkWrappers
+    .filter(chunkWrapper => chunkWrapper.status === 'uploading')
+    .forEach(chunkWrapper => {
+      chunkWrapper.chunk._uploadRequest.abort();
+    });
 };
+
+export { uploadChunkedBlob, abortAnyChunksInProgress };

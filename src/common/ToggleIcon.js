@@ -1,29 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-function ToggleIcon({
-  onClick,
-  className,
-  expanded,
-  size = 17,
-  ...rest,
-}) {
-  return <div
-    {...rest}
-    className={className}
-    onClick={onClick}
-  >
-    <svg
-      height={size}
-      width={size}
-      viewBox="0 0 24 24"
-    >
-      {
-        expanded ?
-        <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" /> :
-        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-      }
-    </svg>
-  </div>
+function ToggleIcon({ onClick, className, expanded, size = 17, ...rest }) {
+  return (
+    <div {...rest} className={className} onClick={onClick}>
+      <svg height={size} width={size} viewBox="0 0 24 24">
+        {expanded ? (
+          <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+        ) : (
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+        )}
+      </svg>
+    </div>
+  );
 }
 
-export default ToggleIcon
+export default ToggleIcon;
