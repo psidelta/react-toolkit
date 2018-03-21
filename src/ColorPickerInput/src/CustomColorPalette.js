@@ -93,11 +93,7 @@ class ZippyCustomColorPalette extends Component {
       onClick: this.handleButtonClick
     };
 
-    return (
-      <Button {...domProps}>
-        Custom Color
-      </Button>
-    );
+    return <Button {...domProps}>Custom Color</Button>;
   }
 
   handleButtonClick() {

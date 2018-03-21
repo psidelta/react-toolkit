@@ -9,9 +9,11 @@
  * @param  {[type]} finalRegion        [description]
  * @return {[type]}                           [description]
  */
-function getPositionRelativeToNewRegion(
-  { initialPosition, initialRegion, finalRegion }
-) {
+function getPositionRelativeToNewRegion({
+  initialPosition,
+  initialRegion,
+  finalRegion
+}) {
   const position = {};
   const verticalCorrection = initialRegion.top - finalRegion.top;
   const horizontalCorrection = initialRegion.left - finalRegion.left;

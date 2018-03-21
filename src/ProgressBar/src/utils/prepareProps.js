@@ -18,10 +18,10 @@ const ORIENTATION_DIRECTION_MAP = {
 };
 
 /**
-* creates an object with props, that can come from
-* this.props, this.state, or computed
-* it is helpful to have a single point of access
-*/
+ * creates an object with props, that can come from
+ * this.props, this.state, or computed
+ * it is helpful to have a single point of access
+ */
 function prepareProps(props, state, rootBem) {
   const {
     orientation,
@@ -35,9 +35,7 @@ function prepareProps(props, state, rootBem) {
     rootClassName
   } = props;
 
-  const {
-    labelOverflow
-  } = state;
+  const { labelOverflow } = state;
 
   let direction;
 
@@ -52,23 +50,20 @@ function prepareProps(props, state, rootBem) {
   const stepTickDirection = getStepTickDirection(direction, orientation);
 
   // steps
-  const step = typeof props.step === 'function'
-    ? props.step(props, state)
-    : props.step;
+  const step =
+    typeof props.step === 'function' ? props.step(props, state) : props.step;
   // an array of procent values where each step begins and ends
   let formatedStep = step && formatRanges(step, min, max, stepTickDirection);
 
   // incrementInSteps defaults to showSteps
-  const incrementInSteps = props.incrementInSteps !== undefined
-    ? props.incrementInSteps
-    : showSteps;
+  const incrementInSteps =
+    props.incrementInSteps !== undefined ? props.incrementInSteps : showSteps;
 
   let tick;
   let formatedTick;
   if (props.tick != undefined) {
-    tick = typeof props.tick === 'function'
-      ? props.tick(props, state)
-      : props.tick;
+    tick =
+      typeof props.tick === 'function' ? props.tick(props, state) : props.tick;
     formatedTick = tick && formatRanges(tick, min, max, stepTickDirection);
   } else {
     tick = step;
@@ -89,9 +84,10 @@ function prepareProps(props, state, rootBem) {
   // we consider indeterminate when
   // identerminate is true
   // or when the value is null or undefined
-  const indeterminate = props.indeterminate !== undefined
-    ? props.indeterminate
-    : value == undefined; // also null
+  const indeterminate =
+    props.indeterminate !== undefined
+      ? props.indeterminate
+      : value == undefined; // also null
 
   const vertical = orientation === 'vertical';
   const horizontal = orientation === 'horizontal';

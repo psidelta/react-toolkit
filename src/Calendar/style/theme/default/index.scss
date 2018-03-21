@@ -19,6 +19,7 @@
 
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__transition-month-view--theme-#{$ZIPPY_CALENDAR_THEME_NAME} {
   border: 1px solid $ZIPPY_CALENDAR_VIEW_BORDER_COLOR;
+
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view--theme-#{$ZIPPY_CALENDAR_THEME_NAME},
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__multi-month-view--theme-#{$ZIPPY_CALENDAR_THEME_NAME},
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__calendar--theme-#{$ZIPPY_CALENDAR_THEME_NAME} {
@@ -80,12 +81,10 @@
       cursor: pointer;
       text-align: center;
       outline: none;
-
       width: 100%;
       height: 100%;
       min-width: $ZIPPY_CALENDAR_DAY_SIZE;
       min-height: $ZIPPY_CALENDAR_DAY_SIZE;
-
       display: flex;
       align-items: center;
       justify-content: center;
@@ -99,14 +98,16 @@
     &--in-hover-range,
     &--in-range {
       overflow: hidden;
+
       .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day-text {
         position: relative;
+
         &:after,
         &:before {
           position: absolute;
           height: 100%;
-          top: 0px;
-          bottom: 0px;
+          top: 0;
+          bottom: 0;
           width: 500%;
           z-index: -1;
           content: '';
@@ -115,6 +116,7 @@
         &:before {
           right: 50%;
         }
+
         &:after {
           left: 50%;
         }
@@ -137,6 +139,7 @@
           }
         }
       }
+
       &.#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--hover-range-start:not(.#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--hover-range-end) {
         .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day-text {
           &:after {
@@ -144,6 +147,7 @@
           }
         }
       }
+
       &.#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--hover-range-end:not(.#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--hover-range-start) {
         .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day-text {
           &:before {
@@ -192,6 +196,7 @@
     &--in-hover-range {
       .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day-text {
         background: $ZIPPY_CALENDAR_ACTIVE_IN_RANGE_BACKGROUND padding-box;
+
         &:after,
         &:before {
           background: $ZIPPY_CALENDAR_ACTIVE_IN_RANGE_BACKGROUND;
@@ -211,9 +216,11 @@
         }
       }
     }
+
     &--active {
       background: $ZIPPY_CALENDAR_SELECTED_BACKGROUND;
       color: $ZIPPY_CALENDAR_WEEK_DAYS_FONT_COLOR;
+
       .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day-text {
         border: 1px dotted $ZIPPY_CALENDAR_MAIN_COLOR;
       }
@@ -228,6 +235,7 @@
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--weekend-highlight {
     color: $ZIPPY_CALENDAR_WEEKEND_HIGHLIGHT_COLOR;
+
     &:hover {
       color: $ZIPPY_CALENDAR_WEEKEND_HIGHLIGHT_COLOR;
     }
@@ -255,13 +263,16 @@
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--disabled {
     color: $ZIPPY_CALENDAR_DAY_COLOR_DISABLED;
+
     .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day-text {
       cursor: default;
+
       &:hover {
         background: none;
         color: $ZIPPY_CALENDAR_DAY_COLOR_DISABLED;
       }
     }
+
     &.#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--prev-month,
     &.#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view-day--next-month {
       color: $ZIPPY_CALENDAR_DAY_COLOR_DISABLED;
@@ -272,6 +283,7 @@
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__multi-month-view {
   border: 1px solid $ZIPPY_CALENDAR_VIEW_BORDER_COLOR;
   position: relative;
+
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__month-view {
     border: none;
   }

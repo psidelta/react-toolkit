@@ -27,24 +27,30 @@
     &:not(.#{$ZIPPY_DROPDOWN_BUTTON_ROOT_CLASS}--disabled):hover {
       background: $ZIPPY_DROPDOWN_BUTTON_HOVER_BG_COLOR padding-box;
     }
+
     border: $ZIPPY_DROPDOWN_BUTTON_UNFOCUSED_BORDER;
+
     &.zippy-react-toolkit-dropdown-button--focused {
       border: $ZIPPY_DROPDOWN_BUTTON_FOCUSED_BORDER;
     }
+
     .#{$ZIPPY_DROPDOWN_BUTTON_ROOT_CLASS}__button.zippy-react-toolkit-button--ltr {
       &.zippy-react-toolkit-button--icon-first {
         .zippy-react-toolkit-button__text {
-          padding-left: 0px;
+          padding-left: 0;
         }
+
         .zippy-react-toolkit-dropdown-button__arrow {
           margin-right: 6px;
           padding-left: 8px;
         }
       }
+
       &.zippy-react-toolkit-button--icon-last {
         .zippy-react-toolkit-button__text {
-          padding-right: 0px;
+          padding-right: 0;
         }
+
         .zippy-react-toolkit-dropdown-button__arrow {
           margin-left: 6px;
           padding-right: 2px;
@@ -55,17 +61,20 @@
     .#{$ZIPPY_DROPDOWN_BUTTON_ROOT_CLASS}__button.zippy-react-toolkit-button--rtl {
       &.zippy-react-toolkit-button--icon-first {
         .zippy-react-toolkit-button__text {
-          padding-right: 0px;
+          padding-right: 0;
         }
+
         .zippy-react-toolkit-dropdown-button__arrow {
           margin-left: 6px;
           padding-right: 2px;
         }
       }
+
       &.zippy-react-toolkit-button--icon-last {
         .zippy-react-toolkit-button__text {
-          padding-left: 0px;
+          padding-left: 0;
         }
+
         .zippy-react-toolkit-dropdown-button__arrow {
           margin-right: 6px;
           padding-left: 8px;

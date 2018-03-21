@@ -18,37 +18,31 @@ describe('props passed from items[0] to MenuItem', () => {
     });
 
     // overwrite is already tested in cellStyle
-    xit(
-      'item.overStyle is added on tr when menuitem receives mouseEnter',
-      () => {
-        const items = [{ label: 'test', overStyle: { color: 'over color' } }];
-        const wrapper = mount(<Menu items={items} />);
-        const menuItem = wrapper
-          .find(MenuItem)
-          .first()
-          .find('tr');
-        expect(menuItem.prop('style').color).to.not.equal(
-          items[0].overStyle.color
-        );
-        menuItem.simulate('mouseEnter');
-        expect(menuItem.prop('style').color).toBe(items[0].overStyle.color);
-      }
-    );
+    xit('item.overStyle is added on tr when menuitem receives mouseEnter', () => {
+      const items = [{ label: 'test', overStyle: { color: 'over color' } }];
+      const wrapper = mount(<Menu items={items} />);
+      const menuItem = wrapper
+        .find(MenuItem)
+        .first()
+        .find('tr');
+      expect(menuItem.prop('style').color).to.not.equal(
+        items[0].overStyle.color
+      );
+      menuItem.simulate('mouseEnter');
+      expect(menuItem.prop('style').color).toBe(items[0].overStyle.color);
+    });
 
-    xit(
-      'item.overClassName is added on tr when menuitem receives mouseEnter',
-      () => {
-        const items = [{ label: 'test', overClassName: 'over-className' }];
-        const wrapper = mount(<Menu items={items} />);
-        const menuItem = wrapper
-          .find(MenuItem)
-          .first()
-          .find('tr');
-        expect(menuItem.prop('className')).to.not.contain('over-className');
-        menuItem.simulate('mouseEnter');
-        expect(menuItem.prop('className')).to.contain('over-className');
-      }
-    );
+    xit('item.overClassName is added on tr when menuitem receives mouseEnter', () => {
+      const items = [{ label: 'test', overClassName: 'over-className' }];
+      const wrapper = mount(<Menu items={items} />);
+      const menuItem = wrapper
+        .find(MenuItem)
+        .first()
+        .find('tr');
+      expect(menuItem.prop('className')).to.not.contain('over-className');
+      menuItem.simulate('mouseEnter');
+      expect(menuItem.prop('className')).to.contain('over-className');
+    });
 
     xit('item.overStyle global.overStyle', () => {
       const items = [{ label: 'test', overStyle: { color: '#123456' } }];

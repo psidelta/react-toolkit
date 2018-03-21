@@ -10,7 +10,6 @@
   }
 
   display: inline-flex;
-
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -32,7 +31,6 @@
 
 .zippy-react-simple-toolbar__region {
   position: relative;
-
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -40,9 +38,11 @@
   &--text-align-start {
     text-align: start;
   }
+
   &--text-align-end {
     text-align: end;
   }
+
   &--text-align-center {
     text-align: center;
   }

@@ -1,6 +1,7 @@
-const formatNumber = (number, locale) => (number.toLocaleString(locale, {
-  maximumFractionDigits: 2
-}));
+const formatNumber = (number, locale) =>
+  number.toLocaleString(locale, {
+    maximumFractionDigits: 2
+  });
 
 const defaultProps = {
   millisecondText: 'ms',
@@ -22,11 +23,10 @@ const minute = 60 * second;
 const hour = 60 * minute;
 const day = 24 * hour;
 
-
 export function getMSString(parsedTime, config) {
   let result = '';
-  if ( config.showMilliseconds && config.showSeconds && config.showMinutes) {
-    result = `${parsedTime.mseconds}${config.millisecondText}`
+  if (config.showMilliseconds && config.showSeconds && config.showMinutes) {
+    result = `${parsedTime.mseconds}${config.millisecondText}`;
   }
   return result;
 }
@@ -40,19 +40,21 @@ function secondsAreNotLastEntry(parsedTime, config) {
 
 export function getSecondsString(parsedTime, config) {
   let result = '';
-  if ( config.showSeconds && config.showMinutes ) {
-      let seconds = parsedTime.seconds;
+  if (config.showSeconds && config.showMinutes) {
+    let seconds = parsedTime.seconds;
 
-      if ( parsedTime.mseconds && !config.showMilliseconds ) {
-        seconds = seconds + parsedTime.mseconds/1000;
-        if ( secondsAreNotLastEntry(parsedTime, config) ) {
-          seconds = Math.round(seconds);
-        }
+    if (parsedTime.mseconds && !config.showMilliseconds) {
+      seconds = seconds + parsedTime.mseconds / 1000;
+      if (secondsAreNotLastEntry(parsedTime, config)) {
+        seconds = Math.round(seconds);
       }
+    }
 
-      if ( seconds ) {
-        result = `${formatNumber(seconds)}${config.secondText}${config.showMilliseconds ? config.separator:''}`;
-      }
+    if (seconds) {
+      result = `${formatNumber(seconds)}${config.secondText}${
+        config.showMilliseconds ? config.separator : ''
+      }`;
+    }
   }
   return result;
 }
@@ -65,52 +67,53 @@ function minutesAreNotLastEntry(parsedTime, config) {
 }
 
 function minutesAreFirstEntry(parsedTime, config) {
-  return (
-    !(config.showSeconds || config.showMilliseconds)
-  );
+  return !(config.showSeconds || config.showMilliseconds);
 }
 
 export function getMinutesString(parsedTime, config) {
   let result = '';
-  if ( config.showMinutes ) {
-      let minutes = parsedTime.minutes;
+  if (config.showMinutes) {
+    let minutes = parsedTime.minutes;
 
-      if ( minutesAreFirstEntry(parsedTime, config) ) {
-        // minutes never show decimals
-        minutes = Math.round(minutes + parsedTime.seconds/60 + parsedTime.mseconds/1000);
-      }
+    if (minutesAreFirstEntry(parsedTime, config)) {
+      // minutes never show decimals
+      minutes = Math.round(
+        minutes + parsedTime.seconds / 60 + parsedTime.mseconds / 1000
+      );
+    }
 
-      // if ( minutesAreNotLastEntry(parsedTime, config) ) {
-      //   minutes = Math.round(minutes);
-      // }
+    // if ( minutesAreNotLastEntry(parsedTime, config) ) {
+    //   minutes = Math.round(minutes);
+    // }
 
-      if ( minutes ) {
-        result = `${formatNumber(minutes)}${config.minuteText}${config.showSeconds ? config.separator:''}`;
-      }
+    if (minutes) {
+      result = `${formatNumber(minutes)}${config.minuteText}${
+        config.showSeconds ? config.separator : ''
+      }`;
+    }
   }
   return result;
 }
 
-
 function hoursAreNotLastEntry(parsedTime, config) {
-  return (
-    parsedTime.days && config.showDays
-  );
+  return parsedTime.days && config.showDays;
 }
 
 export function getHoursString(parsedTime, config) {
   let result = '';
-  if ( config.showHours ) {
-      let hours = parsedTime.hours;
+  if (config.showHours) {
+    let hours = parsedTime.hours;
 
-      if ( !config.showMinutes ) {
-        hours = hours + parsedTime.minutes/60 + parsedTime.seconds/3600;
-        hours = Math.round(hours * 10)/10;
-      }
+    if (!config.showMinutes) {
+      hours = hours + parsedTime.minutes / 60 + parsedTime.seconds / 3600;
+      hours = Math.round(hours * 10) / 10;
+    }
 
-      if ( hours ) {
-        result = `${formatNumber(hours)}${config.hourText}${config.showMinutes ? config.separator:''}`;
-      }
+    if (hours) {
+      result = `${formatNumber(hours)}${config.hourText}${
+        config.showMinutes ? config.separator : ''
+      }`;
+    }
   }
   return result;
 }
@@ -119,14 +122,15 @@ export function getDaysString(parsedTime, config) {
   let result = '';
   let days = parsedTime.days;
 
-  if ( !config.showHours ) {
-    days = days + parsedTime.hours/24 + parsedTime.minutes/(24*60);
-    days = Math.round(days * 10)/10;
+  if (!config.showHours) {
+    days = days + parsedTime.hours / 24 + parsedTime.minutes / (24 * 60);
+    days = Math.round(days * 10) / 10;
   }
 
-
-  if ( days ) {
-    result = `${formatNumber(days)}${config.dayText}${config.showHours ? config.separator:''}`;
+  if (days) {
+    result = `${formatNumber(days)}${config.dayText}${
+      config.showHours ? config.separator : ''
+    }`;
   }
   return result;
 }
@@ -153,8 +157,7 @@ export function getDaysString(parsedTime, config) {
  *   - @param config.formatNumber, custom number format function, used internally by
  *     the formatter
  */
-export default function timeFormatter (time, config={}) {
-
+export default function timeFormatter(time, config = {}) {
   const {
     millisecondText,
     secondText,
@@ -167,21 +170,22 @@ export default function timeFormatter (time, config={}) {
     collapseHalfUnits,
     formatNumber,
     locale
-  } = config = {
+  } = (config = {
     ...defaultProps,
     ...config
-  }
+  });
 
   const digitsCount = time.toString().length;
 
   const days = Math.floor(time / day);
   const timeWithoutDays = time - days * day;
 
-  const hours = Math.floor( timeWithoutDays / hour );
-  const timeWithoutDaysAndHours = ( timeWithoutDays - hours * hour );
+  const hours = Math.floor(timeWithoutDays / hour);
+  const timeWithoutDaysAndHours = timeWithoutDays - hours * hour;
 
   const minutes = Math.floor(timeWithoutDaysAndHours / minute);
-  const timeWithoutDaysHoursAndMinutes = timeWithoutDaysAndHours - minutes * minute;
+  const timeWithoutDaysHoursAndMinutes =
+    timeWithoutDaysAndHours - minutes * minute;
 
   const seconds = Math.floor(timeWithoutDaysHoursAndMinutes / second);
   const mseconds = timeWithoutDaysHoursAndMinutes - seconds * second;
@@ -203,7 +207,7 @@ export default function timeFormatter (time, config={}) {
 }
 
 const secondsFormatter = (seconds, config) => {
-  return timeFormatter(seconds*1000, config);
-}
+  return timeFormatter(seconds * 1000, config);
+};
 
-export {timeFormatter};
+export { timeFormatter };

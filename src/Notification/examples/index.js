@@ -16,7 +16,7 @@ class App extends React.Component {
   }
   addNotification() {
     count++;
-    zippyui.notification.first.addNotification({
+    zippy.notification.first.addNotification({
       // title: this.state.title ? <div>Notification number </div> : null,
       title: domProps => {
         domProps.id = '#mutatedId';

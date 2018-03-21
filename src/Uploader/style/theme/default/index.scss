@@ -27,9 +27,11 @@
   &.#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}--over {
     border-color: $drop-hover-color;
     background: $drop-hover-color;
+
     .#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}__empty-icon {
       fill: $drop-hover-color;
     }
+
     .#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}__empty-text {
       color: #525252;
     }
@@ -43,6 +45,7 @@
       background: $file-bg-color;
       border: 1px solid $file-border-color;
       transition-duration: 0.2s;
+
       .react-file-extension-icon {
         margin-left: 6px;
       }
@@ -83,6 +86,7 @@
 
       &:hover {
         background: $file-hover-bg-color;
+
         .#{$ZIPPY-UPLOADER-FILE-ITEM}__clear-icon__layout {
           visibility: visible;
         }
@@ -95,10 +99,10 @@
         color: white;
         width: 80px;
         height: 22px;
-        padding: 1px;
         font-size: 13px;
         padding: 1px;
         transition-duration: 0.2s;
+
         &:focus {
           outline: none;
         }
@@ -148,6 +152,7 @@
         border: 0;
         background: inherit;
         margin-right: 5px;
+
         svg {
           width: 14px;
           height: 14px;
@@ -241,6 +246,7 @@ $FILE_UPLOADER: 'zippy-react-uploader';
     .#{$FILE_UPLOADER}__menu {
       display: flex;
     }
+
     .#{$FILE_UPLOADER}__menu-layout {
       border-bottom: 1px solid $border_color;
     }
@@ -256,6 +262,7 @@ $FILE_UPLOADER: 'zippy-react-uploader';
   .#{$FILE_UPLOADER}__menu {
     display: flex;
     padding: 6px;
+
     .#{$FILE_UPLOADER}__button-layout {
       margin: 0 5px 0 0;
     }
@@ -282,6 +289,7 @@ $FILE_UPLOADER: 'zippy-react-uploader';
     flex: 3;
     align-self: center;
   }
+
   .#{$FILE_UPLOADER}__error-message {
     font-family: inherit;
     font-size: 13px;

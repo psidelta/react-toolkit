@@ -12,6 +12,6 @@
  * limitations under the License.
  */
 
-import ColorTextInput from './src'
+import ColorTextInput from './src';
 
-export default ColorTextInput
+export default ColorTextInput;

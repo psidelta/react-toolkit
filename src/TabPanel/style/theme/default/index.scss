@@ -88,27 +88,28 @@ $HOVER_BORDER_COLOR: #eee !default;
       background: $ZIPPY_TAB_PANEL_TAB_ACTIVE_BG_COLOR;
     }
   }
+
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-top {
     .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow {
-      border-bottom: 0px;
+      border-bottom: 0;
     }
   }
 
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-bottom {
     .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow {
-      border-top: 0px;
+      border-top: 0;
     }
   }
 
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-left {
     .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow {
-      border-right: 0px;
+      border-right: 0;
     }
   }
 
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-right {
     .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow {
-      border-left: 0px;
+      border-left: 0;
     }
   }
 
@@ -126,9 +127,11 @@ $HOVER_BORDER_COLOR: #eee !default;
       color: $ZIPPY_TAB_PANEL_STRIP_COLOR;
       opacity: 0.5;
     }
+
     &--active {
       background: $ZIPPY_TAB_PANEL_TAB_ACTIVE_BG_COLOR;
     }
+
     &--focused {
       &:before {
         content: '';
@@ -152,17 +155,21 @@ $HOVER_BORDER_COLOR: #eee !default;
   }
 
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-top {
-    padding-bottom: 0px;
+    padding-bottom: 0;
+
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title {
-      border-bottom: 0px;
+      border-bottom: 0;
     }
   }
+
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-bottom {
-    padding-top: 0px;
+    padding-top: 0;
+
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title {
-      border-top: 0px;
+      border-top: 0;
     }
   }
+
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-top,
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-bottom {
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title:not(.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title--first) {
@@ -171,17 +178,21 @@ $HOVER_BORDER_COLOR: #eee !default;
   }
 
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-left {
-    padding-right: 0px;
+    padding-right: 0;
+
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title {
-      border-right: 0px;
+      border-right: 0;
     }
   }
+
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-right {
-    padding-left: 0px;
+    padding-left: 0;
+
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title {
-      border-left: 0px;
+      border-left: 0;
     }
   }
+
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-left,
   &.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--tab-position-right {
     .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title:not(.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-title--first) {

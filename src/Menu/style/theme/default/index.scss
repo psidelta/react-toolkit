@@ -35,15 +35,17 @@
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__row--focused.#{$ZIPPY_MENU_ROOT_CLASS}__row--over {
     position: relative;
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell {
       position: relative;
+
       &:before {
         position: absolute;
         content: ' ';
         top: 1px;
         bottom: 1px;
-        left: 0px;
-        right: 0px;
+        left: 0;
+        right: 0;
         border-top: $ZIPPY_MENU_ITEM_FOCUSED_OVER_BORDER;
         border-bottom: $ZIPPY_MENU_ITEM_FOCUSED_OVER_BORDER;
       }
@@ -66,6 +68,7 @@
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__row--focused {
     position: relative;
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell {
       position: relative;
 
@@ -73,24 +76,24 @@
       &:before {
         position: absolute;
         content: ' ';
-        top: 0px;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         border-top: $ZIPPY_MENU_ITEM_FOCUSED_BORDER;
         border-bottom: $ZIPPY_MENU_ITEM_FOCUSED_BORDER;
       }
 
       &:first-child {
         &:before {
-          left: 0px;
+          left: 0;
           border-left: $ZIPPY_MENU_ITEM_FOCUSED_BORDER;
         }
       }
 
       &:last-child {
         &:before {
-          right: 0px;
+          right: 0;
           border-right: $ZIPPY_MENU_ITEM_FOCUSED_BORDER;
         }
       }
@@ -106,8 +109,8 @@
           content: ' ';
           top: 1px;
           bottom: 1px;
-          left: 0px;
-          right: 0px;
+          left: 0;
+          right: 0;
           border-top: $ZIPPY_MENU_ITEM_FOCUSED_OVER_BORDER;
           border-bottom: $ZIPPY_MENU_ITEM_FOCUSED_OVER_BORDER;
         }
@@ -171,9 +174,11 @@
     color: $ZIPPY_MENU-ITEM_OVER_COLOR;
     fill: $ZIPPY_MENU-ITEM_OVER_COLOR;
     background-color: $ZIPPY_MENU_HOVER_COLOR;
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell {
       background-color: $ZIPPY_MENU_HOVER_COLOR;
     }
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
       // color: $ZIPPY_MENU-ITEM_OVER_COLOR;
     }
@@ -192,6 +197,7 @@
     color: $ZIPPY_MENU_ITEM_ACTIVE_COLOR;
     fill: $ZIPPY_MENU_ITEM_ACTIVE_COLOR;
     background-color: $ZIPPY_MENU_ITEM_ACTIVE_BACKGROUND;
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell {
       background-color: $ZIPPY_MENU_HOVER_COLOR;
     }
@@ -205,6 +211,7 @@
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
       color: $ZIPPY_MENU_ITEM_DISABLED_COLOR;
     }
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-expander {
       .#{$ZIPPY_MENU_ROOT_CLASS}__expander {
         fill: $ZIPPY_MENU_ITEM_DISABLED_COLOR;
@@ -225,6 +232,7 @@
     &:first-child {
       // padding-left: $ZIPPY_MENU_FIRST_CELL_PADDING_LEFT;
     }
+
     &:last-child {
       padding-right: $ZIPPY_MENU_FLAST_CELL_PADDING_RIGHT;
     }
@@ -236,6 +244,7 @@
       padding-right: $ZIPPY_MENU_FLAST_CELL_PADDING_RIGHT;
       padding-left: 0;
     }
+
     &:last-child {
       padding-right: 0;
       // padding-left: $ZIPPY_MENU_FIRST_CELL_PADDING_LEFT;
@@ -243,7 +252,7 @@
   }
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-input {
-    padding-right: 0px;
+    padding-right: 0;
     padding-left: 2px;
   }
 
@@ -256,10 +265,12 @@
     padding-top: 2px;
     width: 20px;
     fill: $ZIPPY_MENU_ICON_COLOR;
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell__input {
       position: relative;
       top: -2px;
     }
+
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell__input--browser-native {
       top: 0;
     }
@@ -267,12 +278,12 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-input {
-    padding-left: 0px;
+  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-input {
+    padding-left: 0;
   }
 
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--radio {
+  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--radio {
     padding-left: 3px;
   }
 
@@ -285,7 +296,7 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
+  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
     // padding-right: 19px;
     padding-left: 6px;
   }
@@ -301,7 +312,7 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--icon {
+  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--icon {
     padding-right: 12px;
     padding-left: 3px;
   }
@@ -315,7 +326,7 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-expander {
+  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-expander {
     padding-left: 0;
     fill: $ZIPPY_MENU_EXPANDER_FILL;
   }
@@ -324,7 +335,7 @@
     background-color: $ZIPPY_MENU_SEPARATOR_COLOR;
 
     td {
-      padding: $ZIPPY_MENU_MENU_SEPARATOR_PADDING 0px;
+      padding: $ZIPPY_MENU_MENU_SEPARATOR_PADDING 0;
     }
   }
 
@@ -352,6 +363,7 @@
     border: $ZIPPY_MENU_SCROLL_ARROW_BORDER;
     border-right: 0;
     border-left: 0;
+
     svg {
       fill: $ZIPPY_MENU_SCRLL_ARROW_FILL;
       position: absolute;
@@ -361,10 +373,12 @@
       height: 20px;
       width: 20px;
     }
+
     &:hover {
       // fill: $ZIPPY_MENU_MAIN_COLOR;
       // background: $ZIPPY_MENU_SCROLL_ARROW_BACKGROUND_OVER;
     }
+
     &--direction-up {
       border-top: 0;
     }
@@ -376,15 +390,16 @@
       fill: $ZIPPY_MENU-ITEM_OVER_COLOR;
       background-color: $ZIPPY_MENU_ITEM_OVER_BACKGROUND;
       border: $ZIPPY_MENU_ITEM_OVER_BORDER;
+
       .#{$ZIPPY_MENU_ROOT_CLASS}__cell {
         background-color: $ZIPPY_MENU_ITEM_OVER_BACKGROUND;
       }
     }
 
     .#{$ZIPPY_MENU_ROOT_CLASS}__row--focused
-      .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before,
+    .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before,
     .#{$ZIPPY_MENU_ROOT_CLASS}__row--focused.#{$ZIPPY_MENU_ROOT_CLASS}__row--over
-      .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before {
+    .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before {
       content: none;
     } /* IE11 */
   }

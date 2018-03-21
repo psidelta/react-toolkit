@@ -19,8 +19,12 @@ describe('Accordion tab style props', () => {
         tabStyle={tabStyle}
         tabClassName={CUSTOM_CLASS_NAME}
       >
-        <div data-test="tab-content-1" tabTitle="Tab 1">Tab 1</div>
-        <div data-test="tab-content-2" tabTitle="Tab 2">Tab 2</div>
+        <div data-test="tab-content-1" tabTitle="Tab 1">
+          Tab 1
+        </div>
+        <div data-test="tab-content-2" tabTitle="Tab 2">
+          Tab 2
+        </div>
         <div
           tabProps={{
             style: extraStyleProps,
@@ -40,12 +44,8 @@ describe('Accordion tab style props', () => {
 
   describe('tabStyle', () => {
     it('should apply tabStyle to all tabs', () => {
-      expect(tabContentComponents.at(0).prop('wrapperStyle')).toEqual(
-        tabStyle
-      );
-      expect(tabContentComponents.at(1).prop('wrapperStyle')).toEqual(
-        tabStyle
-      );
+      expect(tabContentComponents.at(0).prop('wrapperStyle')).toEqual(tabStyle);
+      expect(tabContentComponents.at(1).prop('wrapperStyle')).toEqual(tabStyle);
       expect(tabContentComponents.at(2).prop('wrapperStyle')).toEqual({
         ...tabStyle,
         ...extraStyleProps

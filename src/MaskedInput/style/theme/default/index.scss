@@ -30,6 +30,7 @@
     &:hover {
       border: $ZIPPY_MASKED_INPUT_BORDER;
     }
+
     .#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}--input {
       background: $ZIPPY_MASKET_INPUT_WHITE_BG;
       color: $ZIPPY_MASKED_INPUT_COLOR;

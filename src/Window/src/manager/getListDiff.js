@@ -9,11 +9,11 @@
 function getListDiff(next, previous) {
   return next.reduce((acc, item, index) => {
     if (item !== previous[index]) {
-      acc.push(item)
+      acc.push(item);
     }
 
-    return acc
-  }, [])
+    return acc;
+  }, []);
 }
 
-export default getListDiff
+export default getListDiff;

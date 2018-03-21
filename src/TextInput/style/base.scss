@@ -4,7 +4,6 @@
   box-sizing: border-box;
   text-align: start;
   direction: ltr;
-
   display: inline-flex;
   border: 1px solid #c5c5c5;
   overflow: hidden;
@@ -29,7 +28,7 @@
     }
 
     .#{$ZIPPY_TEXT_INPUT_ROOT_CLASS}__clear-button {
-      margin: 0px 0px 0px 6px;
+      margin: 0 0 0 6px;
     }
   }
 }
@@ -48,7 +47,6 @@
 }
 
 .#{$ZIPPY_TEXT_INPUT_ROOT_CLASS}__clear-button {
-  display: block;
   cursor: pointer;
   flex: 1;
   display: flex;
@@ -61,7 +59,7 @@
   top: 0;
   right: 1px;
   bottom: 0;
-  margin: 0px 6px 0px 0px;
+  margin: 0 6px 0 0;
 
   svg {
     // fill: rgb(135, 135, 135);
@@ -75,8 +73,8 @@
   transition: opacity 0.2s;
   opacity: 1;
   transform: translate3d(
-    0px,
-    0px,
+    0,
+    0,
     0px
   ); // needed because otherwise chrome flickers the position of the wrapper
   &:active {

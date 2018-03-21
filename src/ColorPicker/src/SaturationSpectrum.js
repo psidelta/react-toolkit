@@ -97,7 +97,7 @@ class ZippySaturationSpectrum extends Component {
   prepareBackgroundColor(color) {
     const hsv = color;
     const col = fromRatio({
-      h: hsv.h % 360 / 360,
+      h: (hsv.h % 360) / 360,
       s: 1,
       v: 1
     });

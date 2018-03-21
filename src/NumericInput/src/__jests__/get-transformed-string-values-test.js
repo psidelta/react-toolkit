@@ -136,48 +136,48 @@ describe('getTransformedStringValues utils function', () => {
   describe('working with precision (inputString, precision) -> [outputStirng, outputNumber]', () => {
     it('(1,000.0002, 3) -> [1000.000, 1000]', () => {
       const number = '1,000.0002';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 3
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 3
+        }
+      );
       expect(formattedValue).toBe('1,000.000');
       expect(numericValue).toBe(1000);
     });
 
     it('(1,000.0032, 3) -> [1000.003, 1000.003]', () => {
       const number = '1,000.0032';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 3
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 3
+        }
+      );
       expect(formattedValue).toBe('1,000.003');
       expect(numericValue).toBe(1000.003);
     });
 
     it('(1,000.0032, 6) -> [1,000.003200, 1000.003200]', () => {
       const number = '1,000.0032';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 6
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 6
+        }
+      );
       expect(formattedValue).toBe('1,000.003200');
       expect(numericValue).toBe(1000.0032);
     });
 
     it('(1.) -> [1.000, 1.000]', () => {
       const number = '1.';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 3
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 3
+        }
+      );
       expect(formattedValue).toBe('1.000');
       expect(numericValue).toBe(1.0);
     });
@@ -186,27 +186,27 @@ describe('getTransformedStringValues utils function', () => {
   describe('working with min/max input, min, max, [precision -> output, outpun number]', () => {
     it('(-1000.53, -500, 5000, 6) -> [-500.000000, -500]', () => {
       const number = '-1000.53';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 6,
-        min: -500,
-        max: 5000
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 6,
+          min: -500,
+          max: 5000
+        }
+      );
       expect(formattedValue).toBe('-500.000000');
       expect(numericValue).toBe(-500);
     });
     it('(5000.53, -500, 5000, 6) -> [-500.000000, -500]', () => {
       const number = '5000.53';
-      const [
-        formattedValue,
-        numericValue
-      ] = getTransformedStringValues(number, {
-        precision: 6,
-        min: -500,
-        max: 5000
-      });
+      const [formattedValue, numericValue] = getTransformedStringValues(
+        number,
+        {
+          precision: 6,
+          min: -500,
+          max: 5000
+        }
+      );
       expect(formattedValue).toBe('5,000.000000');
       expect(numericValue).toBe(5000);
     });

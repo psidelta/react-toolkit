@@ -1,6 +1,5 @@
 @import '../../variables.scss';
 @import './variables.scss';
-
 @import '../../../../SplitButton/style/theme/default/index.scss';
 
 .#{$ZIPPY_TOOLBAR_ROOT_CLASS}.#{$ZIPPY_TOOLBAR_ROOT_CLASS}--theme-#{$ZIPPY_TOOLBAR_THEME_NAME} {
@@ -12,7 +11,7 @@
   font-size: $ZIPPY_TOOLBAR_FONT_SIZE;
 
   .zippy-react-toolkit-split-button--theme-default
-    .zippy-react-toolkit-split-button__button {
+  .zippy-react-toolkit-split-button__button {
     padding: 4px 8px;
   }
 
@@ -25,6 +24,7 @@
     border: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
     outline: none;
   }
+
   .zippy-react-toolkit-numeric-input.zippy-react-toolkit-numeric-input--focused,
   input:not(.zippy-react-toolkit-combo-box__input):not(.zippy-react-toolkit-text-input__input):not(.zippy-react-toolkit-date-input__input):not(.zippy-react-toolkit-numeric-input__input):focus {
     border: 1px solid $ZIPPY_TOOLBAR_FOCUSED_INPUT_BORDER_COLOR;
@@ -32,12 +32,17 @@
 
   .zippy-react-toolkit-split-button > .zippy-react-toolkit-dropdown-button {
     .zippy-react-toolkit-dropdown-button__button {
-      padding: 0px;
+      padding: 0;
     }
   }
 
   .zippy-react-toolkit-split-button.zippy-react-toolkit-split-button--theme-default {
-    @include apply-separator-styles($ZIPPY_TOOLBAR_SEPARATOR_COLOR,$ZIPPY_TOOLBAR_SEPARATOR_COLOR);
+    /* stylelint-disable */
+    @include apply-separator-styles(
+      $ZIPPY_TOOLBAR_SEPARATOR_COLOR,
+      $ZIPPY_TOOLBAR_SEPARATOR_COLOR
+    );
+    /* stylelint-enable */
   }
 
   &.#{$ZIPPY_TOOLBAR_ROOT_CLASS}--change-button-styles {
@@ -45,12 +50,15 @@
     .zippy-react-toolkit-dropdown-button.zippy-react-toolkit-dropdown-button.zippy-react-toolkit-dropdown-button,
     .zippy-react-toolkit-button.zippy-react-toolkit-button.zippy-react-toolkit-button {
       transition: background-color 0.2s;
+
       & {
         color: $ZIPPY_TOOLBAR_COLOR;
         fill: $ZIPPY_TOOLBAR_COLOR;
+
         &:not(:hover) {
           background-color: transparent;
         }
+
         &:hover {
           background-color: $ZIPPY_TOOLBAR_HOVER_BG;
         }
@@ -75,18 +83,23 @@
 
   .#{$ZIPPY_TOOLBAR_ROOT_CLASS}__arrow {
     background: $ZIPPY_TOOLBAR_BG_COLOR;
+
     &:hover {
       background: $ZIPPY_TOOLBAR_HOVER_BG;
     }
+
     &--direction-right {
       border-left: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
     }
+
     &--direction-left {
       border-right: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
     }
+
     &--direction-down {
       border-top: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
     }
+
     &--direction-up {
       border-bottom: 1px solid $ZIPPY_TOOLBAR_BORDER_COLOR;
     }

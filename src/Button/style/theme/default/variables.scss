@@ -5,10 +5,9 @@ $ZIPPY_BUTTON_BG_COLOR: #495e85 !default;
 $ZIPPY_BUTTON_HOVER_BG_COLOR: lighten($ZIPPY_BUTTON_BG_COLOR, 5%) !default;
 $ZIPPY_BUTTON_PRESSED_BG_COLOR: darken($ZIPPY_BUTTON_BG_COLOR, 5%) !default;
 $ZIPPY_BUTTON_PRESSED_HOVER_BG_COLOR: lighten(
-    $ZIPPY_BUTTON_PRESSED_BG_COLOR,
-    7%
-  )
-  !default;
+  $ZIPPY_BUTTON_PRESSED_BG_COLOR,
+  7%
+) !default;
 $ZIPPY_BUTTON_UNFOCUSED_BORDER: 1px solid transparent !default;
 $ZIPPY_BUTTON_FOCUSED_BORDER: 1px dotted #3c5c99 !default;
 

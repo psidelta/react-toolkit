@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const MODULE_NAME = process.env.npm_config_module;
+const MODULE_NAME = process.env.npm_config_module || 'ALL';
 
 if (!MODULE_NAME) {
   console.log(chalk.red('Have to provide a --module option!\n\n'));

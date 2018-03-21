@@ -11,7 +11,7 @@ class App extends Component {
       enableSpinnerTools: true,
       enableClearButton: true,
       toolPosition: false,
-      size: 18,
+      size: 10,
       value: null,
       disabled: false
     };
@@ -39,6 +39,38 @@ class App extends Component {
               borderRadius: 10
             }
           }}
+        />
+
+        <TextInput style={{ marginRight: 5, width: 200 }} placeholder="text" />
+        <MaskedInput style={{ marginRight: 5 }} placeholder="masked" />
+        <DateInput style={{ marginRight: 5 }} />
+        <ComboBox
+          dataSource={[{ id: 1, label: 'x' }]}
+          idProperty="id"
+          inlineFlex
+          style={{ marginRight: 5 }}
+        />
+
+        <br />
+        <br />
+        <div>
+          <input
+            type="number"
+            value={this.state.size}
+            onChange={ev => this.setState({ size: ev.target.value })}
+          />arrowSize
+        </div>
+        <NumberInput
+          style={{ minWidth: 100 }}
+          precision={3}
+          // arrowSize={this.state.size * 1}
+          placeholder="number"
+          initialStep={1000}
+          step={50}
+          minValue={0}
+          maxValue={11150}
+          value={this.state.value}
+          onChange={this.onChange.bind(this)}
         />
       </div>
     );

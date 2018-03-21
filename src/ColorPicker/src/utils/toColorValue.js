@@ -12,15 +12,15 @@
  * limitations under the License.
  */
 
-import { toHsv } from './color'
+import { toHsv } from './color';
 
-const toColorValue = (value) => {
+const toColorValue = value => {
   if (typeof value == 'string') {
-    return toHsv(value)
+    return toHsv(value);
   }
 
   if (!value) {
-    return {}
+    return {};
   }
 
   return {
@@ -28,7 +28,7 @@ const toColorValue = (value) => {
     s: value.s,
     v: value.v,
     a: value.a
-  }
-}
+  };
+};
 
-export default toColorValue
+export default toColorValue;

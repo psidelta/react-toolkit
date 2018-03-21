@@ -1,5 +1,4 @@
 @import './variables.scss';
-
 @import '../../ToolBar/style/index.scss';
 @import '../../NumericInput/style/index.scss';
 @import '../../ComboBox/style/index.scss';
@@ -23,6 +22,7 @@
   &__spacer {
     flex: 1;
   }
+
   &__region {
     white-space: nowrap;
   }

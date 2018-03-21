@@ -12,10 +12,10 @@
  * limitations under the License.
  */
 
-import tinyColor from 'tinycolor2'
+import tinyColor from 'tinycolor2';
 
 function isColorValid(color) {
-  return tinyColor(color).isValid()
+  return tinyColor(color).isValid();
 }
 
-export default isColorValid
+export default isColorValid;

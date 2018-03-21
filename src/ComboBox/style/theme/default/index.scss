@@ -4,7 +4,6 @@
   font-size: $ZIPPY_COMBO_BOX_FONT_SIZE;
   border: 1px solid $ZIPPY_COMBO_BOX_BORDER_COLOR;
   background: white;
-
   fill: $ZIPPY_COMBO_BOX_ICON_FILL_COLOR;
   padding-top: 1px;
   min-width: 100px;
@@ -21,7 +20,7 @@
   }
 
   input {
-    padding: 0px;
+    padding: 0;
   }
 
   .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__input__placeholder {
@@ -41,6 +40,7 @@
       padding-left: 8px;
     }
   }
+
   &.#{$ZIPPY_COMBO_BOX_ROOT_CLASS}--rtl {
     padding-left: 3px;
 
@@ -56,7 +56,7 @@
   }
 
   &.#{$ZIPPY_COMBO_BOX_ROOT_CLASS}--shadow
-    .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__list {
+  .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__list {
     box-shadow: $ZIPPY_COMBO_BOX_BOX_SHADOW;
   }
 
@@ -64,8 +64,10 @@
     background: rgba(255, 255, 255, 0.4);
     color: #858585;
   }
+
   .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__loading-spinner {
     width: 17px;
+
     svg {
       animation: reactToolkitComboBoxLoadAnimationDefault 1.4s infinite linear;
       transform: translateZ(0);
@@ -85,7 +87,8 @@
     display: flex;
     align-items: center;
     margin: 0 6px;
-    transform: translateY(0px);
+    transform: translateY(0);
+
     &:active {
       transform: translateY(1px);
     }
@@ -150,7 +153,8 @@
   }
 
   .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag__clear-icon {
-    transform: translateY(0px);
+    transform: translateY(0);
+
     &:active {
       transform: translateY(1px);
     }
@@ -160,15 +164,18 @@
     .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag__clear-icon {
       margin-left: 12px;
     }
+
     .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag {
       margin-right: 1px;
       margin-bottom: 1px;
     }
   }
+
   &.#{$ZIPPY_COMBO_BOX_ROOT_CLASS}--rtl {
     .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag__clear-icon {
       margin-right: 12px;
     }
+
     .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__value__tag {
       margin-left: 1px;
       margin-bottom: 1px;
@@ -181,16 +188,19 @@
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
+
 @keyframes reactToolkitComboBoxLoadAnimationDefault {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);

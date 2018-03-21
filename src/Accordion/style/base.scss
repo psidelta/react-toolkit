@@ -105,25 +105,25 @@
   }
 
   &--vertical
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--expanded
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper,
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--expanded
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper,
   &--vertical
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper {
     overflow: auto;
   }
 
   // -- end bugfix: scrollbar on hidden content before height computation
 
   &--horizontal.#{$ZIPPY_ACCORDION_ROOT_CLASS}--multi-expand
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition
-    &__tab-content__content-wrapper {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition
+  &__tab-content__content-wrapper {
     width: 100%;
   }
 
   &--horizontal
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper {
     min-width: 100%;
   }
 
@@ -268,16 +268,16 @@
   }
 
   &--horizontal.#{$ZIPPY_ACCORDION_ROOT_CLASS}--multi-expand
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title__wrapper,
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title__wrapper,
   &--horizontal.#{$ZIPPY_ACCORDION_ROOT_CLASS}--multi-expand
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content {
     height: 100%;
     vertical-align: top;
     display: inline-block;
   }
 
   &--horizontal.#{$ZIPPY_ACCORDION_ROOT_CLASS}--multi-expand
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__scroll-wrapper {
     height: 100%;
     white-space: normal;
   }
@@ -288,14 +288,14 @@
   // max-width 100% can force 0 width on content in horizontal multiexpand or when
   // content is collapsed
   &--horizontal
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition.#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--collapsed
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__content-wrapper {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--intransition.#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--collapsed
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__content-wrapper {
     max-width: 100%;
   }
 
   &--horizontal
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--collapsed
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__content-wrapper {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content--collapsed
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__content-wrapper {
     max-width: none;
   }
   // -- end bugfix: width calculation based on content in multiexpand
@@ -303,7 +303,7 @@
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
   .#{$ZIPPY_ACCORDION_ROOT_CLASS}--horizontal
-    .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__content-wrapper {
+  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-content__content-wrapper {
     flex: 1 0 0;
   }
 }

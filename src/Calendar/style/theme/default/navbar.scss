@@ -1,6 +1,5 @@
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__nav-bar--theme-#{$ZIPPY_CALENDAR_THEME_NAME} {
-  padding: 0px 2px;
-
+  padding: 0 2px;
   font-size: $ZIPPY_CALENDAR_HEADER_FONT_SIZE;
   background: $ZIPPY_CALENDAR_HEADER_BACKGROUND;
   color: $ZIPPY_CALENDAR_HEADER_FONT_COLOR;
@@ -8,7 +7,6 @@
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__nav-bar-arrows-pos {
     min-height: 32px;
     min-width: 32px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,6 +42,7 @@
     .#{$ZIPPY_CALENDAR_ROOT_CLASS}__nav-bar-date {
       cursor: pointer;
     }
+
     .#{$ZIPPY_CALENDAR_ROOT_CLASS}__nav-bar-date-disabled {
       cursor: initial;
     }
@@ -55,7 +54,7 @@
     align-items: center;
     justify-content: center;
     padding: 2px 0;
-    transform: translateY(0px);
+    transform: translateY(0);
 
     &--disabled {
       fill: $ZIPPY_CALENDAR_NAV_BAR_ARROW_COLOR_DISABLED;

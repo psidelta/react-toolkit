@@ -5,11 +5,11 @@ export default function whichTransitionEvent() {
     OTransition: 'oTransitionEnd',
     MozTransition: 'transitionend',
     WebkitTransition: 'webkitTransitionEnd'
-  }
+  };
 
-  const t = Object.keys(transitions).find((key) => {
+  const t = Object.keys(transitions).find(key => {
     return el.style[transitions[key]] !== undefined;
-  })
+  });
 
   if (t) {
     return transitions[t];

@@ -12,6 +12,6 @@
  * limitations under the License.
  */
 
-import ColorPickerInput from './ColorPickerInput'
+import ColorPickerInput from './ColorPickerInput';
 
-export default ColorPickerInput
+export default ColorPickerInput;

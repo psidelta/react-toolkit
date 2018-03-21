@@ -23,6 +23,7 @@
   &--direction-column {
     flex-direction: column;
   }
+
   &--direction-row {
     // flex-direction: row;
   }
@@ -31,6 +32,7 @@
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}--direction-horizontal {
   display: flex;
 }
+
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}--direction-vertical {
   max-height: 100%;
 }
@@ -47,6 +49,7 @@
     flex-flow: column;
   }
 }
+
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--auto {
   position: absolute;
   z-index: 100;
@@ -55,8 +58,8 @@
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-left,
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-right {
-  top: 0px;
-  bottom: 0px;
+  top: 0;
+  bottom: 0;
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow {
@@ -65,26 +68,26 @@
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-up,
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-down {
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-left {
-  left: 0px;
+  left: 0;
   z-index: 200;
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-right {
-  right: 0px;
+  right: 0;
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-up {
-  top: 0px;
+  top: 0;
   z-index: 200;
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-down {
-  bottom: 0px;
+  bottom: 0;
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--disabled {

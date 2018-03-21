@@ -168,7 +168,7 @@ class ZippyPanel extends Component {
 
     const className = join(
       titleBarClassName,
-      this.props.titleEllipsis && `${titleBarClassName}--ellipsis`
+      this.props.titleEllipsis && `${rootClassName}__title-bar--ellipsis`
     );
 
     const domProps = {

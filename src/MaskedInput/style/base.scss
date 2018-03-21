@@ -31,11 +31,8 @@
   visibility: visible;
   opacity: 1;
   transition: opacity 0.2s;
-  transform: translate3d(
-    0px,
-    0px,
-    0px
-  ); // needed because otherwise chrome flickers the position of the wrapper
+  transform: translate3d(0, 0, 0);
+  // needed because otherwise chrome flickers the position of the wrapper
 }
 
 .#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}__clear-button-wrapper--hidden {
@@ -44,7 +41,6 @@
 }
 
 .#{$ZIPPY_MASKED_INPUT_ROOT_CLASS}__clear-button {
-  display: block;
   cursor: pointer;
   flex: 1;
   display: flex;

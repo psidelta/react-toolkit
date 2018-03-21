@@ -7,8 +7,8 @@
   box-sizing: border-box;
 
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -31,6 +31,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+
   svg {
     height: 13px;
   }
@@ -43,6 +44,7 @@
 .#{$ZIPPY_MENU_ROOT_CLASS}__cell {
   white-space: nowrap;
   background: none;
+
   &--has-expander {
   }
 
@@ -130,6 +132,7 @@
 .#{$ZIPPY_MENU_ROOT_CLASS}__arrow-up {
   top: 0;
 }
+
 .#{$ZIPPY_MENU_ROOT_CLASS}__arrow-down {
   bottom: 0;
 }
@@ -158,6 +161,7 @@
 
 .#{$ZIPPY_MENU_ROOT_CLASS}--transition-end {
   transform: scale(1, 1);
+
   .#{$ZIPPY_MENU_ROOT_CLASS}__row {
     transform: scale(1, 1);
   }

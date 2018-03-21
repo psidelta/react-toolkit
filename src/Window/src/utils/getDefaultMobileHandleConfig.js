@@ -1,5 +1,5 @@
 function getDefaultMobileHandleConfig(titlePosition) {
-  return ({
+  return {
     top: {
       t: { outside: true },
       tl: { outside: false },
@@ -40,7 +40,7 @@ function getDefaultMobileHandleConfig(titlePosition) {
       br: { outside: false },
       r: { outside: false }
     }
-  })[titlePosition];
+  }[titlePosition];
 }
 
 export default getDefaultMobileHandleConfig;

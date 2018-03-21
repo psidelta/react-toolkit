@@ -23,8 +23,7 @@ import CustomColorPalette from './CustomColorPalette';
 
 import join from '../../common/join';
 import cleanProps from '../../common/cleanProps';
-import registerHideOnClickOutsideEventListener
-  from '../../common/registerHideOnClickOutsideEventListener';
+import registerHideOnClickOutsideEventListener from '../../common/registerHideOnClickOutsideEventListener';
 
 class ZippyColorPickerInput extends Component {
   constructor(props) {
@@ -88,11 +87,15 @@ class ZippyColorPickerInput extends Component {
       >
         {this.renderColorTextInput()}
         {this.renderExpandButton()}
-        {this.getExpanded() &&
+        {this.getExpanded() && (
           <div className={`${props.rootClassName}__overlay`}>
-            {props.showColorPalette && !showColoPicker && this.renderColorPalette()}
-            {props.showCustomPalette && this.renderCustomColorPalette(showColoPicker)}
-          </div>}
+            {props.showColorPalette &&
+              !showColoPicker &&
+              this.renderColorPalette()}
+            {props.showCustomPalette &&
+              this.renderCustomColorPalette(showColoPicker)}
+          </div>
+        )}
       </div>
     );
   }
@@ -131,7 +134,10 @@ class ZippyColorPickerInput extends Component {
     );
 
     const buttonProps = {
-      className: join(`${props.rootClassName}__button`, `${props.rootClassName}__expand-button`),
+      className: join(
+        `${props.rootClassName}__button`,
+        `${props.rootClassName}__expand-button`
+      ),
       theme: null,
       children: toggleIcon,
       onClick: this.handleExpandButtonClick
@@ -249,7 +255,9 @@ class ZippyColorPickerInput extends Component {
   }
 
   getExpanded() {
-    return this.isExpandedControlled() ? this.props.expanded : this.state.expanded;
+    return this.isExpandedControlled()
+      ? this.props.expanded
+      : this.state.expanded;
   }
 
   isExpandedControlled() {
@@ -262,7 +270,9 @@ class ZippyColorPickerInput extends Component {
   }
 
   getCustomPalette() {
-    return this.isCustomPaletteControlled() ? this.props.customPalette : this.state.customPalette;
+    return this.isCustomPaletteControlled()
+      ? this.props.customPalette
+      : this.state.customPalette;
   }
 
   setCustomPalette(customPalette) {
@@ -357,14 +367,20 @@ ZippyColorPickerInput.propTypes = {
   // color palette
   showColorPalette: PropTypes.bool,
   colorPaletteProps: PropTypes.object,
-  colorPalette: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  colorPalette: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   renderColorPalette: PropTypes.func,
 
   // custom color palette
   showCustomPalette: PropTypes.bool,
   customPaletteLength: PropTypes.number,
   onCustomPaletteChange: PropTypes.func,
-  customPalette: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  customPalette: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   defaultCustomPalette: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string)

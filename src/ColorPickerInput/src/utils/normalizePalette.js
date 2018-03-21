@@ -13,8 +13,7 @@
  */
 
 function rangeFill(length, fill = '#fff') {
-  return Array.apply(null, Array(length))
-    .map(() => fill)
+  return Array.apply(null, Array(length)).map(() => fill);
 }
 
 /**
@@ -27,19 +26,15 @@ function getPalette({ length, palette }) {
   // check to see if palette is falsey
   // or it has length 0
   if (!palette || (palette && palette.length === 0)) {
-    return rangeFill(length)
+    return rangeFill(length);
   }
 
   if (length >= palette && palette.length) {
-    return palette
+    return palette;
   }
 
-
-  const emptyColorLength = length - palette.length
-  return [
-    ...palette,
-    ...rangeFill(emptyColorLength)
-  ]
+  const emptyColorLength = length - palette.length;
+  return [...palette, ...rangeFill(emptyColorLength)];
 }
 
-export default getPalette
+export default getPalette;

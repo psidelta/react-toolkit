@@ -26,7 +26,34 @@
     "lint": "eslint src/**/*.js",
     "build":
       "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
-    "build:package": "node ./scripts/buildGlobalPackageJSON.js"
+    "build:package": "node ./scripts/buildGlobalPackageJSON.js",
+    "pretty":
+      "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
+    "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
+    "precommit": "lint-staged"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "no-duplicate-selectors": null,
+      "no-empty-source": null,
+      "block-no-empty": null,
+      "selector-combinator-space-before": null,
+      "no-descending-specificity": null,
+      "function-comma-space-after": null,
+      "declaration-bang-space-before": null,
+      "selector-pseudo-element-colon-notation": null,
+      "declaration-colon-newline-after": null,
+      "selector-descendant-combinator-no-non-space": null
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json}": ["prettier --single-quote --write", "git add"],
+    "src/**/*.scss": [
+      "prettier --single-quote --write",
+      "stylelint --syntax scss --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@zippytech/react-scroll-container-pro": "^1.0.98",
@@ -58,6 +85,7 @@
     "fs-promise": "^2.0.0",
     "github-markdown-css": "^2.4.1",
     "globby": "^6.1.0",
+    "husky": "^0.14.3",
     "jest": "^22.4.2",
     "jest-environment-node": "^22.4.1",
     "json-loader": "^0.5.4",
@@ -71,11 +99,13 @@
     "karma-mocha": "^1.1.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.13",
+    "lint-staged": "^7.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^5.0.1",
     "moment": "2.18.1",
     "node-sass": "^4.7.2",
     "pify": "^2.3.0",
+    "prettier": "^1.11.1",
     "prop-types": "^15.6.1",
     "puppeteer": "^1.1.1",
     "raw-loader": "^0.5.1",
@@ -96,6 +126,8 @@
     "sinon-chai": "^2.8.0",
     "snake-case": "^2.1.0",
     "style-loader": "^0.13.1",
+    "stylelint": "^9.1.3",
+    "stylelint-config-standard": "^18.2.0",
     "typeface-roboto": "0.0.35",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",

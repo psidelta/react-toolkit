@@ -10,7 +10,6 @@ $ZIPPY-UPLOADER-FILE-EXTENSION: 'zippy-react-file-extension-icon';
     height: 10px;
     width: 100%;
     margin-bottom: 2px;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -23,19 +22,15 @@ $ZIPPY-UPLOADER-FILE-ITEM: 'zippy-react-file-item';
   display: flex;
   align-items: stretch;
   min-height: 50px;
-
   font-size: 11px;
 
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f9f9f9+50,ffffff+100 */
-  background: linear-gradient(
-    to bottom,
-    #ffffff 0%,
-    #f9f9f9 50%,
-    #ffffff 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to bottom, #fff 0%, #f9f9f9 50%, #fff 100%);
+
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
   border-bottom: 1px solid #f2f2f2;
   border-top: 1px solid #dfe1e5;
-
   transition: all 50ms ease-in;
 
   &:nth-child(odd) {
@@ -44,7 +39,9 @@ $ZIPPY-UPLOADER-FILE-ITEM: 'zippy-react-file-item';
       #fefefe 0%,
       #f7f7f7 50%,
       #fefefe 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    );
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   }
 
   &:hover {
@@ -147,6 +144,7 @@ $ZIPPY-UPLOADER-FILE-ITEM: 'zippy-react-file-item';
   &__clear-icon__trigger:hover {
     background-color: #ed4b3f;
     border-color: #d20e00;
+
     .#{$ZIPPY-UPLOADER-FILE-ITEM}__clear-icon__icon {
       fill: #fff;
     }
@@ -197,7 +195,7 @@ $ZIPPY-UPLOADER-FILE-ITEM: 'zippy-react-file-item';
   }
 
   &__upload-button__layout
-    button.#{$ZIPPY-UPLOADER-FILE-ITEM}__upload-button__trigger--done {
+  button.#{$ZIPPY-UPLOADER-FILE-ITEM}__upload-button__trigger--done {
     background-color: #6cc033;
     color: #f1ffbf;
     cursor: initial;

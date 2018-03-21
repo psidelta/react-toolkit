@@ -19,10 +19,8 @@
   .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title {
     background: $ZIPPY_ACCORDION_TAB_TITLE_BACKGROUND_COLOR;
     color: $ZIPPY_ACCORDION_TAB_TITLE_TEXT_COLOR;
-
     min-height: $ZIPPY_ACCORDION_TAB_TITLE_MIN_HEIGHT;
     line-height: $ZIPPY_ACCORDION_TAB_TITLE_LINE_HEIGHT;
-
     transition: background 0.2s;
   }
 
@@ -37,8 +35,9 @@
   .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title-label {
     padding: 2px 2px;
   }
+
   .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title--focused {
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       border: 1px dotted $ZIPPY_ACCORDION_TAB_TITLE_FOCUSED_BORDER;
@@ -64,7 +63,7 @@
 
   .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title--rtl.#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title--horizontal {
     border-top: $ZIPPY_ACCORDION_TAB_TITLE_BORDER;
-    border-bottom: 0px;
+    border-bottom: 0;
 
     &.#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title--next-after-expanded {
       border-bottom: $ZIPPY_ACCORDION_TAB_TITLE_BORDER;
@@ -73,9 +72,6 @@
     &.#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title--lastTab:not(.#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title--expanded) {
       border-top: none;
     }
-  }
-
-  .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title__content {
   }
 
   // icon fills
@@ -119,6 +115,7 @@
     border-top: $ZIPPY_ACCORDION_BORDER;
     border-bottom: none;
   }
+
   .#{$ZIPPY_ACCORDION_ROOT_CLASS}__tab-title--collapsed-rotated-last-tab {
     border-top: none;
   }

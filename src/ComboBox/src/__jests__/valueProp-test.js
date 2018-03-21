@@ -14,21 +14,21 @@ describe('value props', () => {
   describe('defaultValue', () => {
     it('should be used as initial state', () => {
       const wrapper = shallow(<Combo defaultValue={20} />);
-      expect(wrapper.instance().getValue()).to.equal(20);
+      expect(wrapper.instance().getValue()).toEqual(20);
     });
   });
 
   describe('value', () => {
     it('should be used insted of state', () => {
       const wrapper = shallow(<Combo defaultValue={20} value={30} />);
-      expect(wrapper.instance().getValue()).to.equal(30);
+      expect(wrapper.instance().getValue()).toEqual(30);
     });
     it("doesn't change when a change is triggered", () => {
       const wrapper = shallow(<Combo defaultValue={20} value={30} />);
       wrapper.instance().setValue(55);
-      expect(wrapper.instance().getValue()).to.equal(30);
+      expect(wrapper.instance().getValue()).toEqual(30);
       // state should not be changed
-      expect(wrapper.state().value).to.equal(20);
+      expect(wrapper.state().value).toEqual(20);
     });
     it('renders what is inside label key when an object', () => {
       const wrapper = mount(
@@ -41,19 +41,19 @@ describe('value props', () => {
           ]}
         />
       );
-      expect(wrapper.find('#valueLabel')).to.have.length(1);
+      expect(wrapper.find('#valueLabel')).toHaveLength(1);
     });
   });
 
   describe('onChange', () => {
     it('should be called when setValue is called', () => {
-      const onChange = sinon.spy();
+      const onChange = jest.fn();
       const wrapper = shallow(
         <Combo defaultValue={20} value={30} onChange={onChange} />
       );
       wrapper.instance().setValue(55);
-      expect(onChange.called).to.be.true;
-      expect(onChange.args[0][0]).to.equal(55);
+      expect(onChange.mock.calls.length).not.toBe(0);
+      expect(onChange.mock.calls[0][0]).toEqual(55);
     });
   });
 
@@ -63,7 +63,7 @@ describe('value props', () => {
       wrapper.instance().handleItemClick(1);
       expect(wrapper.instance().getValue()).toEqual([1]);
       wrapper.instance().handleItemClick(1);
-      expect(wrapper.instance().getValue()).to.equal(null);
+      expect(wrapper.instance().getValue()).toEqual(null);
       wrapper.instance().handleItemClick(1);
       wrapper.instance().handleItemClick(3);
       expect(wrapper.instance().getValue()).toEqual([1, 3]);
@@ -116,7 +116,7 @@ describe('value props', () => {
         />
       );
       wrapper.instance().navigateToNextItem(1);
-      expect(wrapper.instance().getValue()).to.equal(2);
+      expect(wrapper.instance().getValue()).toEqual(2);
     });
   });
 
@@ -131,7 +131,7 @@ describe('value props', () => {
         />
       );
       wrapper.instance().selectItem(1);
-      expect(wrapper.instance().getValue()).to.equal(1);
+      expect(wrapper.instance().getValue()).toEqual(1);
     });
   });
 
@@ -145,14 +145,14 @@ describe('value props', () => {
           defaultText="hello world"
         />
       );
-      expect(wrapper.instance().getValue()).to.equal(20);
+      expect(wrapper.instance().getValue()).toEqual(20);
       wrapper.instance().setText('');
-      expect(wrapper.instance().getValue()).to.be.null;
+      expect(wrapper.instance().getValue()).toBe(null);
     });
   });
 
   describe('allowCustomTagCreation', () => {
-    it('when text is entered and no item matched the search, by pressing enter a new value is created', () => {
+    it('when text is entered and no item matched the search, by pressing enter a new value is created', done => {
       const wrapper = mount(
         <Combo
           allowCustomTagCreation
@@ -162,9 +162,12 @@ describe('value props', () => {
           multiple={false}
         />
       );
-      expect(wrapper.instance().getValue()).to.be.null;
+      expect(wrapper.instance().getValue()).toBe(null);
       wrapper.simulate('keyDown', { key: 'Enter' });
-      expect(wrapper.instance().getValue()).to.equal('hello world');
+      setTimeout(() => {
+        expect(wrapper.instance().getValue()).toEqual('hello world');
+        done();
+      }, 10);
     });
   });
 });

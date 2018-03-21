@@ -1,5 +1,4 @@
 @import '../../variables.scss';
-
 @import './variables.scss';
 
 .#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--theme-#{$ZIPPY_RADIO_BUTTON_GROUP_THEME_NAME} {
@@ -17,6 +16,7 @@
     &.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--rtl > *:not(:first-child) {
       margin-right: 5px;
     }
+
     &.#{$ZIPPY_RADIO_BUTTON_GROUP_ROOT_CLASS}--ltr > *:not(:first-child) {
       margin-left: 5px;
     }

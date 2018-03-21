@@ -77,34 +77,31 @@ function formatMultipleNumericValue(range, valueRange) {
 }
 
 function formateValuesRange(range, valueRange) {
-  return range.reduce(
-    (acc, stepPosition, index, list) => {
-      const stepConfig = {};
+  return range.reduce((acc, stepPosition, index, list) => {
+    const stepConfig = {};
 
-      // first from is 0
-      if (index === 0) {
-        stepConfig.from = 0;
-      } else {
-        // the rest are previous to
-        stepConfig.from = acc[acc.length - 1].to;
-      }
+    // first from is 0
+    if (index === 0) {
+      stepConfig.from = 0;
+    } else {
+      // the rest are previous to
+      stepConfig.from = acc[acc.length - 1].to;
+    }
 
-      stepConfig.to = stepPosition;
+    stepConfig.to = stepPosition;
 
-      acc.push(stepConfig);
+    acc.push(stepConfig);
 
-      // last we push the last range
-      // if (index === list.length - 1) {
-      //   acc.push({
-      //     from: stepPosition,
-      //     to: valueRange
-      //   })
-      // }
+    // last we push the last range
+    // if (index === list.length - 1) {
+    //   acc.push({
+    //     from: stepPosition,
+    //     to: valueRange
+    //   })
+    // }
 
-      return acc;
-    },
-    []
-  );
+    return acc;
+  }, []);
 }
 
 export default formatRange;
