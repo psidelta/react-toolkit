@@ -3,7 +3,6 @@
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
   "version": "0.1.143",
-  "private": true,
   "publishConfig": {
     "registry": "https://registry.zippytech.io"
   },
