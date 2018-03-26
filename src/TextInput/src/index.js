@@ -130,9 +130,12 @@ class TextInput extends Component {
     const input = <Field {...fieldProps} />;
 
     const wrapperDomProps = cleanProps(wrapperProps, TextInput.propTypes);
+    const domProps = cleanProps(props, TextInput.propTypes);
+    delete domProps.onChange;
 
     return (
       <div
+        {...domProps}
         {...wrapperDomProps}
         className={className}
         style={style}

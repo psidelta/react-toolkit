@@ -152,11 +152,17 @@ class TextInputExamples extends Component {
             disabled={this.state.disabled}
             hidden={this.state.hidden}
             enableClearButton={this.state.enableClearButton}
+            onKeyDown={e => {
+              console.log(e.key);
+            }}
             clearButtonColor={this.state.clearButtonColor}
             placeholder={this.state.setPlaceholder ? 'Placeholder' : null}
             // style={{ width: 100 }}
             value={this.state.theValue}
-            onChange={v => this.setState({ theValue: v })}
+            onChange={v => {
+              console.log(v);
+              this.setState({ theValue: v });
+            }}
             // onFocus={() => console.warn('focused')}
             stopChangePropagation={false}
             inputProps={{
