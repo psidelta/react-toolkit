@@ -2,7 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "0.1.149",
+  "version": "0.1.150",
   "publishConfig": {
     "registry": "https://registry.zippytech.io"
   },
@@ -14,22 +14,19 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "dev":
-      "webpack-dev-server --progress --colors --config ./build/dev.config.js",
+    "dev": "webpack-dev-server --progress --colors --config ./build/dev.config.js",
     "lib": "node ./scripts/lib.js",
     "lib:all": "npm run lib --module=ALL",
     "lib:style": "node ./scripts/lib-style.js",
     "lib:js": "node ./scripts/lib-js.js",
     "lib:themes": "node ./scripts/lib-themes",
     "lint": "eslint src/**/*.js",
-    "build":
-      "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
+    "build": "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
     "build:package": "node ./scripts/buildGlobalPackageJSON.js",
-    "pretty":
-      "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
+    "pretty": "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged",
-    "release": "np --no-publish --yolo --any-branch",
+    "release": "release patch",
     "postrelease": "npm run build:package"
   },
   "stylelint": {
@@ -48,7 +45,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json}": ["prettier --single-quote --write", "git add"],
+    "src/**/*.{js,jsx,json}": [
+      "prettier --single-quote --write",
+      "git add"
+    ],
     "src/**/*.scss": [
       "prettier --single-quote --write",
       "stylelint --syntax scss --fix",
@@ -120,6 +120,7 @@
     "react-syntax-highlighter": "^5.5.0",
     "react-test-renderer": "^15.3.0",
     "regenerator-runtime": "^0.11.1",
+    "release": "^3.1.7",
     "rimraf": "^2.6.2",
     "sass-loader": "^4.0.0",
     "sinon": "^1.17.5",
