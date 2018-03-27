@@ -1810,7 +1810,7 @@ SplitContainer.defaultProps = {
 
   enableKeyboardNavigation: true,
   transition: true,
-  fillSides: true,
+  fillSides: false,
   skipUpdateOnDrag: true,
   skipUpdateOnFocus: true,
   skipUpdateOnAnimate: true,

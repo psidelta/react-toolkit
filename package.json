@@ -28,7 +28,9 @@
     "pretty":
       "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "release": "np --no-publish --yolo --any-branch",
+    "postrelease": "npm publish lib"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
