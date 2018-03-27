@@ -2,7 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "0.1.152",
+  "version": "0.1.153",
   "publishConfig": {
     "registry": "https://registry.zippytech.io"
   },
@@ -26,7 +26,10 @@
     "pretty": "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged",
-    "release:patch": "release patch",
+    "release": "release patch",
+    "release:patch": "release patch && npm run postrelease",
+    "release:minor": "release minor && npm run postrelease",
+    "release:major": "release major && npm run postrelease",
     "postrelease": "npm run build:package && npm publish lib"
   },
   "stylelint": {
