@@ -1595,13 +1595,13 @@ export default class SplitContainer extends React.Component {
       value = typeof value == 'string' ? `-${value}` : -value;
     }
 
-    if (this.props.splitAt == null) {
-      if (callback) {
-        callback({
-          splitAt: value
-        });
-      }
+    // if (this.props.splitAt == null) {
+    if (callback) {
+      callback({
+        splitAt: value
+      });
     }
+    // }
 
     this.props.onResize(value);
   }

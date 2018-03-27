@@ -43,250 +43,70 @@ const Sidebar = () => {
     />
   );
 };
-
-export default class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
-    autoBind(this);
-
-    this.state = {
-      splitterSize: 20,
-      collapsedIndex: 0,
-      fixedIndex: 1
-    };
+    this.state = { splitAt: '30%', resizeProxy: true };
   }
-
-  handleDrop(splitAt) {
-    SPLIT_AT = splitAt;
-
-    this.setState({});
-  }
-
-  handleSplitterSizeChange(event) {
-    let splitterSize = event.target.value;
-    if (splitterSize) {
-      splitterSize *= 1;
-    }
-    this.setState({
-      splitterSize
-    });
-  }
-
-  handleFixedIndexChange(event) {
-    const fixedIndex = event.target.value * 1 || 0;
-    this.setState({
-      fixedIndex
-    });
-  }
-
-  handleSplitAtChange(event) {
-    SPLIT_AT = event.target.value;
-    this.setState({});
-  }
-
-  handleClick() {
-    this.setState({});
-  }
-
-  handleExpand(index) {
-    COLLAPSED_INDEX = null;
-    this.setState({});
-  }
-
-  handleCollapse(index) {
-    COLLAPSED_INDEX = index;
-
-    this.setState({});
-  }
-
-  key(e) {
-    console.log(e.key);
-  }
-
   render() {
-    const splitterStyle = {
-      background: 'white'
-    };
-
-    if (HORIZ) {
-      // splitterStyle.height = SPLITTER_SIZE
-    } else {
-      // splitterStyle.width = SPLITTER_SIZE
-    }
-
     return (
-      <div style={{ width: '90vw', overflow: 'hidden' }}>
-        <div style={{ marginBottom: 30 }}>
-          <SplitContainer
-            style={{ height: 300 }}
-            orientation="vertical"
-            bordered
-            defaultSplitAt="50%"
-            locked
-          >
-            <Side style={{ overflow: 'auto' }}>
-              Zippy React Toolkit is designed to be a comprehensive set of rich
-              UI components built with React and that can be easily integrated
-              into existing or new applications. We've gone through a lot of
-              iterations to make sure we provide a rich and flexible component
-              set that is actually useful and help you speed-up app development.
-              We focus on building components, so you can focus on what actually
-              matters to you - building & shipping your app faster to the
-              market. Zippy React Toolkit is designed to be a comprehensive set
-              of rich UI components built with React and that can be easily
-              integrated into existing or new applications. We've gone through a
-              lot of iterations to make sure we provide a rich and flexible
-              component set that is actually useful and help you speed-up app
-              development. We focus on building components, so you can focus on
-              what actually matters to you - building & shipping your app faster
-              to the market. Zippy React Toolkit is designed to be a
-              comprehensive set of rich UI components built with React and that
-              can be easily integrated into existing or new applications. We've
-              gone through a lot of iterations to make sure we provide a rich
-              and flexible component set that is actually useful and help you
-              speed-up app development. We focus on building components, so you
-              can focus on what actually matters to you - building & shipping
-              your app faster to the market. Zippy React Toolkit is designed to
-              be a comprehensive set of rich UI components built with React and
-              that can be easily integrated into existing or new applications.
-              We've gone through a lot of iterations to make sure we provide a
-              rich and flexible component set that is actually useful and help
-              you speed-up app development. We focus on building components, so
-              you can focus on what actually matters to you - building &
-              shipping your app faster to the market. Zippy React Toolkit is
-              designed to be a comprehensive set of rich UI components built
-              with React and that can be easily integrated into existing or new
-              applications. We've gone through a lot of iterations to make sure
-              we provide a rich and flexible component set that is actually
-              useful and help you speed-up app development. We focus on building
-              components, so you can focus on what actually matters to you -
-              building & shipping your app faster to the market. Zippy React
-              Toolkit is designed to be a comprehensive set of rich UI
-              components built with React and that can be easily integrated into
-              existing or new applications. We've gone through a lot of
-              iterations to make sure we provide a rich and flexible component
-              set that is actually useful and help you speed-up app development.
-              We focus on building components, so you can focus on what actually
-              matters to you - building & shipping your app faster to the
-              market. Zippy React Toolkit is designed to be a comprehensive set
-              of rich UI components built with React and that can be easily
-              integrated into existing or new applications. We've gone through a
-              lot of iterations to make sure we provide a rich and flexible
-              component set that is actually useful and help you speed-up app
-              development. We focus on building components, so you can focus on
-              what actually matters to you - building & shipping your app faster
-              to the market. Zippy React Toolkit is designed to be a
-              comprehensive set of rich UI components built with React and that
-              can be easily integrated into existing or new applications. We've
-              gone through a lot of iterations to make sure we provide a rich
-              and flexible component set that is actually useful and help you
-              speed-up app development. We focus on building components, so you
-              can focus on what actually matters to you - building & shipping
-              your app faster to the market. Zippy React Toolkit is designed to
-              be a comprehensive set of rich UI components built with React and
-              that can be easily integrated into existing or new applications.
-              We've gone through a lot of iterations to make sure we provide a
-              rich and flexible component set that is actually useful and help
-              you speed-up app development. We focus on building components, so
-              you can focus on what actually matters to you - building &
-              shipping your app faster to the market. Zippy React Toolkit is
-              designed to be a comprehensive set of rich UI components built
-              with React and that can be easily integrated into existing or new
-              applications. We've gone through a lot of iterations to make sure
-              we provide a rich and flexible component set that is actually
-              useful and help you speed-up app development. We focus on building
-              components, so you can focus on what actually matters to you -
-              building & shipping your app faster to the market. Zippy React
-              Toolkit is designed to be a comprehensive set of rich UI
-              components built with React and that can be easily integrated into
-              existing or new applications. We've gone through a lot of
-              iterations to make sure we provide a rich and flexible component
-              set that is actually useful and help you speed-up app development.
-              We focus on building components, so you can focus on what actually
-              matters to you - building & shipping your app faster to the
-              market. Zippy React Toolkit is designed to be a comprehensive set
-              of rich UI components built with React and that can be easily
-              integrated into existing or new applications. We've gone through a
-              lot of iterations to make sure we provide a rich and flexible
-              component set that is actually useful and help you speed-up app
-              development. We focus on building components, so you can focus on
-              what actually matters to you - building & shipping your app faster
-              to the market.
-            </Side>
-            <Side>Second</Side>
-          </SplitContainer>
-        </div>
-        <SplitContainer
-          orientation="vertical"
-          // xsplitterSize={0}
-          style={{ minHeight: 200 }}
-          defaultSplitAt="50%"
-          onResize={c => {
-            console.log(c);
-          }}
-        >
-          <Sidebar />
-          <div
-            style={{
-              padding: 4,
-              display: 'inline-block',
-              background: '#ebf1fa'
-            }}
-          >
-            x
+      <SplitContainer
+        defaultSplitAt={this.state.splitAt}
+        bordered
+        orientation="vertical"
+        resizeProxy={this.state.resizeProxy}
+        onResize={splitAt => {
+          console.log('newSplitAt', splitAt);
+          // this.setState({ splitAt });
+        }}
+        style={{ height: 400 }}
+      >
+        <Side style={{ padding: 10, background: '#d1dae0', color: '#1F2D3D' }}>
+          <div>
+            <b>Left side - current split at: {this.state.splitAt}</b>
           </div>
-        </SplitContainer>
-        <SplitContainer
-          orientation="vertical"
-          className="data-details-container"
-          defaultSplitAt="-300"
-          defaultCollapsedIndex={1}
-          usePercentageOnResize
-          minSize={100}
-          // xsplitterSize={10}
-          resizeProxy={false}
-          fillSides={[true, false]}
-          proxyZIndex={10000}
-          bordered
-          style={{ height: 500, flex: 1 }}
-        >
-          <FirstSide />
+          <label>
+            <b>Use resize proxy:</b>{' '}
+          </label>
+          <p>
+            Zippytech React Toolkit is designed to be a comprehensive set of
+            rich UI components built with React and that can be easily
+            integrated into existing or new applications.
+          </p>
+          <p>
+            We've gone through a lot of iterations to make sure we provide a
+            rich and flexible component set that is actually useful and help you
+            speed-up app development.
+          </p>
+        </Side>
 
-          <SplitContainer
-            bordered
-            orientation="horizontal"
-            defaultSplitAt="50%"
-            fillSides
-            style={{ background: 'yellow' }}
-          >
-            <div style={{ background: 'red', display: 'inline-block' }}>
-              the second side
-            </div>
-            <SplitContainer
-              orientation="vertical"
-              defaultSplitAt="50%"
-              style={{ background: 'blue' }}
-            >
-              <div style={{ background: 'blue', display: 'inline-block' }}>
-                a first side
-              </div>
-              <div style={{ background: 'aqua', display: 'inline-block' }}>
-                a second side
-              </div>
-            </SplitContainer>
-          </SplitContainer>
-        </SplitContainer>
-      </div>
+        <Side style={{ padding: 10, background: '#556a8e', color: 'white' }}>
+          <p>
+            When we started building the toolkit, we've made a checklist of
+            features that our components need to include out-of-the-box:
+          </p>
+          <ul>
+            <li>
+              <b>Performance</b> - a component is only useful if it does its job
+              quickly. This will generally not be a problem with smaller
+              components like buttons, dialogs, color pickers, etc - but menus,
+              lists and grids need a lot of performance considerations in order
+              to be really snappy.
+            </li>
+
+            <li>
+              <b>Flexibility & extensibility</b> - all components need to be
+              very flexible in adapting to a wide spectrum of needs. Changing
+              some styles, replacing some rendering logic or adding a custom
+              validation should all be possible and easily achievable.
+            </li>
+          </ul>
+        </Side>
+      </SplitContainer>
     );
   }
-
-  onCheck(event) {
-    var checked = event.target.checked;
-    HORIZ = checked;
-    console.log(checked);
-
-    this.setState({});
-  }
 }
-
+export default () => {
+  return <App />;
+};
 render(<App />, document.getElementById('content'));

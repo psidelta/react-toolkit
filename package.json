@@ -26,11 +26,11 @@
     "pretty": "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged",
-    "release": "release patch",
-    "release:patch": "npm run build && release patch && npm run postrelease",
-    "release:minor": "npm run build && release minor && npm run postrelease",
-    "release:major": "npm run build && release major && npm run postrelease",
-    "postrelease": "npm run build:package && npm publish lib"
+    "release": "npm run release:patch",
+    "release:patch": "npm run build && release patch && npm run registry-publish",
+    "release:minor": "npm run build && release minor && npm run registry-publish",
+    "release:major": "npm run build && release major && npm run registry-publish",
+    "registry-publish": "npm run build:package && npm publish lib"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
