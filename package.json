@@ -30,7 +30,7 @@
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged",
     "release": "np --no-publish --yolo --any-branch",
-    "postrelease": "npm run build:package &&  npm publish lib"
+    "postrelease": "npm run build:package"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
