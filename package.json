@@ -27,9 +27,9 @@
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged",
     "release": "release patch",
-    "release:patch": "release patch && npm run postrelease",
-    "release:minor": "release minor && npm run postrelease",
-    "release:major": "release major && npm run postrelease",
+    "release:patch": "npm run build && release patch && npm run postrelease",
+    "release:minor": "npm run build && release minor && npm run postrelease",
+    "release:major": "npm run build && release major && npm run postrelease",
     "postrelease": "npm run build:package && npm publish lib"
   },
   "stylelint": {
