@@ -14,20 +14,30 @@
 
 const fs = require('fs');
 const resolve = require('path').resolve;
-const pachageJSON = require('../package.json');
+const packageJSON = require('../package.json');
 
 function buildGlobalPackageJSON() {
-  const toDelete = ['devDependencies', 'scripts', 'private'];
-  toDelete.forEach(key => delete pachageJSON[key]);
-  const content = JSON.stringify(pachageJSON, null, 2);
-  const path = resolve(__dirname, '..', 'lib', 'package.json');
-  fs.writeFileSync(path, content, 'utf8', err => {
-    if (err) {
-      console.log(err);
-    }
-  });
+  return new Promise((res, reject) => {
+    const toDelete = ['devDependencies', 'scripts', 'private'];
+    toDelete.forEach(key => delete packageJSON[key]);
 
-  return Promise.resolve(true);
+    const content = JSON.stringify(packageJSON, null, 2);
+    const path = resolve(__dirname, '..', 'lib', 'package.json');
+    fs.writeFile(path, content, 'utf8', err => {
+      if (err) {
+        console.log(err, '!!!');
+        reject(err);
+      } else {
+        console.log(
+          'DONE building package.json with version ',
+          packageJSON.version
+        );
+        res(true);
+      }
+    });
+  });
 }
+
+buildGlobalPackageJSON();
 
 module.exports = buildGlobalPackageJSON;
