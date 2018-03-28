@@ -99,7 +99,7 @@ class ZippyWindow extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (
-      this.isMaximiedControlled() &&
+      this.isMaximizedControlled() &&
       this.props.maximized !== nextProps.maximized
     ) {
       this.handleMaximizedChange(nextProps.maximized);
@@ -2165,13 +2165,13 @@ class ZippyWindow extends Component {
   }
 
   // maxmized
-  isMaximiedControlled() {
-    return this.props.maximized !== undefined;
+  isMaximizedControlled(props = this.props) {
+    return props.maximized !== undefined;
   }
 
-  getMaximized() {
-    return this.isMaximiedControlled()
-      ? this.props.maximized
+  getMaximized(props = this.props) {
+    return this.isMaximizedControlled(props)
+      ? props.maximized
       : this.state.maximized;
   }
 
@@ -2180,7 +2180,7 @@ class ZippyWindow extends Component {
       return null;
     }
 
-    if (!this.isMaximiedControlled()) {
+    if (!this.isMaximizedControlled()) {
       this.setState({
         maximized
       });
@@ -2260,6 +2260,9 @@ class ZippyWindow extends Component {
   }
 
   getRelativeToViewport() {
+    if (this.props.relativeToViewportWhenMaximized && this.getMaximized()) {
+      return true;
+    }
     return this.isRelativeToViewportControlled()
       ? this.props.relativeToViewport
       : this.state.relativeToViewport;
@@ -2275,6 +2278,9 @@ class ZippyWindow extends Component {
   }
 
   updatePositionWithOffsetParentChange(relativeToViewport) {
+    if (this.props.shouldUpdatePositionWithOffsetParentChange === false) {
+      return;
+    }
     const offsetParent = getOffsetParent(this.node);
     const parentWithTranslate = getParentWithTranslate(this.node);
     const viewportRegion = getViewportRegion();
@@ -2769,6 +2775,7 @@ ZippyWindow.propTypes = {
   // display
   enableRelativeToViewportToggle: PropTypes.bool,
   relativeToViewport: PropTypes.bool,
+  relativeToViewportWhenMaximized: PropTypes.bool,
   defaultRelativeToViewport: PropTypes.bool,
   onRelativeToViewportChange: PropTypes.func,
   pinUpIconSize: PropTypes.number,
@@ -2827,6 +2834,8 @@ ZippyWindow.propTypes = {
   onRestore: PropTypes.func,
   maximizeTransition: PropTypes.bool,
   renderMaximizeButton: PropTypes.func,
+
+  shouldUpdatePositionWithOffsetParentChange: PropTypes.bool,
 
   // closeable
   closeable: PropTypes.bool,
@@ -2910,6 +2919,7 @@ ZippyWindow.defaultProps = {
   // display
   defaultRelativeToViewport: false,
   enableRelativeToViewportToggle: false,
+  relativeToViewportWhenMaximized: true,
   pinUpIconSize: 21,
   pinDownIconSize: 21,
   onRelativeToViewportChange: emptyFn,

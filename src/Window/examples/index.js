@@ -79,13 +79,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible1: false,
-      visible2: false,
-      visible3: false,
-      visible4: false,
+      maximized: false,
       relativeToViewport: false,
-      centered: false,
-      modal: true,
       position: { left: '10%', top: '20%' }
     };
   }
@@ -95,177 +90,27 @@ class App extends React.Component {
         visible1: true
       });
     };
+
+    const onRestore = () => this.setState({ maximized: false });
+    const onMaximize = () => this.setState({ maximized: true });
+
     return (
       <div style={{ position: 'relative', height: '100%' }}>
-        <div style={{ marginBottom: 20 }}>
-          <button
-            key="button_1"
-            style={{ marginRight: 5 }}
-            onClick={() => this.setState({ visible1: true })}
-          >
-            Window 1
-          </button>
-          <button
-            key="button_2"
-            style={{ marginRight: 5 }}
-            onClick={() => this.setState({ visible2: true })}
-          >
-            Window 2
-          </button>
-          <button
-            key="button_3"
-            style={{ marginRight: 5 }}
-            onClick={() => this.setState({ visible3: true })}
-          >
-            Window 3
-          </button>
-          <button
-            key="button_4"
-            style={{ marginRight: 5 }}
-            onClick={() => this.setState({ visible4: true })}
-          >
-            Window 4
-          </button>
-        </div>
-        <div style={{ marginBottom: 20 }} />
+        <button
+          onClick={() => {
+            this.setState({
+              relativeToViewport: !this.state.relativeToViewport
+            });
+          }}
+        >
+          relative to viewport toggle - now{' '}
+          {`${!!this.state.relativeToViewport}`}
+        </button>
         <Window
-          title="Zippy Toolkit 1"
-          modal
-          titleBarStyle={{ zIndex: 111 }}
-          relativeToViewport={this.state.relativeToViewport}
-          visible={this.state.visible1}
-          onClose={() => this.setState({ visible1: false })}
-          defaultCentered
-          keepAspectRatio={true}
-          keepChildrenOnMove={true}
-          keepCenteredOnResize={false}
-          renderFooter={() => {
-            return (
-              <button onClick={() => this.setState({ visible2: true })}>
-                x
-              </button>
-            );
-          }}
-        >
-          Minim consectetur consectetur labore ut sit sunt adipisicing
-          consectetur do pariatur enim dolor tempor eiusmod. Dolore sint laboris
-          reprehenderit in excepteur deserunt ullamco aute et esse exercitation
-          magna enim. Et reprehenderit consectetur quis excepteur ad et
-          incididunt esse ut duis adipisicing proident. Enim ad aute id sint
-          excepteur pariatur sunt tempor officia. Minim consectetur consectetur
-          labore ut sit sunt adipisicing consectetur do pariatur enim dolor
-          tempor eiusmod. Dolore sint laboris reprehenderit in excepteur
-          deserunt ullamco aute et esse exercitation magna enim. Et
-          reprehenderit consectetur quis excepteur ad et incididunt esse ut duis
-          adipisicing proident. Enim ad aute id sint excepteur pariatur sunt
-          tempor officia. Minim consectetur consectetur labore ut sit sunt
-          adipisicing consectetur do pariatur enim dolor tempor eiusmod. Dolore
-          sint laboris reprehenderit in excepteur deserunt ullamco aute et esse
-          exercitation magna enim. Et reprehenderit consectetur quis excepteur
-          ad et incididunt esse ut duis adipisicing proident. Enim ad aute id
-          sint excepteur pariatur sunt tempor officia. Minim consectetur
-          consectetur labore ut sit sunt adipisicing consectetur do pariatur
-          enim dolor tempor eiusmod. Dolore sint laboris reprehenderit in
-          excepteur deserunt ullamco aute et esse exercitation magna enim. Et
-          reprehenderit consectetur quis excepteur ad et incididunt esse ut duis
-          adipisicing proident. Enim ad aute id sint excepteur pariatur sunt
-          tempor officia. Minim consectetur consectetur labore ut sit sunt
-          adipisicing consectetur do pariatur enim dolor tempor eiusmod. Dolore
-          sint laboris reprehenderit in excepteur deserunt ullamco aute et esse
-          exercitation magna enim. Et reprehenderit consectetur quis excepteur
-          ad et incididunt esse ut duis adipisicing proident. Enim ad aute id
-          sint excepteur pariatur sunt tempor officia.
-        </Window>
-
-        <div
-          id="constrain-to"
-          style={{
-            position: 'relative',
-            width: 600,
-            height: 700,
-            border: '1px dotted blue'
-          }}
-        >
-          <Window
-            title="Zippy Toolkit 4"
-            modal
-            xnameSpace="x"
-            constrainTo="#constrain-to"
-            titleBarStyle={{ zIndex: 111 }}
-            relativeToViewport={this.state.relativeToViewport}
-            xposition={this.state.position}
-            visible={this.state.visible4}
-            onClose={() => this.setState({ visible4: false })}
-            defaultCentered
-            keepAspectRatio={true}
-            keepChildrenOnMove={true}
-            keepCenteredOnResize={false}
-            renderFooter={() => {
-              return (
-                <button onClick={() => this.setState({ visible2: true })}>
-                  x
-                </button>
-              );
-            }}
-          >
-            Minim consectetur consectetur labore ut sit sunt adipisicing
-            consectetur do pariatur enim dolor tempor eiusmod. Dolore sint
-            laboris reprehenderit in excepteur deserunt ullamco aute et esse
-            exercitation magna enim. Et reprehenderit consectetur quis excepteur
-            ad et incididunt esse ut duis adipisicing proident. Enim ad aute id
-            sint excepteur pariatur sunt tempor officia. Minim consectetur
-            consectetur labore ut sit sunt adipisicing consectetur do pariatur
-            enim dolor tempor eiusmod. Dolore sint laboris reprehenderit in
-            excepteur deserunt ullamco aute et esse exercitation magna enim. Et
-            reprehenderit consectetur quis excepteur ad et incididunt esse ut
-            duis adipisicing proident. Enim ad aute id sint excepteur pariatur
-            sunt tempor officia. Minim consectetur consectetur labore ut sit
-            sunt adipisicing consectetur do pariatur enim dolor tempor eiusmod.
-            Dolore sint laboris reprehenderit in excepteur deserunt ullamco aute
-            et esse exercitation magna enim. Et reprehenderit consectetur quis
-            excepteur ad et incididunt esse ut duis adipisicing proident. Enim
-            ad aute id sint excepteur pariatur sunt tempor officia. Minim
-            consectetur consectetur labore ut sit sunt adipisicing consectetur
-            do pariatur enim dolor tempor eiusmod. Dolore sint laboris
-            reprehenderit in excepteur deserunt ullamco aute et esse
-            exercitation magna enim. Et reprehenderit consectetur quis excepteur
-            ad et incididunt esse ut duis adipisicing proident. Enim ad aute id
-            sint excepteur pariatur sunt tempor officia. Minim consectetur
-            consectetur labore ut sit sunt adipisicing consectetur do pariatur
-            enim dolor tempor eiusmod. Dolore sint laboris reprehenderit in
-            excepteur deserunt ullamco aute et esse exercitation magna enim. Et
-            reprehenderit consectetur quis excepteur ad et incididunt esse ut
-            duis adipisicing proident. Enim ad aute id sint excepteur pariatur
-            sunt tempor officia.
-            <Cmp />
-            <div>
-              relativeToViewport:
-              <input
-                type="checkbox"
-                checked={this.state.relativeToViewport}
-                onChange={ev =>
-                  this.setState({ relativeToViewport: ev.target.checked })
-                }
-              />
-            </div>
-            <div>
-              centered:
-              <input
-                type="checkbox"
-                checked={this.state.centered}
-                onChange={ev => this.setState({ centered: ev.target.checked })}
-              />
-            </div>
-            <div>
-              modal:
-              <input
-                type="checkbox"
-                checked={this.state.modal}
-                onChange={ev => this.setState({ modal: ev.target.checked })}
-              />
-            </div>
-          </Window>
-        </div>
+          title="xxx"
+          defaultSize={{ width: 200, height: 200 }}
+          defaultPosition={{ top: 500, left: 400 }}
+        />
       </div>
     );
   }
