@@ -2,6 +2,8 @@
 @import '../../CheckBox/style/base.scss';
 @import '../../Menu/style/index.scss';
 
+$ZIPPY_TREE_VIEW_NODE_CONTENT_MARGIN_HORIZONTAL: 6px;
+
 .#{$ZIPPY_TREE_VIEW_ROOT_CLASS} {
   margin-right: 8px;
   box-sizing: border-box;
@@ -76,7 +78,18 @@
 
   &__content {
     position: relative;
-    margin-left: 6px;
+  }
+}
+
+.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--rtl {
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__content {
+    margin-right: $ZIPPY_TREE_VIEW_NODE_CONTENT_MARGIN_HORIZONTAL;
+  }
+}
+
+.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--ltr {
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__content {
+    margin-left: $ZIPPY_TREE_VIEW_NODE_CONTENT_MARGIN_HORIZONTAL;
   }
 }
 
@@ -155,6 +168,16 @@
       transform: rotate(180deg);
     }
   }
+
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__horizontal {
+    margin-right: $ZIPPY_TREE_VIEW_NODE_CONTENT_MARGIN_HORIZONTAL;
+  }
+}
+
+.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--ltr {
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__horizontal {
+    margin-left: $ZIPPY_TREE_VIEW_NODE_CONTENT_MARGIN_HORIZONTAL;
+  }
 }
 
 // treelines
@@ -163,15 +186,32 @@
   width: 1px;
   top: -1px;
   bottom: 1px;
-  margin-left: -3px;
   border-left: 1px solid #a1b6d3;
+}
+
+.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--ltr {
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__vertical-top {
+    margin-left: -4px;
+  }
+
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__vertical {
+    margin-left: -3px;
+  }
+}
+
+.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--rtl {
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__vertical-top {
+    margin-right: -4px;
+  }
+
+  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__vertical {
+    margin-right: -3px;
+  }
 }
 
 .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__horizontal {
   position: absolute;
   height: 1px;
-  right: 100%;
-  width: 14px !important;
   top: 50%;
   margin-top: -1px;
   border-top: 1px solid #a1b6d3;
@@ -180,32 +220,13 @@
 .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__vertical-top {
   position: absolute;
   width: 1px;
-  margin-left: -4px;
   top: -2px;
   bottom: 50%;
   border-left: 1px solid #a1b6d3;
 }
 
-.#{$ZIPPY_TREE_VIEW_ROOT_CLASS}--rtl {
-  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__horizontal {
-    left: 100%;
-    right: initial;
-  }
-
-  .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__vertical-top {
-    right: -14px !important;
-  }
-}
-
-/**
- * Spinner css was copied from http://projects.lukehaas.me/css-loaders/
- * and modified
- */
 .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__loader {
-  -webkit-animation: loadAnimation 1.4s infinite linear;
   animation: loadAnimation 1.4s infinite linear;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
   transform: translateZ(0);
   margin-left: 2px;
 }
@@ -235,26 +256,12 @@
   right: 0;
 }
 
-@-webkit-keyframes loadAnimation {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes loadAnimation {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }

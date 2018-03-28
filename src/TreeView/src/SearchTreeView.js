@@ -96,13 +96,14 @@ class ZippySearchTreeView extends Component {
 
       const matchArray = constructMatchText(node.label, this.regex, searchText);
 
+      const key = nodeProps.path;
       if (this.props.renderNodeText) {
         nodeProps = { ...nodeProps, matchText: matchArray };
         return this.props.renderNodeText(domProps, nodeProps);
       }
 
       return (
-        <div {...domProps}>
+        <div {...domProps} key={key}>
           {matchArray.map((text, index) => {
             if (typeof text === 'object') {
               return (

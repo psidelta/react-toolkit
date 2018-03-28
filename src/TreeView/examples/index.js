@@ -198,10 +198,11 @@ class App extends React.Component {
 
         <TreeView
           dataSource={simpleDataSource}
-          renderLabel={renderLabel}
           onNodeLoad={this.onNodeLoad}
           loadNode={loadNode}
           renderNodeContextMenu={renderNodeContextMenu} // rtl
+          nestingIndentation={20}
+          xrtl
           leafNodeIcon={
             <svg
               fill="#000000"
@@ -216,6 +217,7 @@ class App extends React.Component {
           }
           nodeIcon={
             <svg
+              key="node"
               fill="#000000"
               height="24"
               viewBox="0 0 24 24"
@@ -226,7 +228,6 @@ class App extends React.Component {
               <path d="M0 0h24v24H0z" fill="none" />
             </svg>
           }
-          enableChecked={false}
           defaultChecked={{}}
           style={{ fontSize: 14, fontFamily: 'Roboto' }}
         />

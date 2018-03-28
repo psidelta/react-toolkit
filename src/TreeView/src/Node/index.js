@@ -231,7 +231,8 @@ class ZippyNode extends Component {
       const offset =
         this.props.nestingIndentation - this.props.expandToolSize * 0.5;
       let treeLineStyleHorizontal = {
-        width: offset
+        width: offset,
+        [this.props.rtl ? 'right' : 'left']: -this.props.nestingIndentation
       };
 
       if (typeof this.props.treeLines === 'string') {
@@ -446,6 +447,7 @@ class ZippyNode extends Component {
     } else {
       expandTool = (
         <LoadTool
+          key="loadtool"
           size={this.props.expandToolSize}
           className={`${this.props.rootClassName}__loader`}
         />

@@ -135,7 +135,7 @@ class ZippyTreeView extends Component {
       this.props.enableSelection && `${rootClassName}--selection-enabled`,
       isCheckedEnabled && `${rootClassName}--check-enabled`,
       this.props.expandOnToolOnly && `${rootClassName}--expand-on-tool-only`,
-      this.props.rtl && `${rootClassName}--rtl`,
+      this.props.rtl ? `${rootClassName}--rtl` : `${rootClassName}--ltr`,
       checkOnClick && `${rootClassName}--check-onClick`,
       this.isLoading() && `${rootClassName}--loading`,
       this.props.enableHoverStyle && `${rootClassName}--enable-hover-style`,
