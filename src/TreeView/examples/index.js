@@ -226,6 +226,8 @@ class App extends React.Component {
               <path d="M0 0h24v24H0z" fill="none" />
             </svg>
           }
+          enableChecked={false}
+          defaultChecked={{}}
           style={{ fontSize: 14, fontFamily: 'Roboto' }}
         />
         {/*

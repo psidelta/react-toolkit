@@ -1240,6 +1240,9 @@ class ZippyTreeView extends Component {
     if (this.props.enableChecked) {
       return true;
     }
+    if (this.props.enableChecked === false) {
+      return false;
+    }
     return !!this.getCurrentCheckedState();
   }
 
