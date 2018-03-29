@@ -3012,10 +3012,10 @@ ZippyWindow.defaultProps = {
   // constrain relation to size/position
   constrainOnWindowResizeDelay: 16,
   constrainOnWindowScrollDelay: 16,
-  constrainOnWindowResize: true,
+  constrainOnWindowResize: false,
   keepPositionOnConstrain: false,
   keepSizeOnConstrain: false,
-  constrainOnWindowScroll: true,
+  constrainOnWindowScroll: false,
 
   // body
   bodyStyle: null,

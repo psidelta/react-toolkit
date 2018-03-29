@@ -95,7 +95,7 @@ class App extends React.Component {
     const onMaximize = () => this.setState({ maximized: true });
 
     return (
-      <div style={{ position: 'relative', height: '100%' }}>
+      <div style={{ height: '100%' }}>
         <button
           onClick={() => {
             this.setState({
