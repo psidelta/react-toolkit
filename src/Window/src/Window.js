@@ -2610,8 +2610,7 @@ class ZippyWindow extends Component {
       ArrowRight: 'right'
     };
     const direction = mapping[event.key];
-
-    if (event.ctrlKey || event.cmdKey) {
+    if (event.ctrlKey || event.metaKey) {
       event.stopPropagation();
       this.handleWindowResizeWithKeys(direction);
     } else {

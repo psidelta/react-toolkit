@@ -108,6 +108,7 @@ class App extends React.Component {
         </button>
         <Window
           title="xxx"
+          enableKeyboardSizeChange
           defaultSize={{ width: 200, height: 200 }}
           defaultPosition={{ top: 500, left: 400 }}
         />
