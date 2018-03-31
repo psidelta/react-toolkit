@@ -38,7 +38,14 @@
     background: $ZIPPY_WINDOW_TITLE_BAR_BACKGROUND;
     min-height: $ZIPPY_WINDOW_TITLE_BAR_MIN_HEIGHT;
     // padding-top: $ZIPPY_WINDOW_BORDER_SIZE;
-    border-bottom: $ZIPPY_WINDOW_BORDER_BOTTOM;
+
+    &--position-top {
+      border-bottom: $ZIPPY_WINDOW_BORDER_BOTTOM;
+    }
+
+    &--position-bottom {
+      border-top: $ZIPPY_WINDOW_BORDER_BOTTOM;
+    }
   }
 
   .#{$ZIPPY_WINDOW_ROOT_CLASS}__title {

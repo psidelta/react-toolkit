@@ -135,6 +135,9 @@ class ZippyWindow extends Component {
     if (this.windowResizeListener) {
       this.detachWindowResizeListener();
     }
+    if (this.windowScrollListener) {
+      this.detachWindowScrollListener();
+    }
 
     this.layer = null;
     this.unRegister();
@@ -521,11 +524,13 @@ class ZippyWindow extends Component {
     if (lastNode === event.target && !shiftKey) {
       firstNode.focus();
       event.preventDefault();
+      event.stopPropagation();
     }
 
     if (firstNode === event.target && shiftKey) {
       lastNode.focus();
       event.preventDefault();
+      event.stopPropagation();
     }
   }
 
@@ -1114,6 +1119,13 @@ class ZippyWindow extends Component {
     domProps.onMouseDown = this.handleTitleMouseDown;
     domProps.onTouchStart = this.handleTitleTouchStart;
     domProps.onDoubleClick = this.onTitleDoubleClick;
+    domProps.className = join(
+      domProps.className,
+      `${this.props.rootClassName}__title-bar--align-${this.props.titleAlign}`,
+      `${this.props.rootClassName}__title-bar--position-${
+        this.props.titleBarPosition
+      }`
+    );
 
     const { titleRotate, titleBarPosition, borderRadius } = this.props;
 
@@ -2499,6 +2511,13 @@ class ZippyWindow extends Component {
   detachWindowResizeListener() {
     window.removeEventListener('resize', this.windowResizeListener);
     this.windowResizeListener = null;
+  }
+
+  detachWindowScrollListener() {
+    if (this.windowScrollListener) {
+      window.removeEventListener('resize', this.windowScrollListener);
+    }
+    this.windowScrollListener = null;
   }
 
   onWindowResize() {

@@ -1,4 +1,7 @@
 @import './variables.scss';
+@import '../../Panel/style/title-rotate.scss';
+
+@include apply-title-rotate($ZIPPY_WINDOW_ROOT_CLASS);
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS} {
   position: absolute;
@@ -107,11 +110,10 @@
   right: 0;
   margin: auto;
 
-  .#{$ZIPPY_WINDOW_ROOT_CLASS}__proxy {
+  & > .#{$ZIPPY_WINDOW_ROOT_CLASS}__proxy {
     top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
-    // background: red;
   }
 }
 
@@ -122,7 +124,7 @@
   width: 100%;
   height: 100%;
   background: white;
-  opacity: 0.95;
+  opacity: 0.85;
   z-index: 100;
   visibility: hidden;
 
@@ -224,6 +226,29 @@
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__tool {
   flex-shrink: 0;
+}
+
+.#{$ZIPPY_WINDOW_ROOT_CLASS}--title-bar-position-bottom {
+  flex-direction: column-reverse;
+}
+
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar--align-center
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-wrapper {
+  justify-content: center;
+}
+
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar--align-left
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-wrapper,
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar--align-start
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-wrapper {
+  justify-content: flex-start;
+}
+
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar--align-right
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-wrapper,
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar--align-end
+.#{$ZIPPY_WINDOW_ROOT_CLASS}__title-wrapper {
+  justify-content: flex-end;
 }
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__close-icon,

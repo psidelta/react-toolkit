@@ -95,7 +95,14 @@ class App extends React.Component {
     const onMaximize = () => this.setState({ maximized: true });
 
     return (
-      <div style={{ height: '100%' }}>
+      <div
+        style={{
+          top: 200,
+          height: '50%',
+          border: '1px solid red',
+          position: 'relative'
+        }}
+      >
         <button
           onClick={() => {
             this.setState({
@@ -107,11 +114,15 @@ class App extends React.Component {
           {`${!!this.state.relativeToViewport}`}
         </button>
         <Window
-          title="xxx"
-          enableKeyboardSizeChange
-          defaultSize={{ width: 200, height: 200 }}
-          defaultPosition={{ top: 500, left: 400 }}
-        />
+          title="this is my title"
+          enableMoveProxy
+          defaultCentered
+          keepCenteredOnResize={true}
+          defaultSize={{ width: 600, height: 800 }}
+          defaultPosition={{ top: 50, left: 400 }}
+        >
+          content comes here
+        </Window>
       </div>
     );
   }
