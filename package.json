@@ -2,7 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "0.1.161",
+  "version": "0.1.162",
   "publishConfig": {
     "registry": "https://registry.zippytech.io"
   },
@@ -14,28 +14,22 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "dev":
-      "webpack-dev-server --progress --colors --config ./build/dev.config.js",
+    "dev": "webpack-dev-server --progress --colors --config ./build/dev.config.js",
     "lib": "node ./scripts/lib.js",
     "lib:all": "npm run lib --module=ALL",
     "lib:style": "node ./scripts/lib-style.js",
     "lib:js": "node ./scripts/lib-js.js",
     "lib:themes": "node ./scripts/lib-themes",
     "lint": "eslint src/**/*.js",
-    "build":
-      "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
+    "build": "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package",
     "build:package": "node ./scripts/buildGlobalPackageJSON.js",
-    "pretty":
-      "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
+    "pretty": "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged",
     "release": "npm run release:patch",
-    "release:patch":
-      "npm run build && release patch && npm run registry-publish",
-    "release:minor":
-      "npm run build && release minor && npm run registry-publish",
-    "release:major":
-      "npm run build && release major && npm run registry-publish",
+    "release:patch": "npm run build && release patch && npm run registry-publish",
+    "release:minor": "npm run build && release minor && npm run registry-publish",
+    "release:major": "npm run build && release major && npm run registry-publish",
     "registry-publish": "npm run build:package && npm publish lib"
   },
   "stylelint": {
@@ -55,7 +49,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json}": ["prettier --single-quote --write", "git add"],
+    "src/**/*.{js,jsx,json}": [
+      "prettier --single-quote --write",
+      "git add"
+    ],
     "src/**/*.scss": [
       "prettier --single-quote --write",
       "stylelint --syntax scss --fix",
