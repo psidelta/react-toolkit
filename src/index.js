@@ -24,6 +24,7 @@ import { NotifyResize } from './NotifyResize';
 import MenuBar from './MenuBar';
 import ColorTextInput from './ColorTextInput';
 import ColorPicker from './ColorPicker';
+import ColorPickerInput from './ColorPickerInput';
 import ColorPalette from './ColorPalette';
 import CheckBox from './CheckBox';
 import Flex from './Flex';
@@ -65,6 +66,7 @@ export {
   NotifyResize,
   ColorTextInput,
   ColorPicker,
+  ColorPickerInput,
   ColorPalette,
   CheckBox,
   ProgressBar,
