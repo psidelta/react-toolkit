@@ -28,6 +28,10 @@ class ZippyPanel extends Component {
     this.setBodyRef = node => (this.bodyNode = node);
   }
 
+  componentDidMount() {
+    this.domNode = findDOMNode(this);
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     return shouldComponentUpdate(this, nextProps, nextState);
   }
@@ -131,7 +135,7 @@ class ZippyPanel extends Component {
     }
 
     if (this.isRotated() && this.state.height !== null) {
-      const computedStyle = global.getComputedStyle(findDOMNode(this));
+      const computedStyle = global.getComputedStyle(this.domNode);
       const topBottomBorderWidth =
         global.parseInt(computedStyle.borderTopWidth) +
         global.parseInt(computedStyle.borderBottomWidth);
