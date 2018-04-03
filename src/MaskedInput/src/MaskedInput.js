@@ -349,24 +349,7 @@ class ZippyMaskedInput extends Component {
         },
         () => {
           raf(() => {
-            setCaretPosition(
-              input,
-              Math.min(
-                getPositionInMaskedStringBasedOnValue(value, {
-                  mask,
-                  maskDefinitions,
-                  maskFiller
-                }),
-                //get next
-                start !== 0
-                  ? getNextRealValuePosition(start, {
-                      mask,
-                      maskDefinitions,
-                      maskFiller
-                    })
-                  : Infinity
-              )
-            );
+            setCaretPosition(input, caretPosition);
             onChange && onChange({ currentValue: value, maskedValue, event });
           });
         }
@@ -604,13 +587,7 @@ class ZippyMaskedInput extends Component {
     const isMasked = hasMask(props);
     const propsOrStateValue = getValue(props, state);
 
-    const arrayValue = propsOrStateValue.split('');
-    const filterOnlyNumbers = arrayValue.filter(
-      n => parseInt(n) === parseInt(n)
-    );
-
-    const currentValue = filterOnlyNumbers.join('');
-    // const currentValue = propsOrStateValue; // filterOnlyNumbers.join('');
+    const currentValue = propsOrStateValue;
 
     const maskDefinitions = getMaskedDefinitions(props);
 

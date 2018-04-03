@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import MaskedInput from '.././src/MaskedInput';
 
 import '../style/index.scss';
-import './index.css';
+//import './index.css';
 
 const onChange = props => {
   console.log('onChange', props);
@@ -65,6 +65,20 @@ class App extends Component {
           getValue
         </button>
         <input type="text" placeholder="placeholder" />
+        <br />
+        <br />
+        <div>
+          <h3>
+            Simple mask composed of 3 alphanumeric characters and 3 digits.
+          </h3>
+          <MaskedInput style={{ border: '2px solid #333' }} mask="aaa-999" />
+        </div>
+        <br />
+        <br />
+        <div>
+          <h3>#hhhhhh mask with h definition = A-F0-5.</h3>
+          <MaskedInput mask="#hhhhhh" maskDefinitions={hexCodeDefinitions} />
+        </div>
         {/*<h4>#hhhhhh mask with h definition = a-f0-9</h4>
         <MaskedInput
           mask="#(000)-000-000"
