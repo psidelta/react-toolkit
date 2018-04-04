@@ -21,6 +21,7 @@ function getListProps({ props, state = {}, computed }) {
     renderFooter: props.renderFooter,
     renderHeader: props.renderHeader,
     renderItem: props.renderItem,
+    itemEllipsis: props.itemEllipsis,
     activeItemIndex: state.activeItemIndex,
     newCustomTagText: props.newCustomTagText,
     autoPosition: props.autoPosition,

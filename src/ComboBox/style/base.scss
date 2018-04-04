@@ -64,6 +64,12 @@
   cursor: pointer;
   user-select: none;
   width: 100%;
+
+  &--ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .#{$ZIPPY_COMBO_BOX_ROOT_CLASS}__list__loading-text,

@@ -2227,6 +2227,7 @@ ZippyComboBox.propTypes = {
   disabledItemStyle: PropTypes.object,
   disabledItemClassName: PropTypes.string,
   renderItem: PropTypes.func,
+  itemEllipsis: PropTypes.func,
   activeItemStyle: PropTypes.object,
   activeItemClassName: PropTypes.string,
   selectedItemStyle: PropTypes.object,

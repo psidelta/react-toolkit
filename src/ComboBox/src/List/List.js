@@ -279,6 +279,7 @@ class List extends Component {
       getIdProperty,
       getDisplayProperty,
       rootClassName,
+      itemEllipsis,
       value,
       activeItem,
       renderItem
@@ -298,6 +299,7 @@ class List extends Component {
       ...this.props.itemProps,
       index: renderIndex,
       itemHeight: this.rowHeight,
+      itemEllipsis,
       item,
       id,
       label,
@@ -456,6 +458,7 @@ List.propTypes = {
   maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   minHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   groups: PropTypes.object,
+  itemEllipsis: PropTypes.bool,
   onScrollBottom: PropTypes.func,
   renderListScroller: PropTypes.func,
   renderGroup: PropTypes.func,

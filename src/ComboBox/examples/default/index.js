@@ -126,9 +126,10 @@ class Demo extends Component {
             toggle loading
           </button>
           <ZippyComboBox
-            style={{ width: 300 }}
+            style={{ width: 150 }}
             // multiple
-            disabled
+            expanded
+            itemEllipsis
             dataSource={countries}
             value={this.state.comboBoxValue}
             // placeholder="select country"

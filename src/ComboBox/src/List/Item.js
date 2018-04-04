@@ -25,7 +25,8 @@ class Item extends Component {
       activeClassName,
       selectedClassName,
       renderItem,
-      itemHeight
+      itemHeight,
+      itemEllipsis
     } = this.props;
 
     const disabled = item.disabled;
@@ -36,6 +37,7 @@ class Item extends Component {
       selected && `${rootClassName}--selected`,
       active && `${rootClassName}--active`,
       disabled && `${rootClassName}--disabled`,
+      itemEllipsis && `${rootClassName}--ellipsis`,
       disabled && disabledClassName,
       active && activeClassName,
       selected && selectedClassName
@@ -121,6 +123,7 @@ Item.defaultProps = {
 Item.propTypes = {
   rootClassName: PropTypes.string,
   itemHeight: PropTypes.number,
+  itemEllipsis: PropTypes.bool,
   renderItem: PropTypes.func,
   selectedClassName: PropTypes.string,
   selectedStyle: PropTypes.object,
