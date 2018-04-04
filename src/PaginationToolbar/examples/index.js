@@ -10,11 +10,10 @@ import Button from '../../Button';
 
 import '../../ArrowScroller/style/index.scss';
 import ToolBar from '../../ToolBar';
-import '../../ToolBar/style/index.scss';
 
 import '../style/index.scss';
 import '../../TextInput/style/index.scss';
-import '../../ToolBar/style/index.scss';
+// import '../../ToolBar/style/index.scss';
 import '../../NumericInput/style/index.scss';
 import '../../ComboBox/style/index.scss';
 import '../../Button/style/index.scss';

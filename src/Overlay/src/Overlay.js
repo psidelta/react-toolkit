@@ -732,11 +732,13 @@ class ZippyOverlay extends Component {
     if (lastNode === event.target && !shiftKey) {
       firstNode.focus();
       event.preventDefault();
+      event.stopPropagation();
     }
 
     if (firstNode === event.target && shiftKey) {
       lastNode.focus();
       event.preventDefault();
+      event.stopPropagation();
     }
   }
 
