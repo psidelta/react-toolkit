@@ -13,6 +13,7 @@ function getRootClassName({ props = {}, state = {}, computed = {} }) {
     disabledClassName,
     focusedClassName,
     inlineFlex,
+    multiple,
     theme
   } = props;
 
@@ -27,6 +28,7 @@ function getRootClassName({ props = {}, state = {}, computed = {} }) {
     className,
     rtl ? `${rootClassName}--rtl` : `${rootClassName}--ltr`,
     showShadow && `${rootClassName}--shadow`,
+    multiple && `${rootClassName}--multiple`,
     disabled && `${rootClassName}--disabled`,
     readOnly && `${rootClassName}--readOnly`,
     theme && `${rootClassName}--theme-${theme}`,

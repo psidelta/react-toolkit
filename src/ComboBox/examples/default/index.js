@@ -127,7 +127,7 @@ class Demo extends Component {
           </button>
           <ZippyComboBox
             style={{ width: 150 }}
-            // multiple
+            multiple
             expanded
             itemEllipsis
             dataSource={countries}
