@@ -2039,6 +2039,8 @@ ZippyComboBox.defaultProps = {
   rootClassName: 'zippy-react-toolkit-combo-box',
   inlineFlex: false,
 
+  itemEllipsis: true,
+
   // style
   borderRadius: 0,
   shadow: true,
@@ -2227,7 +2229,7 @@ ZippyComboBox.propTypes = {
   disabledItemStyle: PropTypes.object,
   disabledItemClassName: PropTypes.string,
   renderItem: PropTypes.func,
-  itemEllipsis: PropTypes.func,
+  itemEllipsis: PropTypes.bool,
   activeItemStyle: PropTypes.object,
   activeItemClassName: PropTypes.string,
   selectedItemStyle: PropTypes.object,
