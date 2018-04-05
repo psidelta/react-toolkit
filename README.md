@@ -60,7 +60,7 @@ Find [our open-source components](https://www.zippytech.io/#opensource) below:
 Additionally, we're offering two commercial components:
 
 * [DataGrid](https://docs.zippytech.io/datagrid)
-* [Scheduler](https://www.zippytech.io/#scheduler)
+* [Scheduler](https://www.zippytech.io/#components)
 
 For the commercial components, please see [our website](https://www.zippytech.io) for more details.
 
