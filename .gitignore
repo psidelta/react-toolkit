@@ -50,3 +50,11 @@ jspm_packages
 yarn.lock
 /.idea
 /lib
+
+/src/ColorPalette
+/src/ColorPicker
+/src/ColorPickerInput
+/src/ColorTextInput
+/src/MenuBar
+/src/PaginationToolbar
+/src/SimpleToolbar
