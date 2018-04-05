@@ -4,6 +4,10 @@ const resolve = require('path').resolve;
 const packageJSON = require('../package.json');
 
 function buildGlobalPackageJSON() {
+  fs.copyFileSync(
+    resolve(__dirname, '..', 'README.md'),
+    resolve(__dirname, 'lib', 'README.md')
+  );
   return new Promise((res, reject) => {
     const toDelete = ['devDependencies', 'scripts', 'private'];
     toDelete.forEach(key => delete packageJSON[key]);
