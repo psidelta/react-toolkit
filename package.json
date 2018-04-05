@@ -174,7 +174,6 @@
     "@zippytech/drag-helper": "^2.0.3",
     "@zippytech/has-touch": "^2.0.1",
     "@zippytech/react-class": "^4.0.4",
-    "@zippytech/react-flex": "^3.0.7",
     "@zippytech/region": "^3.0.6",
     "@zippytech/region-align": "^3.0.4",
     "@zippytech/uglified": "^2.0.0",
