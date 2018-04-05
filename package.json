@@ -2,7 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "0.1.171",
+  "version": "0.1.172",
   "publishConfig": {
     "registry": "https://registry.zippytech.io"
   },
@@ -21,7 +21,7 @@
     "lib:js": "node ./scripts/lib-js.js",
     "lib:themes": "node ./scripts/lib-themes",
     "lint": "eslint src/**/*.js",
-    "build": "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package && cp README.md ./lib",
+    "build": "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package && cp README.md ./lib && cp .npmignore ./lib",
     "build:package": "node ./scripts/buildGlobalPackageJSON.js",
     "pretty": "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
