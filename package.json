@@ -2,10 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "0.1.173",
-  "publishConfig": {
-    "registry": "https://registry.zippytech.io"
-  },
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/zippytech/private-react-toolkit.git"
