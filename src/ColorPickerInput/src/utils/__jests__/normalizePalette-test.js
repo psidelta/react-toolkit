@@ -10,7 +10,7 @@ import normalizePalette from '../normalizePalette';
 describe('normalizePalette', () => {
   it('should fill empty spaces with white', () => {
     const input = {
-      length: 4,
+      length: 5,
       palette: ['#bbb']
     };
     const test = ['#bbb', '#fff', '#fff', '#fff'];
