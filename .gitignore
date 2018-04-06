@@ -58,3 +58,4 @@ yarn.lock
 /src/MenuBar
 /src/PaginationToolbar
 /src/SimpleToolbar
+/src/*/examples
