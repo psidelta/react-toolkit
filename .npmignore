@@ -13,10 +13,12 @@
 /src
 /build
 node_modules
+
 test
 __tests__
 __mocks__
 __jests__
+
 /yarn.lock
 /package-lock.json
 .DS_store
