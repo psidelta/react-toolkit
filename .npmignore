@@ -32,7 +32,6 @@ license-short.md
 /lib/ColorPickerInput
 /lib/ColorTextInput
 /lib/MenuBar
-/lib/PaginationToolbar
 /lib/SimpleToolbar
 
 /ColorPalette
@@ -40,6 +39,5 @@ license-short.md
 /ColorPickerInput
 /ColorTextInput
 /MenuBar
-/PaginationToolbar
 /SimpleToolbar
 examples

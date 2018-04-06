@@ -270,9 +270,9 @@ class ZippyComboBox extends Component {
           {this.renderClearIcon()}
           {this.renderToggleIcon()}
           {// only render notify resize if tags have ellipsis
-          this.props.tagEllipsis && (
-            <NotifyResize notifyOnMount onResize={this.handleToolsSize} />
-          )}
+            this.props.tagEllipsis && (
+              <NotifyResize notifyOnMount onResize={this.handleToolsSize} />
+            )}
         </div>
         {expanded && this.renderList()}
       </div>
@@ -463,16 +463,16 @@ class ZippyComboBox extends Component {
           className={`${this.props.rootClassName}__loading-spinner`}
         />
       ) : (
-        this.props.loadingSpinner
-      );
+          this.props.loadingSpinner
+        );
 
     return loading
       ? spinner
       : cloneElement(spinner, {
-          style: spinner.props.style
-            ? { ...spinner.props.style, display: 'none' }
-            : { display: 'none' }
-        });
+        style: spinner.props.style
+          ? { ...spinner.props.style, display: 'none' }
+          : { display: 'none' }
+      });
   }
 
   // props getters
@@ -648,7 +648,7 @@ class ZippyComboBox extends Component {
     });
   }
 
-  isLastPage(props = this.props) {}
+  isLastPage(props = this.props) { }
 
   getDataCountForPagination(props = this.props) {
     const data = this.getData();
@@ -2040,7 +2040,7 @@ class ZippyComboBox extends Component {
   }
 }
 
-function emptyFn() {}
+function emptyFn() { }
 
 ZippyComboBox.defaultProps = {
   rootClassName: 'zippy-react-toolkit-combo-box',
