@@ -48,6 +48,7 @@ jspm_packages
 /public
 /app
 yarn.lock
+package-lock.json
 /.idea
 /lib
 

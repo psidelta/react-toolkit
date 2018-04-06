@@ -8,6 +8,11 @@ function buildGlobalPackageJSON() {
     const toDelete = ['devDependencies', 'scripts', 'private'];
     toDelete.forEach(key => delete packageJSON[key]);
 
+    packageJSON.repository = {
+      type: 'git',
+      url: 'https://github.com/zippytech/react-toolkit.git'
+    };
+
     const content = JSON.stringify(packageJSON, null, 2);
     const path = resolve(__dirname, '..', 'lib', 'package.json');
     fs.writeFile(path, content, 'utf8', err => {
