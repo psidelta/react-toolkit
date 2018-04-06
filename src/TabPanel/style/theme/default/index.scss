@@ -21,12 +21,14 @@ $ZIPPY_TAB_PANEL_TAB_BG_COLOR: #d2dff0 !default;
 $ZIPPY_TAB_PANEL_TAB_ACTIVE_BG_COLOR: #e8f2ff !default;
 $ZIPPY_TAB_PANEL_BORDER_WIDTH: 1px !default;
 $ZIPPY_TAB_PANEL_TAB_MARGIN: 2px !default;
+$ZIPPY_TAB_PANEL_FONT_SIZE: 14px !default;
 
 $COLOR_DISABLED: grey;
 
 $HOVER_BORDER_COLOR: #eee !default;
 
 .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}.#{$ZIPPY_TAB_PANEL_ROOT_CLASS}--theme-#{$THEME_NAME} {
+  font-size: $ZIPPY_TAB_PANEL_FONT_SIZE;
   .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__body {
     padding: 5px 10px;
   }
@@ -79,6 +81,7 @@ $HOVER_BORDER_COLOR: #eee !default;
 }
 
 .#{$ZIPPY_TAB_PANEL_ROOT_CLASS}__tab-strip--theme-#{$THEME_NAME} {
+  font-size: $ZIPPY_TAB_PANEL_FONT_SIZE;
   color: $ZIPPY_TAB_PANEL_STRIP_COLOR;
   fill: $ZIPPY_TAB_PANEL_STRIP_COLOR;
   background: $ZIPPY_TAB_PANEL_TAB_BG_COLOR;
