@@ -57,6 +57,5 @@ package-lock.json
 /src/ColorPickerInput
 /src/ColorTextInput
 /src/MenuBar
-/src/PaginationToolbar
 /src/SimpleToolbar
 /src/*/examples
