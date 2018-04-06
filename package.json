@@ -2,7 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/zippytech/react-toolkit.git"
@@ -27,7 +27,7 @@
     "release:patch": "npm run build && release patch && npm run registry-publish",
     "release:minor": "npm run build && release minor && npm run registry-publish",
     "release:major": "npm run build && release major && npm run registry-publish",
-    "registry-publish": "npm run build:package && npm publish lib --access public"
+    "registry-publish": "npm run build:package && npm config delete @zippytech:registry && npm publish lib --access public &&  npm config set @zippytech:registry https://registry.zippytech.io/"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
