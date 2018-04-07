@@ -13,7 +13,7 @@ import debounce from '../../common/debounce';
 
 const HUGE_NUMBER = Math.pow(10, 10);
 
-const emptyFn = () => {};
+const emptyFn = () => { };
 const immediateFn = fn => fn();
 
 const notifyResizeStyle = {
@@ -322,58 +322,6 @@ ZippyNotifyResize.propTypes = {
   notifyResizeDelay: number,
   checkResizeDelay: number
 };
-
-/*
-const notifyResize = Cmp =>
-  class NotifyResizeWrapper extends React.Component {
-    constructor(props) {
-      super(props);
-      autoBind(this);
-
-      this.refComponent = c => {
-        this.component = c;
-      };
-    }
-    componentDidMount() {
-      const component = this.component;
-
-      // check if they are mounted
-      if (!this.notifyResize && showWarnings) {
-        console.warn(
-          'For notifyResize to work you must render resizeTool from {props.resizeTool}'
-        );
-      }
-    }
-
-    onNotifyResizeMount(notifier) {
-      this.notifyResize = notifier;
-    }
-
-    onResize(...args) {
-      if (typeof this.props.onResize === 'function') {
-        this.props.onResize(...args);
-      }
-
-      if (typeof this.component.onResize === 'function') {
-        this.component.onResize(...args);
-      }
-    }
-
-    render() {
-      const resizeTool = (
-        <ZippyNotifyResize
-          onResize={this.onResize}
-          onMount={this.onNotifyResizeMount}
-          notifyOnMount={this.props.notifyOnMount}
-        />
-      );
-
-      return (
-        <Cmp ref={this.refComponent} {...this.props} resizeTool={resizeTool} />
-      );
-    }
-  };
-*/
 
 export default ZippyNotifyResize;
 
