@@ -6,25 +6,14 @@ if (!MODULE_NAME) {
   process.exit(1);
 }
 
-// var filesPattern;
-// if (MODULE_NAME === 'ALL') {
-//   filesPattern = `<rootDir>/src/**/*-test.js`;
-// } else {
-//   filesPattern = `<rootDir>/src/${MODULE_NAME}/**/*-test.js`;
-// }
-
 module.exports = {
   setupFiles: ['<rootDir>/setupTests.js'],
-  // globalTeardown: './teardownTests.js',
-  // testEnvironment: './puppeteer_environment.js',
   testMatch: [
     MODULE_NAME === 'ALL'
       ? `<rootDir>/src/**/__jests__/**/*.js`
       : `<rootDir>/src/${MODULE_NAME}/**/__jests__/**/*.js`
   ],
   testPathIgnorePatterns: ['/.history/', '/node_modules/'],
-  // moduleFileExtensions: ['js', 'jsx'],
-  // moduleDirectories: ['node_modules'],
   globals: {
     sinon: require('sinon')
   },
