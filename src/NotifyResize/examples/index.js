@@ -42,7 +42,7 @@ class Box extends Component {
             left: 0,
             width: this.state.width,
             height: this.state.height,
-            background: 'blue'
+            background: 'green'
           }}
         />
       </div>
@@ -102,7 +102,16 @@ class App extends Component {
               background: 'magenta'
             }}
           >
-            <NotifyResize notifyOnMount onResize={this.onSecondResize} />
+            <NotifyResize
+              notifyOnMount
+              useNativeIfAvailable={true}
+              onResize={({ width, height }) => {
+                this.setState({
+                  resizeWidth: width,
+                  resizeHeight: height
+                });
+              }}
+            />
             <div
               style={{
                 position: 'absolute',
@@ -118,14 +127,6 @@ class App extends Component {
         </div>
       </div>
     );
-  }
-
-  onSecondResize(size) {
-    console.log(size);
-    this.setState({
-      resizeHeight: size.height,
-      resizeWidth: size.width
-    });
   }
 }
 
