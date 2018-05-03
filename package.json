@@ -11,23 +11,30 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "dev": "webpack-dev-server --progress --colors --config ./build/dev.config.js",
+    "dev":
+      "webpack-dev-server --progress --colors --config ./build/dev.config.js",
     "lib": "node ./scripts/lib.js",
     "lib:all": "npm run lib --module=ALL",
     "lib:style": "node ./scripts/lib-style.js",
     "lib:js": "node ./scripts/lib-js.js",
     "lib:themes": "node ./scripts/lib-themes",
     "lint": "eslint src/**/*.js",
-    "build": "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package && cp README.md ./lib && cp .npmignore ./lib",
+    "build":
+      "npm run lib:all && node ./scripts/lib-index-css.js && npm run build:package && cp README.md ./lib && cp .npmignore ./lib",
     "build:package": "node ./scripts/buildGlobalPackageJSON.js",
-    "pretty": "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
+    "pretty":
+      "prettier --single-quote es5 --write \"src/**/*.{js,jsx,json,css,scss}\" --fix",
     "prettystyle": "stylelint \"src/**/*.scss\" --syntax scss --fix",
     "precommit": "lint-staged",
     "release": "npm run release:patch",
-    "release:patch": "npm run build && release patch && npm run registry-publish",
-    "release:minor": "npm run build && release minor && npm run registry-publish",
-    "release:major": "npm run build && release major && npm run registry-publish",
-    "registry-publish": "npm run build:package && npm config delete @zippytech:registry && npm publish lib --access public &&  npm config set @zippytech:registry https://registry.zippytech.io/"
+    "release:patch":
+      "npm run build && release patch && npm run registry-publish",
+    "release:minor":
+      "npm run build && release minor && npm run registry-publish",
+    "release:major":
+      "npm run build && release major && npm run registry-publish",
+    "registry-publish":
+      "npm run build:package && npm config delete @zippytech:registry && npm publish lib --access public &&  npm config set @zippytech:registry https://registry.zippytech.io/"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
@@ -46,10 +53,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json}": [
-      "prettier --single-quote --write",
-      "git add"
-    ],
+    "src/**/*.{js,jsx,json}": ["prettier --single-quote --write", "git add"],
     "src/**/*.scss": [
       "prettier --single-quote --write",
       "stylelint --syntax scss --fix",
