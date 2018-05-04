@@ -129,7 +129,9 @@ class ZippyNotifyResize extends React.Component {
     this.__willUnmount = true;
 
     if (this.observer) {
-      this.observer.unobserve(this.target);
+      if (this.observer.unobserve) {
+        this.observer.unobserve(this.target);
+      }
       if (this.observer.disconnect) {
         this.observer.disconnect();
       }
@@ -140,13 +142,14 @@ class ZippyNotifyResize extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.useNativeIfAvailable && global.ResizeObserver) {
+    const ResizeObserver = global.ResizeObserver || this.props.ResizeObserver;
+    if (this.props.useNativeIfAvailable && ResizeObserver) {
       const node = findDOMNode(this);
       const target = node.parentNode;
 
       this.target = target;
 
-      const observer = new global.ResizeObserver(entries => {
+      const observer = new ResizeObserver(entries => {
         if (this.props.onObserverResize) {
           this.props.onObserverResize(entries);
         }
@@ -179,7 +182,8 @@ class ZippyNotifyResize extends React.Component {
   }
 
   render() {
-    if (this.props.useNativeIfAvailable && global.ResizeObserver) {
+    const ResizeObserver = global.ResizeObserver || this.props.ResizeObserver;
+    if (this.props.useNativeIfAvailable && ResizeObserver) {
       return RENDER_HAS_NATIVE_RESIZE_OBSERVER;
     }
     return (
@@ -359,6 +363,7 @@ ZippyNotifyResize.defaultProps = {
 };
 
 ZippyNotifyResize.propTypes = {
+  ResizeObserver: func,
   onResize: func,
   onObserverResize: func, // only called when native resizeobserver is available
   useNativeIfAvailable: bool,
