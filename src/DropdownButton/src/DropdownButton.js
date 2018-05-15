@@ -264,6 +264,7 @@ class ZippyDropDownButton extends Component {
       key: 'menu',
       items: props.items,
       alignOffset: ALIGN_OFFSET,
+      constrainTo: props.constrainTo,
       ...props.menuProps,
       alignTo: this.state.referenceRegion,
       alignPositions: props.alignPositions,
@@ -422,6 +423,12 @@ ZippyDropDownButton.propTypes = {
   onMenuClick: PropTypes.func,
   onClick: PropTypes.func,
   getAlignNode: PropTypes.func,
+  constrainTo: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.func
+  ]),
   items: PropTypes.array,
   expanded: PropTypes.bool,
   defaultExpanded: PropTypes.bool,

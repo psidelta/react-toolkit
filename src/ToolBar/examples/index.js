@@ -31,7 +31,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      strategy: 'dropdown'
+      // strategy: 'dropdown'
     };
   }
 
@@ -52,6 +52,7 @@ class App extends Component {
           <ResizableContainer width={385}>
             <ToolBar
               // changeButtonStyles={false}
+              constrainTo={true}
               overflowStrategy={this.state.strategy}
               ref={ref => (this.toolbar = ref)}
               // dropdownButtonProps={{

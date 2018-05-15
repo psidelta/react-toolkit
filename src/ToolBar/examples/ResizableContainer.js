@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import Panel from '@zippytech/react-toolkit/Panel';
-import '@zippytech/react-toolkit/Panel/index.css';
+import Panel from '../../Panel';
+import '../../Panel/style/index.scss';
 
 export default props => {
   const renderBody = () => {

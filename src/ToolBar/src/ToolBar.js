@@ -77,6 +77,7 @@ class ZippyToolbar extends Component {
     const { props } = this;
     return {
       className: join(this.getClassName(), `${props.rootClassName}--dropdown`),
+      constrainTo: props.constrainTo,
       dropdownButtonProps: props.dropdownButtonProps,
       renderDropdownButton: props.renderDropdownButton
     };
@@ -99,6 +100,12 @@ ZippyToolbar.propTypes = {
   changeButtonStyles: PropTypes.bool,
   scrollOnMouseEnter: PropTypes.bool,
   theme: PropTypes.string,
+  constrainTo: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.func
+  ]),
   arrowSize: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.shape({
