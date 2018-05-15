@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import Button from '@zippytech/react-toolkit/Button';
-import '@zippytech/react-toolkit/Button/index.css';
-import DropDownButton from '@zippytech/react-toolkit/DropdownButton';
-import '@zippytech/react-toolkit/DropdownButton/index.css';
-import SplitButton from '@zippytech/react-toolkit/SplitButton';
-import '@zippytech/react-toolkit/SplitButton/index.css';
-import ButtonGroup from '@zippytech/react-toolkit/ButtonGroup';
-import '@zippytech/react-toolkit/ButtonGroup/index.css';
+import Button from '../../Button';
+import '../../Button/style/index.scss';
+import DropDownButton from '../../DropdownButton';
+import '../../DropdownButton/style/index.scss';
+import SplitButton from '../../SplitButton';
+import '../../SplitButton/style/index.scss';
+import ButtonGroup from '../../ButtonGroup';
+import '../../ButtonGroup/style/index.scss';
 
 import {
   SETTINGS_ICON,

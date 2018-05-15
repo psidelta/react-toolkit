@@ -130,7 +130,9 @@ class DropDownOverflow extends Component {
 
     const domProps = {
       items,
+      constrainTo: this.props.constrainTo,
       menuProps: {
+        constrainTo: this.props.constrainTo,
         ...(this.props.dropdownButtonProps &&
           this.props.dropdownButtonProps.menuProps),
         theme: null,
@@ -278,6 +280,12 @@ DropDownOverflow.defaultProps = {
 DropDownOverflow.propTypes = {
   rootClassName: PropTypes.string,
   dropdownButtonProps: PropTypes.object,
+  constrainTo: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.func
+  ]),
   renderDropdownButton: PropTypes.func,
   rtl: PropTypes.bool
 };
