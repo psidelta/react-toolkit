@@ -17,6 +17,12 @@
   direction: ltr;
   width: 100%;
 
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
   .zippy-react-toolkit-menu.zippy-react-toolkit-menu {
     position: fixed;
     z-index: 10000;

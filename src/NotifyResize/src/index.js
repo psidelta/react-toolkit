@@ -6,14 +6,22 @@
  */
 
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import { number, func, bool } from 'prop-types';
 
 import shallowequal from '../../common/shallowequal';
 import debounce from '../../common/debounce';
 
+const RENDER_HAS_NATIVE_RESIZE_OBSERVER = (
+  <div
+    style={{ display: 'none' }}
+    data-name="@zippytech/react-toolkit/resize-observer-placeholder"
+  />
+);
+
 const HUGE_NUMBER = Math.pow(10, 10);
 
-const emptyFn = () => { };
+const emptyFn = () => {};
 const immediateFn = fn => fn();
 
 const notifyResizeStyle = {
@@ -119,9 +127,45 @@ class ZippyNotifyResize extends React.Component {
 
   componentWillUnmount() {
     this.__willUnmount = true;
+
+    if (this.observer) {
+      if (this.observer.unobserve) {
+        this.observer.unobserve(this.target);
+      }
+      if (this.observer.disconnect) {
+        this.observer.disconnect();
+      }
+      delete this.observer;
+    }
+
+    delete this.target;
   }
 
   componentDidMount() {
+    const ResizeObserver = global.ResizeObserver || this.props.ResizeObserver;
+    if (this.props.useNativeIfAvailable && ResizeObserver) {
+      const node = findDOMNode(this);
+      const target = node.parentNode;
+
+      this.target = target;
+
+      const observer = new ResizeObserver(entries => {
+        if (this.props.onObserverResize) {
+          this.props.onObserverResize(entries);
+        }
+
+        const first = entries[0];
+
+        if (first) {
+          this.onResize(first.contentRect);
+        }
+      });
+
+      observer.observe(target);
+
+      this.observer = observer;
+    }
+
     if (typeof this.props.onMount === 'function') {
       this.props.onMount(this);
     }
@@ -138,6 +182,10 @@ class ZippyNotifyResize extends React.Component {
   }
 
   render() {
+    const ResizeObserver = global.ResizeObserver || this.props.ResizeObserver;
+    if (this.props.useNativeIfAvailable && ResizeObserver) {
+      return RENDER_HAS_NATIVE_RESIZE_OBSERVER;
+    }
     return (
       <div
         ref={this.refNotifyResize}
@@ -309,12 +357,16 @@ class ZippyNotifyResize extends React.Component {
 }
 
 ZippyNotifyResize.defaultProps = {
+  useNativeIfAvailable: true,
   useWillChange: false,
   useRaf: true
 };
 
 ZippyNotifyResize.propTypes = {
+  ResizeObserver: func,
   onResize: func,
+  onObserverResize: func, // only called when native resizeobserver is available
+  useNativeIfAvailable: bool,
   onMount: func,
   useWillChange: bool,
   useRaf: bool,
