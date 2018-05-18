@@ -148,7 +148,6 @@ class ZippyArrowScroller extends Component {
         alignItems="start"
       >
         {resizer}
-        {this.renderScroller(-1)}
         <Flex
           wrap={false}
           {...props.childProps}
@@ -157,6 +156,7 @@ class ZippyArrowScroller extends Component {
           children={children}
           style={moveStyle}
         />
+        {this.renderScroller(-1)}
         {this.renderScroller(1)}
       </Flex>
     );
