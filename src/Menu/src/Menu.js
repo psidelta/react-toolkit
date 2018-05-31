@@ -795,7 +795,7 @@ class ZippyMenu extends Component {
       if (!this.hasGeneralFocus()) {
         this.dismiss(event);
       }
-    });
+    }, 60); //60 is needed for IE11 // TODO improve the way this is handled
   }
 
   dismiss(event) {
