@@ -14,7 +14,7 @@
   overflow: hidden;
   align-items: start;
   direction: ltr;
-  z-index: 0;
+  // z-index: 0; //TODO was this needed?
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}--rtl {
