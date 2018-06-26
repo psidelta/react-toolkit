@@ -70,8 +70,8 @@ class ZippyAccordionTabTitle extends Component {
     // this.applyTooltipIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.computeRotatedAccordionTitleDimmensions(nextProps, this.onResize);
+  componentDidUpdate() {
+    this.computeRotatedAccordionTitleDimmensions(this.props, this.onResize);
   }
 
   // if text overflow ellipsis happens, we must add a title attribute on the
