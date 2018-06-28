@@ -47,9 +47,7 @@ class DropDownOverflow extends Component {
 
     this.state = {};
     this.handleResize = this.handleResize.bind(this);
-  }
 
-  componentWillMount() {
     this.isFirstRender = true;
   }
 

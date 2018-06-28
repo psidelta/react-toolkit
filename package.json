@@ -135,6 +135,7 @@
     "@zippytech/region-align": "^3.0.6",
     "@zippytech/uglified": "^2.0.1",
     "lodash.throttle": "^4.1.1",
+    "react-lifecycles-compat": "^3.0.4",
     "tinycolor2": "^1.4.1",
     "xhr": "^2.4.0"
   },
