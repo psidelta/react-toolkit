@@ -9,7 +9,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import join from '../../common/join';
 import cleanProps from '../../common/cleanProps';
-import '../style/index.scss';
 
 class Ripple extends Component {
   constructor(props) {
