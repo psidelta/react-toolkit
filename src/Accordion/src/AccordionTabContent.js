@@ -128,16 +128,16 @@ class ZippyAccordionTabContent extends Component {
     // });
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const {
       expanded,
       orientation,
       transition,
       expandedHeight,
       expandedWidth
-    } = nextProps;
+    } = this.props;
 
-    const { expanded: oldExpanded } = this.props;
+    const { expanded: oldExpanded } = prevProps;
 
     if (expanded !== oldExpanded) {
       if (transition) {
@@ -149,7 +149,7 @@ class ZippyAccordionTabContent extends Component {
 
         this._callTransitionStartCallbacks();
       } else {
-        this._callTransitionCallbacks(nextProps);
+        this._callTransitionCallbacks(this.props);
       }
     }
   }
