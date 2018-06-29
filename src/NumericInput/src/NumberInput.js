@@ -663,64 +663,6 @@ class ZippyNumericInput extends Component {
       this.props.inputProps.onChange(event);
     }
     const value = event.target.value;
-    /*
-    const currentSelection = getSelectedRange(this.input);
-
-    const { isControlled, precision, currentValue } = this.p;
-
-    value =
-      value === undefined && event && event.target ? event.target.value : value;
-
-    if (!this.props.allowFloat) {
-      // delete everything after .
-      const decimalPlace = value && value.indexOf('.');
-      if (decimalPlace !== -1) {
-        value = value.slice(0, decimalPlace);
-      }
-    }
-    if (!this.props.allowNegative && Number(value) < 0) {
-      value = 0;
-    }
-
-    const [formattedValue, numericValue] = this.getTransformedStringValues(
-      value
-    );
-
-    let charDiffCount = formattedValue.length - value.length;
-
-    // https://github.com/zippyui/react-number-input/issues/11
-    if (!currentValue && precision) {
-      charDiffCount = 1;
-    }
-
-    // https://github.com/zippyui/react-number-input/issues/5
-    if (this.backspaceOnControlledPrecision) {
-      this.backspaceOnControlledPrecision = false;
-      charDiffCount--;
-    }
-
-    // https://github.com/zippyui/react-number-input/issues/15
-    if (this.digitInputOnControlledPrecision) {
-      this.digitInputOnControlledPrecision = false;
-      charDiffCount++;
-    }
-
-    if (!isControlled) {
-      this.setState(
-        {
-          formattedValue,
-          numericValue
-        },
-        () => {
-          raf(() => {
-            setCaretPosition(this.input, charDiffCount + currentSelection.end);
-          });
-        }
-      );
-    } else {
-      this.intendedCaretPosition = charDiffCount + currentSelection.end;
-    }
-    */
 
     this.setValue(value);
   }
@@ -876,37 +818,6 @@ class ZippyNumericInput extends Component {
     if (selectionStartsAtBeginningOfNumber && selectionEndsAtEndOfNumber) {
       return;
     }
-
-    // if (isControlledPrecision) {
-    //   const isInteractionKey = [
-    //     'ArrowLeft',
-    //     'ArrowRight',
-    //     'Shift',
-    //     'Control',
-    //     'Meta'
-    //   ].indexOf(event.key);
-
-    //   if (isInteractionKey === -1) {
-    //     const startingCharacter = event.key.match(/[0-9]/) ? event.key : '';
-    //     const newCharSequence = `${
-    //       startingCharacter !== undefined ? startingCharacter : 0
-    //     }${decimalDelimiter}`;
-
-    //     this.handleChange(
-    //       event,
-    //       currentValue.replace(
-    //         currentValue.substring(
-    //           currentSelection.start,
-    //           currentSelection.end
-    //         ),
-    //         newCharSequence
-    //       )
-    //     );
-
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //   }
-    // }
   }
 
   handleKeyUp(event) {
@@ -1173,7 +1084,6 @@ class ZippyNumericInput extends Component {
       props.enableSpinnerTools &&
         `${props.rootClassName}--enable-spinner-tools`,
       props.enableClearButton && `${props.rootClassName}--enable-clear-button`,
-      // `${props.rootClassName}--tool-position-${props.toolPosition}`,
       props.className
     );
 
@@ -1214,8 +1124,6 @@ ZippyNumericInput.defaultProps = {
   rootClassName: 'zippy-react-toolkit-numeric-input',
   spinOnArrowKeys: true,
   numbersOnly: true,
-  // minValue: Number.MIN_SAFE_INTEGER,
-  // maxValue: Number.MAX_SAFE_INTEGER,
   step: 1,
   shiftStep: 10,
   requireFocusOnStep: true,

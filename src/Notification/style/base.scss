@@ -83,22 +83,15 @@
   visibility: visible;
 
   &.#{$ZIPPY_NOTIFICATION_ROOT_CLASS}--transition-enter {
-    // opacity: 0;
   }
 
   &.#{$ZIPPY_NOTIFICATION_ROOT_CLASS}--transition-enter-active {
-    // transition: opacity 300ms ease;
-    // opacity: 1;
   }
 
   &.#{$ZIPPY_NOTIFICATION_ROOT_CLASS}--transition-leave {
-    // visibility: visible;
-    // opacity: 1;
   }
 
   &.#{$ZIPPY_NOTIFICATION_ROOT_CLASS}--transition-leave-active {
-    // transition: opacity 300ms ease;
-    // opacity: 0;
   }
 }
 

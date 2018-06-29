@@ -21,5 +21,4 @@ export default (inst, nextProps, nextState) => {
   }
 
   return true;
-  // return !equal(nextProps, props) || !equal(nextState, state);
 };

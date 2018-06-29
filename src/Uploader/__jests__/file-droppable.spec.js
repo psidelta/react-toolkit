@@ -31,7 +31,9 @@ describe('FileDroppable', () => {
   describe('interaction events', () => {
     beforeEach(() => {
       InnerClass = props => {
-        const { forwardProp: { events } } = props;
+        const {
+          forwardProp: { events }
+        } = props;
         return <div {...events} />;
       };
       WrappedClass = FileDroppable(InnerClass);
@@ -345,7 +347,9 @@ describe('FileDroppable', () => {
       const CUSTOM_KEY = 'customKey';
 
       InnerClass = props => {
-        const { [CUSTOM_KEY]: { events } } = props;
+        const {
+          [CUSTOM_KEY]: { events }
+        } = props;
         return <div {...events} />;
       };
 
@@ -385,7 +389,9 @@ describe('FileDroppable', () => {
   describe('defaultFiles params', () => {
     it('should set default files', () => {
       InnerClass = props => {
-        const { forwardProp: { events } } = props;
+        const {
+          forwardProp: { events }
+        } = props;
         return <div {...events} />;
       };
 
@@ -404,7 +410,9 @@ describe('FileDroppable', () => {
     const STATIC_ACCEPT = '*';
     beforeEach(() => {
       InnerClass = props => {
-        const { forwardProp: { events } } = props;
+        const {
+          forwardProp: { events }
+        } = props;
         return <div {...events} />;
       };
 
@@ -519,9 +527,6 @@ describe('FileDroppable', () => {
         expect(acceptSpy.mock.calls[1][0]).toEqual(dropFiles[1]);
         expect(acceptSpy.mock.calls[1][1]).toEqual(1);
         expect(acceptSpy.mock.calls[1][2]).toHaveLength(dropFiles.length);
-
-        //          expect(acceptSpy).to.have.been.calledWith(dropFiles[0], 0, dropFiles);
-        //          expect(acceptSpy).to.have.been.calledWith(dropFiles[1], 1, dropFiles);
       });
     });
   });
@@ -530,7 +535,9 @@ describe('FileDroppable', () => {
     describe('in controlled mode', () => {
       it('should allways return files prop array with getFiles', done => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -562,7 +569,9 @@ describe('FileDroppable', () => {
 
       it('should call onChange with empty file array', () => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -586,7 +595,9 @@ describe('FileDroppable', () => {
 
       it('should removeFileAt by calling onChange', () => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -616,7 +627,9 @@ describe('FileDroppable', () => {
     describe('in uncontrolled mode', () => {
       it('should get current dropped files with getFiles', done => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -662,7 +675,9 @@ describe('FileDroppable', () => {
 
       it('should clear files and call onChange', () => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -688,7 +703,9 @@ describe('FileDroppable', () => {
 
       it('should removeFileAt and call onChange', () => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -717,7 +734,9 @@ describe('FileDroppable', () => {
     describe('in both modes', () => {
       it('should return file names with getFileNames', () => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -739,7 +758,9 @@ describe('FileDroppable', () => {
 
       it('should return total size of files with getTotalFileSize', () => {
         InnerClass = props => {
-          const { forwardProp: { events } } = props;
+          const {
+            forwardProp: { events }
+          } = props;
           return <div {...events} />;
         };
 
@@ -767,7 +788,6 @@ describe('FileDroppable', () => {
         };
         WrappedClass = FileDroppable(InnerClass);
         component = mount(<WrappedClass />);
-        // expect(component.first().is(InnerClass)).toBe(true);
         instance = component.instance();
 
         component.setProps({
@@ -786,7 +806,6 @@ describe('FileDroppable', () => {
           generateUniqueFileIdentifier: CLASS_LEVEL_FILE_IDENTIFIER
         });
         component = mount(<WrappedClass />);
-        // expect(component.first().is(InnerClass)).toBe(true);
         instance = component.instance();
         component.setProps({
           files: [{ name: 'a', size: 1 }]
@@ -805,7 +824,6 @@ describe('FileDroppable', () => {
           generateUniqueFileIdentifier: CLASS_LEVEL_FILE_IDENTIFIER
         });
         component = mount(<WrappedClass />);
-        // expect(component.first().is(InnerClass)).toBe(true);
         instance = component.instance();
         component.setProps({
           generateUniqueFileIdentifier: INSTANCE_LEVEL_FILE_IDENTIFIER

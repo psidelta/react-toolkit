@@ -268,7 +268,7 @@ const renderUploadAllButtonLayout = props => {
         renderUploadAllButton({
           files,
           domProps: {
-            disabled: disabled || !hasValidFiles, //|| !shouldShowUploadButton(files, uploadProgress),
+            disabled: disabled || !hasValidFiles,
             className: `${CLASS_NAME}__toolbar-button`,
             onClick: disabled ? null : ev => uploadFiles(ev),
             children: label

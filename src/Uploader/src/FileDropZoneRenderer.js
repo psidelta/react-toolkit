@@ -93,9 +93,6 @@ const DefaultOverState = props => {
 
 const DefaultInvalidState = props => {
   const { files } = props;
-  // const messages = files.filter(({invalidDetails})=>(invalidDetails)).map((file, idx)=>(
-  //   <div key={idx}>{file.invalidDetails && file.invalidDetails[0].message || ''}</div>
-  // ));
 
   const countProplematicErrors = files.filter(
     ({ invalidDetails }) => invalidDetails
@@ -235,7 +232,11 @@ class FileDropZoneRenderer extends Component {
   render() {
     const { props } = this;
 
-    const { children, forwardProp, forwardProp: { events, files } } = props;
+    const {
+      children,
+      forwardProp,
+      forwardProp: { events, files }
+    } = props;
     const { onDragEnter } = events || {};
     return (
       <div

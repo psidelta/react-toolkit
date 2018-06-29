@@ -36,7 +36,5 @@ describe('renderNode', () => {
     wrapper.setProps({ renderNode });
 
     expect(wrapper.find('#mutatedId')).toHaveLength(1);
-    // expect(wrapper.find('.customRowClass')).to.have.length(1)
-    // expect(wrapper.find('.react-tree-view__node')).to.have.length(0)
   });
 });

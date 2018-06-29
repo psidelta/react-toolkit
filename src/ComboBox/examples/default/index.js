@@ -11,11 +11,6 @@ import '../../style/index.scss';
 import './index.scss';
 import countries from './countries';
 
-import ScrollContainer from '@zippytech/react-scroll-container-pro';
-import VirtualScrollContainer from '@zippytech/react-virtual-scroll-container-pro';
-import '@zippytech/react-scroll-container-pro/index.css';
-import '@zippytech/react-virtual-scroll-container-pro/index.css';
-
 import ZippyComboBox from '../../src/ComboBox';
 import NumericInput from '../../../NumericInput';
 import TextInput from '../../../TextInput';
@@ -68,16 +63,6 @@ function renderItem({ domProps, item, data, index }) {
 const renderScroller = props => {
   delete props.tabIndex;
   return <div {...props} />;
-};
-
-const renderListScroller = props => {
-  return (
-    <ScrollContainer
-      {...props}
-      renderScroller={renderScroller}
-      viewStyle={{ width: '100%' }}
-    />
-  );
 };
 
 class Demo extends Component {
@@ -135,11 +120,9 @@ class Demo extends Component {
           <ZippyComboBox
             style={{ width: 150 }}
             multiple
-            expanded
             itemEllipsis
             dataSource={countries}
             value={this.state.comboBoxValue}
-            // placeholder="select country"
             loading={this.state.loading}
             onChange={comboBoxValue =>
               this.setState({ index: this.state.index + 1, comboBoxValue })
@@ -159,7 +142,6 @@ class Demo extends Component {
             <ZippyComboBox
               collapseOnSelect
               constrainTo={node => node.parentNode}
-              renderListScroller={renderListScroller}
               displayProperty="label"
               style={{ width: 400 }}
               positions={['top', 'bottom']}
@@ -184,7 +166,6 @@ class Demo extends Component {
           placeholder="AAA"
           defaultValue={null}
           dataSource={themes}
-          expanded
         />
         <br />
         <button

@@ -141,12 +141,6 @@ describe('async nodes', () => {
       });
 
     expect(wrapper.state().nodesLoading['0']).toBe(true);
-    // expect(
-    //   wrapper
-    //     .find(Node)
-    //     .first()
-    //     .props().loading
-    // ).toBe(true);
 
     setTimeout(() => {
       expect(wrapper.state().nodesLoading['0']).toBe(false);

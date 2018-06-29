@@ -59,7 +59,7 @@ describe('timeFormatter', () => {
   });
 
   describe('with hours', () => {
-    //2hours 3 minutes, 45 seconds, 123 ms
+    // 2 hours, 3 minutes, 45 seconds, 123 ms
     const time = 2 * 60 * 60 * 1000 + 3 * 60 * 1000 + 45 * 1000 + 123;
 
     it('should render hours, minuts and seconds', () => {
@@ -71,14 +71,14 @@ describe('timeFormatter', () => {
       const text = timeFormatter(time, { showMinutes: false });
       expect(text).toEqual('2.1h');
 
-      const moreTime = time + 43 * 60 * 1000; // 2 hours 46 minutes ...
+      const moreTime = time + 43 * 60 * 1000; // 2 hours, 46 minutes ...
       const moreTimeText = timeFormatter(moreTime, { showMinutes: false });
       expect(moreTimeText).toEqual('2.8h');
     });
   });
 
   describe('with days', () => {
-    //1 day, 12hours 33 minutes, 45 seconds, 123 ms
+    //1 day, 12 hours, 33 minutes, 45 seconds, 123 ms
     const time =
       1 * 24 * 60 * 60 * 1000 +
       12 * 60 * 60 * 1000 +

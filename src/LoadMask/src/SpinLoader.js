@@ -50,17 +50,6 @@ class ZippySpinLoader extends React.Component {
     const bars = [...Array(12)].map((_, i) => {
       const index = i + 1;
 
-      // let loadbarStyle;
-
-      // if (animationDuration) {
-      //   const delay =
-      //     i * parseFloat(animationDuration) - (i / 12).toPrecision(4);
-
-      //   loadbarStyle = {
-      //     animationDuration: animationDuration,
-      //     animationDelay: `-${delay}${measureName}`
-      //   };
-      // }
       return (
         <div
           key={index}

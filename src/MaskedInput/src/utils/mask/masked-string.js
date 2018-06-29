@@ -256,8 +256,6 @@ const getPreviousRealValuePosition = (posInMask = 0, props = {}) => {
     { position: 0, found: false }
   );
 
-  // console.log(posInMask, result.position);
-
   return result.position;
 };
 
@@ -302,8 +300,6 @@ const getNextRealValuePosition = (posInMask = 0, props = {}) => {
     },
     { position: mask.length, found: false }
   );
-
-  // console.log('getNextRealValuePosition', posInMask, result.position);
 
   return result.position;
 };

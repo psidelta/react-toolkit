@@ -26,7 +26,6 @@
   display: flex;
   align-items: stretch;
   flex-flow: column;
-  // overflow: hidden;
 
   &:focus {
     outline: none;
@@ -92,7 +91,6 @@
 }
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}__title {
-  // flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -108,9 +106,6 @@
 
 // Centered
 .#{$ZIPPY_WINDOW_ROOT_CLASS}--centered {
-  // top: 50%;
-  // left: 50%;
-  // transform: translateY(-50%) translateX(-50%);
   top: 0;
   left: 0;
   bottom: 0;
@@ -152,8 +147,6 @@
   margin: auto;
   top: 0;
   bottom: 0;
-  // top: 50%;
-  // transform: translateY(-50%);
 }
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}--centered-vertical.#{$ZIPPY_WINDOW_ROOT_CLASS}--keep-position-centered {
@@ -167,8 +160,6 @@
   left: 0;
   right: 0;
   margin: auto;
-  // left: 50%;
-  // transform: translateX(-50%);
 }
 
 .#{$ZIPPY_WINDOW_ROOT_CLASS}--centered-horizontal.#{$ZIPPY_WINDOW_ROOT_CLASS}--keep-position-centered {
@@ -209,12 +200,6 @@
   bottom: 0;
 }
 
-/*
-.#{$ZIPPY_WINDOW_ROOT_CLASS}__modal-wrapper--fixed {
-  position: fixed;
-}
-*/
-
 // titlebar
 .#{$ZIPPY_WINDOW_ROOT_CLASS}--draggable {
   .#{$ZIPPY_WINDOW_ROOT_CLASS}__title-bar {
@@ -227,7 +212,6 @@
   display: flex;
   cursor: initial;
   white-space: nowrap;
-  // max-width: 50%;
   overflow: hidden;
 }
 
@@ -268,31 +252,25 @@
 // animation
 .#{$ZIPPY_WINDOW_ROOT_CLASS}--has-transition {
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--invisible {
-    // display: none;
-    // opacity: 0;
   }
 
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--transition-enter {
-    // display: inherit;
     opacity: 0;
     transition-property: opacity;
     transition-timing-function: ease;
   }
 
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--transition-enter-active {
-    // display: inherit;
     opacity: 1;
   }
 
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--transition-leave {
-    // display: inherit;
     opacity: 1;
     transition-property: opacity;
     transition-timing-function: ease;
   }
 
   &.#{$ZIPPY_WINDOW_ROOT_CLASS}--transition-leave-active {
-    // display: inherit;
     .#{$ZIPPY_WINDOW_ROOT_CLASS}__body {
       overflow: hidden;
     }

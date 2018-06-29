@@ -39,12 +39,10 @@ function createShowHandler({ action, target, getDelay, timeoutState }) {
       return null;
     }
 
-    // getActiveTargetNode && getActiveTargetNode()
     const activeTargetNode = timeoutState.targetThatTriggeredEvent;
     timeoutState.targetThatTriggeredEvent = node;
 
     // case 7. onShow cancels onHide if from any target
-    // activeTargetNode === node
     if (timeoutState.hideId) {
       clearTimeout(timeoutState.hideId);
       timeoutState.hideId = null;
@@ -110,7 +108,6 @@ function createHideHandler({ action, target, getDelay, timeoutState }) {
       }
     }
 
-    // getActiveTargetNode && getActiveTargetNode()
     const activeTargetNode = timeoutState.targetThatTriggeredEvent;
     timeoutState.targetThatTriggeredEvent = node;
 

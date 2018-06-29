@@ -53,7 +53,6 @@
     min-width: 36px;
     max-width: 36px;
     height: 36px;
-    // transition: background 0.2s;
 
     &:hover {
       background: $ZIPPY_CALENDAR_DAY_COLOR_HOVER;
@@ -65,16 +64,13 @@
   }
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view-year--active {
-    // border: 2px solid $ZIPPY_CALENDAR_ACTIVE_COLOR;
   }
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view-year--value {
     color: #495e85;
     background: #e8f2ff padding-box;
-    // border: 2px solid $ZIPPY_CALENDAR_ACTIVE_COLOR;
   }
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view-year--active.#{$ZIPPY_CALENDAR_ROOT_CLASS}__decade-view-year--value {
-    // background: lighten($ZIPPY_CALENDAR_ACTIVE_COLOR, 5%) padding-box;
   }
 }

@@ -145,13 +145,10 @@ describe('props passed from items[0] to MenuItem', () => {
         .first()
         .simulate('mouseEnter');
 
-      // setTimeout(() => {
       const menu = wrapper.find(Menu).at(1);
       expect(menu.props().maxHeight).toBe(77);
       //testing the rendered html
       expect(menu.html().indexOf('max-height: 77px')).not.toBe(-1);
-      //   done()
-      // })
     });
   });
 

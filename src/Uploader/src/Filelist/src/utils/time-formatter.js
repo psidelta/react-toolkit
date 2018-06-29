@@ -89,10 +89,6 @@ export function getMinutesString(parsedTime, config) {
       );
     }
 
-    // if ( minutesAreNotLastEntry(parsedTime, config) ) {
-    //   minutes = Math.round(minutes);
-    // }
-
     if (minutes) {
       result = `${formatNumber(minutes)}${config.minuteText}${
         config.showSeconds ? config.separator : ''

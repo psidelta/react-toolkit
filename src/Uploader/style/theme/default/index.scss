@@ -11,13 +11,10 @@
 
 .#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}--theme-default {
   min-height: 320px;
-  // margin: 0 0 10px 0;
   overflow: auto;
   overflow-x: hidden;
-  // overflow-y: auto;
   display: flex;
   flex-flow: column;
-  // background-color: #f5f6f6;
 
   .#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}__empty-icon {
     width: 150px;
@@ -211,7 +208,6 @@
   }
 
   .#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}__over-state__wrapper {
-    // background-color: rgba(111, 231, 255, 0.28);
     position: absolute;
     top: 0;
     left: 0;
@@ -225,17 +221,13 @@
   }
 
   &.#{$ZIPPY-UPLOADER-FILE_DROP_ZONE}--invalid {
-    // background: #fff;
-    // border: 2px solid red;
   }
 }
 
 $FILE_UPLOADER: 'zippy-react-uploader';
 
 .#{$FILE_UPLOADER}--theme-default {
-  // background-color: #2a2a2a;
   border: 1px solid $border_color;
-  // padding: 10px;
   height: 100%;
   position: relative;
 

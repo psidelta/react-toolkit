@@ -106,9 +106,7 @@ class ZippyAccordionTabContent extends Component {
     }
 
     this._expandInProgress = true;
-    // raf(() => {
     this._transitionHeightFromTo(startingHeight, finalHeight);
-    // });
   }
 
   _handleHorizontalExpand(expanded, expandedWidth) {
@@ -123,9 +121,7 @@ class ZippyAccordionTabContent extends Component {
     }
 
     this._expandInProgress = true;
-    // raf(() => {
     this._transitionWidthFromTo(startingWidth, finalWidth);
-    // });
   }
 
   componentDidUpdate(prevProps) {
@@ -174,21 +170,6 @@ class ZippyAccordionTabContent extends Component {
       onCollapseEnd && onCollapseEnd();
     }
   }
-
-  // only force reflow if buggy flexbox conditions are met
-  // fix for tabs with content larger than parents with fixed dimmensions
-  // and overflow visible
-  // _forceReflowIfNecesarry() {
-  //   this.setState({
-  //     forceWrapperReflow: true
-  //   }, () => {
-  //     raf(()=>{
-  //       this.setState({
-  //         forceWrapperReflow: false
-  //       });
-  //     });
-  //   });
-  // }
 
   onTransitionEnd() {
     const { raf } = this.props;
@@ -345,10 +326,10 @@ class ZippyAccordionTabContent extends Component {
         onMouseDown={this.props.onWrapperMouseDown}
       >
         {/*
-                we keep the position:absolute/relative wrapper because of
-                offset scrollbars. If content is scrolled, adding a div
-                breaks current scroll value
-              */}
+          we keep the position:absolute/relative wrapper because of
+          offset scrollbars. If content is scrolled, adding a div
+          breaks current scroll value
+        */}
         <div
           className={`${rootClassName}__scroll-wrapper`}
           style={{ ...this.getComputedScrollContainerStyle() }}

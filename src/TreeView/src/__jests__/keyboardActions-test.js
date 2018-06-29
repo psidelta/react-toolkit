@@ -318,7 +318,6 @@ describe('keyboard actions ', () => {
 
     it('should change activeNode when a node is clicked', () => {
       const test = wrapper
-        // .find(Node)
         .find(LABEL_CLASS_NAME)
         .last()
         .simulate('click');

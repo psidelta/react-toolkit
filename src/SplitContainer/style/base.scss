@@ -22,7 +22,6 @@
   *:after {
     box-sizing: border-box;
   }
-  // overflow: hidden;
 
   &--collapsed,
   &--collapsing,
@@ -43,7 +42,6 @@
 
 .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__side {
   background: white;
-  // max-height: 100%;
   position: relative;
   overflow: auto;
   width: 100%;
@@ -88,8 +86,6 @@
 
 .#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__splitter {
   flex-shrink: 0;
-  // overflow: visible;
-  // position: relative;
   user-select: none;
   overflow: hidden;
 

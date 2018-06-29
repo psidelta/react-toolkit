@@ -124,8 +124,6 @@ class ZippyInertialScroller extends Component {
     event.stopPropagation();
     event.preventDefault();
 
-    // console.log('this', this.velocity);
-
     clearInterval(this.ticker);
     if (this.velocity > 10 || this.velocity < -10) {
       this.amplitude = this.props.initialAmplitude * this.velocity;

@@ -419,7 +419,7 @@ class ZippyWindow extends Component {
 
     if (state.transitionRestoreEnterActive) {
       const position = this.positionBeforeMaximize;
-      // const
+
       return {
         ...position,
         transition: 'all 300ms ease'
@@ -689,8 +689,6 @@ class ZippyWindow extends Component {
         this.handleResizeDrop(event, config);
       }
     });
-
-    // this.setState(state)
   }
 
   handleResizeDragStart({ event, config, handle, constrainRegion }) {
@@ -1494,10 +1492,6 @@ class ZippyWindow extends Component {
       };
     }
 
-    if (!this.getCentered()) {
-      // assign(style, position);
-    }
-
     return (
       <div
         style={style}
@@ -1569,7 +1563,6 @@ class ZippyWindow extends Component {
       },
 
       onDrag(event, config) {
-        // this.handleTitleDrag(event, config);
         this.handleTitleDragThrottle(event, config);
       },
 
@@ -1648,7 +1641,6 @@ class ZippyWindow extends Component {
     );
 
     if (this.getCollapsed()) {
-      // bodyStyle.display = 'none';
       bodyStyle.overflow = 'hidden';
       bodyStyle.padding = 0;
 
@@ -1656,7 +1648,6 @@ class ZippyWindow extends Component {
         this.props.titleBarPosition === 'top' ||
         this.props.titleBarPosition === 'bottom'
       ) {
-        // bodyStyle.width = this.getRegion().width;
         bodyStyle.height = 0;
         bodyStyle.maxHeight = 0;
         bodyStyle.maxWidth = '100%';
@@ -2121,8 +2112,8 @@ class ZippyWindow extends Component {
    */
   adjustCenteredPosition({ width, height }, computedStylePosition) {
     const centered = this.getCentered();
-    const verticalAjust = 0; //height / 2;
-    const horizontalAjust = 0; //width / 2;
+    const verticalAjust = 0;
+    const horizontalAjust = 0;
 
     if (centered !== 'horizontal') {
       computedStylePosition.top -= verticalAjust;
@@ -2708,8 +2699,6 @@ class ZippyWindow extends Component {
 }
 
 ZippyWindow.propTypes = {
-  // rootClassName: PropTypes.string,
-  // theme: PropTypes.string,
   border: PropTypes.string,
   shadow: PropTypes.bool,
   borderRadius: PropTypes.oneOfType([
@@ -2955,7 +2944,6 @@ ZippyWindow.defaultProps = {
   titleBarPosition: 'top',
 
   // visibility
-  // visible: true,
   defaultVisible: true,
   renderNullWhenInvisible: false,
 
@@ -2982,7 +2970,6 @@ ZippyWindow.defaultProps = {
   minSize: 200,
 
   // maximized
-  // maximized: false,
   maximizable: true,
   defaultMaximized: false,
   maximizeTransition: false,
@@ -3026,7 +3013,6 @@ ZippyWindow.defaultProps = {
   constrainTitleOnly: false,
 
   // centered
-  // centered: false,
   defaultCentered: false,
   onCenteredChange: emptyFn,
   keepCenteredOnResize: true,
