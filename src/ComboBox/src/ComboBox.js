@@ -96,11 +96,6 @@ class ZippyComboBox extends Component {
     this.handleRemoveMultipleTag = this.handleRemoveMultipleTag.bind(this);
     this.handleListScrollBottom = this.handleListScrollBottom.bind(this);
 
-    // this.handleListScrollBottom = throttle(
-    //   this.handleListScrollBottom.bind(this),
-    //   1000,
-    //   { leading: false }
-    // );
     this.handleDelete = this.handleDelete.bind(this);
     this.getListNode = this.getListNode.bind(this);
 
@@ -145,10 +140,7 @@ class ZippyComboBox extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (
-      nextProps.dataSource !== this.props.dataSource //&&
-      // !nextProps.lazyDataSource
-    ) {
+    if (nextProps.dataSource !== this.props.dataSource) {
       this.loadDataSource(nextProps.dataSource, nextProps);
     }
 
@@ -270,9 +262,9 @@ class ZippyComboBox extends Component {
           {this.renderClearIcon()}
           {this.renderToggleIcon()}
           {// only render notify resize if tags have ellipsis
-            this.props.tagEllipsis && (
-              <NotifyResize notifyOnMount onResize={this.handleToolsSize} />
-            )}
+          this.props.tagEllipsis && (
+            <NotifyResize notifyOnMount onResize={this.handleToolsSize} />
+          )}
         </div>
         {expanded && this.renderList()}
       </div>
@@ -463,16 +455,16 @@ class ZippyComboBox extends Component {
           className={`${this.props.rootClassName}__loading-spinner`}
         />
       ) : (
-          this.props.loadingSpinner
-        );
+        this.props.loadingSpinner
+      );
 
     return loading
       ? spinner
       : cloneElement(spinner, {
-        style: spinner.props.style
-          ? { ...spinner.props.style, display: 'none' }
-          : { display: 'none' }
-      });
+          style: spinner.props.style
+            ? { ...spinner.props.style, display: 'none' }
+            : { display: 'none' }
+        });
   }
 
   // props getters
@@ -570,7 +562,9 @@ class ZippyComboBox extends Component {
         hasNextPage:
           hasNextPage !== undefined ? hasNextPage : this.hasNextPage(),
         text: this.isRemoteFilter()
-          ? text !== undefined ? text : this.getText()
+          ? text !== undefined
+            ? text
+            : this.getText()
           : undefined,
         skip: skip || 0,
         action,
@@ -613,7 +607,7 @@ class ZippyComboBox extends Component {
       this.updateGroups({ data, groupProperty: props.groupProperty });
     }
 
-    // update valuemap
+    // update value map
     this.updateValueMap({
       value: this.getValue(props),
       dataMap,
@@ -648,13 +642,15 @@ class ZippyComboBox extends Component {
     });
   }
 
-  isLastPage(props = this.props) { }
+  isLastPage(props = this.props) {}
 
   getDataCountForPagination(props = this.props) {
     const data = this.getData();
     const count = this.isPaginationEnabled(props)
       ? props.remoteCount || this.state.remoteCount
-      : data ? data.length : 0;
+      : data
+        ? data.length
+        : 0;
 
     return count || 0;
   }
@@ -729,19 +725,10 @@ class ZippyComboBox extends Component {
     if (!this.isPaginationEnabled()) {
       return;
     }
-    const fn =
-      // typeof props.loadNextPage === 'function'
-      //   ? props.loadNextpage
-      typeof props.dataSource === 'function' ? props.dataSource : null;
+    const fn = typeof props.dataSource === 'function' ? props.dataSource : null;
 
     if (fn && hasNextPage) {
       const currentData = this.state.data;
-
-      // const newPageData = fn({
-      //   ...this.props,
-      //   limit,
-      //   skip: newSkip
-      // });
 
       this.loadDataSource(this.props.dataSource, undefined, {
         appendTo: currentData,
@@ -908,21 +895,6 @@ class ZippyComboBox extends Component {
 
     this.setText(null, { skipFilter: true });
 
-    // let textChanged = false;
-    // if (this.props.clearTextOnSelect && newValue && this.getText()) {
-    //   // so value can give inputs value
-    //   this.setText(null);
-    //   textChanged = true;
-    // }
-
-    // // update filtered data
-    // console.log({ textChanged, action });
-    // if (textChanged) {
-    //   this.doFilter({ value: newValue, text: null, action });
-    // } else {
-    //   this.doFilter({ value: newValue, action });
-    // }
-
     this.updateValueMap({ value: newValue });
     this.props.onChange(newValue);
   }
@@ -1032,7 +1004,9 @@ class ZippyComboBox extends Component {
   getExpanded() {
     return this.isExpandedControlled()
       ? this.props.expanded
-      : this.expanded != null ? this.expanded : this.state.expanded;
+      : this.expanded != null
+        ? this.expanded
+        : this.state.expanded;
   }
 
   isExpandedControlled() {
@@ -1040,9 +1014,6 @@ class ZippyComboBox extends Component {
   }
 
   setExpanded(expanded) {
-    // if (!expanded) {
-    //   return;
-    // }
     if (this.expandedPromise) {
       this.expandedPromise.then(result => {
         if (this.getExpanded() !== expanded) {
@@ -1398,9 +1369,7 @@ class ZippyComboBox extends Component {
 
     if (this.props.clearTextOnBlur) {
       // only clear if we can find the data
-      //   if (this.getItemLabel() != this.getText()) {
       this.setText(null);
-      // }
     }
 
     this.setState({
@@ -1676,7 +1645,6 @@ class ZippyComboBox extends Component {
     let newActiveTag;
 
     // none is selected and arrow is left, then select last one
-    // const value = this.getValue()
     const items = this.getSelectedItems();
     let itemsIds;
     if (this.areItemsGrouped) {
@@ -2040,7 +2008,7 @@ class ZippyComboBox extends Component {
   }
 }
 
-function emptyFn() { }
+function emptyFn() {}
 
 ZippyComboBox.defaultProps = {
   rootClassName: 'zippy-react-toolkit-combo-box',

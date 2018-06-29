@@ -88,7 +88,6 @@ const renderHandle = (config, extraProps, CLASS_NAME) => {
   } = extraProps;
 
   const handleStyle = { ...config.handleStyle };
-  // todo, what does this do?
   handleSize.width = handleStyle.width;
   handleSize.height = handleStyle.height;
 
@@ -132,7 +131,6 @@ const renderHandle = (config, extraProps, CLASS_NAME) => {
     focused
   };
 
-  // handleProps.onMouseDown = onMouseDown;
   handleProps[EVENT_NAMES.onMouseDown] = onMouseDown;
 
   return renderHandleContent(handleProps, customProps);

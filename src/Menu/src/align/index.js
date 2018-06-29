@@ -17,9 +17,6 @@ export default (
   domNode
 ) => {
   const constrainRegion = getConstrainRegion.call(this, constrainTo, domNode);
-  // if (!constrainRegion) {
-  //   return;
-  // }
 
   if (typeof props.alignSubMenu === 'function') {
     props.alignSubMenu(subMenuRegion, targetAlignRegion, constrainRegion);

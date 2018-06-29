@@ -169,8 +169,12 @@ class ZippyArrowScroller extends Component {
     }
 
     const arrowName = vertical
-      ? direction == (this.props.rtl ? 1 : -1) ? 'up' : 'down'
-      : direction == (this.props.rtl ? 1 : -1) ? 'left' : 'right';
+      ? direction == (this.props.rtl ? 1 : -1)
+        ? 'up'
+        : 'down'
+      : direction == (this.props.rtl ? 1 : -1)
+        ? 'left'
+        : 'right';
 
     const scrollInfo = this.scrollInfo;
     const disabled =
@@ -204,7 +208,6 @@ class ZippyArrowScroller extends Component {
         : null;
 
     const onMouseLeave =
-      // !disabled &&
       !this.props.scrollOnClick || isMobile
         ? this.stopMouseOverScroll.bind(this, direction)
         : null;

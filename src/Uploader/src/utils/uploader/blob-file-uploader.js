@@ -72,11 +72,6 @@ const uploadBlob = (file, params) => {
             onProgress(id, params)
           );
 
-          // xhr.upload.addEventListener('load', (params)=>{
-          //   file._uploadRequest = false;
-          //   onDone(id, params);
-          // });
-
           xhr.addEventListener('error', params => {
             file._uploadRequest = false;
             onError(id, 'server request error');

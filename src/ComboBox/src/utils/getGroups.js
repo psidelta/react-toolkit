@@ -10,13 +10,6 @@
  * The structure looks like
  * @param Object[] data
  * @param String groupProperty
- * @return {
- *   [index where to render the groip]: {
- *     title: data[groupProperty]<String>,
- *     indexAjustment: <Number>
- *   },
- *   ..
- * }
  */
 function getGroups(data, groupProperty = 'group') {
   const groupsConfig = data.reduce(

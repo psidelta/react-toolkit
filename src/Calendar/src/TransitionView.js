@@ -167,7 +167,6 @@ export default class TransitionView extends Component {
     // only pass those down if they have been specified
     // as props on this TransitionView
     assignDefined(newProps, {
-      // tabIndex: -1,
       range: props.range,
       date: props.date,
       activeDate: props.activeDate,
@@ -484,7 +483,6 @@ export default class TransitionView extends Component {
 
   renderAt(index, { multiView, navBarProps }) {
     if (!this.state.rendered || !this.view) {
-      // || this.state.prepareTransition != -index ) {
       return null;
     }
 
@@ -506,7 +504,6 @@ export default class TransitionView extends Component {
 
     if (this.state.transitionTime) {
       date = forwardTime(this.state.transitionTime, this.toMoment(date));
-      // console.log('date.format', date.format('HH:mm'));
     }
 
     const newProps = assign({
@@ -573,7 +570,6 @@ export default class TransitionView extends Component {
 
   doTransition(dateMoment) {
     if (this.state.transition) {
-      // this.nextViewDate = dateMoment
       return;
     }
     // to protect of null, which will default to current date

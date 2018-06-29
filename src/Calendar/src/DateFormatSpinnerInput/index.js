@@ -76,14 +76,12 @@ export default class DateFormatSpinnerInput extends Component {
       1: (
         <svg height={arrowSize} viewBox="2 2 20 20" width={arrowSize}>
           <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-          {/* <path d="M0 0h24v24H0z" fill="none"/>*/}
         </svg>
       ),
 
       '-1': (
         <svg height={arrowSize} viewBox="2 2 20 20" width={arrowSize}>
           <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-          {/* <path d="M0-.75h24v24H0z" fill="none"/>*/}
         </svg>
       )
     };

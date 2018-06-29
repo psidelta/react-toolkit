@@ -170,25 +170,6 @@ export default class MultiMonthView extends Component {
     ) {
       this.updateToMoment(nextProps);
     }
-
-    // if (nextProps.viewDate && !nextProps.forceViewUpdate){
-
-    //   //this is here in order not to change view if already in view
-    //   const viewMoment = this.toMoment(nextProps.viewDate)
-
-    //   if (this.isInRange(viewMoment) && !nextProps.forceViewUpdate){
-    //     console.log(this.format(viewMoment), this.format(this.p.viewStart),
-    // this.format(this.p.viewEnd))
-    //     this.setState({
-    //       propViewDate: this.p.viewMoment
-    //     })
-    //   } else {
-    //     debugger
-    //     this.setState({
-    //       propViewDate: null
-    //     })
-    //   }
-    // }
   }
 
   updateToMoment(props) {
@@ -446,18 +427,9 @@ export default class MultiMonthView extends Component {
   }
 
   select({ dateMoment, timestamp }, event) {
-    // if (!dateMoment) {
-    //   return
-    // }
-
     const props = this.p;
 
     const visibleRange = [props.inViewStart, props.inViewEnd];
-
-    // TODO check why this was needed
-    // if (!isInRange(dateMoment, { range: visibleRange, inclusive: true })) {
-    //   return
-    // }
 
     this.onAdjustViewDateChange({ dateMoment, timestamp });
     this.onActiveDateChange({ dateMoment, timestamp });

@@ -40,10 +40,6 @@ class List extends Component {
     this.listAligned = false;
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return shouldComponentUpdate(this, nextProps, nextState);
-  // }
-
   componentWillUnmount() {
     this.componentIsMounted = false;
   }
@@ -247,8 +243,6 @@ class List extends Component {
         onContainerScrollVerticalMax: this.props.onScrollBottom
       },
       style
-      // ,
-      // virtualized: false
     };
 
     let result;
@@ -317,22 +311,6 @@ class List extends Component {
       onClick: this.handleItemClick,
       key: id || label
     };
-
-    // let result;
-    // if (typeof renderItem === 'function') {
-    //   result = renderItem({
-    //     domProps: itemProps,
-    //     item,
-    //     data,
-    //     index
-    //   });
-    // }
-    //
-    // if (result === undefined) {
-    //   result = <Item {...itemProps} />;
-    // }
-    //
-    // return result;
 
     return <Item {...itemProps} />;
   }

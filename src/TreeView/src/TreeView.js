@@ -1786,11 +1786,6 @@ ZippyTreeView.defaultProps = {
   pathProperty: null,
   idProperty: null,
 
-  // custon render
-  // renderLabel: () => {},
-  // renderNode: () => {},
-  // renderContent: () => {},
-
   // node styles and classnames
   nodeStyle: null,
 

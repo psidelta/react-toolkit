@@ -42,7 +42,6 @@ class Value extends Component {
 
     const className = join(rootClassName);
 
-    // let isDisplayValueVisible = !showTags && (!focus && label);
     let isDisplayValueVisible = !showTags && !focus;
     if (!showTags && !searchable) {
       isDisplayValueVisible = true;
@@ -82,10 +81,6 @@ class Value extends Component {
 
   renderDisplayValue() {
     const { rootClassName, label, renderDisplayValue } = this.props;
-
-    // if (!label) {
-    //   return null;
-    // }
 
     const domProps = {
       className: `${rootClassName}__display-value`,

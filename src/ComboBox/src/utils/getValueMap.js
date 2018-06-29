@@ -36,9 +36,6 @@ function getValueMap({ value, dataMap, oldValueMap }) {
     if (contains(value, id)) {
       acc[id] = valueMap[id];
     }
-    // if (value.indexOf(id) !== -1) {
-    //   acc[id] = valueMap[id];
-    // }
     return acc;
   }, {});
 

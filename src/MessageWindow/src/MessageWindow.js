@@ -218,7 +218,6 @@ MessageWindow.defaultProps = {
 
 MessageWindow.propTypes = {
   // misc
-  // rootClassName: PropTypes.string,
   shouldComponentUpdate: PropTypes.func,
   onDismiss: PropTypes.func,
   icon: PropTypes.node,

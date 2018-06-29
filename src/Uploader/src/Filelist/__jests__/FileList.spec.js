@@ -41,12 +41,6 @@ describe('FileList', () => {
   });
 
   describe('external api', () => {
-    // describe('callbacks', () => {
-    //   xit('onChange');
-    //   xit('onClearClick');
-    //   xit('onUploadClick');
-    // });
-
     describe('methods', () => {
       it('getFiles', () => {
         const component = mount(<FileList defaultFiles={files} />);
@@ -430,15 +424,5 @@ describe('FileList', () => {
         expect(fileItem.prop('locale')).toEqual(locale);
       });
     });
-
-    // describe('file item props', () => {
-    //   xit('internal onClearClick');
-    //   xit('internal onUploadClick');
-    // });
   });
-
-  // describe('controlled mode behavior', () => {
-  //   xit('only calls on change when removing');
-  //   xit('ignores add file methods');
-  // });
 });

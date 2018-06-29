@@ -15,17 +15,8 @@ function getPositionsRelativeToRegion({ region, positions }) {
   return positions.map(position => {
     const newPosition = {};
 
-    const viewportWidth = Math.max(
-      0,
-      // document.documentElement.clientWidth,
-      window.innerWidth || 0
-    );
-    const viewportHeight = Math.max(
-      0,
-      // document.documentElement.clientHeight,
-      window.innerHeight || 0
-    );
-    // debugger;
+    const viewportWidth = Math.max(0, window.innerWidth || 0);
+    const viewportHeight = Math.max(0, window.innerHeight || 0);
 
     if (position.bottom !== undefined) {
       newPosition.bottom = position.bottom + (viewportHeight - region.bottom);

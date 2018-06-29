@@ -658,14 +658,7 @@ export default class DateInput extends Component {
   }
 
   onPickerViewKeyDown(event) {
-    // } && (key == 'Escape' || key == 'Enter' || (key in NAV_KEYS))) {
-    // if (this.keyDownRafId) {
-    //   cancelAnimationFrame(this.keyDownRafId)
-    // }
-    // event.persist()
-    // this.keyDownRafId = requestAnimationFrame(() => {
     this.pickerView.onViewKeyDown(event);
-    // })
   }
 
   onPickerMouseDown(event) {
@@ -712,11 +705,6 @@ export default class DateInput extends Component {
         this.onViewKeyDown(event);
         return false;
       }
-      // if (!currentPosition || !currentPosition.time) {
-      //   // the time has not changed, so it's safe to forward the event
-      //   this.onViewKeyDown(event)
-      //   return false
-      // }
     }
 
     return true;
@@ -855,7 +843,6 @@ export default class DateInput extends Component {
 
     if (bool && props.valid) {
       this.setState({
-        // viewDate: props.date,
         activeDate: props.date
       });
     }
@@ -878,9 +865,6 @@ export default class DateInput extends Component {
   }
 
   onFieldChange(value) {
-    // if (this.isExpanded()) {
-    //   return;
-    // }
     if (this.p.rawInput && typeof value != 'string') {
       const event = value;
       value = event.target.value;
@@ -897,7 +881,6 @@ export default class DateInput extends Component {
 
   onTextChange(text) {
     if (this.props.text === undefined) {
-      //} && this.props.value === undefined) {
       this.setState({
         text
       });

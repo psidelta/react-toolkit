@@ -76,7 +76,8 @@
     width: 17px;
 
     svg {
-      animation: reactToolkitComboBoxLoadAnimationDefault 1.4s infinite linear;
+      animation: react-toolkit-combo-box-loading-animation-default 1.4s infinite
+        linear;
       transform: translateZ(0);
     }
 
@@ -190,7 +191,7 @@
   }
 }
 
-@-webkit-keyframes reactToolkitComboBoxLoadAnimationDefault {
+@-webkit-keyframes react-toolkit-combo-box-loading-animation-default {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -202,7 +203,7 @@
   }
 }
 
-@keyframes reactToolkitComboBoxLoadAnimationDefault {
+@keyframes react-toolkit-combo-box-loading-animation-default {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);

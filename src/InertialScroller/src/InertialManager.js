@@ -132,7 +132,6 @@ class InertialManager {
     if (!this.hasScroll()) {
       return;
     }
-    // event.stopPropagation(); //TODO check why this was here
 
     if (this.isArrowTarget(event.target)) {
       event.preventDefault();
@@ -151,13 +150,11 @@ class InertialManager {
   }
 
   drag(event) {
-    // event.nativeEvent.stopImmediatePropagation();
     if (this.pressed) {
       if (!this.hasScroll()) {
         return;
       }
 
-      // event.stopPropagation(); //TODO check why this was here
       event.preventDefault();
       const y = ypos(event);
       let delta = this.reference - y;
@@ -175,7 +172,6 @@ class InertialManager {
 
     this.pressed = false;
     this.updateMaxScroll();
-    // event.stopPropagation(); //TODO check why this was here
     if (this.isArrowTarget(event.target)) {
       event.preventDefault();
     }
@@ -195,9 +191,7 @@ class InertialManager {
     }
 
     this.offset = clamp(offset, 0, this.max);
-    // this.viewNode.style.top = `${-this.offset}px`;
     this.setScrollPosition(this.offset);
-    // this.viewNode.style.transform = `translateY(${-this.offset}px)`;
   }
 
   autoScroll() {

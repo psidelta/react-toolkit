@@ -87,8 +87,6 @@ describe('FileDropZoneRenderer', () => {
       );
     });
 
-    // it('should be able to render default states based on set props');
-
     it('should swtich between empty, invalid, over or list subcomponents', () => {
       const EmptyText = <div id="empty" />;
       const InvalidText = <div id="invalid" />;
