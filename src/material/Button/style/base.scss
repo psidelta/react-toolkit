@@ -6,6 +6,7 @@
  */
 
 @import '../../../Button/style/base.scss';
+@import '../../../Ripple/style/index.scss';
 @import './variables.scss';
 
 .#{$ZIPPY_MATERIAL_BUTTON_ROOT_CLASS} {
