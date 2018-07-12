@@ -76,7 +76,6 @@ class ZippyAlphaSpectrum extends Component {
         tooltipVisibility="never"
         tickBarPosition="none"
         orientation="vertical"
-        // rootClassName={props.rootClassName}
         value={value}
         onChange={this.handleOnDrag}
         onDragEnd={this.handleOnChange}

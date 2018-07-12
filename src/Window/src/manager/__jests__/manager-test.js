@@ -57,7 +57,6 @@ describe('manager', () => {
       const id1 = manager.register(window1);
 
       expect(window1.setZIndex).toBeCalled();
-      // expect(window1.setZIndex.args[0][1]).toBe(true)
     });
 
     it('when unregisters it should call setIndex on correct instances', () => {

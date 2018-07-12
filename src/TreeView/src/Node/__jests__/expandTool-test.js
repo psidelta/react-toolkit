@@ -68,8 +68,6 @@ describe('expandTool', () => {
       expect(typeof expandTool.mock.calls[0][0].domProps.className).toBe(
         'string'
       );
-      // expect(typeof expandTool.args[0][0].domProps.onClick).toBe('function');
-      // expect(typeof expandTool.args[0][0].domProps.className).toBe('string');
     });
 
     it('should render what it returns', () => {

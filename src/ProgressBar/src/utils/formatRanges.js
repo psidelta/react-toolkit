@@ -99,14 +99,6 @@ function formateValuesRange(range, valueRange) {
 
     acc.push(stepConfig);
 
-    // last we push the last range
-    // if (index === list.length - 1) {
-    //   acc.push({
-    //     from: stepPosition,
-    //     to: valueRange
-    //   })
-    // }
-
     return acc;
   }, []);
 }

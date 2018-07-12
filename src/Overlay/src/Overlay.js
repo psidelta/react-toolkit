@@ -15,7 +15,6 @@ import join from './utils/join';
 import shouldComponentUpdate from './utils/shouldComponentUpdate';
 import normalizeEvent from './utils/normalizeEvent';
 import getFocusableElements from './utils/getFocusableElements';
-// import getPosition from './getPosition';
 import getPosition from '../../common/getPositionRelativeToElement';
 import Arrow from './Arrow';
 
@@ -186,7 +185,6 @@ class ZippyOverlay extends Component {
    */
   getChildrenProps() {
     const { children } = this.props;
-    // const targetNode = this.getActiveTargetNode();
     const targetNode = this.getPositionTarget();
     const childrenProps = { children };
     const childrenParams = {
@@ -308,12 +306,6 @@ class ZippyOverlay extends Component {
       if (this.state.position.width) {
         style.width = this.state.position.width;
       }
-      // if (this.state.position.constrainedHeight) {
-      //   style.maxHeight =
-      //     typeof style.maxHeight === 'number'
-      //       ? Math.min(style.maxHeight, this.state.position.constrainedHeight)
-      //       : this.state.position.constrainedHeight;
-      // }
     }
 
     return style;
@@ -392,7 +384,6 @@ class ZippyOverlay extends Component {
   }
 
   onHide(event) {
-    // this.activeTargetNode = null
     this.setVisible(false);
   }
 
@@ -541,11 +532,6 @@ class ZippyOverlay extends Component {
         }
       }
     }
-
-    // if (newState.constrainedHeight) {
-    //   newState.position.constrainedHeight =
-    //     newState.positionRegion.height;
-    // }
 
     return newState;
   }
@@ -922,21 +908,6 @@ Following values are allowed: ${posiblePositions.join(', ')}
 `
         );
       }
-    }
-
-    if (Array.isArray(positions)) {
-      //       const invalidProps = positions.filter(position => {
-      //         return posiblePositions.indexOf(position) === -1;
-      //       });
-      //       if (invalidProps.length) {
-      //         return new Error(
-      //           `
-      // Invalid prop ${propName} suplied to ${componentName}.
-      // The folowing are incorect: ${invalidProps.join(', ')}
-      // Allowed values: ${posiblePositions.join(', ')}
-      //         `
-      //         );
-      //       }
     }
   },
   offset: PropTypes.oneOfType([

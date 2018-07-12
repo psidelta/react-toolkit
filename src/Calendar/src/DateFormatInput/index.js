@@ -202,12 +202,6 @@ export default class DateFormatInput extends Component {
   onWheel(event) {
     if (this.props.updateOnWheel && this.isFocused()) {
       this.onDirection(-event.deltaY, event);
-      // this.onKeyDown({
-      //   key: event.deltaY < 0 ? 'ArrowUp' : 'ArrowDown',
-      //   type: event.type,
-      //   stopPropagation: () => event.stopPropagation(),
-      //   preventDefault: () => event.preventDefault()
-      // })
     }
 
     if (this.props.onWheel) {
@@ -418,7 +412,6 @@ export default class DateFormatInput extends Component {
       typeof callback == 'function' && callback
     );
 
-    // if (this.props.value !== undefined) {
     if (this.props.onChange) {
       this.throttleSetValue(value, dateMoment);
     }

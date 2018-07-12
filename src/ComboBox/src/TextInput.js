@@ -41,11 +41,6 @@ class TextInput extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // if (this.placeholderNode) {
-    //   const height = global.getComputedStyle(this.placeholderNode).height;
-    //   this.placeholderNode.style.lineHeight = height;
-    // }
-
     /**
      * Before the suggestion is added we must weight for the
      * value to come back from the parent. Because it may be controlled.

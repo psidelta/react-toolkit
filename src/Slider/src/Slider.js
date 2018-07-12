@@ -108,8 +108,6 @@ const getProps = (props, state) => {
     props.rootClassName
   );
 
-  // const onDrag = null;
-
   const { dragging, focused, mouseOver } = state;
 
   const visibleTooltip = shouldShowTooltip(props, state);
@@ -391,7 +389,7 @@ class ZippySlider extends Component {
   }
 
   // button interaction
-  // ====================================================================================================
+  // ======================================================================
 
   shiftValue() {
     const { currentValue } = this.p;

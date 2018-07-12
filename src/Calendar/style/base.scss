@@ -61,7 +61,6 @@
 }
 
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__next {
-  // z-index: 1111;
   transform: translate3d(100%, 0, 0);
 }
 
@@ -90,7 +89,6 @@
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__center,
 .#{$ZIPPY_CALENDAR_ROOT_CLASS}__next {
   &.#{$ZIPPY_CALENDAR_ROOT_CLASS}--transition {
-    // transition-duration: 0.2s;
     transition-property: transform;
   }
 }

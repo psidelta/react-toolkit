@@ -107,18 +107,15 @@ describe('PaginationToolbar', () => {
     toolbar.instance().gotoPage(5);
     pageInput = getPageInput(toolbar);
 
-    // expect(pageInput.props().value).toEqual('5');
     expect(lastSkip).toEqual(40);
     expect(skipCalls).toEqual(2);
 
     // now set limit to 25 and make sure we're on page 4
     toolbar.instance().setPageSize(25);
-    // expect(pageInput.props().value).toEqual('4');
     expect(lastSkip).toEqual(75);
     expect(skipCalls).toEqual(3);
 
     PREV_PAGE.simulate('click');
-    // expect(pageInput.value).toEqual('3');
     expect(lastSkip).toEqual(50);
     expect(skipCalls).toEqual(4);
 

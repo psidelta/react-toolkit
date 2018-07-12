@@ -49,8 +49,6 @@ class ZippySaturationSpectrum extends Component {
   getDragPosition(hsv) {
     hsv = hsv || this.hsv;
 
-    // let width = this.props.width
-    // let height = this.props.height
     const sizeDefined = width && height;
 
     if (!sizeDefined && !this.isComponentMounted) {
@@ -61,10 +59,8 @@ class ZippySaturationSpectrum extends Component {
      * always read from the dom even if the width is set,
      * the parent might have display: flex and have a different width
      */
-    // if (!sizeDefined) {
     const height = this.rootNode && this.rootNode.offsetHeight;
     const width = this.rootNode && this.rootNode.offsetWidth;
-    // }
 
     let x = hsv.s * width;
     const y = height - hsv.v * height;

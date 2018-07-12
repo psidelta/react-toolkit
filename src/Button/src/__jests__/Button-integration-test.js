@@ -10,8 +10,6 @@ import { findDOMNode } from 'react-dom';
 import Button from '../Button';
 import { render, simulateMouseEvent } from '../../../common/testUtils';
 
-// import '../../style/index.scss';
-
 describe('Button verticalAlign', () => {
   it('should add the correct className', () => {
     const button = render(

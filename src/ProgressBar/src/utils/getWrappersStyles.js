@@ -38,24 +38,24 @@ function getWrappersStyles({
       [dimension]: `100%`
     };
     remainingLabelWrapperStyle = {
-      [dimension]: parentSize //`${getLabelWrapperSize(remainingSize)}%`
+      [dimension]: parentSize
     };
   } else if (
     labelPosition === 'remainingCenter' ||
     labelPosition === 'remainingStart'
   ) {
     fillLabelWrapperStyle = {
-      [dimension]: parentSize //`${getLabelWrapperSize(fillSize)}%`
+      [dimension]: parentSize
     };
     remainingLabelWrapperStyle = {
       [dimension]: `100%`
     };
   } else {
     fillLabelWrapperStyle = {
-      [dimension]: parentSize //`${getLabelWrapperSize(fillSize)}%`
+      [dimension]: parentSize
     };
     remainingLabelWrapperStyle = {
-      [dimension]: parentSize //`${getLabelWrapperSize(remainingSize)}%`
+      [dimension]: parentSize
     };
   }
 

@@ -19,11 +19,6 @@
     padding: 4px 8px;
   }
 
-  // transform: translateY(0px);
-  // &:active {
-  //   transform: translateY(1px);
-  // }
-
   &:not(.zippy-react-toolkit-split-button__dropdown-button) {
     background: $ZIPPY_DROPDOWN_BUTTON_BG_COLOR padding-box;
     min-height: 32px;

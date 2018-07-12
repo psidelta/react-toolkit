@@ -8,8 +8,6 @@
 @import '../../../../ColorPalette/style/theme/default/index.scss';
 @import '../../../../Button/style/theme/default/index';
 
-// $border: 1px solid #bbb;
-
 .#{$ZIPPY_COLOR_PICKER_INPUT_ROOT_CLASS}.#{$ZIPPY_COLOR_PICKER_INPUT_ROOT_CLASS}--theme-#{$ZIPPY_COLOR_PICKER_INPUT_THEME_NAME} {
   border: $ZIPPY_COLOR_PICKER_INPUT_BORDER;
   transition: border 0.2s;

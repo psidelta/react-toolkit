@@ -92,7 +92,6 @@ const handleUnidentified = (format, { event, currentValue, range }) => {
     return {
       preventDefault: false,
       value: currentValue
-      // caretPos
     };
   }
 
@@ -249,11 +248,6 @@ const getFormats = () => {
       handleUnidentified: handleYearUnidentified
     },
 
-    // YY: {
-    //   default: '00'
-    // },
-
-    // M: { min: 1, max: 12, default: '1', maxLen: 2 },
     MM: {
       min: 1,
       max: 12,
@@ -266,7 +260,6 @@ const getFormats = () => {
       handleArrow: handleArrowLeftPad
     },
 
-    // D: { min: 1, max: 31, default: '1', maxLen: 2 },
     DD: {
       min: 1,
       max: 31,
@@ -279,14 +272,6 @@ const getFormats = () => {
       handleArrow: handleArrowLeftPad
     },
 
-    // H: {
-    //   min: 0, max: 23, default: '0', maxLen: 2,
-    //   handleDelete,
-    //   handleBackspace,
-    //   handleArrow: handleArrowLeftPad,
-    //   handlePageUp: handlePageLeftPad,
-    //   handlePageDown: handlePageLeftPad
-    // },
     HH: {
       time: true,
       min: 0,
@@ -300,11 +285,6 @@ const getFormats = () => {
       handlePageDown: handlePageLeftPad
     },
 
-    // h: { min: 1, max: 12, default: '1', maxLen: 2,
-    //   handleArrow: handleArrowLeftPad,
-    //   handlePageUp: handlePageLeftPad,
-    //   handlePageDown: handlePageLeftPad
-    // },
     hh: {
       min: 1,
       max: 12,
@@ -328,6 +308,7 @@ const getFormats = () => {
       handleDelete: handleMeridiemDelete,
       handleBackspace: handleMeridiemBackspace
     },
+
     A: {
       length: 2,
       time: true,
@@ -340,7 +321,6 @@ const getFormats = () => {
       handleBackspace: handleMeridiemBackspace
     },
 
-    // m: { min: 0, max: 59, default: '0', maxLen: 2 },
     mm: {
       min: 0,
       max: 59,
@@ -354,7 +334,6 @@ const getFormats = () => {
       handlePageDown: handlePageLeftPad
     },
 
-    // s: { min: 0, max: 59, default: '0' },
     ss: {
       time: true,
       min: 0,

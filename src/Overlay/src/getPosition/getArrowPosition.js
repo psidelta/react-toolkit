@@ -60,7 +60,7 @@ function getArrowPosition({
     arrowPosition = {
       position: {
         left,
-        top: '100%' //'calc(100% - 1px)'
+        top: '100%'
       },
       location: 'top'
     };
@@ -70,7 +70,7 @@ function getArrowPosition({
     arrowPosition = {
       position: {
         left,
-        bottom: '100%' //'calc(100% - 1px)'
+        bottom: '100%'
       },
       location: 'bottom'
     };
@@ -80,7 +80,7 @@ function getArrowPosition({
     arrowPosition = {
       position: {
         top,
-        right: '100%' //'calc(100% - 1px)'
+        right: '100%'
       },
       location: 'right'
     };
@@ -90,7 +90,7 @@ function getArrowPosition({
     arrowPosition = {
       position: {
         top,
-        left: '100%' //'calc(100% - 1px)'
+        left: '100%'
       },
       location: 'left'
     };

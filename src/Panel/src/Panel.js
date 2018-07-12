@@ -70,15 +70,12 @@ class ZippyPanel extends Component {
         style={style}
       >
         {this.renderTitleBar()}
-        {
-          //
-          /*
+        {/*
          * When titleBarPosition is bottom
          * rows are reversed with flex-direction
          * so footer is rendered in different positions
          * in dom so it will always be visualy after body
-         */
-        }
+         */}
         {this.props.titleBarPosition === 'bottom' &&
           this.props.renderFooter(this.props)}
         {this.renderBody()}
