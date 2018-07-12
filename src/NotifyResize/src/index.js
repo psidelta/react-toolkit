@@ -19,8 +19,6 @@ const RENDER_HAS_NATIVE_RESIZE_OBSERVER = (
   />
 );
 
-const HUGE_NUMBER = Math.pow(10, 10);
-
 const emptyFn = () => {};
 const immediateFn = fn => fn();
 
@@ -168,6 +166,10 @@ class ZippyNotifyResize extends React.Component {
 
     if (typeof this.props.onMount === 'function') {
       this.props.onMount(this);
+    }
+
+    if (this.observer) {
+      return;
     }
 
     this.resetResizeTool(() => {

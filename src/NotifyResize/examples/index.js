@@ -106,6 +106,7 @@ class App extends Component {
               notifyOnMount
               useNativeIfAvailable={true}
               onResize={({ width, height }) => {
+                console.log('mount');
                 this.setState({
                   resizeWidth: width,
                   resizeHeight: height
