@@ -7,8 +7,6 @@
 
 @mixin apply-title-rotate($ROOT_CLASS_NAME) {
   .#{$ROOT_CLASS_NAME}--title-rotate-90.#{$ROOT_CLASS_NAME}--title-bar-position-right {
-    // position: relative;
-
     .#{$ROOT_CLASS_NAME}__title-bar {
       position: absolute;
       top: 0;
@@ -20,8 +18,6 @@
   }
 
   .#{$ROOT_CLASS_NAME}--title-rotate--90.#{$ROOT_CLASS_NAME}--title-bar-position-right {
-    // position: relative;
-
     .#{$ROOT_CLASS_NAME}__title-bar {
       position: absolute;
       top: 0;
@@ -33,8 +29,6 @@
   }
 
   .#{$ROOT_CLASS_NAME}--title-rotate--90.#{$ROOT_CLASS_NAME}--title-bar-position-left {
-    // position: relative;
-
     .#{$ROOT_CLASS_NAME}__title-bar {
       position: absolute;
       top: 0;
@@ -46,8 +40,6 @@
   }
 
   .#{$ROOT_CLASS_NAME}--title-rotate-90.#{$ROOT_CLASS_NAME}--title-bar-position-left {
-    // position: relative;
-
     .#{$ROOT_CLASS_NAME}__title-bar {
       position: absolute;
       bottom: 100%;

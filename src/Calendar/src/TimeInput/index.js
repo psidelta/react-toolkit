@@ -148,7 +148,6 @@ export default class TimeInput extends Component {
   }
 
   setValue(value, callback) {
-    // if (this.props.value === undefined){
     this.setState(
       {
         now: Date.now(),
@@ -156,9 +155,6 @@ export default class TimeInput extends Component {
       },
       typeof callback == 'function' && callback
     );
-    // } else {
-    //   this.updateCallback = callback
-    // }
 
     if (this.props.onChange) {
       this.props.onChange(value);

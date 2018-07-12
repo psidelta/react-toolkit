@@ -223,7 +223,6 @@ export default class MonthDecadeView extends Component {
     }
 
     assign(yearViewProps, {
-      // viewDate: props.moment || props.viewDate,
       onViewDateChange: joinFunctions(
         this.onViewDateChange,
         yearViewChildProps.onViewDateChange
@@ -493,6 +492,4 @@ MonthDecadeView.propTypes = {
   onCancelClick: PropTypes.func,
   onOkClick: PropTypes.func,
   onChange: PropTypes.func
-
-  // yearview props
 };

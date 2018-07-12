@@ -194,10 +194,6 @@ class SplitSide extends React.Component {
     let Factory = Item;
     const actualProps = cleanProps(this.props, SplitSide.propTypes);
 
-    // if (this.props.index == 0) {
-    //   console.log('render ');
-    // }
-
     if (
       this.props.orientation == 'vertical' &&
       this.props.children &&
@@ -374,13 +370,21 @@ export default class SplitContainer extends React.Component {
 
     const sideName =
       props.orientation == 'horizontal'
-        ? constrainingIndex == 1 ? 'top' : 'bottom'
-        : constrainingIndex == 1 ? 'left' : 'right';
+        ? constrainingIndex == 1
+          ? 'top'
+          : 'bottom'
+        : constrainingIndex == 1
+          ? 'left'
+          : 'right';
 
     const otherSideName =
       props.orientation == 'horizontal'
-        ? constrainingIndex == 1 ? 'left' : 'right'
-        : constrainingIndex == 1 ? 'top' : 'bottom';
+        ? constrainingIndex == 1
+          ? 'left'
+          : 'right'
+        : constrainingIndex == 1
+          ? 'top'
+          : 'bottom';
 
     const marginName = `margin${toUpperFirst(sideName)}`;
 
@@ -511,12 +515,20 @@ export default class SplitContainer extends React.Component {
 
     const sideName =
       props.orientation == 'horizontal'
-        ? nextCollapsedIndex == 1 ? 'bottom' : 'top'
-        : nextCollapsedIndex == 1 ? 'right' : 'left';
+        ? nextCollapsedIndex == 1
+          ? 'bottom'
+          : 'top'
+        : nextCollapsedIndex == 1
+          ? 'right'
+          : 'left';
     const otherSideName =
       props.orientation == 'horizontal'
-        ? nextCollapsedIndex == 1 ? 'right' : 'left'
-        : nextCollapsedIndex == 1 ? 'bottom' : 'top';
+        ? nextCollapsedIndex == 1
+          ? 'right'
+          : 'left'
+        : nextCollapsedIndex == 1
+          ? 'bottom'
+          : 'top';
 
     const marginName = `margin${toUpperFirst(sideName)}`;
 
@@ -624,11 +636,9 @@ export default class SplitContainer extends React.Component {
         if (child.props.isSplitContainerSide) {
           if (i == 1) {
             secondProps = child.props;
-            // i++;
           }
           if (i == 0) {
             firstProps = child.props;
-            // i++;
           }
 
           children.push(child.props.children);
@@ -855,9 +865,6 @@ export default class SplitContainer extends React.Component {
     const otherIndex = 1 - splitAtIndex;
     const hasCollapsed = collapsedIndex != undefined;
 
-    // const splitAtStyle = styles[splitAtIndex];
-    // const otherStyle = styles[otherIndex];
-
     let minSize = props.minSize;
     let maxSize = props.maxSize;
 
@@ -987,7 +994,7 @@ export default class SplitContainer extends React.Component {
         flex: null,
         flexGrow: 1,
         flexShrink: 0,
-        flexBasis: 'auto', //0,
+        flexBasis: 'auto',
         className: join(
           props.classNames[0],
           props.firstProps ? props.firstProps.className : null
@@ -998,7 +1005,7 @@ export default class SplitContainer extends React.Component {
         flex: null,
         flexGrow: 1,
         flexShrink: 0,
-        flexBasis: 'auto', //0,
+        flexBasis: 'auto',
         className: join(
           props.classNames[1],
           props.secondProps ? props.secondProps.className : null
@@ -1445,11 +1452,6 @@ export default class SplitContainer extends React.Component {
 
   handleSplitterDragStart() {
     const props = this.p;
-    // const fn = props[props.onDragStartName];
-
-    // if (typeof fn == 'function') {
-    //   fn(diff, event);
-    // }
 
     const nodes = this.getNodes();
     const sizes = nodes.map(getOffsetSize);
@@ -1508,8 +1510,7 @@ export default class SplitContainer extends React.Component {
         return;
       }
 
-      const dragPosition = this.splitterPosition + offset; // this.scrollValue;
-
+      const dragPosition = this.splitterPosition + offset;
       const { value, constrained } = this.constrain(dragPosition, {
         min: this.splitterMin,
         max: this.splitterMax
@@ -1528,7 +1529,7 @@ export default class SplitContainer extends React.Component {
       } else {
         this.setState({
           ...draggingState,
-          dragPosition: value, // - this.scrollValue,
+          dragPosition: value,
           constrained
         });
       }
@@ -1602,13 +1603,11 @@ export default class SplitContainer extends React.Component {
       value = typeof value == 'string' ? `-${value}` : -value;
     }
 
-    // if (this.props.splitAt == null) {
     if (callback) {
       callback({
         splitAt: value
       });
     }
-    // }
 
     this.props.onResize(value);
   }

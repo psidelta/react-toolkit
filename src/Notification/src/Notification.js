@@ -650,8 +650,6 @@ Notification.defaultProps = {
   moveTransition: true,
   showAnimation: true,
   hideAnimation: true
-  // hideTransitionDuration: 200,
-  // showTransitionDuration: 200,
 };
 
 Notification.propTypes = {

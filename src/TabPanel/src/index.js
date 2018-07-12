@@ -133,7 +133,6 @@ export default class ZippyTabPanel extends Component {
       const childProps = child.props || {};
 
       if (childProps.isTabPanelTab) {
-        // children.push(childProps.children);
         children.push(child);
 
         if (props.transition && child.props.children) {
@@ -265,7 +264,9 @@ export default class ZippyTabPanel extends Component {
       };
       const getOtherChild = () => {
         return this.p.initialStrategy == 'one'
-          ? dir == 1 ? this.wrapper.lastChild : this.wrapper.firstChild
+          ? dir == 1
+            ? this.wrapper.lastChild
+            : this.wrapper.firstChild
           : this.wrapper.children[newActiveIndex];
       };
 
@@ -299,7 +300,7 @@ export default class ZippyTabPanel extends Component {
           if (!this.wrapper) {
             this.onBodyTransitionEnd();
           }
-          // debugger
+
           const otherChild = getOtherChild();
 
           const wrapperHeight =

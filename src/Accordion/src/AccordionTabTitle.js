@@ -67,7 +67,6 @@ class ZippyAccordionTabTitle extends Component {
 
   componentDidMount() {
     this.computeRotatedAccordionTitleDimmensions();
-    // this.applyTooltipIfNeeded();
   }
 
   componentDidUpdate() {
@@ -340,7 +339,6 @@ class ZippyAccordionTabTitle extends Component {
     };
 
     if (typeOfTabTitle === 'string' && showTooltip) {
-      // domProps.title = tabTitle;
       domProps['data-tooltip'] = tabTitle;
     }
 

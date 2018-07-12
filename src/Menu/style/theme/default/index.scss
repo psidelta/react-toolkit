@@ -174,7 +174,6 @@
   }
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__row--checked {
-    // background-color: $ZIPPY_MENU_MAIN_COLOR;
   }
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__row--over {
@@ -187,15 +186,11 @@
     }
 
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
-      // color: $ZIPPY_MENU-ITEM_OVER_COLOR;
     }
   }
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__row--expanded {
     // not applied in this case
-    // background-color: $ZIPPY_MENU_ITEM_EXPANDED_BACKGROUND;
-    // color: $ZIPPY_MENU_ITEM_EXPANDED_COLOR;
-    // fill: $ZIPPY_MENU_ITEM_EXPANDED_COLOR;
     .#{$ZIPPY_MENU_ROOT_CLASS}__cell {
     }
   }
@@ -237,7 +232,6 @@
     height: $ZIPPY_MENU_CELL_HEIGHT;
 
     &:first-child {
-      // padding-left: $ZIPPY_MENU_FIRST_CELL_PADDING_LEFT;
     }
 
     &:last-child {
@@ -254,7 +248,6 @@
 
     &:last-child {
       padding-right: 0;
-      // padding-left: $ZIPPY_MENU_FIRST_CELL_PADDING_LEFT;
     }
   }
 
@@ -296,7 +289,6 @@
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
     color: $ZIPPY_MENU_DESCRIPTION_COLOR;
-    // padding-left: 19px;
     padding-right: 6px;
     text-align: end;
   }
@@ -304,13 +296,12 @@
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
   .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
-    // padding-right: 19px;
     padding-left: 6px;
   }
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--icon {
     padding-right: 3px;
-    // padding-left: 12px;
+
     svg {
       vertical-align: middle;
       fill: $ZIPPY_MENU_ICON_COLOR;
@@ -382,8 +373,6 @@
     }
 
     &:hover {
-      // fill: $ZIPPY_MENU_MAIN_COLOR;
-      // background: $ZIPPY_MENU_SCROLL_ARROW_BACKGROUND_OVER;
     }
 
     &--direction-up {

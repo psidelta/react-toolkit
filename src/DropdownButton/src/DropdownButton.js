@@ -76,12 +76,10 @@ class ZippyDropDownButton extends Component {
       });
     }
 
-    // global.addEventListener('mousedown', this.handleClickOutside);
     global.addEventListener('click', this.handleClickOutside);
   }
 
   componentWillUnmount() {
-    // global.removeEventListener('mousedown', this.handleClickOutside);
     global.removeEventListener('click', this.handleClickOutside);
     global.removeEventListener('scroll', this.handleWindowScroll, {
       capture: true
@@ -103,10 +101,6 @@ class ZippyDropDownButton extends Component {
       this.getExpanded() && `${props.rootClassName}--expanded`,
       props.rtl ? `${props.rootClassName}--rtl` : `${props.rootClassName}--ltr`
     );
-
-    // if (!props.items || (props.items && props.items.length === 0)) {
-    //   return this.renderButton();
-    // }
 
     return (
       <div
@@ -305,9 +299,6 @@ class ZippyDropDownButton extends Component {
 
   renderArrow() {
     const { props } = this;
-    // if (props.arrow === false || !props.items) {
-    //   return null;
-    // }
 
     let result = null;
     if (props.arrow !== true) {

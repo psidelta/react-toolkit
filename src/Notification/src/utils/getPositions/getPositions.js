@@ -48,7 +48,6 @@ function getPositions({
   // increase size of box if it has offset
   boxes = correctBoxesSizeWithOffset(boxes);
 
-  // debugger;
   positions = getPositionsRelativeToBottomRight({
     boxes,
     stackingWrap,
@@ -65,12 +64,10 @@ function getPositions({
   // correct position according to offset
   positions = adjustPositionWithOffset(positions);
 
-  // if (!relativeToViewport) {
   positions = getPositionsRelativeToRegion({
     region,
     positions
   });
-  // }
 
   /**
    * If is center remove

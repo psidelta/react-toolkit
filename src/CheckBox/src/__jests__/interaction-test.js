@@ -10,7 +10,6 @@ import { findDOMNode } from 'react-dom';
 
 import { mount } from 'enzyme';
 import Check from '../CheckBox';
-//import '../../style/index.scss';
 
 const CHECKED = 'checked';
 const INDETERMINATE = 'indeterminate';

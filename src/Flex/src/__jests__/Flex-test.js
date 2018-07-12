@@ -11,7 +11,6 @@ import { mount, shallow } from 'enzyme';
 
 import { render } from '../../../common/testUtils';
 import { Flex, Item } from '../index';
-// import '../../style/index.scss';
 
 const getStyle = instance => getComputedStyle(findDOMNode(render(instance)));
 

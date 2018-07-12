@@ -504,7 +504,9 @@ class ZippyAccordion extends Component {
   _transitionEndScrollCheck() {
     const { horizontal, multiExpand } = this.props;
     if (horizontal && multiExpand) {
-      const { accordionNode: { offsetHeight, scrollHeight } } = this.refs;
+      const {
+        accordionNode: { offsetHeight, scrollHeight }
+      } = this.refs;
       if (!this._scrollHeight) {
         this._scrollHeight = scrollHeight;
         this.onResize();
@@ -968,7 +970,6 @@ ZippyAccordion.defaultProps = {
 
   rtl: false,
   expandOnToolOnly: false,
-  // expandToolPosition: 'end',
   enableKeyboardNavigation: true,
 
   theme: 'default',

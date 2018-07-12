@@ -57,12 +57,6 @@ class ZippyColorPickerInput extends Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.value !== this.props.value) {
-  //     this.setExpanded(false);
-  //   }
-  // }
-
   render() {
     const { props, state } = this;
     const className = join(

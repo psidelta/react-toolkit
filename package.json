@@ -42,7 +42,8 @@
       "declaration-bang-space-before": null,
       "selector-pseudo-element-colon-notation": null,
       "declaration-colon-newline-after": null,
-      "selector-descendant-combinator-no-non-space": null
+      "selector-descendant-combinator-no-non-space": null,
+      "value-list-comma-newline-after": null
     }
   },
   "lint-staged": {

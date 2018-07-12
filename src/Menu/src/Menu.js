@@ -177,7 +177,6 @@ class ZippyMenu extends Component {
         onBlur={this.handleOnBlur}
         className={className}
         style={style}
-        onMouseOver={this.handleMouseOver}
       >
         {this.state.activeSubMenuIndex !== null &&
           this.renderSubMenu(props, state)}
@@ -275,7 +274,6 @@ class ZippyMenu extends Component {
               style: {
                 ...columns.style,
                 ...props.labelStyle
-                // ...props.item.labelStyle
               }
             };
           }
@@ -400,7 +398,6 @@ class ZippyMenu extends Component {
     return {
       menuHasSubmenu,
       expanderStyle: props.expanderStyle,
-      // columns: props.columns,
       expanderSize: props.expanderSize,
       globalCellStyle: props.cellStyle,
       itemDisabledStyle: props.itemDisabledStyle,
@@ -484,7 +481,6 @@ class ZippyMenu extends Component {
     const index = this.state.activeSubMenuIndex;
     const items = this.getItemsByIndex(index);
     const item = this.props.items[index];
-    // const alignOffset = props.submenuAlignOffset;
 
     const overridingProps = {
       ...this.props.submenuProps,
@@ -499,7 +495,6 @@ class ZippyMenu extends Component {
     const menuProps = {
       ...this.props, // this must be first, so items are overwritten
       ...overridingProps,
-      // alignOffset,
       items,
       depth: props.depth + 1,
       ref: this.setSubMenuRef,
@@ -521,7 +516,6 @@ class ZippyMenu extends Component {
       expander: props.expander,
       onSelectionChange: this.handleSubmenuSelectionChange,
       alignPosition: state.submenuAlignPosition
-      //    defaultFocusedItem: 0,
     };
 
     delete menuProps.autoFocus;
@@ -633,12 +627,6 @@ class ZippyMenu extends Component {
     this.onActivate();
   }
 
-  handleMouseOver(event) {
-    // if (event.target === this.node) {
-    //   this.onActivate();
-    // }
-  }
-
   handleMouseLeave() {
     this.setNextSubmenu();
 
@@ -669,7 +657,6 @@ class ZippyMenu extends Component {
      */
     const stop = event => {
       event.stopPropagation();
-      // event.preventDefault()
     };
 
     stop(event);
@@ -1214,7 +1201,6 @@ class ZippyMenu extends Component {
             if (this.componentIsMounted) {
               this.setState({
                 transitionEnded: true
-                // transitionStart: false
               });
             }
           }, 16); // transition end
@@ -1272,8 +1258,6 @@ class ZippyMenu extends Component {
             )}px, 0px`,
             top: 0,
             left: 0
-            // left: newLeft,
-            // top: newTop
           };
         }
 
@@ -1490,11 +1474,6 @@ class ZippyMenu extends Component {
   }
 
   handleSubmenuSelectionChange(selected) {
-    // const newSelected = {
-    //   ...this.getSelected(),
-    //   ...selected
-    // };
-
     this.setSelected(selected);
   }
 

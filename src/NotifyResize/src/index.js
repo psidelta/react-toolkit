@@ -269,12 +269,6 @@ class ZippyNotifyResize extends React.Component {
     const fn = this.props.useRaf ? requestAnimationFrame : immediateFn;
 
     fn(() => {
-      // if (this.props.useWillChange && !this.willChangeUsed) {
-      //   node.style.willChange = 'transform';
-      //   node.style.opacity = 1;
-      //   this.willChangeUsed = true;
-      // }
-
       if (typeof this.props.measureSize == 'function') {
         size = this.props.measureSize(node, notifyResize);
       } else {

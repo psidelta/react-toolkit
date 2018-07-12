@@ -20,14 +20,12 @@
   }
 
   .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node__tree-line__horizontal {
-    // min-width: 10px;
   }
 
   .#{$ZIPPY_TREE_VIEW_ROOT_CLASS}__node {
     position: relative;
 
     &:first-child {
-      // padding-top: 5px;
     }
 
     &:last-child {

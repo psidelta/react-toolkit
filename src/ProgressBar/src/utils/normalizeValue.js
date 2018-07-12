@@ -10,7 +10,6 @@
  */
 function normalizeValue({ value, min, max }) {
   if (value == undefined || null) {
-    // 	console.error('value must be nonnull')
     return min;
   }
 
