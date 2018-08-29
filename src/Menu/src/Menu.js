@@ -1263,7 +1263,7 @@ class ZippyMenu extends Component {
 
         if (constrainRegion) {
           positionStyle = positionStyle || {};
-          if (actualRegion.bottom > constrainRegion.bottom) {
+          if (actualRegion.bottom >= constrainRegion.bottom) {
             positionStyle.maxHeight = constrainRegion.bottom - actualRegion.top;
           }
         }
