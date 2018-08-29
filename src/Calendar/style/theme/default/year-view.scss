@@ -36,13 +36,11 @@
   }
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__year-view-month--active {
-    // border: 2px solid $ZIPPY_CALENDAR_ACTIVE_COLOR;
   }
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__year-view-month--value {
     color: #495e85;
     background: #e8f2ff padding-box;
-    // border: 2px solid $ZIPPY_CALENDAR_ACTIVE_COLOR;
   }
 
   .#{$ZIPPY_CALENDAR_ROOT_CLASS}__year-view-month--active.#{$ZIPPY_CALENDAR_ROOT_CLASS}__date-format-spinner__year-view-month--value {

@@ -158,15 +158,11 @@ export default class Splitter extends React.Component {
               ? {
                   top: 0,
                   width: 2 * leftMargin,
-                  // left: -leftMargin,
-                  // right: -leftMargin,
                   bottom: 0
                 }
               : {
                   left: 0,
                   height: 2 * leftMargin,
-                  // top: -leftMargin,
-                  // bottom: -leftMargin,
                   right: 0
                 }
           }
@@ -313,7 +309,9 @@ export default class Splitter extends React.Component {
           // so we are expanding
           collapsedIndex
         : // otherwise, we are collapsing
-          direction == 1 ? 1 : 0;
+          direction == 1
+          ? 1
+          : 0;
 
     const fn = collapsedIndex === index ? onExpand : onCollapse;
 

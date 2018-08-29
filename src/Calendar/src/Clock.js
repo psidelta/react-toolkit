@@ -54,10 +54,6 @@ export default class Clock extends Component {
       time = props.defaultTime == true ? Date.now() : +props.defaultTime;
     }
 
-    // if (time === undefined) {
-    //   seconds = 0
-    // }
-
     this.state = {};
 
     if (seconds !== undefined) {

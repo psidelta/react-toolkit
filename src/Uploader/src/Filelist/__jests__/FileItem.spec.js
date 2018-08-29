@@ -245,7 +245,6 @@ describe('FileItem', () => {
         const triggerUploadWrapper = component.find(
           `div.${CLASS_NAME}__upload-button__trigger`
         );
-        // .first();
 
         triggerUploadWrapper.simulate('click');
         expect(onUploadClickSpy).toHaveBeenCalledTimes(1);

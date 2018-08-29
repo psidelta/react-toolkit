@@ -501,8 +501,6 @@ ZippyProgressBar.defaultProps = {
   springConfig: {},
 
   // Step
-  // step: null,
-  // tick: null,
   showSteps: true,
   renderStep: null,
   renderTick: null,
@@ -568,7 +566,6 @@ ZippyProgressBar.propTypes = {
   indeterminate: PropTypes.bool,
 
   // style
-  // style: PropTypes.object,
   completeStyle: PropTypes.object,
   incompleteStyle: PropTypes.object,
   indeterminateBarStyle: PropTypes.object,

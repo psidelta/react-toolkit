@@ -140,7 +140,7 @@ FileExtensionIcon.propTypes = {
   file: PropTypes.object,
   extension: PropTypes.string,
   showStartingDot: PropTypes.bool,
-  renderExtensionBox: PropTypes.func, //{ extension: String, color: String, Boolean }
+  renderExtensionBox: PropTypes.func,
   colors: PropTypes.object,
   unknownExtensionColor: PropTypes.string
 };

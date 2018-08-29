@@ -158,8 +158,4 @@ describe('image file preview', () => {
       );
     });
   });
-
-  // describe('onReady', () => {
-  // it('should call onReady when image loaded');
-  // });
 });

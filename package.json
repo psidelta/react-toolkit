@@ -2,7 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "1.0.17",
+  "version": "1.0.30",
   "repository": {
     "type": "git",
     "url": "https://github.com/zippytech/react-toolkit.git"
@@ -42,7 +42,8 @@
       "declaration-bang-space-before": null,
       "selector-pseudo-element-colon-notation": null,
       "declaration-colon-newline-after": null,
-      "selector-descendant-combinator-no-non-space": null
+      "selector-descendant-combinator-no-non-space": null,
+      "value-list-comma-newline-after": null
     }
   },
   "lint-staged": {
@@ -135,6 +136,7 @@
     "@zippytech/region-align": "^3.0.6",
     "@zippytech/uglified": "^2.0.1",
     "lodash.throttle": "^4.1.1",
+    "react-lifecycles-compat": "^3.0.4",
     "tinycolor2": "^1.4.1",
     "xhr": "^2.4.0"
   },

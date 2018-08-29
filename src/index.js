@@ -18,6 +18,7 @@ import ToolBar from './ToolBar';
 import TextInput from './TextInput';
 import TextArea from './TextArea';
 import LoadMask from './LoadMask';
+import Ripple from './Ripple';
 import Menu from './Menu';
 import MessageWindow from './MessageWindow';
 import Window from './Window';
@@ -61,8 +62,6 @@ import Calendar, {
 } from './Calendar';
 
 export {
-
-
   // ColorPalette,
   // ColorPicker,
   // ColorPickerInput,
@@ -105,6 +104,7 @@ export {
   SplitContainer,
   TextArea,
   TextInput,
+  Ripple,
   TabPanel,
   Tab,
   TabStrip,

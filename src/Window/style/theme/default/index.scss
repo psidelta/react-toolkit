@@ -44,7 +44,6 @@
     fill: $ZIPPY_WINDOW_TITLE_COLOR;
     background: $ZIPPY_WINDOW_TITLE_BAR_BACKGROUND;
     min-height: $ZIPPY_WINDOW_TITLE_BAR_MIN_HEIGHT;
-    // padding-top: $ZIPPY_WINDOW_BORDER_SIZE;
 
     &--position-top {
       border-bottom: $ZIPPY_WINDOW_BORDER_BOTTOM;
@@ -98,7 +97,6 @@
     position: relative;
     background: none;
     border: none;
-    // padding: $ZIPPY_WINDOW_TOOLS_ICONS_PADING;
     margin: $ZIPPY_WINDOW_TOOLS_ICONS_MARGIN;
     cursor: pointer;
     transition: all 0.2s;

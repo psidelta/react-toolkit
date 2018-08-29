@@ -350,10 +350,6 @@ export default class MonthView extends Component {
     return 1;
   }
 
-  // handleViewMouseLeave(){
-  //   this.state.range && this.setState({ range: null })
-  // }
-
   preparePrevNextClassName(timestamp, props) {
     const { viewMonthStart, viewMonthEnd, rootClassName } = props;
     const before = timestamp < viewMonthStart;
@@ -424,8 +420,7 @@ export default class MonthView extends Component {
         rangeStart = props.rangeStart;
       }
 
-      // const rangeName = !props.partialRange ? 'hover-range' : 'range'
-      const rangeName = 'range'; // hoverRange ? 'range' : 'hover-range'
+      const rangeName = 'range';
       if (rangeStart && dateMoment.isSame(rangeStart)) {
         className.push(`${rootClassName}-day--${rangeName}-start`);
         className.push(`${rootClassName}-day--in-${rangeName}`);
@@ -783,8 +778,6 @@ export default class MonthView extends Component {
         return this.renderNavBarComponent(
           assignDefined(
             {
-              // prevDisabled,
-              // nextDisabled,
               minDate: props.minDate,
               maxDate: props.maxDate,
               theme,
@@ -1294,7 +1287,7 @@ MonthView.propTypes = {
   cleanup: PropTypes.func,
   navigate: PropTypes.func,
   onRangeChange: PropTypes.func,
-  onHoverRangeChange: PropTypes.func, // x
+  onHoverRangeChange: PropTypes.func,
   renderNavBar: PropTypes.func,
   select: PropTypes.func,
   renderChildren: PropTypes.func,

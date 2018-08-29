@@ -456,8 +456,8 @@ ZippyPaginationToolbar.defaultProps = {
   pageText: 'Page ',
   ofText: ' of ',
   perPageText: 'Results per page',
-  rootClassName: 'zippy-react-pagination-toolbar',
-  showingText: 'Showing '
+  showingText: 'Showing ',
+  rootClassName: 'zippy-react-pagination-toolbar'
 };
 
 ZippyPaginationToolbar.propTypes = {

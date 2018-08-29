@@ -201,7 +201,7 @@ describe('keyboard navigation', () => {
         `${menuRowClass}--focused`
       );
 
-      // // navigate arrow down
+      // navigate arrow down
       wrapper.simulate('keyDown', { key: 'ArrowDown' });
       expect(
         wrapper
@@ -216,7 +216,7 @@ describe('keyboard navigation', () => {
           .props().className
       ).toContain(`${menuRowClass}--focused`);
 
-      // // navigate arrow up
+      // navigate arrow up
       wrapper.simulate('keyDown', { key: 'ArrowUp' });
       expect(
         wrapper

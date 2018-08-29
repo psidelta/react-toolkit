@@ -339,11 +339,6 @@ export default class TabTitle extends Component {
     });
   }
 
-  componentDidMount() {
-    // findDOMNode(this).addEventListener('touchstart', () => {
-    // });
-  }
-
   onActivate(event) {
     const eventName = this.props.activateEvent;
     const domNode = findDOMNode(this);

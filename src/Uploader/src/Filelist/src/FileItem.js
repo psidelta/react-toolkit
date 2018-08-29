@@ -129,7 +129,6 @@ const getMeaninfulUploaderProgressProps = (uploadProgress, props) => {
 
 const shouldShowJustTheNameOfTheFile = props => {
   const { uploadProgress, invalidDetails, file } = props;
-  // console.log('shouldShowJustTheNameOfTheFile?', !( Object.keys(uploadProgress).length || invalidDetails || file.invalidDetails));
   return !(
     Object.keys(uploadProgress).length ||
     invalidDetails ||
@@ -315,7 +314,6 @@ class FileItem extends Component {
         <div className={`${CLASS_NAME}__upload-button__layout`}>
           {renderUploadButton({
             children: uploadActionText,
-            //disabled: inProgressState || inQuedState || inDoneState,
             disabled: !connected,
             isLabel,
             className: join(

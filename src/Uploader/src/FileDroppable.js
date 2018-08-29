@@ -246,7 +246,6 @@ function FileDroppable(ComponentClass, config = {}) {
         }
         return new Promise(resolve => {
           this.setState(nextStateProps, resolve);
-          // this.setState({ currentFiles: newCurrentFiles });
         });
       });
     }
@@ -319,7 +318,6 @@ function FileDroppable(ComponentClass, config = {}) {
             `File ${file.name} could not be added because it is a directory`
           );
 
-        // setInvalidityReasson(file, 'duplicate', `A file that looks just like ${file.name} already exists`);
         file.valid =
           fileAccepted && validFileSize && fileCountOk && !file.isDirectory;
       });

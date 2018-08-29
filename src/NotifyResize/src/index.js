@@ -19,8 +19,6 @@ const RENDER_HAS_NATIVE_RESIZE_OBSERVER = (
   />
 );
 
-const HUGE_NUMBER = Math.pow(10, 10);
-
 const emptyFn = () => {};
 const immediateFn = fn => fn();
 
@@ -170,6 +168,10 @@ class ZippyNotifyResize extends React.Component {
       this.props.onMount(this);
     }
 
+    if (this.observer) {
+      return;
+    }
+
     this.resetResizeTool(() => {
       if (this.props.notifyOnMount) {
         const {
@@ -267,12 +269,6 @@ class ZippyNotifyResize extends React.Component {
     const fn = this.props.useRaf ? requestAnimationFrame : immediateFn;
 
     fn(() => {
-      // if (this.props.useWillChange && !this.willChangeUsed) {
-      //   node.style.willChange = 'transform';
-      //   node.style.opacity = 1;
-      //   this.willChangeUsed = true;
-      // }
-
       if (typeof this.props.measureSize == 'function') {
         size = this.props.measureSize(node, notifyResize);
       } else {
