@@ -1110,7 +1110,7 @@ class ZippyMenu extends Component {
         props.closeSubmenuRecursively();
       }
 
-      if (props.selectOnClick) {
+      if (props.selectOnClick && itemProps.name !== undefined) {
         this.handleSelectionChange({
           name: itemProps.name,
           value: itemProps.value,
