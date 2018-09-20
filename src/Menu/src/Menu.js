@@ -44,6 +44,11 @@ import {
   alignOffsetRTL
 } from './submenuAlignPositions';
 
+const ua = global.navigator ? global.navigator.userAgent || '' : '';
+const IS_EDGE = ua.indexOf('Edge/') !== -1;
+const IS_MS_BROWSER = IS_EDGE || ua.indexOf('Trident') !== -1;
+const IS_IE = IS_MS_BROWSER && !IS_EDGE;
+
 function emptyFn() {}
 
 const raf = global.requestAnimationFrame;
@@ -782,7 +787,7 @@ class ZippyMenu extends Component {
       if (!this.hasGeneralFocus()) {
         this.dismiss(event);
       }
-    }, 60); //60 is needed for IE11 // TODO improve the way this is handled
+    }, IS_IE ? this.props.hideSubMenuDelay : 20); // a bigger delay is needed for IE11 // TODO improve the way this is handled
   }
 
   dismiss(event) {
