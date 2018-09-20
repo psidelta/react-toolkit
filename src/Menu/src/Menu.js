@@ -151,6 +151,10 @@ class ZippyMenu extends Component {
     this.componentIsMounted = true;
     this.checkAlignment();
     this.setupEnterAnimation();
+
+    if (this.props.autoFocus) {
+      this.focus();
+    }
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -173,8 +177,8 @@ class ZippyMenu extends Component {
 
     return (
       <div
-        {...cleanProps(props, ZippyMenu.propTypes)}
         tabIndex={0}
+        {...cleanProps(props, ZippyMenu.propTypes)}
         ref={this.setRootRef}
         onMouseLeave={this.handleMouseLeave}
         onMouseEnter={this.handleMouseEnter}
@@ -499,6 +503,7 @@ class ZippyMenu extends Component {
     }
     const menuProps = {
       ...this.props, // this must be first, so items are overwritten
+      onDismiss: emptyFn,
       ...overridingProps,
       items,
       depth: props.depth + 1,
@@ -774,7 +779,7 @@ class ZippyMenu extends Component {
     event.stopPropagation();
 
     /**
-     * is prevented when it is closed bu mouse
+     * is prevented when it is closed by mouse
      * action
      */
     if (this.preventOnBlurRecursiveClose) {
@@ -911,11 +916,19 @@ class ZippyMenu extends Component {
           ) {
             // a menu show has occured in the mean-time,
             // so skip hiding the menu
-            this.setSubMenu({
-              menuOffset: this.state.nextOffset,
-              index: this.state.nextActiveSubMenuIndex
-            });
+            this.setSubMenu(
+              {
+                menuOffset: this.state.nextOffset,
+                index: this.state.nextActiveSubMenuIndex
+              },
+              () => {
+                this.focus();
+              }
+            );
+
             return;
+          } else {
+            this.focus();
           }
 
           const mouseHasEnteredSubmenuParentItem =
@@ -1012,13 +1025,16 @@ class ZippyMenu extends Component {
     }
   }
 
-  setSubMenu({ menuOffset, index = null } = {}) {
+  setSubMenu({ menuOffset, index = null } = {}, callback) {
     this.removeMouseMoveListener();
     if (!this.componentIsMounted) {
       return;
     }
 
     if (this.state.activeSubMenuIndex === index) {
+      if (callback) {
+        callback();
+      }
       return;
     }
 
@@ -1026,13 +1042,16 @@ class ZippyMenu extends Component {
       this.onInactivate();
     }
 
-    this.setState({
-      menuOffset,
-      activeSubMenuIndex: index,
-      nextOffset: null,
-      nextTimestamp: null,
-      timestamp: +new Date()
-    });
+    this.setState(
+      {
+        menuOffset,
+        activeSubMenuIndex: index,
+        nextOffset: null,
+        nextTimestamp: null,
+        timestamp: +new Date()
+      },
+      callback
+    );
   }
 
   setNextSubmenu({ menuOffset = null, index = null } = {}) {
@@ -1145,7 +1164,7 @@ class ZippyMenu extends Component {
 
   setupShowHideDelay() {
     const setSubMenu = this.setSubMenu;
-    this.setSubMenu = ({ menuOffset, index } = {}) => {
+    this.setSubMenu = ({ menuOffset, index } = {}, callback) => {
       if (this.showTimeout) {
         clearTimeout(this.showTimeout);
       }
@@ -1158,21 +1177,21 @@ class ZippyMenu extends Component {
       if (index != null) {
         if (this.props.showSubMenuDelay) {
           this.showTimeout = setTimeout(
-            () => setSubMenu({ menuOffset, index }),
+            () => setSubMenu({ menuOffset, index }, callback),
             this.props.showSubMenuDelay
           );
         } else {
-          setSubMenu({ menuOffset, index });
+          setSubMenu({ menuOffset, index }, callback);
         }
       } else {
         // hide
         if (this.props.hideSubMenuDelay) {
           this.hideTimeout = setTimeout(
-            () => setSubMenu({ menuOffset, index }),
+            () => setSubMenu({ menuOffset, index }, callback),
             this.props.hideSubMenuDelay
           );
         } else {
-          setSubMenu({ menuOffset, index });
+          setSubMenu({ menuOffset, index }, callback);
         }
       }
     };
@@ -1389,14 +1408,16 @@ class ZippyMenu extends Component {
   }
 
   hasFocus() {
-    return this.node === (global.document && global.document.activeElement);
+    return global.document
+      ? this.node === global.document.activeElement
+      : false;
   }
 
   hasChildFocus() {
-    return containsNode(
-      this.node,
-      global.document && global.document.activeElement
-    );
+    if (!global.document) {
+      return false;
+    }
+    return containsNode(this.node, global.document.activeElement);
   }
 
   /**

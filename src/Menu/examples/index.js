@@ -391,28 +391,61 @@ class App extends Component {
     this.state = {
       showScrollArrows: false
     };
+
+    let activeElement;
+    setInterval(() => {
+      console.log('.');
+      if (document.activeElement != activeElement) {
+        console.warn('ACTIVE ELEMENT', document.activeElement);
+        activeElement = document.activeElement;
+      }
+    }, 300);
+  }
+
+  showMenu(event) {
+    if (this.state.menu) {
+      return;
+    }
+    this.setState({
+      menu: {
+        top: event.pageY,
+        left: event.pageX
+      }
+    });
+  }
+  hideMenu(event) {
+    this.setState({
+      menu: false
+    });
   }
 
   render() {
     return (
-      <div style={{ border: '1px solid red', padding: 20 }} id="xxx">
-        <Menu
-          autoFocus
-          constrainTo="#xxx"
-          nameProperty="name"
-          valueProperty="value"
-          onDismiss={() => {
-            console.log('hide!!!');
-          }}
-          onChildClick={(event, { item }) => {
-            // called when clicking on any menu/submenu item
-            console.log('You clicked ' + item.label);
-          }}
-          allowUnselect={false}
-          items={items}
-          enableSelection
-          // style={{ height: 200 }}
-        />
+      <div
+        style={{ border: '1px solid red', padding: 20, minHeight: '80vh' }}
+        id="xxx"
+        onClick={this.showMenu.bind(this)}
+      >
+        {this.state.menu ? (
+          <Menu
+            autoFocus
+            alignTo={this.state.menu}
+            nameProperty="name"
+            valueProperty="value"
+            onDismiss={() => {
+              this.hideMenu();
+              // console.error('dismiss hide!!!');
+            }}
+            onChildClick={(event, { item }) => {
+              // called when clicking on any menu/submenu item
+              console.log('You clicked ' + item.label);
+            }}
+            allowUnselect={false}
+            items={items}
+            enableSelection
+            // style={{ height: 200 }}
+          />
+        ) : null}
       </div>
     );
   }
