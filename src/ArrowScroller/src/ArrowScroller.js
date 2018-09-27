@@ -169,12 +169,8 @@ class ZippyArrowScroller extends Component {
     }
 
     const arrowName = vertical
-      ? direction == (this.props.rtl ? 1 : -1)
-        ? 'up'
-        : 'down'
-      : direction == (this.props.rtl ? 1 : -1)
-        ? 'left'
-        : 'right';
+      ? direction == (this.props.rtl ? 1 : -1) ? 'up' : 'down'
+      : direction == (this.props.rtl ? 1 : -1) ? 'left' : 'right';
 
     const scrollInfo = this.scrollInfo;
     const disabled =
@@ -432,6 +428,9 @@ class ZippyArrowScroller extends Component {
   }
 
   setScrollPosition(scrollPos, { force } = {}) {
+    if (!this.componentIsMounted) {
+      return;
+    }
     const scrollInfo = this.scrollInfo;
     if (scrollPos > scrollInfo.maxScrollPos) {
       scrollPos = scrollInfo.maxScrollPos;
