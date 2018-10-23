@@ -11,8 +11,8 @@ import Menu from '../src';
 import NumericInput from '../../NumericInput';
 import '../../NumericInput/style/index.scss';
 
-// import '../../../lib/Menu/index.css';
-import '../style/index.scss';
+import '../../../lib/Menu/index.css';
+// import '../style/index.scss';
 import Icon from './Icon';
 import submenuExpandBugProps from './submenuExpandBugProps';
 import 'typeface-roboto';
@@ -429,11 +429,13 @@ class App extends Component {
         {this.state.menu ? (
           <Menu
             autoFocus
+            nativeScroll={true}
             alignTo={this.state.menu}
             nameProperty="name"
             valueProperty="value"
+            maxHeight={300}
             onDismiss={() => {
-              this.hideMenu();
+              // this.hideMenu();
               // console.error('dismiss hide!!!');
             }}
             onChildClick={(event, { item }) => {

@@ -7,6 +7,7 @@
 
 @import './variables';
 @import '../../Flex/style/index.scss';
+@import '~@zippytech/react-scroll-container-pro/style/index.scss';
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS} {
   max-width: 100%;
@@ -19,6 +20,14 @@
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}--rtl {
   direction: rtl;
+}
+.#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}--native-scroll {
+  transform: translate3d(
+    0px,
+    0px,
+    0px
+  ); // needed since the arrows are fixed and need to have a transformed parent
+  // in order to be positioned correctly
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__inner-wrapper {
@@ -50,6 +59,10 @@
     align-items: center;
   }
 
+  &--native-scroll {
+    position: fixed;
+  }
+
   &--direction-up,
   &--direction-down {
     width: 100%;
@@ -60,6 +73,9 @@
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--auto {
   position: absolute;
   text-align: center;
+  &.#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--native-scroll {
+    position: fixed;
+  }
 }
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS}__arrow--direction-left,

@@ -574,6 +574,8 @@ class ZippyMenu extends Component {
     const scrollProps = {
       ...props.scrollerProps,
       renderScroller: props.renderScroller,
+      nativeScroll: props.nativeScroll,
+      scrollContainerProps: props.scrollContainerProps,
       className,
       notifyResizeDelay: props.notifyResizeDelay,
       ref: this.setScrollerRef,
@@ -1785,6 +1787,8 @@ ZippyMenu.propTypes = {
   defaultSelected: PropTypes.object,
   allowUnselect: PropTypes.bool,
   enableSelection: PropTypes.bool,
+  nativeScroll: PropTypes.bool,
+  scrollContainerProps: PropTypes.object,
   nameProperty: PropTypes.string,
   valueProperty: PropTypes.string,
   renderCheckInput: PropTypes.func,
