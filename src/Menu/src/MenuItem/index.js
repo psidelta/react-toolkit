@@ -264,6 +264,7 @@ class MenuItem extends Component {
       onChange: props.selectOnClick ? emptyFn : onChange,
       iconSize: multiple ? props.checkIconSize : props.radioIconSize,
       name: props.name,
+      disabled: props.disabled,
       checked: props.checked,
       focusable: false,
       supportIndeterminate: false,
@@ -293,6 +294,7 @@ class MenuItem extends Component {
       result = renderFunction({
         domProps: inputProps,
         onChange,
+        disabled: props.disabled,
         checked: props.checked
       });
     }
