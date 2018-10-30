@@ -7,7 +7,7 @@
 
 @import './variables';
 @import '../../Flex/style/index.scss';
-@import '~@zippytech/react-scroll-container-pro/style/index.scss';
+@import '~@zippytech/react-scroll-container/style/index.scss';
 
 .#{$ZIPPY_ARROW_SCROLLER_ROOT_CLASS} {
   max-width: 100%;

@@ -19,7 +19,7 @@ import join from '../../common/join';
 import { Flex, Item } from '../../Flex';
 import { NotifyResize } from '../../NotifyResize';
 import { InertialManager } from '../../InertialScroller';
-import ScrollContainer from '@zippytech/react-scroll-container-pro';
+import ScrollContainer from '@zippytech/react-scroll-container';
 
 import Arrow from './Arrow';
 

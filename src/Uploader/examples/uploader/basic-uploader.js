@@ -11,9 +11,9 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { github } from 'react-syntax-highlighter/dist/styles';
 // import 'typeface-roboto';
 import Uploader from '../../src/';
-import ScrollContainer from '@zippytech/react-scroll-container-pro';
+import ScrollContainer from '@zippytech/react-scroll-container';
 import VirtualScrollContainer from '@zippytech/react-virtual-scroll-container-pro';
-import '@zippytech/react-scroll-container-pro/index.css';
+import '@zippytech/react-scroll-container/index.css';
 import '@zippytech/react-virtual-scroll-container-pro/index.css';
 
 const renderScroller = props => {
