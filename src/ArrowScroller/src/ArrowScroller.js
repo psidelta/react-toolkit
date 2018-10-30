@@ -184,6 +184,7 @@ class ZippyArrowScroller extends Component {
         <ScrollContainer
           style={{ maxHeight: '100%' }}
           shouldAllowScrollbars={NO_SCROLLBARS}
+          dragToScroll={false}
           {...this.props.scrollContainerProps}
           ref={this.refScrollContainer}
           children={finalChildren}
