@@ -220,7 +220,9 @@ const getSuffix = props => {
     if (currencySymbol) {
       return currencySymbol;
     }
-    return getCurrencyForCountryCode(locale || navigator.language);
+    return getCurrencyForCountryCode(
+      locale || (global.navigator ? global.navigator.language : '')
+    );
   }
 
   if (format === 'percentage') {
@@ -238,7 +240,9 @@ const getPrefix = props => {
     if (currencySymbol) {
       return currencySymbol;
     }
-    return getCurrencyForCountryCode(locale || navigator.language);
+    return getCurrencyForCountryCode(
+      locale || (global.navigator ? global.navigator.language : '')
+    );
   }
 };
 
