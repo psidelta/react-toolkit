@@ -19,10 +19,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ArrowScroller
-          vertical
-          style={{ height: 400, overflow: 'hidden', width: 300 }}
-        >
+        <ArrowScroller vertical style={{ height: 400, overflow: 'hidden' }}>
           <table>
             <tbody>
               <tr>

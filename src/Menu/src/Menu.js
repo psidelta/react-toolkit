@@ -44,10 +44,7 @@ import {
   alignOffsetRTL
 } from './submenuAlignPositions';
 
-const ua = global.navigator ? global.navigator.userAgent || '' : '';
-const IS_EDGE = ua.indexOf('Edge/') !== -1;
-const IS_MS_BROWSER = IS_EDGE || ua.indexOf('Trident') !== -1;
-const IS_IE = IS_MS_BROWSER && !IS_EDGE;
+import { IS_IE } from '../../common/ua';
 
 function emptyFn() {}
 

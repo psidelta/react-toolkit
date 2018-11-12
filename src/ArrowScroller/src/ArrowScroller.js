@@ -19,6 +19,7 @@ import join from '../../common/join';
 import { Flex, Item } from '../../Flex';
 import { NotifyResize } from '../../NotifyResize';
 import { InertialManager } from '../../InertialScroller';
+import { IS_MS_BROWSER } from '../../common/ua';
 import ScrollContainer from '@zippytech/react-scroll-container';
 
 import Arrow from './Arrow';
@@ -185,6 +186,7 @@ class ZippyArrowScroller extends Component {
           style={{ maxHeight: '100%' }}
           shouldAllowScrollbars={NO_SCROLLBARS}
           dragToScroll={false}
+          emptyScrollOffset={0}
           {...this.props.scrollContainerProps}
           ref={this.refScrollContainer}
           children={finalChildren}
@@ -586,7 +588,7 @@ ZippyArrowScroller.defaultProps = {
   scrollIntoViewOffset: 1,
   vertical: false,
   scrollOnClick: false,
-  nativeScroll: true,
+  nativeScroll: !IS_MS_BROWSER,
   scrollOnMouseEnter: true,
   rtl: false,
   useTransformOnScroll: false,
