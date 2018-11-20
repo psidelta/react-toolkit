@@ -345,7 +345,9 @@ class ZippyArrowScroller extends Component {
     const size =
       this.availableSize ||
       (this.props.nativeScroll
-        ? this.scrollerTarget.scrollTopMax
+        ? this.props.vertical
+          ? this.scrollerTarget.scrollTopMax
+          : this.scrollerTarget.scrollLeftMax
         : this.root[this.getOffsetSizeName()] - this.getBorderAndPaddingSize());
 
     this.availableSize = size;
@@ -418,7 +420,9 @@ class ZippyArrowScroller extends Component {
     });
 
     if (this.props.nativeScroll) {
-      scrollInfo.maxScrollPos = this.scrollerTarget.scrollTopMax;
+      scrollInfo.maxScrollPos = this.props.vertical
+        ? this.scrollerTarget.scrollTopMax
+        : this.scrollerTarget.scrollLeftMax;
     } else {
       if (listSize > availableSize) {
         scrollInfo.maxScrollPos = listSize - availableSize;
