@@ -132,7 +132,7 @@
     "@zippytech/drag-helper": "^2.0.4",
     "@zippytech/has-touch": "^2.0.2",
     "@zippytech/react-class": "^4.0.6",
-    "@zippytech/react-scroll-container": "^2.0.14",
+    "@zippytech/react-scroll-container": "^2.0.15",
     "@zippytech/region": "^3.0.8",
     "@zippytech/region-align": "^3.0.6",
     "@zippytech/uglified": "^2.0.1",
