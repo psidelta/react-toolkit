@@ -64,6 +64,7 @@ class ZippyArrowScroller extends Component {
     });
 
     this.updateScrollInfo = this.updateScrollInfo.bind(this);
+    this.rafUpdateScrollInfo = this.rafUpdateScrollInfo.bind(this);
     this.onContainerScroll = this.onContainerScroll.bind(this);
     this.setStripRef = ref => {
       this.strip = findDOMNode(ref);
@@ -206,8 +207,8 @@ class ZippyArrowScroller extends Component {
           ref={this.refScrollContainer}
           onResize={
             scrollContainerProps && scrollContainerProps.onResize
-              ? callAll(scrollContainerProps.onResize, this.updateScrollInfo)
-              : this.updateScrollInfo
+              ? callAll(scrollContainerProps.onResize, this.rafUpdateScrollInfo)
+              : this.rafUpdateScrollInfo
           }
           children={finalChildren}
           onContainerScroll={this.onContainerScroll}
@@ -426,6 +427,10 @@ class ZippyArrowScroller extends Component {
       scrolling: false,
       activeScroll: 0
     });
+  }
+
+  rafUpdateScrollInfo() {
+    raf(this.updateScrollInfo);
   }
 
   updateScrollInfo() {
