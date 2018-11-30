@@ -24,6 +24,15 @@ import ScrollContainer from '@zippytech/react-scroll-container';
 
 import Arrow from './Arrow';
 
+const VIEW_STYLE_VERTICAL = { maxHeight: '100%' };
+const VIEW_STYLE_HORIZONTAL = { maxWidth: '100%' };
+
+const callAll = (...fns) => (...args) => {
+  fns.forEach(fn => {
+    fn && fn(...args);
+  });
+};
+
 const pint = global.parseInt;
 const raf = global.requestAnimationFrame;
 const getCompStyle = global.getComputedStyle;
@@ -54,6 +63,7 @@ class ZippyArrowScroller extends Component {
       trailing: true
     });
 
+    this.updateScrollInfo = this.updateScrollInfo.bind(this);
     this.onContainerScroll = this.onContainerScroll.bind(this);
     this.setStripRef = ref => {
       this.strip = findDOMNode(ref);
@@ -181,14 +191,24 @@ class ZippyArrowScroller extends Component {
     ];
 
     if (nativeScroll) {
+      const { scrollContainerProps } = this.props;
+      let viewStyle = vertical ? VIEW_STYLE_VERTICAL : VIEW_STYLE_HORIZONTAL;
+      if (scrollContainerProps && scrollContainerProps.viewStyle) {
+        viewStyle = { ...scrollContainerProps.viewStyle, ...viewStyle };
+      }
       finalChildren = (
         <ScrollContainer
           style={{ maxHeight: '100%' }}
           shouldAllowScrollbars={NO_SCROLLBARS}
           dragToScroll={false}
           emptyScrollOffset={0}
-          {...this.props.scrollContainerProps}
+          viewStyle={viewStyle}
           ref={this.refScrollContainer}
+          onResize={
+            scrollContainerProps && scrollContainerProps.onResize
+              ? callAll(scrollContainerProps.onResize, this.updateScrollInfo)
+              : this.updateScrollInfo
+          }
           children={finalChildren}
           onContainerScroll={this.onContainerScroll}
         />

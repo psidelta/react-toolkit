@@ -49,7 +49,7 @@ class App extends Component {
               <option value="dropdown">dropdown</option>
             </select>
           </div>
-          <ResizableContainer width={385}>
+          <ResizableContainer width={'70vw'}>
             <ToolBar
               // changeButtonStyles={false}
               constrainTo={true}
