@@ -146,6 +146,9 @@ class ZippyMenu extends Component {
 
   componentDidMount() {
     this.componentIsMounted = true;
+    if (this.props.visible === false) {
+      return;
+    }
     this.checkAlignment();
     this.setupEnterAnimation();
 
@@ -155,6 +158,12 @@ class ZippyMenu extends Component {
   }
 
   componentWillReceiveProps(nextProps, nextState) {
+    if (this.props.visible && !nextProps.visible) {
+      this.setState({
+        positionStyle: null
+      });
+    }
+
     if (
       (!this.props.visible && nextProps.visible) ||
       !shallowequal(this.props.alignTo, nextProps.alignTo) ||
@@ -1238,6 +1247,9 @@ class ZippyMenu extends Component {
    */
   checkAlignment(props) {
     props = props || this.props;
+    if (props.visible === false) {
+      return;
+    }
     if ((props.constrainTo || props.alignTo) && !props.subMenu) {
       const doAlign = () => {
         const props = this.props;
@@ -1279,12 +1291,14 @@ class ZippyMenu extends Component {
           const newTop = actualRegion.top - offsetParentRegion.top;
           const newLeft = actualRegion.left - offsetParentRegion.left;
 
+          const transform = `translate3d(${Math.floor(newLeft)}px, ${Math.floor(
+            newTop
+          )}px, 0px)`;
+
           positionStyle = {
             // using transform does not cause a browser layout on the document root
             // while left/top does
-            transform: `translate3d(${Math.floor(newLeft)}px, ${Math.floor(
-              newTop
-            )}px, 0px`,
+            transform,
             top: 0,
             left: 0
           };
@@ -1301,9 +1315,9 @@ class ZippyMenu extends Component {
           this.setState({ positionStyle });
         }
       };
-      this.node.style.transform = 'translate3d(0px, 0px, 0px)';
-      this.node.style.top = '0px';
-      this.node.style.left = '0px';
+      // this.node.style.transform = 'translate3d(0px, 0px, 0px)';
+      // this.node.style.top = '0px';
+      // this.node.style.left = '0px';
       raf(doAlign);
     }
   }

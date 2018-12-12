@@ -8,8 +8,13 @@
 import assign from '../../../common/assign';
 import getMinMaxSize from '../../../common/getMinMaxSize';
 
+const defaultStyle = {
+  left: 0,
+  top: 0,
+  transform: 'translate3d(0px, 0px, 0px)'
+};
 function prepareStyle(props, state) {
-  var style = {};
+  let style = { ...defaultStyle };
 
   if (props.subMenu) {
     assign(style, props.submenuStyle);
@@ -36,7 +41,7 @@ function prepareStyle(props, state) {
     assign(style, coords);
   }
 
-  if (state.positionStyle) {
+  if (state.positionStyle && props.visible !== false) {
     style = { ...style, ...state.positionStyle };
   }
 

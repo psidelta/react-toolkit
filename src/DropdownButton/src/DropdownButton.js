@@ -265,6 +265,7 @@ class ZippyDropDownButton extends Component {
       onChildClick: props.onMenuClick,
       rtl: props.rtl,
       style,
+      visible: expanded,
       theme: 'default',
       className: `${props.rootClassName}__menu`,
       onDismiss: this.onMenuDismiss
