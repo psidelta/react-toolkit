@@ -796,11 +796,14 @@ class ZippyMenu extends Component {
 
     this.dismissTriggeredByBlur = true;
 
-    setTimeout(() => {
-      if (!this.hasGeneralFocus()) {
-        this.dismiss(event);
-      }
-    }, IS_IE ? this.props.hideSubMenuDelay : 20); // a bigger delay is needed for IE11 // TODO improve the way this is handled
+    setTimeout(
+      () => {
+        if (!this.hasGeneralFocus()) {
+          this.dismiss(event);
+        }
+      },
+      IS_IE ? this.props.hideSubMenuDelay : 20
+    ); // a bigger delay is needed for IE11 // TODO improve the way this is handled
   }
 
   dismiss(event) {
@@ -1259,7 +1262,7 @@ class ZippyMenu extends Component {
         if (!domNode) {
           return;
         }
-
+        domNode.style.visibility = '';
         const alignOffset = prepareAlignOffset(props.alignOffset);
         const domRegion = Region.from(domNode);
         const actualRegion = domRegion.clone();
@@ -1316,6 +1319,7 @@ class ZippyMenu extends Component {
         }
       };
       this.node.style.transform = 'translate3d(0px, 0px, 0px)';
+      this.node.style.visibility = 'hidden';
       this.node.style.top = '0px';
       this.node.style.left = '0px';
       raf(doAlign);
