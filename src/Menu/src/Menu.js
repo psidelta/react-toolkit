@@ -1266,8 +1266,14 @@ class ZippyMenu extends Component {
             constrain: constrainRegion
           });
 
+          const offsetParentRect = domNode.offsetParent
+            ? null
+            : domNode.getBoundingClientRect();
           const offsetParentRegion = Region.from(
-            domNode.offsetParent || { top: 0, left: 0 }
+            domNode.offsetParent || {
+              top: offsetParentRect.top,
+              left: offsetParentRect.left
+            }
           );
 
           const newTop = actualRegion.top - offsetParentRegion.top;
@@ -1295,7 +1301,9 @@ class ZippyMenu extends Component {
           this.setState({ positionStyle });
         }
       };
-
+      this.node.style.transform = 'translate3d(0px, 0px, 0px)';
+      this.node.style.top = '0px';
+      this.node.style.left = '0px';
       raf(doAlign);
     }
   }
