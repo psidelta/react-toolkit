@@ -8,13 +8,8 @@
 import assign from '../../../common/assign';
 import getMinMaxSize from '../../../common/getMinMaxSize';
 
-const defaultStyle = {
-  left: 0,
-  top: 0,
-  transform: 'translate3d(0px, 0px, 0px)'
-};
 function prepareStyle(props, state) {
-  let style = { ...defaultStyle };
+  let style = {};
 
   if (props.subMenu) {
     assign(style, props.submenuStyle);

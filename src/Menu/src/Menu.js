@@ -1315,9 +1315,9 @@ class ZippyMenu extends Component {
           this.setState({ positionStyle });
         }
       };
-      // this.node.style.transform = 'translate3d(0px, 0px, 0px)';
-      // this.node.style.top = '0px';
-      // this.node.style.left = '0px';
+      this.node.style.transform = 'translate3d(0px, 0px, 0px)';
+      this.node.style.top = '0px';
+      this.node.style.left = '0px';
       raf(doAlign);
     }
   }
