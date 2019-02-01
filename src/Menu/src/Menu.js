@@ -966,6 +966,9 @@ class ZippyMenu extends Component {
 
     this.itemOverIndex = index;
     if (!hasSubMenu) {
+      if (this.state.activeSubMenuIndex != null) {
+        this.setNextSubmenu({ menuOffset: null, index: null });
+      }
       return;
     }
 

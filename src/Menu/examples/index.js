@@ -21,13 +21,72 @@ import checkIcon from './check-icon.png';
 
 const radioItems = [
   { label: 'Apples' },
-  { label: 'Strawberries' },
+  { label: 'Strawberries', items: [{ label: 'x' }, { label: 'y' }] },
   '-',
   { label: 'Potatoes' },
   { label: 'Tomatoes' },
   { label: 'Onions' }
 ];
 const items = [
+  {
+    label: 'Translate to',
+    menuProps: {
+      dismissOnClick: false
+      // enableSelection: true
+    },
+    items: [
+      {
+        label: 'English',
+        name: 'en',
+        value: 'en'
+      },
+      {
+        label: 'French',
+        name: 'fr',
+        value: 'fr'
+      },
+      {
+        label: 'Baba yetu',
+        name: 'en1',
+        value: 'en1'
+      },
+      {
+        label: 'Spanish',
+        name: 'fr1',
+        value: 'fr1'
+      },
+      {
+        label: 'Romanian',
+        name: 'en2',
+        value: 'en2'
+      },
+      {
+        label: 'Celtic',
+        name: 'fr2',
+        value: 'fr2'
+      },
+      {
+        label: 'Norse',
+        name: 'en3',
+        value: 'en3'
+      },
+      {
+        label: 'Yidish',
+        name: 'fr3',
+        value: 'fr3'
+      },
+      {
+        label: 'German',
+        name: 'de',
+        value: 'de'
+      }
+    ]
+  },
+  {
+    label: 'Translate to Disabled',
+    // disabled: true,
+    items: radioItems
+  },
   {
     icon: <img src={checkIcon} />,
     label: 'Back',
@@ -105,65 +164,6 @@ const items = [
   },
   { label: 'Print...', secondaryLabel: 'Ctrl + P' },
   { label: 'Cast...' },
-  {
-    label: 'Translate to',
-    menuProps: {
-      dismissOnClick: false
-      // enableSelection: true
-    },
-    items: [
-      {
-        label: 'English',
-        name: 'en',
-        value: 'en'
-      },
-      {
-        label: 'French',
-        name: 'fr',
-        value: 'fr'
-      },
-      {
-        label: 'Baba yetu',
-        name: 'en1',
-        value: 'en1'
-      },
-      {
-        label: 'Spanish',
-        name: 'fr1',
-        value: 'fr1'
-      },
-      {
-        label: 'Romanian',
-        name: 'en2',
-        value: 'en2'
-      },
-      {
-        label: 'Celtic',
-        name: 'fr2',
-        value: 'fr2'
-      },
-      {
-        label: 'Norse',
-        name: 'en3',
-        value: 'en3'
-      },
-      {
-        label: 'Yidish',
-        name: 'fr3',
-        value: 'fr3'
-      },
-      {
-        label: 'German',
-        name: 'de',
-        value: 'de'
-      }
-    ]
-  },
-  {
-    label: 'Translate to Disabled',
-    // disabled: true,
-    items: radioItems
-  },
   '-',
   {
     label: 'View page source',
