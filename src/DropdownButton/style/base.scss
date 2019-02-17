@@ -25,7 +25,7 @@
   // default menu style
   .#{$ZIPPY_DROPDOWN_BUTTON_ROOT_CLASS}__menu {
     z-index: 1000;
-    position: fixed;
+    position: absolute; // was fixed before, but had issues on window scroll - see https://zippytech.freshdesk.com/a/tickets/184
     backface-visibility: hidden;
   }
 }

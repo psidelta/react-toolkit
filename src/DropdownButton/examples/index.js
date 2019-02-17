@@ -39,7 +39,7 @@ const items = [
   },
   { label: 'Save' },
   '-',
-  { label: 'Export as' },
+  { label: 'Export as', items: [{ label: 'PDF' }, { label: 'Docx' }] },
   { label: 'Document' }
 ];
 const themeOptions = ['light', 'default'].map(value => {
@@ -71,6 +71,7 @@ class App extends Component {
             renderMenuWhenCollapsed
             theme={this.state.theme}
             items={items}
+            style={{ position: 'absolute', right: 10 }}
             icon={<div>x</div>}
           >
             Hello
@@ -94,6 +95,7 @@ class App extends Component {
         >
           Menu
         </DropDownButton>*/}
+        <div style={{ height: '140vh' }} />
       </div>
     );
   }
