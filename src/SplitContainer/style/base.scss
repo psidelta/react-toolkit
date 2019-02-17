@@ -48,6 +48,7 @@
 
   &--orientation-vertical {
     min-height: 100%;
+    height: 100%; // was recently added because chrome started not showing the vertical scrollbar when content was overflowing
 
     &.#{$ZIPPY_SPLIT_CONTAINER_ROOT_CLASS}__side--collapsed {
       position: absolute;
