@@ -638,14 +638,20 @@ class ZippyMenu extends Component {
   }
 
   // BEHAVIOUR LOGIC
-  handleMouseEnter() {
+  handleMouseEnter(event) {
+    if (typeof this.props.onMouseEnter) {
+      this.props.onMouseEnter(event);
+    }
     this.setState({
       mouseInside: true
     });
     this.onActivate();
   }
 
-  handleMouseLeave() {
+  handleMouseLeave(event) {
+    if (typeof this.props.onMouseLeave) {
+      this.props.onMouseLeave(event);
+    }
     this.setNextSubmenu();
 
     this.setState({
@@ -664,6 +670,9 @@ class ZippyMenu extends Component {
   }
 
   handleKeyDown(event) {
+    if (typeof this.props.onKeyDown === 'function') {
+      this.props.onKeyDown(event);
+    }
     if (!this.props.enableKeyboardNavigation) {
       return;
     }
@@ -784,6 +793,9 @@ class ZippyMenu extends Component {
   }
 
   handleOnBlur(event) {
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(event);
+    }
     event.stopPropagation();
 
     /**
