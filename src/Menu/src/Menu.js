@@ -44,7 +44,7 @@ import {
   alignOffsetRTL
 } from './submenuAlignPositions';
 
-import { IS_IE } from '../../common/ua';
+import { IS_IE, IS_FF } from '../../common/ua';
 
 function emptyFn() {}
 
@@ -639,7 +639,7 @@ class ZippyMenu extends Component {
 
   // BEHAVIOUR LOGIC
   handleMouseEnter(event) {
-    if (typeof this.props.onMouseEnter) {
+    if (typeof this.props.onMouseEnter === 'function') {
       this.props.onMouseEnter(event);
     }
     this.setState({
@@ -649,7 +649,7 @@ class ZippyMenu extends Component {
   }
 
   handleMouseLeave(event) {
-    if (typeof this.props.onMouseLeave) {
+    if (typeof this.props.onMouseLeave === 'function') {
       this.props.onMouseLeave(event);
     }
     this.setNextSubmenu();
@@ -1296,11 +1296,23 @@ class ZippyMenu extends Component {
             constrain: constrainRegion
           });
 
-          const offsetParentRect = domNode.offsetParent
+          let offsetParent = domNode.offsetParent;
+
+          if (
+            IS_FF &&
+            offsetParent === document.body &&
+            getComputedStyle(domNode).position === 'fixed'
+          ) {
+            // FF returns document.body as the offset parent of fixed elements, though it should return null
+            // see https://bugzilla.mozilla.org/show_bug.cgi?id=434678 for details
+            offsetParent = null;
+          }
+          const offsetParentRect = offsetParent
             ? null
             : domNode.getBoundingClientRect();
+
           const offsetParentRegion = Region.from(
-            domNode.offsetParent || {
+            offsetParent || {
               top: offsetParentRect.top,
               left: offsetParentRect.left
             }
