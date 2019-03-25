@@ -76,6 +76,9 @@ class App extends Component {
               {separator}
               {undoButton}
               {redoButton}
+              <button style={{ height: 30 }} id="btn">
+                Button with auto focus
+              </button>
             </ToolBar>
           </ResizableContainer>
         </div>
@@ -84,4 +87,7 @@ class App extends Component {
   }
 }
 
+setTimeout(() => {
+  btn.focus();
+}, 1000);
 render(<App />, document.getElementById('content'));

@@ -16,7 +16,7 @@ import assign from '../../common/assign';
 import debounce from '../../common/debounce';
 import join from '../../common/join';
 
-import { Flex, Item } from '../../Flex';
+import { Flex } from '../../Flex';
 import { NotifyResize } from '../../NotifyResize';
 import { InertialManager } from '../../InertialScroller';
 import { IS_MS_BROWSER } from '../../common/ua';
@@ -58,6 +58,8 @@ class ZippyArrowScroller extends Component {
       activeScroll: 0
     };
 
+    this.onScrollIntoView = this.onScrollIntoView.bind(this);
+
     this.handleResize = debounce(this.handleResize.bind(this), 50, {
       leading: false,
       trailing: true
@@ -81,7 +83,66 @@ class ZippyArrowScroller extends Component {
     };
   }
 
+  onScrollIntoView(event) {
+    const node = this.root;
+
+    const eventTarget = event.target;
+    if (event.target != node) {
+      return;
+    }
+
+    const { scrollLeft, scrollTop } = node;
+
+    if (scrollLeft) {
+      node.scrollLeft = 0;
+
+      // TODO - we should trigger our scroll, but for now
+      // this results in an infinite loop
+      /*
+      global.requestAnimationFrame(() => {
+        if (this.unmounted) {
+          return;
+        }
+
+        this.scrollerTarget.scrollLeft += scrollLeft;
+      });*/
+    }
+    if (scrollTop && eventTarget) {
+      node.scrollTop = 0;
+
+      // TODO - we should trigger our scroll, but for now
+      // this results in an infinite loop
+      /*
+      global.requestAnimationFrame(() => {
+        if (this.unmounted) {
+          return;
+        }
+
+        this.scrollerTarget.scrollTop += scrollTop;
+      });
+      */
+    }
+  }
+
+  setupPassiveScrollListener(node) {
+    node.addEventListener('scroll', this.onScrollIntoView, {
+      passive: true
+    });
+  }
+
+  removePassiveScrollListener(node = findDOMNode(this)) {
+    if (node) {
+      node.removeEventListener('scroll', this.onScrollIntoView, {
+        passive: true
+      });
+    }
+  }
+
   componentDidMount() {
+    const node = findDOMNode(this);
+
+    this.setupPassiveScrollListener(node);
+
     raf(() => {
       const name = this.getOffsetSizeName();
 
@@ -106,6 +167,8 @@ class ZippyArrowScroller extends Component {
 
   componentWillUnmount() {
     this.componentIsMounted = false;
+    this.unmounted = true;
+    this.removePassiveScrollListener();
     if (this.inertialManager) {
       this.inertialManager.removeEventListeners();
     }
@@ -234,12 +297,8 @@ class ZippyArrowScroller extends Component {
     }
 
     const arrowName = vertical
-      ? direction == (this.props.rtl ? 1 : -1)
-        ? 'up'
-        : 'down'
-      : direction == (this.props.rtl ? 1 : -1)
-      ? 'left'
-      : 'right';
+      ? direction == (this.props.rtl ? 1 : -1) ? 'up' : 'down'
+      : direction == (this.props.rtl ? 1 : -1) ? 'left' : 'right';
 
     const scrollInfo = this.scrollInfo;
     const disabled =
