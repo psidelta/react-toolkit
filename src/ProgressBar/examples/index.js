@@ -93,7 +93,11 @@ class App extends React.Component {
     return (
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         <code style={{ marginTop: 10 }}>labelFillColor=rgb(145, 198, 251)</code>
-        <ProgressBar labelPosition="end" value={this.state.value} />
+
+        <ProgressBar
+          labelPosition="start" value={this.state.value}
+        />
+
         <code style={{ marginTop: 10 }}>labelFillColor=rgb(228, 255, 178)</code>
         <ProgressBar
           labelPosition="start"

@@ -51,7 +51,7 @@ class ZippyProgressBar extends Component {
 
   componentDidMount() {
     this.checkLabelOverflow();
-    this.updatePorgressBarSize();
+    this.updateProgressBarSize();
   }
 
   componentDidUpdate(previousProps) {
@@ -455,9 +455,10 @@ class ZippyProgressBar extends Component {
     }
   }
 
-  updatePorgressBarSize() {
+  updateProgressBarSize() {
     const node = this.node;
-    const parentSize = node[this.getOffsetDimensionText()];
+    const childElement = node.firstElementChild;
+    const parentSize = childElement[this.getOffsetDimensionText()];
 
     if (this.state.parentSize !== parentSize) {
       this.setState({
@@ -467,7 +468,7 @@ class ZippyProgressBar extends Component {
   }
 
   onResize() {
-    this.updatePorgressBarSize();
+    this.updateProgressBarSize();
     this.checkLabelOverflow();
   }
 }
