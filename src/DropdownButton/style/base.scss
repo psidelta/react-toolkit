@@ -25,7 +25,9 @@
   // default menu style
   .#{$ZIPPY_DROPDOWN_BUTTON_ROOT_CLASS}__menu {
     z-index: 1000;
-    position: fixed;
+    position: fixed; // this needs to be fixed, as we want
+    // the menu of the DDButton to be visible even when it's placed in a
+    // toolbar or a container with overflow: hidden.
     backface-visibility: hidden;
   }
 }

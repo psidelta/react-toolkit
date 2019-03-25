@@ -44,6 +44,8 @@ import {
   alignOffsetRTL
 } from './submenuAlignPositions';
 
+import { IS_IE, IS_FF } from '../../common/ua';
+
 function emptyFn() {}
 
 const raf = global.requestAnimationFrame;
@@ -144,11 +146,24 @@ class ZippyMenu extends Component {
 
   componentDidMount() {
     this.componentIsMounted = true;
+    if (this.props.visible === false) {
+      return;
+    }
     this.checkAlignment();
     this.setupEnterAnimation();
+
+    if (this.props.autoFocus) {
+      this.focus();
+    }
   }
 
   componentWillReceiveProps(nextProps, nextState) {
+    if (this.props.visible && !nextProps.visible) {
+      this.setState({
+        positionStyle: null
+      });
+    }
+
     if (
       (!this.props.visible && nextProps.visible) ||
       !shallowequal(this.props.alignTo, nextProps.alignTo) ||
@@ -168,8 +183,8 @@ class ZippyMenu extends Component {
 
     return (
       <div
-        {...cleanProps(props, ZippyMenu.propTypes)}
         tabIndex={0}
+        {...cleanProps(props, ZippyMenu.propTypes)}
         ref={this.setRootRef}
         onMouseLeave={this.handleMouseLeave}
         onMouseEnter={this.handleMouseEnter}
@@ -494,6 +509,7 @@ class ZippyMenu extends Component {
     }
     const menuProps = {
       ...this.props, // this must be first, so items are overwritten
+      onDismiss: emptyFn,
       ...overridingProps,
       items,
       depth: props.depth + 1,
@@ -564,6 +580,8 @@ class ZippyMenu extends Component {
     const scrollProps = {
       ...props.scrollerProps,
       renderScroller: props.renderScroller,
+      nativeScroll: props.nativeScroll,
+      scrollContainerProps: props.scrollContainerProps,
       className,
       notifyResizeDelay: props.notifyResizeDelay,
       ref: this.setScrollerRef,
@@ -620,14 +638,20 @@ class ZippyMenu extends Component {
   }
 
   // BEHAVIOUR LOGIC
-  handleMouseEnter() {
+  handleMouseEnter(event) {
+    if (typeof this.props.onMouseEnter === 'function') {
+      this.props.onMouseEnter(event);
+    }
     this.setState({
       mouseInside: true
     });
     this.onActivate();
   }
 
-  handleMouseLeave() {
+  handleMouseLeave(event) {
+    if (typeof this.props.onMouseLeave === 'function') {
+      this.props.onMouseLeave(event);
+    }
     this.setNextSubmenu();
 
     this.setState({
@@ -646,6 +670,9 @@ class ZippyMenu extends Component {
   }
 
   handleKeyDown(event) {
+    if (typeof this.props.onKeyDown === 'function') {
+      this.props.onKeyDown(event);
+    }
     if (!this.props.enableKeyboardNavigation) {
       return;
     }
@@ -766,10 +793,13 @@ class ZippyMenu extends Component {
   }
 
   handleOnBlur(event) {
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(event);
+    }
     event.stopPropagation();
 
     /**
-     * is prevented when it is closed bu mouse
+     * is prevented when it is closed by mouse
      * action
      */
     if (this.preventOnBlurRecursiveClose) {
@@ -778,11 +808,14 @@ class ZippyMenu extends Component {
 
     this.dismissTriggeredByBlur = true;
 
-    setTimeout(() => {
-      if (!this.hasGeneralFocus()) {
-        this.dismiss(event);
-      }
-    }, 60); //60 is needed for IE11 // TODO improve the way this is handled
+    setTimeout(
+      () => {
+        if (!this.hasGeneralFocus()) {
+          this.dismiss(event);
+        }
+      },
+      IS_IE ? this.props.hideSubMenuDelay : 20
+    ); // a bigger delay is needed for IE11 // TODO improve the way this is handled
   }
 
   dismiss(event) {
@@ -906,11 +939,19 @@ class ZippyMenu extends Component {
           ) {
             // a menu show has occured in the mean-time,
             // so skip hiding the menu
-            this.setSubMenu({
-              menuOffset: this.state.nextOffset,
-              index: this.state.nextActiveSubMenuIndex
-            });
+            this.setSubMenu(
+              {
+                menuOffset: this.state.nextOffset,
+                index: this.state.nextActiveSubMenuIndex
+              },
+              () => {
+                this.focus();
+              }
+            );
+
             return;
+          } else {
+            this.focus();
           }
 
           const mouseHasEnteredSubmenuParentItem =
@@ -937,6 +978,9 @@ class ZippyMenu extends Component {
 
     this.itemOverIndex = index;
     if (!hasSubMenu) {
+      if (this.state.activeSubMenuIndex != null) {
+        this.setNextSubmenu({ menuOffset: null, index: null });
+      }
       return;
     }
 
@@ -1007,13 +1051,16 @@ class ZippyMenu extends Component {
     }
   }
 
-  setSubMenu({ menuOffset, index = null } = {}) {
+  setSubMenu({ menuOffset, index = null } = {}, callback) {
     this.removeMouseMoveListener();
     if (!this.componentIsMounted) {
       return;
     }
 
     if (this.state.activeSubMenuIndex === index) {
+      if (callback) {
+        callback();
+      }
       return;
     }
 
@@ -1021,13 +1068,16 @@ class ZippyMenu extends Component {
       this.onInactivate();
     }
 
-    this.setState({
-      menuOffset,
-      activeSubMenuIndex: index,
-      nextOffset: null,
-      nextTimestamp: null,
-      timestamp: +new Date()
-    });
+    this.setState(
+      {
+        menuOffset,
+        activeSubMenuIndex: index,
+        nextOffset: null,
+        nextTimestamp: null,
+        timestamp: +new Date()
+      },
+      callback
+    );
   }
 
   setNextSubmenu({ menuOffset = null, index = null } = {}) {
@@ -1110,7 +1160,7 @@ class ZippyMenu extends Component {
         props.closeSubmenuRecursively();
       }
 
-      if (props.selectOnClick) {
+      if (props.selectOnClick && itemProps.name !== undefined) {
         this.handleSelectionChange({
           name: itemProps.name,
           value: itemProps.value,
@@ -1140,7 +1190,7 @@ class ZippyMenu extends Component {
 
   setupShowHideDelay() {
     const setSubMenu = this.setSubMenu;
-    this.setSubMenu = ({ menuOffset, index } = {}) => {
+    this.setSubMenu = ({ menuOffset, index } = {}, callback) => {
       if (this.showTimeout) {
         clearTimeout(this.showTimeout);
       }
@@ -1153,21 +1203,21 @@ class ZippyMenu extends Component {
       if (index != null) {
         if (this.props.showSubMenuDelay) {
           this.showTimeout = setTimeout(
-            () => setSubMenu({ menuOffset, index }),
+            () => setSubMenu({ menuOffset, index }, callback),
             this.props.showSubMenuDelay
           );
         } else {
-          setSubMenu({ menuOffset, index });
+          setSubMenu({ menuOffset, index }, callback);
         }
       } else {
         // hide
         if (this.props.hideSubMenuDelay) {
           this.hideTimeout = setTimeout(
-            () => setSubMenu({ menuOffset, index }),
+            () => setSubMenu({ menuOffset, index }, callback),
             this.props.hideSubMenuDelay
           );
         } else {
-          setSubMenu({ menuOffset, index });
+          setSubMenu({ menuOffset, index }, callback);
         }
       }
     };
@@ -1215,6 +1265,9 @@ class ZippyMenu extends Component {
    */
   checkAlignment(props) {
     props = props || this.props;
+    if (props.visible === false) {
+      return;
+    }
     if ((props.constrainTo || props.alignTo) && !props.subMenu) {
       const doAlign = () => {
         const props = this.props;
@@ -1224,7 +1277,7 @@ class ZippyMenu extends Component {
         if (!domNode) {
           return;
         }
-
+        domNode.style.visibility = '';
         const alignOffset = prepareAlignOffset(props.alignOffset);
         const domRegion = Region.from(domNode);
         const actualRegion = domRegion.clone();
@@ -1243,19 +1296,39 @@ class ZippyMenu extends Component {
             constrain: constrainRegion
           });
 
+          let offsetParent = domNode.offsetParent;
+
+          if (
+            IS_FF &&
+            offsetParent === document.body &&
+            getComputedStyle(domNode).position === 'fixed'
+          ) {
+            // FF returns document.body as the offset parent of fixed elements, though it should return null
+            // see https://bugzilla.mozilla.org/show_bug.cgi?id=434678 for details
+            offsetParent = null;
+          }
+          const offsetParentRect = offsetParent
+            ? null
+            : domNode.getBoundingClientRect();
+
           const offsetParentRegion = Region.from(
-            domNode.offsetParent || { top: 0, left: 0 }
+            offsetParent || {
+              top: offsetParentRect.top,
+              left: offsetParentRect.left
+            }
           );
 
           const newTop = actualRegion.top - offsetParentRegion.top;
           const newLeft = actualRegion.left - offsetParentRegion.left;
 
+          const transform = `translate3d(${Math.floor(newLeft)}px, ${Math.floor(
+            newTop
+          )}px, 0px)`;
+
           positionStyle = {
             // using transform does not cause a browser layout on the document root
             // while left/top does
-            transform: `translate3d(${Math.floor(newLeft)}px, ${Math.floor(
-              newTop
-            )}px, 0px`,
+            transform,
             top: 0,
             left: 0
           };
@@ -1272,7 +1345,10 @@ class ZippyMenu extends Component {
           this.setState({ positionStyle });
         }
       };
-
+      this.node.style.transform = 'translate3d(0px, 0px, 0px)';
+      this.node.style.visibility = 'hidden';
+      this.node.style.top = '0px';
+      this.node.style.left = '0px';
       raf(doAlign);
     }
   }
@@ -1384,14 +1460,16 @@ class ZippyMenu extends Component {
   }
 
   hasFocus() {
-    return this.node === (global.document && global.document.activeElement);
+    return global.document
+      ? this.node === global.document.activeElement
+      : false;
   }
 
   hasChildFocus() {
-    return containsNode(
-      this.node,
-      global.document && global.document.activeElement
-    );
+    if (!global.document) {
+      return false;
+    }
+    return containsNode(this.node, global.document.activeElement);
   }
 
   /**
@@ -1759,6 +1837,8 @@ ZippyMenu.propTypes = {
   defaultSelected: PropTypes.object,
   allowUnselect: PropTypes.bool,
   enableSelection: PropTypes.bool,
+  nativeScroll: PropTypes.bool,
+  scrollContainerProps: PropTypes.object,
   nameProperty: PropTypes.string,
   valueProperty: PropTypes.string,
   renderCheckInput: PropTypes.func,

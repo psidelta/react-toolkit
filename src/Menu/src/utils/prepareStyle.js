@@ -9,7 +9,7 @@ import assign from '../../../common/assign';
 import getMinMaxSize from '../../../common/getMinMaxSize';
 
 function prepareStyle(props, state) {
-  var style = {};
+  let style = {};
 
   if (props.subMenu) {
     assign(style, props.submenuStyle);
@@ -36,7 +36,7 @@ function prepareStyle(props, state) {
     assign(style, coords);
   }
 
-  if (state.positionStyle) {
+  if (state.positionStyle && props.visible !== false) {
     style = { ...style, ...state.positionStyle };
   }
 

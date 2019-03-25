@@ -37,7 +37,7 @@
   }
 
   &.#{$ZIPPY_MENU_ROOT_CLASS}__submenu {
-    min-width: 130px;
+    // min-width: 130px;
   }
 
   .#{$ZIPPY_MENU_ROOT_CLASS}__row--focused.#{$ZIPPY_MENU_ROOT_CLASS}__row--over {
@@ -278,12 +278,12 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-input {
+    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-input {
     padding-left: 0;
   }
 
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--radio {
+    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--radio {
     padding-left: 3px;
   }
 
@@ -295,7 +295,7 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
+    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--secondaryLabel {
     padding-left: 6px;
   }
 
@@ -310,7 +310,7 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--icon {
+    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--icon {
     padding-right: 12px;
     padding-left: 3px;
   }
@@ -324,7 +324,7 @@
 
   // rtl
   &.#{$ZIPPY_MENU_ROOT_CLASS}--rtl
-  .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-expander {
+    .#{$ZIPPY_MENU_ROOT_CLASS}__cell.#{$ZIPPY_MENU_ROOT_CLASS}__cell--has-expander {
     padding-left: 0;
     fill: $ZIPPY_MENU_EXPANDER_FILL;
   }
@@ -393,9 +393,9 @@
     }
 
     .#{$ZIPPY_MENU_ROOT_CLASS}__row--focused
-    .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before,
+      .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before,
     .#{$ZIPPY_MENU_ROOT_CLASS}__row--focused.#{$ZIPPY_MENU_ROOT_CLASS}__row--over
-    .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before {
+      .#{$ZIPPY_MENU_ROOT_CLASS}__cell:before {
       content: none;
     } /* IE11 */
   }

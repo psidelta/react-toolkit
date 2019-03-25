@@ -2,7 +2,7 @@
   "name": "@zippytech/react-toolkit",
   "author": "Zippy Technologies <contact@zippytech.io>",
   "license": "MIT",
-  "version": "1.0.33",
+  "version": "1.0.63",
   "repository": {
     "type": "git",
     "url": "https://github.com/zippytech/react-toolkit.git"
@@ -132,6 +132,7 @@
     "@zippytech/drag-helper": "^2.0.4",
     "@zippytech/has-touch": "^2.0.2",
     "@zippytech/react-class": "^4.0.6",
+    "@zippytech/react-scroll-container": "^2.0.15",
     "@zippytech/region": "^3.0.8",
     "@zippytech/region-align": "^3.0.6",
     "@zippytech/uglified": "^2.0.1",

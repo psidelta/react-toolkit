@@ -16,6 +16,22 @@
   text-align: start;
   direction: ltr;
   width: 100%;
+  overflow: visible;
+
+  &:not(.#{$ZIPPY_TOOLBAR_ROOT_CLASS}--native-scroll) {
+    overflow: hidden;
+  }
+
+  *::-ms-backdrop,
+  & {
+    overflow: hidden;
+  } /* IE11 */
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
 
   *,
   *:before,

@@ -250,7 +250,8 @@ class ZippyDropDownButton extends Component {
     };
 
     if (!expanded) {
-      style.visibility = 'hidden';
+      // style.visibility = 'hidden';
+      style.display = 'none';
     }
 
     const menuProps = {
@@ -265,6 +266,7 @@ class ZippyDropDownButton extends Component {
       onChildClick: props.onMenuClick,
       rtl: props.rtl,
       style,
+      visible: expanded,
       theme: 'default',
       className: `${props.rootClassName}__menu`,
       onDismiss: this.onMenuDismiss
@@ -371,6 +373,7 @@ ZippyDropDownButton.defaultProps = {
   ],
   arrow: true,
   arrowPosition: 'end',
+  constrainTo: true,
   disabled: false,
   hideMenuOnClick: true,
   hideMenuOnClickOutside: true,

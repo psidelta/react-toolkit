@@ -16,15 +16,28 @@ import assign from '../../common/assign';
 import debounce from '../../common/debounce';
 import join from '../../common/join';
 
-import { Flex, Item } from '../../Flex';
+import { Flex } from '../../Flex';
 import { NotifyResize } from '../../NotifyResize';
 import { InertialManager } from '../../InertialScroller';
+import { IS_MS_BROWSER } from '../../common/ua';
+import ScrollContainer from '@zippytech/react-scroll-container';
 
 import Arrow from './Arrow';
+
+const VIEW_STYLE_VERTICAL = { maxHeight: '100%' };
+const VIEW_STYLE_HORIZONTAL = { maxWidth: '100%' };
+
+const callAll = (...fns) => (...args) => {
+  fns.forEach(fn => {
+    fn && fn(...args);
+  });
+};
 
 const pint = global.parseInt;
 const raf = global.requestAnimationFrame;
 const getCompStyle = global.getComputedStyle;
+
+const NO_SCROLLBARS = () => false;
 
 class ZippyArrowScroller extends Component {
   constructor(props) {
@@ -45,19 +58,91 @@ class ZippyArrowScroller extends Component {
       activeScroll: 0
     };
 
+    this.onScrollIntoView = this.onScrollIntoView.bind(this);
+
     this.handleResize = debounce(this.handleResize.bind(this), 50, {
       leading: false,
       trailing: true
     });
+
+    this.updateScrollInfo = this.updateScrollInfo.bind(this);
+    this.rafUpdateScrollInfo = this.rafUpdateScrollInfo.bind(this);
+    this.onContainerScroll = this.onContainerScroll.bind(this);
     this.setStripRef = ref => {
       this.strip = findDOMNode(ref);
     };
+    this.refScrollContainer = scrollContainer => {
+      this.scrollerTarget = scrollContainer;
+    };
+
     this.setRootRef = ref => {
       this.root = findDOMNode(ref);
+      if (!this.props.nativeScroll) {
+        this.scrollerTarget = this.root;
+      }
     };
   }
 
+  onScrollIntoView(event) {
+    const node = this.root;
+
+    const eventTarget = event.target;
+    if (event.target != node) {
+      return;
+    }
+
+    const { scrollLeft, scrollTop } = node;
+
+    if (scrollLeft) {
+      node.scrollLeft = 0;
+
+      // TODO - we should trigger our scroll, but for now
+      // this results in an infinite loop
+      /*
+      global.requestAnimationFrame(() => {
+        if (this.unmounted) {
+          return;
+        }
+
+        this.scrollerTarget.scrollLeft += scrollLeft;
+      });*/
+    }
+    if (scrollTop && eventTarget) {
+      node.scrollTop = 0;
+
+      // TODO - we should trigger our scroll, but for now
+      // this results in an infinite loop
+      /*
+      global.requestAnimationFrame(() => {
+        if (this.unmounted) {
+          return;
+        }
+
+        this.scrollerTarget.scrollTop += scrollTop;
+      });
+      */
+    }
+  }
+
+  setupPassiveScrollListener(node) {
+    node.addEventListener('scroll', this.onScrollIntoView, {
+      passive: true
+    });
+  }
+
+  removePassiveScrollListener(node = findDOMNode(this)) {
+    if (node) {
+      node.removeEventListener('scroll', this.onScrollIntoView, {
+        passive: true
+      });
+    }
+  }
+
   componentDidMount() {
+    const node = findDOMNode(this);
+
+    this.setupPassiveScrollListener(node);
+
     raf(() => {
       const name = this.getOffsetSizeName();
 
@@ -82,6 +167,8 @@ class ZippyArrowScroller extends Component {
 
   componentWillUnmount() {
     this.componentIsMounted = false;
+    this.unmounted = true;
+    this.removePassiveScrollListener();
     if (this.inertialManager) {
       this.inertialManager.removeEventListeners();
     }
@@ -89,7 +176,14 @@ class ZippyArrowScroller extends Component {
 
   render() {
     const { props } = this;
-    const { useTransformOnScroll, vertical, rootClassName, rtl, theme } = props;
+    const {
+      useTransformOnScroll,
+      nativeScroll,
+      vertical,
+      rootClassName,
+      rtl,
+      theme
+    } = props;
     const scrollInfo = this.scrollInfo;
 
     const scrollValue = rtl ? scrollInfo.scrollPos : -scrollInfo.scrollPos;
@@ -107,6 +201,7 @@ class ZippyArrowScroller extends Component {
       !vertical && `${rootClassName}--direction-horizontal`,
       vertical && `${rootClassName}--direction-vertical`,
       rtl && `${rootClassName}--rtl`,
+      nativeScroll && `${rootClassName}--native-scroll`,
       theme && `${rootClassName}--theme-${theme}`
     );
 
@@ -140,30 +235,63 @@ class ZippyArrowScroller extends Component {
     );
     const children = [...React.Children.toArray(props.children), resizer];
 
+    const content = (
+      <Flex
+        key="content"
+        wrap={false}
+        {...props.childProps}
+        className={innerWrapperClassName}
+        ref={this.setStripRef}
+        children={children}
+        style={nativeScroll ? null : moveStyle}
+      />
+    );
+
+    let finalChildren = [
+      resizer,
+      content,
+      this.renderScroller(-1),
+      this.renderScroller(1)
+    ];
+
+    if (nativeScroll) {
+      const { scrollContainerProps } = this.props;
+      let viewStyle = vertical ? VIEW_STYLE_VERTICAL : VIEW_STYLE_HORIZONTAL;
+      if (scrollContainerProps && scrollContainerProps.viewStyle) {
+        viewStyle = { ...scrollContainerProps.viewStyle, ...viewStyle };
+      }
+      finalChildren = (
+        <ScrollContainer
+          style={{ maxHeight: '100%' }}
+          shouldAllowScrollbars={NO_SCROLLBARS}
+          dragToScroll={false}
+          emptyScrollOffset={0}
+          viewStyle={viewStyle}
+          ref={this.refScrollContainer}
+          onResize={
+            scrollContainerProps && scrollContainerProps.onResize
+              ? callAll(scrollContainerProps.onResize, this.rafUpdateScrollInfo)
+              : this.rafUpdateScrollInfo
+          }
+          children={finalChildren}
+          onContainerScroll={this.onContainerScroll}
+        />
+      );
+    }
+
     return (
       <Flex
         {...cleanProps(props, ZippyArrowScroller.propTypes)}
         ref={this.setRootRef}
         className={className}
         alignItems="start"
-      >
-        {resizer}
-        <Flex
-          wrap={false}
-          {...props.childProps}
-          className={innerWrapperClassName}
-          ref={this.setStripRef}
-          children={children}
-          style={moveStyle}
-        />
-        {this.renderScroller(-1)}
-        {this.renderScroller(1)}
-      </Flex>
+        children={finalChildren}
+      />
     );
   }
 
   renderScroller(direction) {
-    const { scroller, vertical, rootClassName } = this.props;
+    const { scroller, vertical, rootClassName, nativeScroll } = this.props;
     if (!scroller) {
       return null;
     }
@@ -189,7 +317,8 @@ class ZippyArrowScroller extends Component {
       this.state.activeScroll == direction && `${arrowRootClassName}--active`,
       scroller === 'auto' && disabled && `${arrowRootClassName}--hidden`,
       scroller === 'auto' && !disabled && `${arrowRootClassName}--visible`,
-      scroller === true && disabled && `${arrowRootClassName}--disabled`
+      scroller === true && disabled && `${arrowRootClassName}--disabled`,
+      nativeScroll && `${arrowRootClassName}--native-scroll`
     );
 
     const onClick =
@@ -208,7 +337,7 @@ class ZippyArrowScroller extends Component {
         : null;
 
     const onMouseLeave =
-      !this.props.scrollOnClick || isMobile
+      !this.props.scrollOnClick || isMobile || this.props.scrollOnMouseEnter
         ? this.stopMouseOverScroll.bind(this, direction)
         : null;
 
@@ -222,6 +351,7 @@ class ZippyArrowScroller extends Component {
       ref: ref => {
         this[scrollerName] = ref;
       },
+      key: `scroller-${direction}`,
       disabled,
       className,
       onClick,
@@ -265,7 +395,7 @@ class ZippyArrowScroller extends Component {
   }
 
   getBorderAndPaddingSize(node = this.root, side) {
-    const computedStyle = getCompStyle(this.root);
+    const computedStyle = getCompStyle(node);
 
     let start;
     let end;
@@ -302,7 +432,11 @@ class ZippyArrowScroller extends Component {
     }
     const size =
       this.availableSize ||
-      this.root[this.getOffsetSizeName()] - this.getBorderAndPaddingSize();
+      (this.props.nativeScroll
+        ? this.props.vertical
+          ? this.scrollerTarget.scrollTopMax
+          : this.scrollerTarget.scrollLeftMax
+        : this.root[this.getOffsetSizeName()] - this.getBorderAndPaddingSize());
 
     this.availableSize = size;
 
@@ -362,6 +496,10 @@ class ZippyArrowScroller extends Component {
     });
   }
 
+  rafUpdateScrollInfo() {
+    raf(this.updateScrollInfo);
+  }
+
   updateScrollInfo() {
     if (this.componentIsMounted === false) {
       return;
@@ -373,14 +511,32 @@ class ZippyArrowScroller extends Component {
       listSize
     });
 
-    if (listSize > availableSize) {
-      scrollInfo.maxScrollPos = listSize - availableSize;
+    if (this.props.nativeScroll) {
+      scrollInfo.maxScrollPos = this.props.vertical
+        ? this.scrollerTarget.scrollTopMax
+        : this.scrollerTarget.scrollLeftMax;
     } else {
-      scrollInfo.maxScrollPos = 0;
+      if (listSize > availableSize) {
+        scrollInfo.maxScrollPos = listSize - availableSize;
+      } else {
+        scrollInfo.maxScrollPos = 0;
+      }
     }
 
-    scrollInfo.hasStartScroll = scrollInfo.scrollPos != 0;
-    scrollInfo.hasEndScroll = scrollInfo.scrollPos < scrollInfo.maxScrollPos;
+    const offsetWidthOrHeight = this.props.vertical
+      ? this.root
+        ? this.root.offsetHeight
+        : 0
+      : this.root
+      ? this.root.offsetWidth
+      : 0;
+
+    scrollInfo.hasStartScroll =
+      scrollInfo.scrollPos != 0 &&
+      offsetWidthOrHeight < listSize + availableSize;
+    scrollInfo.hasEndScroll =
+      scrollInfo.scrollPos < scrollInfo.maxScrollPos &&
+      offsetWidthOrHeight < listSize + availableSize;
 
     const hasScroll = listSize > availableSize;
     if (hasScroll !== this.state.hasScroll) {
@@ -412,6 +568,12 @@ class ZippyArrowScroller extends Component {
     });
   }
 
+  onContainerScroll({ scrollTop, scrollLeft }) {
+    this.setScrollPosition(this.props.vertical ? scrollTop : scrollLeft, {
+      skip: true
+    });
+  }
+
   startMouseOverScroll(direction, event) {
     event.preventDefault();
     global.clearInterval(this.mouseOverScrollInterval);
@@ -431,7 +593,10 @@ class ZippyArrowScroller extends Component {
     global.clearInterval(this.mouseOverScrollInterval);
   }
 
-  setScrollPosition(scrollPos, { force } = {}) {
+  setScrollPosition(scrollPos, { force, skip } = {}) {
+    if (!this.componentIsMounted) {
+      return;
+    }
     const scrollInfo = this.scrollInfo;
     if (scrollPos > scrollInfo.maxScrollPos) {
       scrollPos = scrollInfo.maxScrollPos;
@@ -450,6 +615,15 @@ class ZippyArrowScroller extends Component {
       hasEndScroll: scrollPos < scrollInfo.maxScrollPos,
       scrollPos
     });
+
+    if (!skip && this.props.nativeScroll) {
+      if (this.props.vertical) {
+        this.scrollerTarget.scrollTop = scrollPos;
+      } else {
+        this.scrollerTarget.scrollLeft = scrollPos;
+      }
+    }
+
     this.setState({});
   }
 
@@ -464,7 +638,6 @@ class ZippyArrowScroller extends Component {
       return;
     }
 
-    const rootComputedStyle = getCompStyle(rootNode);
     const rect = domNode.getBoundingClientRect();
     const mainRect = rootNode.getBoundingClientRect();
 
@@ -523,6 +696,7 @@ ZippyArrowScroller.defaultProps = {
   scrollIntoViewOffset: 1,
   vertical: false,
   scrollOnClick: false,
+  nativeScroll: !IS_MS_BROWSER,
   scrollOnMouseEnter: true,
   rtl: false,
   useTransformOnScroll: false,
@@ -552,10 +726,12 @@ ZippyArrowScroller.propTypes = {
     stiffness: PropTypes.number,
     damping: PropTypes.number
   }),
+  nativeScroll: PropTypes.bool,
   scrollIntoViewOffset: PropTypes.number,
   scroller: PropTypes.oneOf(['auto', false, true]),
   rootClassName: PropTypes.string,
   rtl: PropTypes.bool,
+  scrollContainerProps: PropTypes.object,
   useTransformOnScroll: PropTypes.bool,
   onHasScrollChange: PropTypes.func,
   renderScroller: PropTypes.func

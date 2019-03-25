@@ -63,6 +63,9 @@ class InertialManager {
   }
 
   addEventListeners() {
+    if (!this.node || !this.node.addEventListener) {
+      return;
+    }
     if (isMobile && this.enableTouchDrag) {
       this.node.addEventListener('touchstart', this.tap, { passive: false });
       this.node.addEventListener('touchend', this.release, { passive: false });
@@ -76,12 +79,18 @@ class InertialManager {
   }
 
   removeEventListeners() {
-    this.node.removeEventListener('touchstart', this.tap, { passive: false });
-    this.node.removeEventListener('touchend', this.release, { passive: false });
-    this.node.removeEventListener('touchmove', this.drag, { passive: false });
-    this.node.removeEventListener('mousedown', this.tap, { passive: false });
-    this.node.removeEventListener('mouseup', this.release, { passive: false });
-    this.node.removeEventListener('mousemove', this.drag, { passive: false });
+    if (this.node && this.node.removeEventListener) {
+      this.node.removeEventListener('touchstart', this.tap, { passive: false });
+      this.node.removeEventListener('touchend', this.release, {
+        passive: false
+      });
+      this.node.removeEventListener('touchmove', this.drag, { passive: false });
+      this.node.removeEventListener('mousedown', this.tap, { passive: false });
+      this.node.removeEventListener('mouseup', this.release, {
+        passive: false
+      });
+      this.node.removeEventListener('mousemove', this.drag, { passive: false });
+    }
   }
 
   getEventListneres() {
