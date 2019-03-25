@@ -519,8 +519,20 @@ class ZippyArrowScroller extends Component {
       }
     }
 
-    scrollInfo.hasStartScroll = scrollInfo.scrollPos != 0;
-    scrollInfo.hasEndScroll = scrollInfo.scrollPos < scrollInfo.maxScrollPos;
+    const offsetWidthOrHeight = this.props.vertical
+      ? this.root
+        ? this.root.offsetHeight
+        : 0
+      : this.root
+      ? this.root.offsetWidth
+      : 0;
+
+    scrollInfo.hasStartScroll =
+      scrollInfo.scrollPos != 0 &&
+      offsetWidthOrHeight < listSize + availableSize;
+    scrollInfo.hasEndScroll =
+      scrollInfo.scrollPos < scrollInfo.maxScrollPos &&
+      offsetWidthOrHeight < listSize + availableSize;
 
     const hasScroll = listSize > availableSize;
     if (hasScroll !== this.state.hasScroll) {
