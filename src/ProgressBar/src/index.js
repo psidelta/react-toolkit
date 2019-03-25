@@ -370,8 +370,12 @@ class ZippyProgressBar extends Component {
       children: labelBasedOnValue
     };
 
-    if (typeof this.p.label === 'function') {
-      result = this.p.label({ domProps, value });
+    if (this.p.label) {
+      if (typeof this.p.label === 'function') {
+        result = this.p.label({ domProps, value });
+      } else {
+        result = this.p.label;
+      }
     }
 
     if (result === undefined) {
