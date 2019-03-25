@@ -104,7 +104,7 @@ const getMinMaxSizes = function() {
     const minSize = minSizes[index];
     if (minSize) {
       if (isPercentage(minSize)) {
-        return parseFloat(minSize, 10) * totalSize / 100 - splitterSize / 2;
+        return (parseFloat(minSize, 10) * totalSize) / 100 - splitterSize / 2;
       }
       return minSize;
     }
@@ -115,7 +115,7 @@ const getMinMaxSizes = function() {
       const maxSize = maxSizes[index];
       if (maxSize) {
         if (isPercentage(maxSize)) {
-          return parseFloat(maxSize, 10) * totalSize / 100 - splitterSize / 2;
+          return (parseFloat(maxSize, 10) * totalSize) / 100 - splitterSize / 2;
         }
         return maxSize;
       }
@@ -328,7 +328,9 @@ export default class SplitContainer extends React.Component {
     const collapsedIndex = props.collapsedIndex;
     const nextCollapsedIndex = this.prepareCollapsedIndex(nextProps);
 
-    this.doTransition(nextProps, collapsedIndex, nextCollapsedIndex);
+    if (this.hasTransition(props)) {
+      this.doTransition(nextProps, collapsedIndex, nextCollapsedIndex);
+    }
   }
 
   doTransition(props, oldCollapsed, newCollapsed) {
@@ -374,8 +376,8 @@ export default class SplitContainer extends React.Component {
           ? 'top'
           : 'bottom'
         : constrainingIndex == 1
-          ? 'left'
-          : 'right';
+        ? 'left'
+        : 'right';
 
     const otherSideName =
       props.orientation == 'horizontal'
@@ -383,8 +385,8 @@ export default class SplitContainer extends React.Component {
           ? 'left'
           : 'right'
         : constrainingIndex == 1
-          ? 'top'
-          : 'bottom';
+        ? 'top'
+        : 'bottom';
 
     const marginName = `margin${toUpperFirst(sideName)}`;
 
@@ -408,7 +410,7 @@ export default class SplitContainer extends React.Component {
     let expandSize = splitAtValue;
 
     if (asPercentage) {
-      expandSize = splitAtValue * totalSize / 100;
+      expandSize = (splitAtValue * totalSize) / 100;
     }
 
     if (expandIndex == 1) {
@@ -519,16 +521,16 @@ export default class SplitContainer extends React.Component {
           ? 'bottom'
           : 'top'
         : nextCollapsedIndex == 1
-          ? 'right'
-          : 'left';
+        ? 'right'
+        : 'left';
     const otherSideName =
       props.orientation == 'horizontal'
         ? nextCollapsedIndex == 1
           ? 'right'
           : 'left'
         : nextCollapsedIndex == 1
-          ? 'bottom'
-          : 'top';
+        ? 'bottom'
+        : 'top';
 
     const marginName = `margin${toUpperFirst(sideName)}`;
 
@@ -1465,7 +1467,7 @@ export default class SplitContainer extends React.Component {
     let splitterMax = available;
 
     const maybePercentage = v =>
-      isPercentage(v) ? parseFloat(v, 10) * available / 100 : v;
+      isPercentage(v) ? (parseFloat(v, 10) * available) / 100 : v;
     const minSize = (props.minSize || []).map(maybePercentage);
     const maxSize = (props.maxSize || []).map(maybePercentage);
 
@@ -1596,7 +1598,7 @@ export default class SplitContainer extends React.Component {
       props.usePercentageOnResize === true ||
       (props.usePercentageOnResize === undefined && props.asPercentage)
     ) {
-      value = value * 100 / available + '%';
+      value = (value * 100) / available + '%';
     }
 
     if (sign == -1) {
