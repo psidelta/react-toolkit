@@ -26,7 +26,8 @@ class App extends React.Component {
 
     this.state = {
       value: 20,
-      up: true
+      up: true,
+      pbValue: 10
     };
   }
 
@@ -78,6 +79,14 @@ class App extends React.Component {
     this.setState({
       stop: false
     });
+  }
+
+  label({ domProps, value }) {
+    return (
+      <span {...domProps} style={{ fontSize: 16 }}>
+        {value}%
+      </span>
+    );
   }
 
   render() {
@@ -132,6 +141,29 @@ class App extends React.Component {
           indeterminate
           orientation="vertical"
           indeterminateBarStyle={{ background: 'red' }}
+        />
+
+        <h3>Progress Bar</h3>
+        <div style={{ marginBottom: 10 }}>
+          <button
+            onClick={() => this.setState({ pbValue: this.state.pbValue - 5 })}
+          >
+            Decrement
+          </button>
+          <button
+            onClick={() => this.setState({ pbValue: this.state.pbValue + 5 })}
+          >
+            Increment
+          </button>
+        </div>
+        <ProgressBar
+          value={this.state.pbValue}
+          orientation="horizontal"
+          labelPosition="start"
+          label={this.label}
+          style={{ height: 25 }}
+          tick={10}
+          tickStyle={{ background: 'green' }}
         />
       </div>
     );

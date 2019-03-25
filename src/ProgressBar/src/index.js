@@ -125,7 +125,6 @@ class ZippyProgressBar extends Component {
 
     return (
       <Ticks
-        style={tickStyle}
         ticksStyle={ticksStyle}
         tickStyle={tickStyle}
         renderTick={renderTick}
